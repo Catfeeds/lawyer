@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><base href="http://www.yifatong.com/" />
+<title>对不起！页面无法找到</title>
+<link href="/favicon.ico" type="image/x-icon" rel="icon" /><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/layout.css" />
+</head>
+<body>
+
+
+
+<!-- header start -->
+<div class="header blue-bg">
+  <div class="main-width">
+  <div class="logo fl"><a href="#"><img src="img/logo.png" /></a><span><img src="img/header_text.png" /></span></div>
+    <div class="header-top fr mt">
+            <ul>
+        <li class="fl lh20"><a href="Orders/index"><img src="img/header_cart_bg.png" class="img" />我的订单</a></li>
+        <li class="fl lh20"><a href="Customers/registration">用户注册</a>|<a href="Customers/login">登录</a></li>
+        <li class="fl lh20"> <a  rel="nofollow" href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101169348&redirect_uri=www.yifatong.com/Customers/qq_callback&state=f1266de8bebe9f7aed068faed0787354&scope=get_user_info"><img id="qq-img" src="img/qq_link_a.png" /></a> <a rel="nofollow" href="https://api.weibo.com/oauth2/authorize?client_id=4055019794&redirect_uri=http%3A%2F%2Fwww.yifatong.com%2FCustomers%2Fweibo_callback&response_type=code&forcelogin=true"><img id="weibo-img" src="img/weibo_link_a.png" /></a> </li>
+        <li class="fl lh20"><a rel="nofollow" href="Lawyers/register">律师注册</a>|<a rel="nofollow" href="Lawyers/login">登录</a></li>
+      </ul>
+          </div>
+    <div class="clear"></div>
+  </div>
+  <div class="dark-blue-bg menu-wrap">
+    <div class="main-width">
+      <div class="orange-bg fl product-search-wrap">
+        <form action="Products/search" method="get">
+          <h6 class="fl">代写审查合同</h6>
+          <input  maxLength="100" name="q" type="text" class="input fl" />
+          <input type="submit" class="btn" />
+        </form>
+      </div>
+      <div class="dark-blue-bg fr menu">
+        <ul>
+          <li><a href="./">首页</a></li>
+          <li><a href="zhaolvshi">找律师打官司</a></li>
+          <li><a href="zhaoanyuan">律师找案源</a></li>
+          <li><a href="Products">代写审查合同</a></li>
+          <li><a href="ask">在线法律咨询</a></li>
+          <li><a href="Products">合同范本下载</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- header end -->
+
+<div class="clear"></div>
+
+
+
+<div class="error-page-wrapper">
+
+	<div class="error-page-main">
+		<div class="text"><img src="img/404.png" /></div>
+		<div class="btn"><a href="./"><img src="img/return_home.png" /></a></div>
+		<div class="clear"></div>
+		<div>
+			<span class="bg3"></span>
+			<span class="bg2"></span>
+			<span class="bg1"></span>
+		</div>
+	</div>
+     
+	
+</div>
+
+
+
+
+
+<div class="clear"></div>
+
+
+</body>
+</html>

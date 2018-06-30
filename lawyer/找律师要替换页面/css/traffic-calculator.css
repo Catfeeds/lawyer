@@ -1,0 +1,109 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.banner {
+    position:relative;
+    background:url(../images/calculator-bg.jpg) center no-repeat;
+    height:200px;
+}
+.s-cfff { color:#fff; }
+.pt60 { padding-top:60px; }
+.banner span {
+    display:inline-block;
+    padding:0 15px; margin-top:20px;
+    height:30px; line-height:30px;
+    color:#fff;
+    background-color:#01af63;
+    border-radius:15px;
+}
+.banner .arrow-bottom {
+    position:absolute; left:50%; bottom:-16px;
+    margin-left:-8px;
+    border-top-color:#263145;
+    border-width:8px;
+}
+.tra-tab {
+    height:44px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+.tra-tab a {
+    display:inline-block;
+    margin:0 10px;
+    padding:0 20px 20px;
+    height:22px; line-height:22px;
+    font-size:18px;
+    color:#333;
+}
+.tra-tab a.tab-now {
+    color:#01af63;
+    border-bottom:3px solid #01af63;
+}
+.tra-nr .m-form-lr li { 
+    padding-left:435px; _height:40px;
+}
+.tra-nr .m-form-lr label {
+    width:425px;
+    color:#333;
+}
+.tra-nr .pn-more li { padding:0 10px; }
+.tra-nr .m-form-lr .m-f-tips { 
+    left:785px;
+    font-size:12px;
+}
+
+.u-160 .u-tx { width: 138px; }
+.u-160 .u-fm-focus, .u-160 .u-fm-error {
+	padding:9px 9px;
+    height:14px;
+}
+.u-330 .u-tx { width: 308px; }
+.u-330 .u-fm-focus, .u-330 .u-fm-error {
+	padding:9px 9px;
+    height:14px;
+}
+.u-160 .u-pn { width: 158px; }
+.u-160 .pn-ct { width: 158px; }
+.u-160 .u-pn-hover { width: 156px; height: 34px; }
+.u-160 .u-pn-hover .pn-ct { width:156px; }
+.u-160 .u-pn-click { width: 160px; }
+.u-160 .u-pn-click .pn-ct { width: 158px; }
+
+.u-330 .u-pn { width: 328px; }
+.u-330 .pn-ct { width: 328px; }
+.u-330 .u-pn-hover { width: 326px; height: 34px; }
+.u-330 .u-pn-hover .pn-ct { width:326px; }
+.u-330 .u-pn-click { width: 330px; }
+.u-330 .u-pn-click .pn-ct { width: 328px; }
+
+.u-330 .date-picker { width:278px; display:block; }
+
+.w160 { width:160px; }
+.w330 { width:330px; }
+.tra-nr .mea-units {
+    position:absolute; right:10px;
+    color:#333;
+    font-size:14px;
+}
+.parent-add, .children-add {
+    position:absolute; left:775px; top:0;
+}
+/* pop */
+.pop-yg {
+    margin-left:-300px;
+    padding:110px 20px 80px;
+    width:560px;
+    text-align:center;
+    background-color:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,.35);
+    position: fixed;
+    top: 50%;
+    margin-top: -190px;
+}
+.f48 { font-size:48px; }
+.pop-close {
+    display:inline-block;
+    padding:20px;
+    position:absolute; right:0; top:0;
+}
+.pop-close:hover { background-color:#eee; }

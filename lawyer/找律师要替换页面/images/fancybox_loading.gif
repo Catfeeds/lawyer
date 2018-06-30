@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="Description" content="">
+    <meta name="keywords" content="">
+    <title>页面不存在-律师365</title>
+    <link type="text/css" rel="stylesheet" href="//image.64365.com/pic/404/css/base.css" />
+    <link href="//image.64365.com/pic/404/css/index.css" rel="stylesheet" type="text/css">
+    <!--[if IE 6]>
+    <script type="text/javascript" src="js/DD_belatedPNG.js"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix(' .ico-top, .s-home, .s-login, .logo, .ico-zixun, .fanhui');
+    </script>
+<![endif]-->
+</head>
+<body>
+    <div class="shortcut">
+        <ul class="s-fl">
+            <li><a href="http://www.64365.com/" class="s-home">律师365首页</a></li>
+            <li class="s-on"><a href="http://www.64365.com/ask/">法律咨询</a></li>
+            <li><a href="http://www.64365.com/zs/">法律知识</a></li>
+            <li><a href="http://www.64365.com/findlawyer/">找律师</a></li>
+            <li><a href="http://www.64365.com/contract/">合同范本</a></li>
+        </ul>
+        <div class="s-fr">
+            <a href="http://login.64365.com" class="s-login">登录</a></div>
+    </div>
+    <!--content-->
+    <div class="bg-f0f">
+        <div class="w990 clearfix">
+            <div class="cw400">
+                <div class="cw4-bg">
+                </div>
+                <p>
+                    网络出问题了，<a href="http://www.64365.com/">返回首页</a>你想找的页面被外星人抓走了，返回首页把外星人送回家吧…</p>
+            </div>
+        </div>
+    </div>
+    <div class="bg-c30">
+        <div class="banquan w990 clearfix">
+            <span class="fl"><a href="http://www.64365.com/about/">关于我们</a><i>|</i><a href="http://www.64365.com/about/market.aspx">业务合作</a><i>|</i><a
+                                                                                                                href="http://www.64365.com/about/map.aspx">网站地图</a><i>|</i><a href="http://www.64365.com/help/">帮助中心</a><i>|</i><a href="/about/contact.aspx">联系我们</a><i>|</i><a
+                                                                                                                                                                                                                                          href="/help/feedback.aspx">意见反馈</a></span> <span class="fr">Copyright&copy;2004-2016
+                                                                                                                                                                                                                                                                                         64365.com 版权所有&nbsp;&nbsp;&nbsp;&nbsp;蜀ICP备15018055号</span>
+        </div>
+    </div>
+    <script type="text/javascript" src="//image.64365.com/script/mongopage.js"></script>
+    <script>
+        getmongopage("m", 0); //刷新mongo
+        
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?6120737e91d5a9770722ed62d50e6dad";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    //Google统计
+//        (function (i, s, o, g, r, a, m) {
+//            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+//                (i[r].q = i[r].q || []).push(arguments)
+//            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+//            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
+//            m.parentNode.insertBefore(a, m)
+//        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+//        ga('create', 'UA-60141999-1', 'auto');
+//        ga('send', 'pageview');
+    </script>
+	<div style="display:none;">
+	<script type="text/javascript">
+		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cspan id='cnzz_stat_icon_1260984989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260984989' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	</div>
+</body>
+</html>
+<!-- ls365-nginx-2, 2018/06/30 16:40:06, GET /images/lawyerinfo/fancybox_loading.gif HTTP/1.1 ,10.0.184.75:80 ,404, 0.003 -->

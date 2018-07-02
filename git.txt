@@ -1,0 +1,20 @@
+echo "# weibo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:donglianyou/lawyer.git
+git push -u origin master
+
+保存到暂存区：
+
+git add -A
+
+输入描述信息并提交到本地的 Git：
+
+$ git commit -m "Say something"
+
+将代码推送到 GitHub：
+
+$ git push
+
+https://devcenter.heroku.com

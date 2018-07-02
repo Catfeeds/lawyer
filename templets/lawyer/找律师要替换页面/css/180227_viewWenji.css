@@ -1,0 +1,68 @@
+﻿/*文集样式*/
+.box-sh {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.15);
+}
+/* l-w920 */
+.l-w920 {
+    padding: 30px 29px 30px 20px;
+    width: 870px;
+    height: 248px;
+    border-right: 1px solid #f2f2f2;
+}
+/* wj-list */
+.wj-list li {
+    margin-top: 20px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+    .wj-list li i {
+        float: left;
+        margin-top: 11px;
+        margin-right: 10px;
+        width: 3px;
+        height: 3px;
+        line-height: 0;
+        background-color: #999;
+        overflow: hidden;
+    }
+
+a.s-cbbb:hover {
+    color: #f25618 !important;
+}
+/* r-w280 */
+.r-w280 {
+    padding: 30px 20px;
+    width: 240px;
+    height: 248px;
+    overflow: hidden;
+}
+
+.h248 {
+    height: 248px;
+    overflow: hidden;
+}
+
+.r-ls-ans li {
+    margin-bottom: 20px;
+}
+
+    .r-ls-ans li .gz-ques {
+        display: block;
+        margin-top: 10px;
+        padding: 0 10px;
+        height: 38px;
+        line-height: 38px;
+        font-size: 14px;
+        color: #fff;
+        background-color: #8bd3a1;
+        overflow: hidden;
+    }
+
+        .r-ls-ans li .gz-ques:hover {
+            color: #fff;
+            background-color: #f57846;
+        }

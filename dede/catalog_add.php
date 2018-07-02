@@ -82,7 +82,7 @@ else if($dopost=='savequick')
             $rank = ${'rank'.$k};
             $toptypename = trim(${'toptype'.$k});
             $sontype = trim(${'sontype'.$k});
-            $toptypedir = GetPinyin(stripslashes($toptypename));
+            $toptypedir = GetPinyin(stripslashes($toptypename),true);
             $toptypedir = $referpath=='parent' ? $nextdir.'/'.$toptypedir : '/'.$toptypedir;
             if(empty($toptypename))
             {
@@ -105,7 +105,7 @@ else if($dopost=='savequick')
                     {
                         continue;
                     }
-                    $typedir = $toptypedir.'/'.GetPinyin(stripslashes($v));
+                    $typedir = $toptypedir.'/'.GetPinyin(stripslashes($v),true);
                     $sql = str_replace('~reid~',$tid,$queryTemplate);
                     $sql = str_replace('~topid~',$tid,$sql);
                     $sql = str_replace('~rank~',$k,$sql);
@@ -131,7 +131,7 @@ else if($dopost=='savequick')
             }
             $rank = ${'rank'.$k};
             $toptypename = trim(${'reltype'.$k});
-            $toptypedir = GetPinyin(stripslashes($toptypename));
+            $toptypedir = GetPinyin(stripslashes($toptypename),true);
             switch ($referpath) {
                 case 'parent':
                     $toptypedir = $nextdir.'/'.$toptypedir;
@@ -184,7 +184,7 @@ else if($dopost=='save')
         //用拼音命名
         if($upinyin==1 || $typedir=='')
         {
-            $typedir = GetPinyin(stripslashes($typename));
+            $typedir = GetPinyin(stripslashes($typename),true);
         }
         $typedir = $nextdir.'/'.$typedir;
         $typedir = preg_replace("#\/{1,}#", "/", $typedir);

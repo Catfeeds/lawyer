@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>用户登录 - 易法通</title>
+
+<link href="/favicon.ico" type="image/x-icon" rel="icon" />
+	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style2.css" />
+	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout2.css" />
+<script type="text/javascript" src="/templets/lawyer/js/html5shiv.js"></script><script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+<!-- nav end -->
+
+<div class="clear"></div>
+
+<!-------------- javascript -------------->
+
+<!--- login start -->
+
+<div class="load">
+
+	<header>
+
+		<div class="container">
+
+			<div class="span-24">
+
+				<a href="/"><img width="240" height="55" alt="易法通" src="/templets/lawyer/images/yifatonglogo.png"></a>
+
+				<!-- <p>欢迎登录</p> -->
+
+				<a href="/Customers/registration">还没有账号？请注册</a>
+
+			</div>
+
+		</div>
+
+	</header>
+
+	<div class="container" style="position: relative;top: -65px;">
+
+		<div class="span-24">
+
+			<div class="breadcrumb-box visible-lg clean-m clean-p">
+
+				<p>
+
+					<span class="icon-font text-blue"></span>
+
+					<a href="/" class=" text-blue">首页</a>
+
+					-
+
+					<span>登录</span>
+
+				</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="container">
+
+		<div class="span-24">
+
+			<div class="input-box">
+
+				<div class="l btn click">
+
+					<a href="/Customers/login">用户登录</a>
+
+				</div>
+
+				<div class="r btn unclick">
+
+					<a href="/Lawyers/login">律师登录</a>
+
+				</div>
+
+				<ul>
+
+					<li class="l">
+
+						<img src="/templets/lawyer/images/yonghudenglu.jpg" height="388" width="506" alt="律师随身带，免费随时问" />
+
+						<div class="message-box">
+
+							<form action="/customers/login" id="CustomerLoginForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="8a566c9833b0c43f4052aa676cc60695f61f3d21" id="Token2095091479"/></div>								<!-- 信息显示 -->
+
+								<div class="container">
+
+									<div class="span-24">
+
+													
+
+									</div>
+
+								</div>
+
+								<label for="" class="user-name">
+
+									<span>手机账号</span>
+
+									<input name="data[Customer][account]" maxLength="40" maxlength="50" type="text" id="CustomerAccount" required="required"/>								</label>
+
+								<label for="" class="password">
+
+									<span>用户密码</span>
+
+									<input name="data[Customer][password]" value="" maxLength="40" type="password" id="CustomerPassword" required="required"/>								</label>
+
+								<label for="" class="short-message">
+
+									<span>验证码</span>
+
+									<div>
+
+										<img id="captcha" src="other/captcha" alt="验证码" />
+
+										<a onclick="refreshCaptcha()" href="javascript:void(0);">看不清！换一张</a>
+
+									</div>
+
+									<input name="data[Customer][captcha]" class="" value="" maxLength="4" type="text" id="CustomerCaptcha"/>								</label>
+
+								<label for="">
+
+									
+
+									<input type="hidden" name="data[Customer][autoLogin]" id="CustomerAutoLogin_" value="0"/><input type="checkbox" name="data[Customer][autoLogin]"  value="1" id="CustomerAutoLogin"/>									<p>下次自动登录<a href="/Customers/forgetPassword">忘记密码？</a></p>
+
+
+
+								</label>
+
+								<label for="">
+
+									<div class="submit"><input  class="" type="submit" value="用户登录"/></div> 
+
+								</label>
+
+								<label for="">
+
+									<h1 class="text-center">
+
+										<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F9eef1197e697839acd67ee28766cd23d' type='text/javascript'%3E%3C/script%3E"));</script>
+
+									</h1>
+
+								</label>
+
+								<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="d775719ba2d1117c8c9361fecfff9d084c24f611%3A" id="TokenFields1750771538"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked617772477"/></div></form>							</div>
+
+						</li>
+
+
+
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+<!--- login end--->
+
+<div class="clear"></div>
+
+<!--  debug -->
+
+<!-- javascript -->
+
+<script type="text/javascript" charset="utf-8">
+
+
+
+function refreshCaptcha()
+
+{
+
+	$('#captcha').attr('src',"Customers/captcha?rnd="+new Date().getTime()/1000);
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
+

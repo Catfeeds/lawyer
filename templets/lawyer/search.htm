@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>产品&文章搜索结果 - 全网法务服务</title>
+<meta name="robots" content="nofollow" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout.css" />
+<script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
+</head>
+<body>
+<div class="new-header-jianhangdingbu"> 
+    <!-- 农行宣传图片 --> 
+    <a href="/" target="_blank"><img src="/templets/lawyer/images/zhaoluyetop.jpg" alt="农行"></a> 
+    <!-- 农行宣传图片结束 --> 
+</div>
+<div class="header blue-bg">
+    <div class="main-width">
+        <div class="logo fl"><a href="/"><img src="/templets/lawyer/images/logo.png" /></a><span><img src="/templets/lawyer/images/header_text.png" alt="合同起草审查服务" /></span></div>
+        <div class="header-top fr mt">
+            <ul>
+                <li class="fl lh20"><a href="/Orders/index"><img src="/templets/lawyer/images/header_cart_bg.png" class="img" />我的订单</a></li>
+                <li class="fl lh20"><a href="/Customers/registration?url=Products/search">用户注册</a>|<a href="/Customers/login?url=Products/search">登录</a></li>
+
+            </ul>
+        </div>
+        <div class="clear" style="height:0;"></div>
+    </div>
+    <div class="dark-blue-bg menu-wrap">
+        <div class="main-width">
+            <div class="orange-bg fl product-search-wrap">
+                <form action="/plus/search.php" method="get">
+                    <h6 class="fl">合同起草审查</h6>
+                    <input  maxLength="100" name="keyword" type="text" class="input fl" />
+                    <input type="submit" class="btn" />
+                </form>
+            </div>
+            <div class="dark-blue-bg fr menu">
+                <ul>
+                    <li style="padding-right: 19px;"><a href="/nsht/">拟审合同</a></li>
+                    <li style="padding-right: 19px;"><a href="/ask">在线法律咨询</a></li>
+                    <li style="padding-right: 18px;"><a href="/zls/">找律师</a></li>
+                    <li style="padding-right: 18px;"><a href="/flgw/">法律顾问</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header end -->
+<div class="cpgb-fixed"> <a id="BizQQBottomCommon" class="cpgb-fixed-zixun">
+    <p><img src="/templets/lawyer/images/qq.png" alt="QQ"><br>
+        在线咨询</p>
+    </a> <a class="cpgb-fixed-zixun cpgb-fixed-dianhua">
+    <p><span class="ico-font tubiao">&#xea89;</span><br>
+        400电话</p>
+    <span class="zx-haoma"> 4008-515-666 <img src="/templets/lawyer/images/jiantou.png" alt="箭头"> </span> </a> <a class="cpgb-fixed-zixun cpgb-fixed-dingbu">
+    <p><img src="/templets/lawyer/images/dingbu.png" alt="QQ"><br>
+        返回顶部</p>
+    </a> </div>
+<!-------------- javascript -------------->
+<div class="main-width">
+    <h6 class="position lh30 mt"><a href="/">首页</a> - 搜索结果</h6>
+    <div class="box search-page-wrap clear"> 
+        <!--left-->
+        <div class="left-colunm fl">
+            <h5>产品&文章搜索结果</h5>
+            <div class="title-bullet"><span></span></div>
+            <p class="lh40">搜索:<em> <b class="orange">{dede:global name='keyword' function='RemoveXSS(@me)'/}</b>的结果</em></p>
+            <!-- search -->
+            <div class="search-bar clear">
+                <form action="/plus/search.php" method="get">
+                    <input maxLength="100" name="keyword" type="text" class="input fl" onblur="if(this.value=='' || this.value==null){this.value='搜索产品/相关法律...'}" onfocus="if(this.value=='搜索产品/相关法律...'){this.value=''}" value="搜索产品/相关法律..." />
+                    <input type="submit" value="搜索" class="orange-go-btn btn fl"/>
+                </form>
+            </div>
+            <!-- search -->
+            <div class="search-result-list">
+                <div class="search-product-list">
+                    <h5>搜索<strong>{dede:global name='keyword' function='RemoveXSS(@me)'/}</strong>的相关文章</h5>
+                    <div class="title-bullet"><span></span></div>
+                    {dede:list perpage='20'}
+                    <div class="search-result">
+                        <ul>
+                            <li>
+                                <p class="name"> <a href="[field:arcurl/]"> [field:title/] </a> </p>
+                                <p  class="grey2 lh25">[field:typename/]</p>
+                                <p class="lh25">[field:description/]... </p>
+                            </li>
+                        </ul>
+                    </div>
+                    {/dede:list}
+                    <div class="fl dede_pages">
+                        <ul class="pagelist">
+                            {dede:pagelist listsize='4'/}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<!-- footer start -->
+<div class="footer">
+    <div class="main-width footer-link">
+        <div class="footer-link-featured">
+            <div class="web-lead">
+                <h5>yifatong.com</h5>
+                <ul>
+                    <li><a href="/">主页</a></li>
+                    <li><a href="/Products" target="_blank">易法通法务产品</a></li>
+                    <li><a href="/privacy" rel="nofollow" target="_blank">隐私申明</a></li>
+                    <li><a href="/sitemap" target="_blank">网站地图</a></li>
+                </ul>
+            </div>
+            <div class="contact-link">
+                <h5>联系我们</h5>
+                <ul>
+                    <li><a href="/about" target="_blank">关于我们</a></li>
+                    <li><a href="/about#contact" target="_blank">联系方式</a></li>
+                    <li><a href="/zhaoanjian" target="_blank">律师联盟</a></li>
+                    <li class="blog-link"><a href="/swt/" target="_blank" rel="nofollow"><img src="/templets/lawyer/images/footer_sina_link.png" /></a></li>
+                    <li class="blog-link"><a href="/swt/" target="_blank" rel="nofollow"><img src="/templets/lawyer/images/qq.jpg" /></a></li>
+                </ul>
+            </div>
+            <div class="news-list">
+                <h5>新闻列表</h5>
+                <ul>
+                    <li> <a href="/Posts/view/4812587"> 易法通凭借强大的服务优势，入驻农行，成为中国农业银行指定法律服务提供商 </a> </li>
+                    <li> <a href="/Posts/view/4812588"> 易法通专家律师入驻中国农业银行 2.3折享私人律师服务啦！ </a> </li>
+                    <li> <a href="/Posts/view/4791840"> 易法通讲座：中小企业常见法律风险与防范 </a> </li>
+                    <li class="more"><a href="/Posts/news">查看更多...</a></li>
+                </ul>
+            </div>
+            <div class="footer-service">
+                <div class="footer-service-img"> <img src="/templets/lawyer/images/qrcode_for_gh_019906d1d23f_344.jpg" /></div>
+                <div class="footer-service-right">
+                    <h5 class="service-number">4008-515-666</h5>
+                    <ul>
+                        <li>
+                            <p class="servie-time-top">服务时间：8：30-17：30(工作日)</p>
+                            <p class="service-time-bottom">9：00-17：00(周末)</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <div class="friend-link">
+        <div class="main-width">
+            <p align="center"> 
+                <img src="/templets/lawyer/images/footer_img_3.png" /><img src="/templets/lawyer/images/footer_img_2.png" /> <a rel="nofollow" href="https://www.startssl.com/"><img src="/templets/lawyer/images/ssl.png" /></a> 
+                
+            </p>
+            <p align="center"><span class="copyright"><a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备09042048号-2</a>版权：易法通股份</span> </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

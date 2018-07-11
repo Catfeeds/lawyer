@@ -20,4 +20,5 @@ $cfg_Cs[23]=array(16,-8,1,'5YiR5LqL6L6p5oqk');
 $cfg_Cs[24]=array(16,-8,1,'55+l6K+G5Lqn5p2D');
 $cfg_Cs[25]=array(16,-8,1,'5Lq66Lqr5o2f5a6z');
 $cfg_Cs[26]=array(16,-8,1,'5YW25LuW57qg57q3');
+$cfg_Cs[27]=array(0,1,1,'5rOV5b6L5LiT6aKY');
 ?>

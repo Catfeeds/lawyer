@@ -17,7 +17,9 @@ $uid  = $cfg_ml->M_LoginID;
 !$cfg_ml->fields['face'] && $face = ($cfg_ml->fields['sex'] == '女')? 'dfgirl' : 'dfboy';
 $facepic = empty($face)? $cfg_ml->fields['face'] : $GLOBALS['cfg_memberurl'].'/templets/images/'.$face.'.png';
 ?>
-<div class="userinfo">
+<img class="link-flgw" width="189" height="26" src="/templets/lawyer/images/400.png" alt="服务热线" />
+<span class="user">您好，<strong><?php echo $cfg_ml->M_UserName; ?></strong></span> <a class="link" href="/member/shops_orders.php" target="_blank"><span class="ico-font"></span>我的订单</a> <a href="/member/index_do.php?fmdo=login&dopost=exit" class="exit link">退出 </a>
+<!-- <div class="userinfo">
     <div class="welcome">你好：<strong><?php echo $cfg_ml->M_UserName; ?></strong>，欢迎登录 </div>
     <div class="userface">
         <a href="<?php echo $cfg_memberurl; ?>/index.php"><img src="<?php echo $facepic;?>" width="52" height="52" /></a>
@@ -38,4 +40,4 @@ $facepic = empty($face)? $cfg_ml->fields['face'] : $GLOBALS['cfg_memberurl'].'/t
         <a href="<?php echo $myurl;?>">空间</a> | 
         <a href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=login&dopost=exit">退出登录</a> 
     </div>
-</div><!-- /userinfo -->
+</div> --><!-- /userinfo -->

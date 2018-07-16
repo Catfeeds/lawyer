@@ -1,13 +1,26 @@
-<header class="new-header">
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogin(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("{dede:global.cfg_cmspath/}/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+   <header class="new-header">
     <div class="new-header-jianhangdingbu"> <a href="/" target="_blank"><img src="/templets/lawyer/images/zhaoluyetop.jpg" alt="农行"></a> </div>
     <div class="nh-info">
         <div class="inner-box o-h">
-            <div class="nh-info-logo fl"> <a href="/"><img height="60" src="/templets/lawyer/images/yifatonglogo_whithout_word.png" alt="易法通"></a> <span>股票代码（834627）</span> </div>
-            <div class="nh-info-items fr"> <img class="link-flgw" width="189" height="26" src="/templets/lawyer/images/400.png" alt="服务热线" /> 
+            <div class="nh-info-logo fl"> <a href="/"><img height="60" src="/templets/lawyer/images/yifatonglogo_whithout_word.png" alt="全网法务服务"></a> <span>股票代码（834627）</span> </div>
+            <div class="nh-info-items fr" id="_userlogin"> 
                 <!-- 未登录 --> 
-                <a class="link" rel="nofollow" href="/member/login.php" class="load">登录</a> <a class="link" rel="nofollow" href="/member/reg_new.php" class="regist">注册</a> 
+                <img class="link-flgw" width="189" height="26" src="/templets/lawyer/images/400.png" alt="服务热线" />
+				<a class="link" rel="nofollow" href="/member/login.php" class="load">登录</a> <a class="link" rel="nofollow" href="/member/reg_new.php" class="regist">注册</a>
                 <!-- 登录 --> 
-                <span class="user">您好，13122707159</span> <a class="link" href="/member/content_list.php?channelid=1" target="_blank"><span class="ico-font"></span>我的订单</a> <a href="/member/index_do.php?fmdo=login&dopost=exit" class="exit link">退出 </a> </div>
+                <script language="javascript" type="text/javascript">CheckLogin();</script>
+       		</div>
         </div>
     </div>
     <nav class="nh-nav">
@@ -20,7 +33,7 @@
                         <li><a class="yaobianse" href="/flgw/">个人法律顾问</a></li>
                     </ol>
                 </div>
-                <div class="nh-nav-item"> <a class="daohang youbiankuang" target="_blank" href="/nsht/">拟审合同<span style="position:absolute;right:0;top:-18px;display:block;width:30px;"><img style="width:100%;" src="/templets/lawyer/images/mark-down.gif" alt="降价"></span></a>
+                <div class="nh-nav-item"> <a class="daohang youbiankuang" target="_blank" href="/nsht/">拟审合同</a>
                     <div class="nh-nav-item-hide">
                         <div class="nnih-inner">
                             <h2>创业经营</h2>
@@ -68,6 +81,7 @@
                         <div class="nnih-tupian nnih-tupian-xiao"> <a href="/zls/"><img src="/templets/lawyer/images/zhaolvshi.png" alt="找律师"></a> </div>
                     </div>
                 </div>
+                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/flbk/">法律百科</a></div>
             </div>
             <div class="nh-nav-search p-a">
                 <form target="_blank" action="/plus/search.php" method="get">

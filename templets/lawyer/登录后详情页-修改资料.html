@@ -1,211 +1,513 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="shenma-site-verification" content="7cbadc960c1c35490a83f54ee96e95ec_1433491416"/>
+	<meta name="baidu-site-verification" content="7I1SeeZXUv" />
+		<base href="http://www.yifatong.com/" />
+	<title>用户信息修改 - 易法通</title>
+	<link href="/favicon.ico" type="image/x-icon" rel="icon" /><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout-new.css" />
+	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-new.css" />
+	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/box.css" />
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<title>用户登录 - 易法通</title>
-
-<link href="/favicon.ico" type="image/x-icon" rel="icon" />
-	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style2.css" />
-	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout2.css" />
-<script type="text/javascript" src="/templets/lawyer/js/html5shiv.js"></script><script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
-
-
-
+	<script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="/templets/lawyer/js/modal.min.js"></script>
+	<script type="text/javascript" src="/templets/lawyer/js/box.js"></script>
+	<script type="text/javascript" src="/templets/lawyer/js/iealert.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('.web-header .user-box ul > li:nth-of-type(2) div.fl b').click(function(){
+			$('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').show();
+			$('.model-box').show();
+		});
+		$('.model-box').click(function(){
+			$('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').hide();
+			$('.web-header .inner-box .fr > div.dropdown ul.menu').hide();
+			$(this).hide();
+		});
+		$('.web-header .inner-box .fr > div.dropdown span').click(function(){
+			$('.web-header .inner-box .fr > div.dropdown ul.menu').show();
+			$('.model-box').show();
+		})
+		$("#search-btn").leanModal();
+		$("body").iealert();
+		$('footer .link .row .inner-box .top-box ul li').click(function(){
+			$(this).addClass('click').siblings().removeClass('click');
+			var numb = $(this).index()
+			$('footer .link .row .inner-box .bottom-box div').eq(numb).show().siblings().hide()
+		});
+		// $('.web-header .user-box ul > li:nth-of-type(2) div.fl b').click(function(){
+		// 	$('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').toggle();
+		// });
+		// $('.web-header .inner-box .fr > div.dropdown span').click(function(){
+		// 	$('.web-header .inner-box .fr > div.dropdown ul.menu').toggle();
+		// })
+	});
+	</script>
+<!--nocache-->
+			<!--/nocache-->
+	
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fb384d34b375f9c11fc59bc51d22f5d4";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script charset="utf-8" src="http://wpa.b.qq.com/cgi/wpa.php"></script>
 </head>
-
 <body>
+<header class="user-center">
+	<div class="uc-info o-h">
+		<div class="inner-box">
+			<div class="uc-info-left fl">
+				<h2><p>我的易法通</p><a href="/Customers/edit">完善资料>></a></h2>
+			</div>
+			<div class="uc-info-right fr">
+				<div class="uc-info-icon dollar">
+					<a href="/CreditOrders/recharge"><div class="icon">
+						¥
+					</div></a>
+					<p>积分：0&nbsp;<a href="/CreditOrders/recharge">( 充值 )</a></p>
+				</div>
+				<a href="/Messages/index?isRead=0" class="uc-info-icon message">
+					<div class="icon">
+						<span class=ico-font>&#xf03b;</span>
+					</div>	
+					<p>未读消息：&nbsp;0</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="uc-header">
+		<div class="inner-box">
+			<div class="uc-header-logo fl o-h"><img height="45"  alt="易法通" src="img/new/yifatonglogo_whithout_word.png"></div>
+			<div class="uc-header-bread fl">
+				<div class="breadcrumb-box visible-lg clean-m clean-p" style="height: 45px;line-height: 45px;padding: 0;margin: 0;">
+					<p>
+						<span class="icon-font text-blue">&#xe610;</span>
+						<a target="_blank" href="/" class=" text-blue">首页</a>
+						-
+						
+<span>修改资料</span>
+					</p>
+				</div>
+			</div>
+			<div class="fr uc-header-info">
+				<p><span class="ico-font">&#xee0a;</span>你好，欢迎 13122707159     <a href="/Customers/logout?url=Customers/edit">退出</a></p>
+			</div>
+		</div>
+	</div>
+</header><div id="lean_overlay">
+		<form class="form-inline p-r" action="/Products/search" method="get">
+		<div class="search-bar">
+			<div class="input-part">
+				<input id="exampleInputEmail2"  type="text" placeholder="劳动合同" name="q">
+			</div>	
+			<button class="text-white btn btn-link " type="submit"><img width="29" height="25" alt="搜索" src="img/new/icon/search.png"></button>
+		</div>
+		<div class="inner-box"></div>
+		</form>
+	</div>
 
 
+	<script type="text/javascript" src="/templets/lawyer/js/move.min.js"></script>
+	<script type="text/javascript" src="/templets/lawyer/js/mask.js"></script>
 
-<!-- nav end -->
-
-<div class="clear"></div>
-
+	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/mask.css" />
 <!-------------- javascript -------------->
 
-<!--- login start -->
 
-<div class="load">
-
-	<header>
-
+<div class="ziliao-mod">
+	<aside class="uc-title o-h fl">
+	<div class="uc-title-items">
+		<h2>服务管理</h2>
+		<ul class="list-unstyled">
+			<li><a  href="/Orders/index"><span>合同服务</span></a></li>
+			<li><a  href="/Orders/myTrademark"><span>商标服务</span></a></li>
+			<li><a  href="/LegalCases/myCases"><span>我的案件</span></a></li>
+			<li><a  href="/Qnas/own"><span>我的咨询</span></a></li>
+			<li><a  href="/Orders/myContract"><span>合同范本</span></a></li>
+			<li><a  href="/Tips/myTip"><span>我的锦囊</span></a></li>
+		</ul>
+	</div>
+	<div class="uc-title-items">
+		<h2>资产管理</h2>
+		<ul class="list-unstyled">
+			<li><a  href="/Customers/myAccount"><span>我的账户</span></a></li>
+			<li><a  href="/CreditOrders/recharge"><span>买卖积分</span></a></li>
+		</ul>
+	</div>
+	<div class="uc-title-items">
+		<h2>账号设置</h2>
+		<ul class="list-unstyled">
+			<li><a class="choose" href="/Customers/edit"><span>修改资料</span></a></li>
+			<li><a  href="/Customers/changePassword"><span>修改密码</span></a></li>
+			<li><a  href="/Messages/index"><span>消息提醒</span></a></li>
+		</ul>
+	</div>
+</aside>
+	<div class="r-box">
+		<!-- 信息显示 -->
 		<div class="container">
-
-			<div class="span-24">
-
-				<a href="/"><img width="240" height="55" alt="易法通" src="/templets/lawyer/images/yifatonglogo.png"></a>
-
-				<!-- <p>欢迎登录</p> -->
-
-				<a href="/Customers/registration">还没有账号？请注册</a>
-
+			<div class="row">	
+				
+							
+			</div>
+		</div>
+		<h2>修改资料</h2>
+		<div class="message-block">
+			<form action="/Customers/edit" onsubmit="return checkBeforeSubmit()" id="CustomerEditForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="01821a053a271877dbe58b4793168c73728d8599" id="Token706463981"/></div>			<div class="zhanghao-bar">
+				<div class="l-par">
+					<p class="anniu">您的账号：						
+								              		13122707159		              						</p>
+					<a href="/Customers/changePassword">修改密码</a>
+				</div>
+				<div class="r-par">
+					<p>注册时间：2018-06-26 09:30:33</p>
+				</div>
 			</div>
 
-		</div>
-
-	</header>
-
-	<div class="container" style="position: relative;top: -65px;">
-
-		<div class="span-24">
-
-			<div class="breadcrumb-box visible-lg clean-m clean-p">
-
-				<p>
-
-					<span class="icon-font text-blue"></span>
-
-					<a href="/" class=" text-blue">首页</a>
-
-					-
-
-					<span>登录</span>
-
-				</p>
-
+			<div class="dizhi-bar">
+				 <div class="l-par">
+				 	<p>邮箱地址：</p>
+				 	 <input name="data[Customer][email]" type="text" value="1158624818@qq.com" id="CustomerEmail" required="required"/>				 </div>
+				 <div class="r-bar">
+				 	<p>联系手机：</p>
+				 	<input name="data[Customer][mobile]" type="text" value="13122707159" id="CustomerMobile" required="required"/>				 </div>
 			</div>
 
-		</div>
+			<div class="dizhi-bar">
+				 <div class="l-par">
+				 	<p>名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</p>
+				 	<input name="data[Customer][name]" maxlength="50" type="text" value="" id="CustomerName"/>				 </div>
+				 <div class="r-bar">
+				 	<p>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</p>
+				 	<select name="data[Customer][gender]" id="CustomerGender">
+<option value="0"></option>
+<option value="1">男</option>
+<option value="2">女</option>
+</select>				 	
+				 </div>
+			</div>
 
+			<div class="fapiao-bar">
+				<p>发票抬头：</p>
+				<input name="data[Customer][invoice_title]" maxlength="100" type="text" value="" id="CustomerInvoiceTitle"/>			</div>
+
+			<div class="shoujian-bar">
+				<p>收件地址：</p>
+				<select name="data[Customer][province]" onchange="locations(this,&#039;city&#039;)" id="CustomerProvince">
+<option value="">选择省份</option>
+<option value="110000">北京市</option>
+<option value="120000">天津市</option>
+<option value="130000">河北省</option>
+<option value="140000">山西省</option>
+<option value="150000">内蒙古自治区</option>
+<option value="210000">辽宁省</option>
+<option value="220000">吉林省</option>
+<option value="230000">黑龙江省</option>
+<option value="310000" selected="selected">上海市</option>
+<option value="320000">江苏省</option>
+<option value="330000">浙江省</option>
+<option value="340000">安徽省</option>
+<option value="350000">福建省</option>
+<option value="360000">江西省</option>
+<option value="370000">山东省</option>
+<option value="410000">河南省</option>
+<option value="420000">湖北省</option>
+<option value="430000">湖南省</option>
+<option value="440000">广东省</option>
+<option value="450000">广西壮族自治区</option>
+<option value="460000">海南省</option>
+<option value="500000">重庆市</option>
+<option value="510000">四川省</option>
+<option value="520000">贵州省</option>
+<option value="530000">云南省</option>
+<option value="540000">西藏自治区</option>
+<option value="610000">陕西省</option>
+<option value="620000">甘肃省</option>
+<option value="630000">青海省</option>
+<option value="640000">宁夏回族自治区</option>
+<option value="650000">新疆维吾尔自治区</option>
+</select>              <select name="data[Customer][city]" id="city" onchange="locations(this,&#039;district&#039;)">
+<option value="">选择城市</option>
+<option value="310100">上海市辖区</option>
+<option value="310200">县</option>
+</select>              <select name="data[Customer][district]" id="district">
+<option value="">选择县,区</option>
+<option value="310100">上海市辖区</option>
+<option value="310200">县</option>
+</select><input name="data[Customer][address]" maxlength="100" type="text" value="" id="CustomerAddress"/>			<a>需要寄送发票等资料时的详细地址</a>
+			</div>
+
+			<div class="btn-bar">
+				<div class="submit"><input  class="buttom" type="submit" value="保存"/></div> 
+			</div>
+			<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="12a54d7a2f145777eff5de094a6e4c7ee847a11d%3A" id="TokenFields1879723904"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked327409515"/></div></form> </div>
+		</div>
 	</div>
+</div>
 
-	<div class="container">
+<div class="gaichenggong" style="display:none;">
+	<span class="ico-font">&#xe90a;</span>
+	<p>账号信息修改成功</p>
+</div>
+<!-- 红包 -->
+<!-- <div class="fltc-hongbao">
+		<a class="tu hb-tiaodong" href="/p/falvguwen" target="_blank"><img src="img/new/qyfl/nhth.jpg" alt="农行特惠"></a>
+</div>
 
-		<div class="span-24">
+<script type="text/javascript">
 
-			<div class="input-box">
+$(function(){
+	function hongbao(){
+		var dbd = $(".fltc-hongbao .tu").hasClass('hb-tiaodong');
+		if(!dbd){
+			$(".fltc-hongbao .tu").addClass('hb-tiaodong');
+		}else{
+			$(".fltc-hongbao .tu").removeClass('hb-tiaodong');
+		}
+	}
+	setInterval(hongbao,5000);
+})
+</script> -->
+<div class="cpgb-fixed">
+	<a id="BizQQBottomCommon" class="cpgb-fixed-zixun">
+		<p><img src="/templets/lawyer/images/qq.png" alt="QQ"><br>在线咨询</p>
+	</a>
 
-				<div class="l btn click">
+	<a class="cpgb-fixed-zixun cpgb-fixed-dianhua">
+		<p><span class="ico-font tubiao">&#xea89;</span><br>400电话</p>
+		<span class="zx-haoma">
+			4008-515-666
+			<img src="/templets/lawyer/images/jiantou.png" alt="箭头">
+		</span>
+	</a>
 
-					<a href="/Customers/login">用户登录</a>
-
+	<a class="cpgb-fixed-zixun cpgb-fixed-dingbu">
+		<p><img src="/templets/lawyer/images/dingbu.png" alt="QQ"><br>返回顶部</p>
+	</a>
+</div>
+<!-------------- javascript -------------->
+<div class="model-box p-a" ></div>
+<footer class="visible-lg visible-md">
+		<div class="bg-nav">
+		<div class="container">
+			<br />
+			<div class="row">
+				<div class="col-xs-4 col-sm-2">
+					<em></em>
+					<p class="text-center text-white hidden-xs" style="font-size:12px;">10年150万+项服务经验</p>
+					<p class="text-center text-white visible-xs" style="font-size:8px;">10年150万+项服务经验</p>
 				</div>
-
-				<div class="r btn unclick">
-
-					<a href="/Lawyers/login">律师登录</a>
-
+				<div class="col-xs-4 col-sm-2">
+					<em></em>
+					<p class="text-center text-white hidden-xs" style="font-size:12px;">10000多专业律师</p>
+					<p class="text-center text-white visible-xs" style="font-size:8px;">10000多专业律师</p>
 				</div>
-
-				<ul>
-
-					<li class="l">
-
-						<img src="/templets/lawyer/images/yonghudenglu.jpg" height="388" width="506" alt="律师随身带，免费随时问" />
-
-						<div class="message-box">
-
-							<form action="/customers/login" id="CustomerLoginForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="data[_Token][key]" value="9b2ea38415376df01aa84fef8280a5f16c9c4db1" id="Token421762874"/></div>								<!-- 信息显示 -->
-
-								<div class="container">
-
-									<div class="span-24">
-
-													
-
-									</div>
-
-								</div>
-
-								<label for="" class="user-name">
-
-									<span>手机账号</span>
-
-									<input name="data[Customer][account]" maxLength="40" maxlength="50" type="text" id="CustomerAccount" required="required"/>								</label>
-
-								<label for="" class="password">
-
-									<span>用户密码</span>
-
-									<input name="data[Customer][password]" value="" maxLength="40" type="password" id="CustomerPassword" required="required"/>								</label>
-
-								<label for="" class="short-message">
-
-									<span>验证码</span>
-
-									<div>
-
-										<img id="captcha" src="other/captcha" alt="验证码" />
-
-										<a onclick="refreshCaptcha()" href="javascript:void(0);">看不清！换一张</a>
-
-									</div>
-
-									<input name="data[Customer][captcha]" class="" value="" maxLength="4" type="text" id="CustomerCaptcha"/>								</label>
-
-								<label for="">
-
-									
-
-									<input type="hidden" name="data[Customer][autoLogin]" id="CustomerAutoLogin_" value="0"/><input type="checkbox" name="data[Customer][autoLogin]"  value="1" id="CustomerAutoLogin"/>									<p>下次自动登录<a href="/Customers/forgetPassword">忘记密码？</a></p>
-
-
-
-								</label>
-
-								<label for="">
-
-									<div class="submit"><input  class="" type="submit" value="用户登录"/></div> 
-
-								</label>
-
-								<label for="">
-
-									<h1 class="text-center">
-
-										<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F9eef1197e697839acd67ee28766cd23d' type='text/javascript'%3E%3C/script%3E"));</script>
-
-									</h1>
-
-								</label>
-
-								<div style="display:none;"><input type="hidden" name="data[_Token][fields]" value="d775719ba2d1117c8c9361fecfff9d084c24f611%3A" id="TokenFields264986266"/><input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1636465796"/></div></form>							</div>
-
-						</li>
-
-
-
-					</ul>
-
+				<div class="col-xs-4 col-sm-2">
+					<em></em>
+					<p class="text-center text-white hidden-xs" style="font-size:12px;">无形的法律看得见</p>
+					<p class="text-center text-white visible-xs" style="font-size:8px;">无形的法律看得见</p>
 				</div>
-
+				<div class="col-xs-4 col-sm-2">
+					<em></em>
+					<p class="text-center text-white hidden-xs" style="font-size:12px;">有效的法律分析解答</p>
+					<p class="text-center text-white visible-xs" style="font-size:8px;">有效的法律分析解答</p>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<em></em>
+					<p class="text-center text-white hidden-xs" style="font-size:12px;">7天不限次数修改</p>
+					<p class="text-center text-white visible-xs" style="font-size:8px;">7天不限次数修改</p>
+				</div>
+				<div class="col-xs-4 col-sm-2">
+					<em></em>
+					<p class="text-center text-white hidden-xs" style="font-size:12px;">提供法律售后服务</p>
+					<p class="text-center text-white visible-xs" style="font-size:8px;">提供法律售后服务</p>
+				</div>
 			</div>
-
+			<br />
 		</div>
-
 	</div>
-
-<!--- login end--->
-
-<div class="clear"></div>
-
+			<div class="footer-middle">
+		<div class="container">
+			<div class="row">
+				<div class=" col-md-5 list-inline text-center">
+											<img src="img/new/background/footer-tel.png" width="294" height="69" alt="服务热线" />
+										
+				</div>
+				<div class=" col-md-6 list-inline text-center">
+					<div class="row" style="padding-top:20px;">
+						<a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e15052611010158890ey85000000&comefrom=trust"><img alt="可信网站身份认证" src="img/new/footer-icon-1.jpg" width="82" height="30"></a>
+						<img width="89" height="30" alt="支付宝特约商家" src="img/new/footer-icon-2.png">
+						<img width="77" height="30" alt="网上交易保障中心" src="img/new/footer-icon-3.png">
+						<a href="https://www.startssl.com/" target="_blank" rel="nofollow">
+							<img alt="保障" src="img/new/footer-icon-4.png" width="29" height="30">
+						</a>
+					<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254492474'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1254492474%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+					
+										</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<ul class="list-inline text-center">
+					<li>
+						<a href="/about" target="_blank">关于我们</a>
+						<a href="/sitemap" target="_blank">网站地图</a>
+						<a href="/privacy" target="_blank">隐私申明</a>
+					</li>
+					<li>
+						<a rel="nofollow"  href="http://www.miitbeian.gov.cn/" >闽ICP备09042048号-2</a>
+						
+		 				<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="img/new/beian.png" style="float:left;"/>闽公网安备 35020602000086号</a>
+		 	
+					</li>
+					<li><a>版权：易法通股份</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<footer class="visible-xs visible-sm" style="">
+	<p class="text-center lh3 w6">
+		<img src="img/new/icon/weixin.png" width="20" height="20" alt="易法通" />
+		<span>@易法通法律咨询</span>
+		<span>@易法通法律服务</span>
+		<span>|</span>
+		<a href="http://www.yifatong.com?force=pc">电脑版</a>	
+		
+		<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5795384'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D5795384%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+		<a class="nowrap" href="/about">关于我们</a>
+		<a class="nowrap" href="/contact">联系我们</a>
+	</p>
+	<p class="text-center w6"><a  rel="nofollow"  href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> 版权：易法通股份</p>
+	<div class="fix-block"></div>
+</footer>
 <!--  debug -->
-
 <!-- javascript -->
+<script type="text/javascript" src="/templets/lawyer/js/update-location.js"></script><script type="text/javascript" charset="utf-8">
 
-<script type="text/javascript" charset="utf-8">
+$(function(){	
+
+	})
 
 
 
-function refreshCaptcha()
+var wasSubmitted = false;    
 
+function checkBeforeSubmit()
 {
+	var isAllInput=true;
+	var email=$("#CustomerEmail").val();
+	if(email=="")
+		isAllInput=false;
+	else
+	{
+		var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if(!pattern.test(email))
+		{
+			alert('请填写正确的邮箱！');
+			return false;
+		}
+	}
 
-	$('#captcha').attr('src',"Customers/captcha?rnd="+new Date().getTime()/1000);
+	var mobile=$("#CustomerMobile").val();
+	if(mobile=="")
+		isAllInput=false;
+	else
+	{
+		var pattern = /^1[34578]\d{9}$/;
+		if(!pattern.test(mobile))
+		{
+			alert("请输入正确的手机号码！");
+			return false;
+		}
+	}
 
+	var name=$("#CustomerName").val();
+	if(name=="")
+		isAllInput=false;
+
+	var gender=$("#CustomerGender").val();
+	if(gender=="0")
+		isAllInput=false;
+
+	var invoiceTitle=$("#CustomerInvoiceTitle").val();
+	if(invoiceTitle=="")
+		isAllInput=false;
+
+	var province=$("#CustomerProvince").val();
+	if(province=="")
+		isAllInput=false;
+
+	var city=$("#CustomerCity").val();
+	if(city=="")
+		isAllInput=false;
+
+	var address=$("#CustomerAddress").val();
+	if(address=="")
+		isAllInput=false;
+
+	if(!isAllInput)
+	{
+		alert("请填写所有信息！");
+		return false;
+	}
+		
+	if(!wasSubmitted) 
+	{
+		wasSubmitted = true;
+		return wasSubmitted;
+	}
+	return false;
 }
-
-
-
 </script>
+<script type="text/javascript">
+$(function(){
+	$('.cpgb-fixed-dingbu').click(function(){
+		$(window).scrollTop(0);
+	});
 
+	$(window).scroll(function () {
 
-
+		if ($(window).scrollTop() > 1018 ) {			
+			$(".cpgb-fixed-dingbu").css("display","block");
+		}else if($(window).scrollTop() < 1016){			
+			$(".cpgb-fixed-dingbu").css("display","none");
+		}
+	});
+})
+BizQQWPA.addCustom({aty: '1', a: '0', nameAccount: 4008515666, selector: 'BizQQBottomCommon'});
+</script>
+<!-- WPA Button Begin -->
+<script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAyMTQ4M18zNzIxODhfNDAwODUxNTY2Nl8"></script>
+<!-- WPA Button END -->
+<script type="text/javascript" src="//s.union.360.cn/104001.js"></script>
+<script type="text/javascript">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 </body>
-
 </html>
-

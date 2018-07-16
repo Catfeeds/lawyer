@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{dede:field.title/}_{dede:global.cfg_indexname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout-new.css?v=201805021933" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-new.css?v=201805021933" />
+<script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
+<script>
+$(function(){
+	$(".nh-nav-container .nh-nav-item").hover(function() {
+		/* Stuff to do when the mouse enters the element */
+		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
+		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	}, function() {
+		/* Stuff to do when the mouse leaves the element */
+		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	});
+})
+</script>
+</head>
+<body>
+{dede:include filename='header.htm'/} 
+<script type="text/javascript" src="/templets/lawyer/js/jquery.pin.min.js"></script> 
+<script type="text/javascript">
+$(function(){
+$(".pin").pin({
+	containerSelector: ".lvshizhinan-neiye"
+});
+});
+</script>
+<div class="lvshizhinan-tou">
+    <div class="lszn-miaobao">
+        <div class="lszn-mb-inner">
+            <p><span class="ico-font">&#xea47;</span> {dede:field name='position'/} </p>
+        </div>
+    </div>
+    <div class="lvshizhinan-neiye">
+        <div class="lszn-ny-mod">
+            <div class="ny-mod-l">
+                <div class="lszn-ny-l">
+                    <div class="ny-l-title">
+                        <h2>{dede:field.title/}</h2>
+                        <p><span class="fabiao">发表于：{dede:field.pubdate function="MyDate('Y-m-d',@me)"/}</span>阅读量：（<script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script>）</p>
+                    </div>
+                    <div class="ny-l-banner"> <a href="/ask/add" target="_blank"><span class="tu"><img src="/templets/lawyer/images/neibanner.jpg" alt="" /></span></a> </div>
+                    <div class="ny-l-zhengwen">
+                        {dede:field.body/}
+                    </div>
+                </div>
+                <div class="lszn-ny-fanye">
+					<p><span class="f-l">{dede:prenext get='pre'/}</span><span class="f-r">{dede:prenext get='next'/}</span></p>
+                </div>
+                <div class="lszn-ny-remen">
+                    <div class="ny-rm-title">
+                        <h2><span class="lankuai"></span>热门排行<span class="huixian"></span></h2>
+                    </div>
+                    <div class="ny-rm-inner">
+                        <div class="rm-l">
+                           	{dede:arclist titlelen='30' row='6'}
+                            <p><a target="_blank" href="[field:arcurl/]">[field:title/]</a>
+                                <time>（[field:pubdate function="MyDate('Y-m-d',@me)"/]）</time>
+                            </p>
+                            {/dede:arclist}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ny-mod-r">
+                <div class="pin">
+                    <div class="ny-r-banner"> <a href="/ask" target="_blank"><img src="/templets/lawyer/images/zaixian.jpg" alt="" /></a> </div>
+                    <div class="ny-r-jieda">
+                        <div class="r-jd-title">
+                            <h2><span class="lankuai"></span>最新解答案例<a class="gengduo" href="/ask" target="_blank">更多<span class="ico-font">&#xec55;</span><span class="ico-font zuoyi">&#xec55;</span></a></h2>
+                        </div>
+                        <div class="r-jd-weijieda">
+                            <div class="r-jd-wj-zhengwen">
+                                <h2><span class="chengdi">已解决</span>小股东如何防止权益被侵害？</h2>
+                                <p>我是公司小股东，但是公司的实际经营和决策都是我在做，大股东只享受分红权。但是害怕后面大股东反悔或者出现分歧时大股东直接以半数以上股权决定权直接否定我的决定。想知道股东这边具体都有那些权利，如何防止上述情况发生呢？</p>
+                            </div>
+                            <div class="r-jd-wj-zhuiwen">
+                                <h2><span class="f-l"><span class="ico-font time">&#xe9e5;</span>2016-08-03<span class="jianju">08:48:46</span></span></h2>
+                            </div>
+                        </div>
+                        <div class="r-jd-lvshida">
+                            <h2>该问题已有 <span>2</span> 位在线法律咨询</h2>
+                        </div>
+                        <div class="r-jd-yjd-kuang">
+                            <div class="r-jd-yjd-kuang-title">
+                                <h2> <span class="dayuan"> <span class="liyuan"> <img alt="" src="/templets/lawyer/images/zhang.jpg" class="tu"> </span> </span> <span class="chengse">张律师</span>
+                                    <time>2016-08-03<span class="jianju">08:58</span></time>
+                                </h2>
+                                <p>您好，您直接在公司章程中规定由您经营的同时，最好对公司表决权重新约定。即，虽然您股份较少，但是您可以通过要求修改章程，不按照股份多少来确定表决权，但这需要经过公司三分之二表决权股东同意。</p>
+                            </div>
+                            <div class="r-jd-yjd-btn"> <a href="/ask/add" target="_blank" class="wenlvshi">我要提问</a> </div>
+                        </div>
+                        <div class="r-jd-yjd-kuang">
+                            <div class="r-jd-yjd-kuang-title">
+                                <h2> <span class="dayuan"> <span class="liyuan"> <img alt="" src="/templets/lawyer/images/chen.jpg" class="tu"> </span> </span> <span class="chengse">陈律师</span>
+                                    <time>2016-08-03<span class="jianju">09:03</span></time>
+                                </h2>
+                                <p>您好，股东的权利包括了修改公司章程、决定公司的经营方针和投资计划、对公司增加或者减少注册资本作出决议等，一般来说，股东的权利都是由公司章程之间规定的，因此，如果要防止大股东损害您的权利，您可以要求更改公司章程，限制大股东的权利。</p>
+                            </div>
+                            <div class="r-jd-zhuiwenda">
+                                <p><span class="zi">追问</span>
+                                    <time>2016-08-03<span class="jianju">10:03</span></time>
+                                </p>
+                                <h4>但是我目前的股权低于33%也就是2/3该怎么办呢？</h4>
+                            </div>
+                            <div class="r-jd-yjd-btn"> <a class="woyaozhuiwen" href="">律师正在解答</a><a href="/ask/add" target="_blank" class="wenlvshi">我要提问</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="new-foot">
+    <div class="img-box"></div>
+    <div class="foot-dianhua">
+        <div class="foot-dh-haoma"> <img src="/templets/lawyer/images/footer-tel.png" width="294" height="69" alt="服务热线" /> </div>
+        <div class="foot-dh-teyueshang">
+            <div class="dh-tys-inner"> <a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e15052611010158890ey85000000&comefrom=trust"><img alt="可信网站身份认证" src="/templets/lawyer/images/footer-icon-1.jpg" width="82" height="30"></a> <img width="89" height="30" alt="支付宝特约商家" src="/templets/lawyer/images/footer-icon-2.png"> <img width="77" height="30" alt="网上交易保障中心" src="/templets/lawyer/images/footer-icon-3.png"> <a href="https://www.startssl.com/" target="_blank" rel="nofollow"> <img alt="保障" src="/templets/lawyer/images/footer-icon-4.png" width="29" height="30"> </a> 
+            </div>
+        </div>
+    </div>
+    <div class="foot-guanyu"> <span> <a href="/about" target="_blank">关于我们</a> <a href="/sitemap" target="_blank">网站地图</a> <a href="/privacy" target="_blank">隐私申明</a> </span> <span><a rel="nofollow"  href="http://www.miitbeian.gov.cn/" >闽ICP备09042048号-2</a></span> <span><a>版权：易法通股份</a></span> 
+    </div>
+</div>
+</body>
+</html>

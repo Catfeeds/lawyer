@@ -25,16 +25,29 @@ $(function(){
 </script>
 </head>
 <body>
-<header class="new-header">
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogin(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+   <header class="new-header">
     <div class="new-header-jianhangdingbu"> <a href="/" target="_blank"><img src="/templets/lawyer/images/zhaoluyetop.jpg" alt="农行"></a> </div>
     <div class="nh-info">
         <div class="inner-box o-h">
-            <div class="nh-info-logo fl"> <a href="/"><img height="60" src="/templets/lawyer/images/yifatonglogo_whithout_word.png" alt="易法通"></a> <span>股票代码（834627）</span> </div>
-            <div class="nh-info-items fr"> <img class="link-flgw" width="189" height="26" src="/templets/lawyer/images/400.png" alt="服务热线" /> 
+            <div class="nh-info-logo fl"> <a href="/"><img height="60" src="/templets/lawyer/images/yifatonglogo_whithout_word.png" alt="全网法务服务"></a> <span>股票代码（834627）</span> </div>
+            <div class="nh-info-items fr" id="_userlogin"> 
                 <!-- 未登录 --> 
-                <a class="link" rel="nofollow" href="/member/login.php" class="load">登录</a> <a class="link" rel="nofollow" href="/member/reg_new.php" class="regist">注册</a> 
+                <img class="link-flgw" width="189" height="26" src="/templets/lawyer/images/400.png" alt="服务热线" />
+				<a class="link" rel="nofollow" href="/member/login.php" class="load">登录</a> <a class="link" rel="nofollow" href="/member/reg_new.php" class="regist">注册</a>
                 <!-- 登录 --> 
-                <span class="user">您好，13122707159</span> <a class="link" href="/member/content_list.php?channelid=1" target="_blank"><span class="ico-font"></span>我的订单</a> <a href="/member/index_do.php?fmdo=login&dopost=exit" class="exit link">退出 </a> </div>
+                <script language="javascript" type="text/javascript">CheckLogin();</script>
+       		</div>
         </div>
     </div>
     <nav class="nh-nav">
@@ -47,7 +60,7 @@ $(function(){
                         <li><a class="yaobianse" href="/flgw/">个人法律顾问</a></li>
                     </ol>
                 </div>
-                <div class="nh-nav-item"> <a class="daohang youbiankuang" target="_blank" href="/nsht/">拟审合同<span style="position:absolute;right:0;top:-18px;display:block;width:30px;"><img style="width:100%;" src="/templets/lawyer/images/mark-down.gif" alt="降价"></span></a>
+                <div class="nh-nav-item"> <a class="daohang youbiankuang" target="_blank" href="/nsht/">拟审合同</a>
                     <div class="nh-nav-item-hide">
                         <div class="nnih-inner">
                             <h2>创业经营</h2>
@@ -81,6 +94,12 @@ $(function(){
                         </div>
                         <div class="nnih-tupian nnih-tupian-xiao"> <a href="/zls/"><img src="/templets/lawyer/images/zhaolvshi.png" alt="找律师"></a> </div>
                     </div>
+                </div>
+                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/flzt/">法律专题</a>
+                    <ol class="p-a">
+                        <li><a class="yaobianse" href="/flzt/">法律专题</a></li>
+                        <li><a class="yaobianse" href="/flgw/">律师指南</a></li>
+                    </ol>
                 </div>
             </div>
             <div class="nh-nav-search p-a">
@@ -135,19 +154,19 @@ $(function(){
     </div>
     <div class="in-team">
         <h2 class="in-team-title">
-            <p class="p-r"> 易法通&mdash;&mdash;让你远离风险的法律顾问 <span class="border-right-coulp"></span> <span class="border-left-coulp"></span> <span class="border-right-single"></span> <span class="border-left-single"></span> </p>
+            <p class="p-r"> 全网法务服务&mdash;&mdash;让你远离风险的法律顾问 <span class="border-right-coulp"></span> <span class="border-left-coulp"></span> <span class="border-right-single"></span> <span class="border-left-single"></span> </p>
         </h2>
         <h2 class="in-title-sub">找律师只能打官司的时代已经过去，预防风险在前，优于处理风险在后</h2>
         <div class="in-team-section">
-            <div class="in-team-section-contact fl p-r"> <a target="_blank" href="/Products" class="contact-block p-r">
+            <div class="in-team-section-contact fl p-r"> <a target="_blank" href="/nsht/" class="contact-block p-r">
                 <h3 class="headline">拟审合同</h3>
                 <h4 class="info">专业分工，起草、审查合同</h4>
                 <img src="/templets/lawyer/images/contact-man.png" alt="" class="p-a" /> </a>
                 <div class="contact-item">
-                    <div class="example"> <a href="/Products" class="contact-example fl"> <span class="tupian"><img src="/templets/lawyer/images/contact-example1.png" alt="合同"></span>
+                    <div class="example"> <a href="/nsht/" class="contact-example fl"> <span class="tupian"><img src="/templets/lawyer/images/contact-example1.png" alt="合同"></span>
                         <h2>拟定合同</h2>
                         <p>经营管理一站式服务</p>
-                        </a> <a href="/Products" class="contact-example fr"> <span class="tupian"><img src="/templets/lawyer/images/contact-example2.png" alt="合同"></span>
+                        </a> <a href="/nsht/" class="contact-example fr"> <span class="tupian"><img src="/templets/lawyer/images/contact-example2.png" alt="合同"></span>
                         <h2>审核合同</h2>
                         <p>多方位规避各种潜在风险</p>
                         </a> </div>
@@ -198,25 +217,17 @@ $(function(){
 <div class="lr-list-l fl mr40">
 <p class="f20 s-c333 lh24">精品法律知识推荐</p><div class="mt25 clearfix">
 <div class="w280 mr20 fl">
-<a target="_blank" href="/zs/643114.aspx" class="pic-item h184"><img src="http://p.64365.com/zsimg/hyjt/ccfg/thumbnail/55_P180x120.jpg" alt="2018年离婚财产分割最新规定,离婚后夫妻财产如何分割" style="width: 280px;height: 184px;"><span>2018年离婚财产分割最新规定,离婚后夫妻财产如何分割</span></a><ul class="art-list mt10">
+<a target="_blank" href="/zs/643114.aspx" class="pic-item h184"><img src="/images/55_P180x120.jpg" alt="2018年离婚财产分割最新规定,离婚后夫妻财产如何分割" style="width: 280px;height: 184px;"><span>2018年离婚财产分割最新规定,离婚后夫妻财产如何分割</span></a><ul class="art-list mt10">
 <li><i class="ico-law i-law184 mr10"></i><a target="_blank" href="/zs/655194.aspx">[刑事处罚]</a><a target="_blank" href="/zs/655194.aspx">2018受贿罪最新量刑标准 ,刑法修正（九）受贿罪的量刑标准修改了哪些</a></li> <li><i class="ico-law i-law184 mr10"></i><a target="_blank" href="/zs/639140.aspx">[个人债务]</a><a target="_blank" href="/zs/639140.aspx">借条和欠条的有效期是多久？</a></li> <li><i class="ico-law i-law184 mr10"></i><a target="_blank" href="/zs/638940.aspx">[结婚]</a><a target="_blank" href="/zs/638940.aspx">2018年新婚姻法结婚年龄规定是什么</a></li> <li><i class="ico-law i-law184 mr10"></i><a target="_blank" href="/zs/643580.aspx">[宅基地]</a><a target="_blank" href="/zs/643580.aspx">2018年宅基地最新政策是什么?</a></li> </ul>
 </div><div class="w280 mr20 fl">
-<a target="_blank" href="/zs/659990.aspx" class="pic-item h184"><img src="http://p.64365.com/upload/f/201505/18/1604933_P180x120.jpg" alt="2018年小产权房最新政策是什么" style="width: 280px;height: 184px;"><span>2018年小产权房最新政策是什么</span></a><ul class="art-list mt10">
+<a target="_blank" href="/zs/659990.aspx" class="pic-item h184"><img src="/images/1604933_P180x120.jpg" alt="2018年小产权房最新政策是什么" style="width: 280px;height: 184px;"><span>2018年小产权房最新政策是什么</span></a><ul class="art-list mt10">
 <li><i class="ico-law i-law184 mr10"></i><a target="_blank" href="/zs/653404.aspx">[交通违章]</a><a target="_blank" href="/zs/653404.aspx">闯红灯怎么查询,闯红灯多久能查到</a></li> <li><i class="ico-law i-law184 mr10"></i><a target="_blank" href="/zs/664211.aspx">[刑事犯罪]</a><a target="_blank" href="/zs/664211.aspx">2018年新婚姻法重婚罪判几年</a></li> <li><i class="ico-law i-law184 mr10"></i><a target="_blank" href="/zs/664365.aspx">[离婚]</a><a target="_blank" href="/zs/664365.aspx">2018年起诉离婚要花多少钱</a></li> <li><i class="ico-law i-law184 mr10"></i><a target="_blank" href="/zs/655003.aspx">[个人债务]</a><a target="_blank" href="/zs/655003.aspx">借条怎么写才能在法律上生效？</a></li> </ul>
 </div><div class="w280 fl">
-<div class="lore-r-item "><a target="_blank" href="/zs/664559.aspx" class="fl mr10"><img src="http://p.64365.com/upload/f/201506/5/174129467_P180x120.jpg" alt="2018最新买断工龄政策"></a><p class="h20"><a target="_blank" href="/zs/664559.aspx" class="f14 s-c333">2018最新买断工龄政策</a></p><p class="h40 s-c999 mt10" title="所谓“买断工龄”，是指职工对企业在改制中解除劳动者劳动合同支付经济补偿金的一个通俗说法，如今已经很少听到买断工龄了。但我国关于买断工龄的政策还是存在的，下面小编为大家介绍2018最新买断工龄政策。">所谓“买断工龄”，是指职工对企业在改制中解除劳…</p></div><div class="lore-r-item mt20"><a target="_blank" href="/zs/649748.aspx" class="fl mr10"><img src="http://p.64365.com/upload/201602/24/1636210458993_P180x120.jpg" alt="最新民事诉讼法司法解释全文2017"></a><p class="h20"><a target="_blank" href="/zs/649748.aspx" class="f14 s-c333">最新民事诉讼法司法解释全文2017</a></p><p class="h40 s-c999 mt10" title="民事诉讼法司法解释修改了哪些内容呢?2015年2月4日，最高人民法院发布了最高法关于适用《中华人民共和国民事诉讼法》的司法解释，下面，律师365小编为您提供2015年最新民事诉讼法司法解释全文。">民事诉讼法司法解释修改了哪些内容呢?2015年…</p></div><div class="lore-r-item mt20"><a target="_blank" href="/zs/664093.aspx" class="fl mr10"><img src="http://p.64365.com/Upload/201802/27/1534593405965_P180x120.jpg" alt="2018年企业主动辞退员工怎么补偿"></a><p class="h20"><a target="_blank" href="/zs/664093.aspx" class="f14 s-c333">2018年企业主动辞退员工怎么补偿</a></p><p class="h40 s-c999 mt10" title="我们的劳动者在工作中都是与我们的用人单位签订了劳动合同的，在签订劳动合同之后就意味着双方不能随便结束劳动关系，如果解除就需要进行补偿，那么在我国企业主动辞退员工怎么补偿呢？请阅读下面的文章进行了解。">我们的劳动者在工作中都是与我们的用人单位签订了…</p></div> </div> </div>
+<div class="lore-r-item "><a target="_blank" href="/zs/664559.aspx" class="fl mr10"><img src="/images/174129467_P180x120.jpg" alt="2018最新买断工龄政策"></a><p class="h20"><a target="_blank" href="/zs/664559.aspx" class="f14 s-c333">2018最新买断工龄政策</a></p><p class="h40 s-c999 mt10" title="所谓“买断工龄”，是指职工对企业在改制中解除劳动者劳动合同支付经济补偿金的一个通俗说法，如今已经很少听到买断工龄了。但我国关于买断工龄的政策还是存在的，下面小编为大家介绍2018最新买断工龄政策。">所谓“买断工龄”，是指职工对企业在改制中解除劳…</p></div><div class="lore-r-item mt20"><a target="_blank" href="/zs/649748.aspx" class="fl mr10"><img src="/images/1636210458993_P180x120.jpg" alt="最新民事诉讼法司法解释全文2017"></a><p class="h20"><a target="_blank" href="/zs/649748.aspx" class="f14 s-c333">最新民事诉讼法司法解释全文2017</a></p><p class="h40 s-c999 mt10" title="民事诉讼法司法解释修改了哪些内容呢?2015年2月4日，最高人民法院发布了最高法关于适用《中华人民共和国民事诉讼法》的司法解释，下面，律师365小编为您提供2015年最新民事诉讼法司法解释全文。">民事诉讼法司法解释修改了哪些内容呢?2015年…</p></div><div class="lore-r-item mt20"><a target="_blank" href="/zs/664093.aspx" class="fl mr10"><img src="/images/1534593405965_P180x120.jpg" alt="2018年企业主动辞退员工怎么补偿"></a><p class="h20"><a target="_blank" href="/zs/664093.aspx" class="f14 s-c333">2018年企业主动辞退员工怎么补偿</a></p><p class="h40 s-c999 mt10" title="我们的劳动者在工作中都是与我们的用人单位签订了劳动合同的，在签订劳动合同之后就意味着双方不能随便结束劳动关系，如果解除就需要进行补偿，那么在我国企业主动辞退员工怎么补偿呢？请阅读下面的文章进行了解。">我们的劳动者在工作中都是与我们的用人单位签订了…</p></div> </div> </div>
 </div> <div class="lr-list-r fl">
 <p class="f20 s-c333 lh24">最新法律知识</p><ul class="art-list2 mt10">
 <li><span class="s-cbbb fr ml20">2018-07-04</span><a target="_blank" href="/zs/915579.aspx">在一起十年没有结婚证算事实婚姻吗</a></li> <li><span class="s-cbbb fr ml20">2018-06-20</span><a target="_blank" href="/zs/669694.aspx">危害公共安全罪怎么理解2018</a></li> <li><span class="s-cbbb fr ml20">2018-06-13</span><a target="_blank" href="/zs/637107.aspx">农村违法建筑怎么处理?</a></li> <li><span class="s-cbbb fr ml20">2018-06-13</span><a target="_blank" href="/zs/628237.aspx">医疗事故赔偿金最低标准是多少？</a></li> <li><span class="s-cbbb fr ml20">2018-06-07</span><a target="_blank" href="/zs/915578.aspx">公诉的普通程序是什么?</a></li> <li class="borb0"><span class="s-cbbb fr ml20">2018-06-07</span><a target="_blank" href="/zs/915577.aspx">应该怎么订立遗嘱 伪造遗嘱会丧失继承权吗</a></li> </ul>
 </div> </div></div>
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="in-slide p-r">
         <h2 class="in-slide-title o-h"></h2>
         <br>
@@ -241,30 +252,11 @@ $(function(){
             <div class="sb-inner"> </div>
         </div>
         <div class="in-brand-title"></div>
-        <div class="in-brand-btns"> <a href="javascript:void(0)" class="BizQQWPA" id="BizQQWPAExpect">您对易法通的期望是什么？</a> <a target="_blank" href="/p/falvguwen">了解更多，点我</a> </div>
+        <div class="in-brand-btns"> <a href="javascript:void(0)" class="BizQQWPA" id="BizQQWPAExpect">您对全网法务服务的期望是什么？</a> <a target="_blank" href="/p/falvguwen">了解更多，点我</a> </div>
     </div>
     <div class="in-download"> <span>合同范本下载</span> <a target="_blank" href="/hetong/list/cyjy">创业经营</a> <a target="_blank" href="/hetong/list/ldrs">劳动人事</a> <a target="_blank" href="/hetong/list/zqzw">债权债务</a> <a target="_blank" href="/hetong/list/mmgx">买卖购销</a> <a target="_blank" href="/hetong/list/mmzf">买卖租房</a> <a target="_blank" href="/hetong/list/ssws">诉讼文书</a> <a target="_blank" href="/hetong/list/hhjt">婚姻家庭</a> </div>
 </div>
-<!-- javascript --> 
-<!-- 红包 --> 
-<!-- <div class="fltc-hongbao">
-		<a class="tu hb-tiaodong" href="/p/falvguwen" target="_blank"><img src="/templets/lawyer/images/nhth.jpg" alt="农行特惠"></a>
-</div>
 
-<script type="text/javascript">
-
-$(function(){
-	function hongbao(){
-		var dbd = $(".fltc-hongbao .tu").hasClass('hb-tiaodong');
-		if(!dbd){
-			$(".fltc-hongbao .tu").addClass('hb-tiaodong');
-		}else{
-			$(".fltc-hongbao .tu").removeClass('hb-tiaodong');
-		}
-	}
-	setInterval(hongbao,5000);
-})
-</script> -->
 <footer class="new-foot">
     <div class="nf-main">
         <div class="inner-box p-r">
@@ -280,10 +272,10 @@ $(function(){
                     <a>赔付保障</a> <a>执业认证</a> <a>网站认证</a> </section>
                 <section class="nf-item fl">
                     <h2 class="title">关于我们</h2>
-                    <a class="link-hover" target="_blank" href="/about">关于易法通</a> <a class="link-hover" target="_blank" href="/team">易法通团队</a> <a class="link-hover" target="_blank" href="/Posts/news">易法通新闻</a> </section>
+                    <a class="link-hover" target="_blank" href="/about">关于全网法务服务</a> <a class="link-hover" target="_blank" href="/team">全网法务服务团队</a> <a class="link-hover" target="_blank" href="/Posts/news">全网法务服务新闻</a> </section>
                 <section class="nf-item fl">
                     <h2 class="title">加入我们</h2>
-                    <a class="link-hover" target="_blank" href="/join">加入易法通</a> <a class="link-hover" target="_blank" href="/cooperate">网站合作</a> <a class="link-hover" target="_blank" href="/contact">联系我们</a> </section>
+                    <a class="link-hover" target="_blank" href="/join">加入全网法务服务</a> <a class="link-hover" target="_blank" href="/cooperate">网站合作</a> <a class="link-hover" target="_blank" href="/contact">联系我们</a> </section>
                 <section class="nf-item fl">
                     <h2 class="title">关注我们</h2>
                     <div class="nf-item-code"> <img src="/templets/lawyer/images/code.jpg" alt=""> </div>
@@ -294,7 +286,7 @@ $(function(){
     <div class="nf-link">
         <div class="inner-box">
             <h5> <span>友情链接：</span> <a href="http://www.yifatong.com/Links/add" target="_blank">[申请友链]</a> <a href="http://www.xmrc.com.cn" target="_blank">厦门人才网（官方网站）</a> <a href="http://www.64365.com" target="_blank">律师365</a> <a href="http://www.lawtime.cn/beijing" target="_blank">北京律师</a> <a href="http://www.tmkoo.com" target="_blank">商标查询</a> <a href="http://www.chatm.com" target="_blank">商标注册</a> <a href="http://iask.sina.com.cn/c/209.html" target="_blank">爱问法律</a> <a href="http://ishare.iask.sina.com.cn/c/1891.html" target="_blank">法律知识</a> <a href="http://www.gbicom.cn" target="_blank">中国商标网</a> <a href="http://www.job5156.com" target="_blank">人才网</a> <a href="http://ipr.zbj.com/" target="_blank">版权登记</a> <a href="http://china.findlaw.cn/ask/" target="_blank">找律师</a> <a href="http://www.yanedu.com" target="_blank">在职研究生</a> <a href="http://www.ailete.com/" target="_blank">AB</a> <a href="https://www.lawxp.com/" target="_blank">汇法网</a> <a href="http://www.eduego.com/" target="_blank">在职研究生招生</a> <a href="http://www.3456.cn" target="_blank">信息发布平台</a> <a href="http://www.66law.cn/beijing/" target="_blank">北京律师</a> <a href="http://www.haolietou.com" target="_blank">好猎头</a> </h5>
-            <h4> <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> <a rel="nofollow" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086">闽公网安备35020602000086号</a> <span>版权：易法通股份</span> 
+            <h4> <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> <a rel="nofollow" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086">闽公网安备35020602000086号</a> <span>版权：全网法务服务股份</span> 
                 <!-- WPA Button Begin --> 
                 
                 <!-- WPA Button End --> 
@@ -324,9 +316,7 @@ $(function(){
 });
 
 $('a.BizQQWPA').each(function(index){
-
 	BizQQWPA.addCustom({aty: '1', a: '1001', nameAccount: 4008515666, selector: $(this).attr('id')});
-
 });
 </script> 
 <script type="text/javascript">
@@ -384,11 +374,11 @@ var inSlideItems = [
 },
 {
 	title:"北京圣**科技股份有限公司",
-	container:"和易法通沟通后，合同改的很好，很有敬业精神。易法通这种模式不错，很适合中小企业，就是其实有点好奇这么好听的声音，人长什么样，希望能见到本人，平时好发发红包，互动下表示感谢。"
+	container:"和全网法务服务沟通后，合同改的很好，很有敬业精神。全网法务服务这种模式不错，很适合中小企业，就是其实有点好奇这么好听的声音，人长什么样，希望能见到本人，平时好发发红包，互动下表示感谢。"
 },
 {
 	title:" 华意盟（北京）**有限责任公司 ",
-	container:"易法通的服务模式很好，服务物有所值，很不错，有事都会及时的对接服务，很有商业道德，我们也是刚刚起步的公司，法务经理能够很有耐心地给我们提供了很好的服务，感谢。"
+	container:"全网法务服务的服务模式很好，服务物有所值，很不错，有事都会及时的对接服务，很有商业道德，我们也是刚刚起步的公司，法务经理能够很有耐心地给我们提供了很好的服务，感谢。"
 },
 {
 	title:"晋江市**工程有限公司",
@@ -396,7 +386,7 @@ var inSlideItems = [
 },
 {
 	title:"华意盟（北京）**有限责任公司 ",
-	container:"易法通的服务模式很好，服务物有所值，很不错，有事都会及时的对接服务，很有商业道德，我们也是刚刚起步的公司，法务经理能够很有耐心地给我们提供了很好的服务，感谢。"
+	container:"全网法务服务的服务模式很好，服务物有所值，很不错，有事都会及时的对接服务，很有商业道德，我们也是刚刚起步的公司，法务经理能够很有耐心地给我们提供了很好的服务，感谢。"
 },
 {
 	title:"晋江市**工程有限公司",
@@ -412,17 +402,10 @@ var contractItem = [{
 				url:"/nsht/cyjy/3.html"
 			},
 
-		{
-			item:"劳动合同",
-			url:"L/laodonghetong"
-		},
-		{
-			item:"规章制度审查",
-			url:"p/guizhangzhidu"
-		},
+
 	],
 	bg:"/templets/lawyer/images/1.png",
-	kUrl:"p/guquanjili"
+	kUrl:"/swt/"
 },
 {
 	itemTitle:"劳动用工",

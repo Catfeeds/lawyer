@@ -18,4 +18,17 @@ $typeArr[23] = '刑事辩护';
 $typeArr[24] = '知识产权';
 $typeArr[25] = '人身损害';
 $typeArr[26] = '其他纠纷';
+$typeArr[27] = '法律百科';
+$typeArr[28] = '婚姻家庭';
+$typeArr[29] = '交通事故';
+$typeArr[30] = '刑事辩护';
+$typeArr[31] = '劳动工伤';
+$typeArr[32] = '房产纠纷';
+$typeArr[33] = '债权债务';
+$typeArr[34] = '合同事务';
+$typeArr[35] = '医疗纠纷';
+$typeArr[36] = '公司经营';
+$typeArr[37] = '损害赔偿';
+$typeArr[38] = '知识产权';
+$typeArr[39] = '征地拆迁';
 ?>

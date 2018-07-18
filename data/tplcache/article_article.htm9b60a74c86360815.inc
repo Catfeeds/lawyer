@@ -47,5 +47,8 @@ $z[14]=Array("arclist","\r\n                            <p><a target=\"_blank\" 
 $z[14][4]=array();
 $z[14][4]['titlelen']="30";
 $z[14][4]['row']="6";
+$z[15]=Array("include","",7781,7818);
+$z[15][4]=array();
+$z[15][4]['filename']="footer.htm";
 
 ?>

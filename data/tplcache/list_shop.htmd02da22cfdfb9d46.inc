@@ -1,10 +1,29 @@
 <?php
-$z[0]=Array("list","\r\n                                <li class=\"p-r\"> <span class=\"p-a w5-5\">[field:pubdate function=\"MyDate('Y-m-d',@me)\"/]</span>\r\n                                <div class=\"dot p-a\"></div>\r\n                                <h3 class=\"w4\"> <a class=\"text-darkgray\" href=\"[field:arcurl/]\">[field:title/]</a></h3>\r\n                            </li>\r\n                                ",40425,40841);
+$z[0]=Array("field","",226,248);
 $z[0][4]=array();
-$z[0][4]['pagesize']="10";
-$z[1]=Array("pagelist","",41013,41084);
+$z[0][4]['name']="seotitle";
+$z[1]=Array("global","",249,277);
 $z[1][4]=array();
-$z[1][4]['listitem']="info,index,end,pre,next,pageno";
-$z[1][4]['listsize']="5";
+$z[1][4]['name']="cfg_indexname";
+$z[2]=Array("field","",318,347);
+$z[2][4]=array();
+$z[2][4]['name']="keywords";
+$z[3]=Array("field","",387,445);
+$z[3][4]=array();
+$z[3][4]['name']="description";
+$z[3][4]['function']="html2text(@me)";
+$z[4]=Array("include","",2285,2322);
+$z[4][4]=array();
+$z[4][4]['filename']="header.htm";
+$z[5]=Array("list","\r\n              <li class=\"p-r\"> <span class=\"p-a w5-5\">[field:pubdate function=\"MyDate('Y-m-d',@me)\"/]</span>\r\n                <div class=\"dot p-a\"></div>\r\n                <h3 class=\"w4\"> <a class=\"text-darkgray\" href=\"[field:arcurl/]\">[field:title/]</a></h3>\r\n              </li>\r\n              ",3705,4039);
+$z[5][4]=array();
+$z[5][4]['pagesize']="10";
+$z[6]=Array("pagelist","",4149,4220);
+$z[6][4]=array();
+$z[6][4]['listitem']="info,index,end,pre,next,pageno";
+$z[6][4]['listsize']="5";
+$z[7]=Array("include","",6068,6105);
+$z[7][4]=array();
+$z[7][4]['filename']="footer.htm";
 
 ?>

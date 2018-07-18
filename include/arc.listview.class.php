@@ -241,7 +241,7 @@ class ListView
         
         if(!file_exists($tempfile)||!is_file($tempfile))
         {
-            echo "模板文件不存在，无法解析文档！";
+            echo "模板文件不存在，无法解析文档！".$this->TypeID;
             exit();
         }
         $this->dtp->LoadTemplate($tempfile);

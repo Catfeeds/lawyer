@@ -23,8 +23,14 @@ $fields = array();
   <tr>
   <td align="center">
   <input type='button' class="coolbg np" onClick="location='catalog_do.php?channelid=<?php echo $GLOBALS['channelid']; ?>&cid=<?php echo $GLOBALS['cid']; ?>&dopost=addArchives';" value='添加文档' />
-  
-	<?php echo $GLOBALS['CheckUserSend']; ?>
+  <?php if($adminid==$mid){ ?>
+	<input type='button' class="coolbg np" onClick="location='content_list.php?cid=<?php echo $GLOBALS['cid']; ?>&mid=0';" value='全部文档' />
+	<?php
+}
+else{
+?>
+	<input type='button' class="coolbg np" onClick="location='content_list.php?cid=<?php echo $GLOBALS['cid']; ?>&mid=<?php echo $cuserLogin->getUserID(); ?>';" value='我的文档' />
+	<?php }  echo $GLOBALS['CheckUserSend']; ?>
  <input type='button' class="coolbg np" onClick="location='catalog_main.php';" value='栏目管理' />
  <input type='button' class="coolbg np" name='bb1' onClick="location='makehtml_list.php?cid=<?php echo $GLOBALS['cid']; ?>';" value='更新列表' />
  <input type='button' class="coolbg np" name='bb2' onClick="location='makehtml_archives.php?cid=<?php echo $GLOBALS['cid']; ?>';" value='更新文档' />

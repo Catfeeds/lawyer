@@ -1,6 +1,22 @@
 <?php
-$z[0]=Array("include","",1508,1545);
+$z[0]=Array("field","",226,248);
 $z[0][4]=array();
-$z[0][4]['filename']="header.htm";
+$z[0][4]['name']="seotitle";
+$z[1]=Array("global","",249,277);
+$z[1][4]=array();
+$z[1][4]['name']="cfg_indexname";
+$z[2]=Array("field","",318,347);
+$z[2][4]=array();
+$z[2][4]['name']="keywords";
+$z[3]=Array("field","",387,445);
+$z[3][4]=array();
+$z[3][4]['name']="description";
+$z[3][4]['function']="html2text(@me)";
+$z[4]=Array("include","",1232,1269);
+$z[4][4]=array();
+$z[4][4]['filename']="header.htm";
+$z[5]=Array("include","",12808,12845);
+$z[5][4]=array();
+$z[5][4]['filename']="footer.htm";
 
 ?>

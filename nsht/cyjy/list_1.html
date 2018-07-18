@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>创业经营_全网法务服务</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout-new.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-new.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/box.css" />
+<script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/modal.min.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/box.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/iealert.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.web-header .user-box ul > li:nth-of-type(2) div.fl b').click(function(){
+        $('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').show();
+        $('.model-box').show();
+    });
+    $('.model-box').click(function(){
+        $('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').hide();
+        $('.web-header .inner-box .fr > div.dropdown ul.menu').hide();
+        $(this).hide();
+    });
+
+    $('.web-header .inner-box .fr > div.dropdown span').click(function(){
+
+        $('.web-header .inner-box .fr > div.dropdown ul.menu').show();
+
+        $('.model-box').show();
+
+    })
+
+    $("#search-btn").leanModal();
+
+    $("body").iealert();
+
+    $('footer .link .row .inner-box .top-box ul li').click(function(){
+
+        $(this).addClass('click').siblings().removeClass('click');
+
+        var numb = $(this).index()
+
+        $('footer .link .row .inner-box .bottom-box div').eq(numb).show().siblings().hide()
+
+    });
+
+
+});
+
+</script>
+
+<!--nocache:001-->
+
+</head>
+
+<body>
+<script type="text/javascript" src="/templets/lawyer/js/jquery.pin.min.js"></script> 
+<script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function CheckLogin(){
+	  var taget_obj = document.getElementById('_userlogin');
+	  myajax = new DedeAjax(taget_obj,false,false,'','','');
+	  myajax.SendGet2("/member/ajax_loginsta.php");
+	  DedeXHTTP = null;
+	}
+-->
+</script>
+   <header class="new-header">
+    <div class="new-header-jianhangdingbu"> <a href="/" target="_blank"><img src="/templets/lawyer/images/zhaoluyetop.jpg" alt="农行"></a> </div>
+    <div class="nh-info">
+        <div class="inner-box o-h">
+            <div class="nh-info-logo fl"> <a href="/"><img height="60" src="/templets/lawyer/images/yifatonglogo_whithout_word.png" alt="全网法务服务"></a> <span>股票代码（834627）</span> </div>
+            <div class="nh-info-items fr" id="_userlogin"> 
+                <!-- 未登录 --> 
+                <img class="link-flgw" width="189" height="26" src="/templets/lawyer/images/400.png" alt="服务热线" />
+				<a class="link" rel="nofollow" href="/member/login.php" class="load">登录</a> <a class="link" rel="nofollow" href="/member/reg_new.php" class="regist">注册</a>
+                <!-- 登录 --> 
+                <script language="javascript" type="text/javascript">CheckLogin();</script>
+       		</div>
+        </div>
+    </div>
+    <nav class="nh-nav">
+        <div class="inner-box p-r">
+            <div class="nh-nav-container"> <span class="diwei-dizhi"><span class="ico-font"></span><span id="spCurrentCity">上海市</span></span>
+                <div class="nh-nav-item"> <a class="daohang" target="_blank" href="/" class="click">首页</a> </div>
+                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/flgw/">法律顾问<span style="position:absolute;right:0;top:-5px;display:block;width:30px;"><img style="width:100%;" src="/templets/lawyer/images/mark-down.gif" alt="降价"></span></a>
+                    <ol class="p-a">
+                        <li><a class="yaobianse" href="/flgw/">企业法律顾问</a></li>
+                        <li><a class="yaobianse" href="/flgw/">个人法律顾问</a></li>
+                    </ol>
+                </div>
+                <div class="nh-nav-item"> <a class="daohang youbiankuang" target="_blank" href="/nsht/">拟审合同</a>
+                    <div class="nh-nav-item-hide">
+                        <div class="nnih-inner">
+                            <h2>创业经营</h2>
+                            <p><a href="/nsht/cyjy/3.html" class="lianjie" target="_blank">股权转让协议</a></p>
+ </div>
+                        <div class="nnih-inner">
+                            <h2>劳动人事</h2>
+                             </div>
+                        <div class="nnih-inner">
+                            <h2>婚姻家庭</h2>
+                             </div>
+                        <div class="nnih-inner">
+                            <h2>打官司</h2>
+                             </div>
+                        <div class="nnih-tupian"> <a href="/p/laodong"><img src="/templets/lawyer/images/ldht.png" alt="劳动合同"></a> </div>
+                    </div>
+                </div>
+                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/ask">法律咨询</a>
+                    <ol class="p-a">
+                        <li><a class="yaobianse" href="/ask/">在线法律咨询</a></li>
+                        <li><a class="yaobianse" href="/ask/">电话法律咨询</a></li>
+                    </ol>
+                </div>
+                <div class="nh-nav-item"> <a class="daohang youbiankuang" target="_blank" href="/zls/">找律师</a>
+                    <div class="nh-nav-item-hide nh-nav-item-kuan">
+                        <div class="nnih-inner width144"> <p><a href="/zls/ldzc/" class="lianjie" target="_blank">劳动仲裁</a></p><p><a href="/zls/zwjf/" class="lianjie" target="_blank">债务纠纷</a></p><p><a href="/zls/fcjf/" class="lianjie" target="_blank">房产纠纷</a></p> </div>
+                        <div class="nnih-inner width144"> <p><a href="/zls/htjf/" class="lianjie" target="_blank">合同纠纷</a></p><p><a href="/zls/qslh/" class="lianjie" target="_blank">起诉离婚</a></p><p><a href="/zls/jtsg/" class="lianjie" target="_blank">交通事故</a></p> </div>
+                        <div class="nnih-inner width144"> <p><a href="/zls/xsbh/" class="lianjie" target="_blank">刑事辩护</a></p><p><a href="/zls/zscq/" class="lianjie" target="_blank">知识产权</a></p><p><a href="/zls/rssh/" class="lianjie" target="_blank">人身损害</a></p> </div>
+                        <div class="nnih-inner width144">
+                            <p><a href="/zls/qtjf/" class="lianjie" target="_blank">其他纠纷</a></p>
+                        </div>
+                        <div class="nnih-tupian nnih-tupian-xiao"> <a href="/zls/"><img src="/templets/lawyer/images/zhaolvshi.png" alt="找律师"></a> </div>
+                    </div>
+                </div>
+                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/flbk/">法律百科</a></div>
+            </div>
+            <div class="nh-nav-search p-a">
+                <form target="_blank" action="/plus/search.php" method="get">
+                    <input type="text" placeholder="搜索法律问题"  name="keyword" />
+                    <input type="submit" value="" />
+                    <b class="p-a ico-font">&#xf02e;</b>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+ 
+<!-- 问答头部 -->
+
+<div id="lean_overlay">
+  <form class="form-inline p-r" action="/ask/search" method="get">
+    <div class="search-bar">
+      <div class="input-part">
+        <input id="exampleInputEmail2"  type="text" placeholder="搜索在线问答" name="q">
+      </div>
+      <button class="text-white btn btn-link " type="submit"><img width="29" height="25" alt="搜索" src="/templets/lawyer/images/search.png"></button>
+    </div>
+    <div class="inner-box"></div>
+  </form>
+</div>
+<div class="lvshijieda-body">
+  <div class="breadcrumb-box visible-lg">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <p> <span class="icon-font text-blue">&#xe610;</span> <a href="/" class=" text-blue">首页</a> - <a href="/ask" class=" text-blue">在线法律咨询</a> - <span ><a  href="/ask/chuangyejingying" class=" text-blue" >创业经营</a></span> - <span ><a  href="/ask/jingyingguanli" class=" text-blue" >经营管理</a></span> - <span ><a >买卖购销</a></span> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jieda-3-mod">
+    <div class="container">
+      <div class="row">
+        <div class="l-box col-lg-9 col-xs-12">
+          <div class="bg-white">
+            <h5 class=" "> <span>买卖购销</span></h5>
+            <ul class="list-unstyleds">
+              <li class="p-r"> <span class="p-a w5-5">2018-07-05</span>
+                <div class="dot p-a"></div>
+                <h3 class="w4"> <a class="text-darkgray" href="/nsht/cyjy/3.html">股权转让协议</a></h3>
+              </li>
+            </ul>
+            <div class="web-page">
+              <ul class="pagelist">
+                <li><span class="pageinfo">共 <strong>1</strong>页<strong>1</strong>条记录</span></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="r-box col-xs-3 visible-lg">
+          <div class="pin">
+            <div class="inner-bar bg-white text-center">
+              <h2 class="text-center">好服务，敢于邀请你来</h2>
+              <h3 class="text-center">体验</h3>
+              <ol class="list-unstyled">
+                <li class="text-center"> <a href="/ask/add" target="_blank"><img src="/templets/lawyer/images/function-4.png" alt="咨询" /></a>
+                  <p class="text-center">在线专业解答</p>
+                  <a href="/ask/add" target="_blank" class="btn-part">首次咨询免费</a> </li>
+                <li class="text-center"> <a href="/Orders/create/52a960c9b6593"><img src="/templets/lawyer/images/function-3.png" alt="劳动合同" /></a>
+                  <p class="text-center">最新合同范本下载</p>
+                  <a href="/hetong" class="btn-part">首次下载免费</a> </li>
+              </ol>
+              <a href="/Exams" target="_blank" class="btn-bar"> 你给企业做体检了吗 </a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cpgb-fixed"> <a id="BizQQBottomCommon" class="cpgb-fixed-zixun">
+  <p><img src="/templets/lawyer/images/qq.png" alt="QQ"><br>
+    在线咨询</p>
+  </a> <a class="cpgb-fixed-zixun cpgb-fixed-dianhua">
+  <p><span class="ico-font tubiao">&#xea89;</span><br>
+    400电话</p>
+  <span class="zx-haoma"> 4008-515-666 <img src="/templets/lawyer/images/jiantou.png" alt="箭头"> </span> </a> <a class="cpgb-fixed-zixun cpgb-fixed-dingbu">
+  <p><img src="/templets/lawyer/images/dingbu.png" alt="QQ"><br>
+    返回顶部</p>
+  </a> </div>
+
+<!-------------- javascript -------------->
+<div class="model-box p-a" ></div>
+<footer class="new-foot">
+    <div class="nf-main">
+        <div class="inner-box p-r">
+            <div class="nf-message p-a">
+                <h2 class="nf-message-telephone">全国服务热线</h2>
+                <h2 class="nf-message-telephonenumber">4008-515-666</h2>
+                <h2 class="nf-message-fox">传真：0592-3333555</h2>
+                <h2 class="nf-message-address"> <span>地址：</span><a style="margin-left:0;" target="_blank" href="/contact">北京</a>|<a target="_blank" href="/contact">上海</a>|<a target="_blank" href="/contact">厦门</a>|<a target="_blank" href="/contact">深圳</a>|<a target="_blank" href="/contact">重庆</a>|<a target="_blank" href="/contact">苏州</a>|<a target="_blank" href="/contact">杭州</a>|<a target="_blank" href="/contact">全国</a> </h2>
+            </div>
+            <div class="nf-items">
+                <section class="nf-item fl">
+                    <h2 class="title">平台保障</h2>
+                    <a>赔付保障</a> <a>执业认证</a> <a>网站认证</a> </section>
+                <section class="nf-item fl">
+                    <h2 class="title">关于我们</h2>
+                    <a class="link-hover" target="_blank" href="/about">关于全网法务服务</a> <a class="link-hover" target="_blank" href="/team">全网法务服务团队</a> <a class="link-hover" target="_blank" href="/Posts/news">全网法务服务新闻</a> </section>
+                <section class="nf-item fl">
+                    <h2 class="title">加入我们</h2>
+                    <a class="link-hover" target="_blank" href="/join">加入全网法务服务</a> <a class="link-hover" target="_blank" href="/cooperate">网站合作</a> <a class="link-hover" target="_blank" href="/contact">联系我们</a> </section>
+                <section class="nf-item fl">
+                    <h2 class="title">关注我们</h2>
+                    <div class="nf-item-code"> <img src="/templets/lawyer/images/code.jpg" alt=""> </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="nf-link">
+        <div class="inner-box">
+            <h5> <span>友情链接：</span> <a href="http://www.yifatong.com/Links/add" target="_blank">[申请友链]</a> <a href="http://www.xmrc.com.cn" target="_blank">厦门人才网（官方网站）</a> <a href="http://www.64365.com" target="_blank">律师365</a> <a href="http://www.lawtime.cn/beijing" target="_blank">北京律师</a> <a href="http://www.tmkoo.com" target="_blank">商标查询</a> <a href="http://www.chatm.com" target="_blank">商标注册</a> <a href="http://iask.sina.com.cn/c/209.html" target="_blank">爱问法律</a> <a href="http://ishare.iask.sina.com.cn/c/1891.html" target="_blank">法律知识</a> <a href="http://www.gbicom.cn" target="_blank">中国商标网</a> <a href="http://www.job5156.com" target="_blank">人才网</a> <a href="http://ipr.zbj.com/" target="_blank">版权登记</a> <a href="http://china.findlaw.cn/ask/" target="_blank">找律师</a> <a href="http://www.yanedu.com" target="_blank">在职研究生</a> <a href="http://www.ailete.com/" target="_blank">AB</a> <a href="https://www.lawxp.com/" target="_blank">汇法网</a> <a href="http://www.eduego.com/" target="_blank">在职研究生招生</a> <a href="http://www.3456.cn" target="_blank">信息发布平台</a> <a href="http://www.66law.cn/beijing/" target="_blank">北京律师</a> <a href="http://www.haolietou.com" target="_blank">好猎头</a> </h5>
+            <h4> <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> <a rel="nofollow" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086">闽公网安备35020602000086号</a> <span>版权：全网法务服务股份</span> 
+                <!-- WPA Button Begin --> 
+                
+                <!-- WPA Button End --> 
+                
+            </h4>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

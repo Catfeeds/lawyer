@@ -38,7 +38,7 @@ $(function(){
   </a> </div>
 <!-------------- javascript -------------->
 <div class="diannao-mianbaoxie">
-  <p><span class="ico-font tubiao">&#xea47;</span><a href="/" target="_blank">首页</a> - <a href="/nsht/" target="_blank"><span>合同起草审查</span></a> - <a>股权转让协议</a></p>
+  <p><span class="ico-font tubiao">&#xea47;</span>{dede:field name='position'/}</p>
 </div>
 <div class="pc-chanpingaiban">
   <div class="cpgb-banner">
@@ -74,11 +74,11 @@ $(function(){
         <p>互联网+法律电商上市品牌，10年致力于中小企业法律风险预防管理，专业值得信赖</p>
       </div>
       <div class="r-jiage">
-        <h2>市<span class="jianju">场</span>价：<del>&yen; 1500-3000</del></h2>
-        <p>价<span class="zjianju">格</span>：<span class="hongse">&yen; <span class="hongda" id='spProductPrice'>488</span>元</span> <span class="xianshi"> <span class="sanjiao"></span> 限时抢购 </span> </p>
+        <h2>市<span class="jianju">场</span>价：<del>&yen; {dede:field.price/}</del></h2>
+        <p>现<span class="zjianju">价</span>：<span class="hongse">&yen; <span class="hongda" id='spProductPrice'>{dede:field.trueprice/}</span>元</span> <span class="xianshi"> <span class="sanjiao"></span> 限时抢购 </span> </p>
       </div>
       <div class="r-yifuwu">
-        <p>已<span class="jianju">服</span>务：<span class="lanse">3351</span><span class="shuxian">|</span><a href="javascript:void(0)" onclick="openZoosUrl();LR_HideInvite();return false;" rel="nofollow" target="_blank">已<span class="jianju">咨</span>询：<span class="lanse">9548</span></a><span class="shuxian">|</span><a href="#gogo4">累计评价：<span class="lanse">1258</span></a></p>
+        <p>已<span class="jianju">服</span>务：<span class="lanse"><script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></span><span class="shuxian">|</span><a href="javascript:void(0)" onclick="openZoosUrl();LR_HideInvite();return false;" rel="nofollow" target="_blank">已<span class="jianju">咨</span>询：<span class="lanse">9548</span></a><span class="shuxian">|</span><a href="#gogo4">累计评价：<span class="lanse">1258</span></a></p>
       </div>
       <div class="r-button" style='position:relative;'>
         <div class="btn-inner"> 增值服务： <span class="huikuang chengkuang meitishi-box">普通：一个工作日</span> <span class="huikuang tishi-box"> 合同加急（加收65%）

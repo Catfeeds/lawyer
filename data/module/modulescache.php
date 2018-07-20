@@ -9,5 +9,6 @@ $GLOBALS['allmodules']['81323e93cd52ecce9f175b6aa46f5cfd']='81323e93cd52ecce9f17
 $GLOBALS['allmodules']['acb8b88eb4a6d4bfc375c18534f9439e']='acb8b88eb4a6d4bfc375c18534f9439e.xml';
 $GLOBALS['allmodules']['b437d85a7a7bc778c9c79b5ec36ab9aa']='b437d85a7a7bc778c9c79b5ec36ab9aa.xml';
 $GLOBALS['allmodules']['be722dbfa3cb3cb5628aab2d767ff62e']='be722dbfa3cb3cb5628aab2d767ff62e.xml';
+$GLOBALS['allmodules']['cf87f4f4f34dee00b46fedb99f35d174']='cf87f4f4f34dee00b46fedb99f35d174.xml';
 $GLOBALS['allmodules']['fcd00dbb5a51d65aff6c248d221d8bcd']='fcd00dbb5a51d65aff6c248d221d8bcd.xml';
 ?>

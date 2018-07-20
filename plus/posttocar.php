@@ -20,6 +20,12 @@ if($do == 'add')
     /*
     function addItem();                add a product to car
     */
+	if($_POST['choose']==0 || $_POST['choose']==1){
+		$choose = $_POST['choose'];
+	}else{
+		$choose = "请重新选择";
+	}
+
     $buynum = isset($buynum) && is_numeric($buynum) ? $buynum : 1;
     $id =empty($id)? "" : intval($id);
     $buynum = ($buynum < 1) ? 1 : $buynum;
@@ -30,7 +36,11 @@ if($do == 'add')
         exit();
     }
     $cts = GetChannelTable($rs['channel']);
-    $rows = $dsql->GetOne("SELECT aid as id,trueprice as price,units FROM `$cts[addtable]` WHERE aid='$id'");
+	if($choose ==0){
+		$rows = $dsql->GetOne("SELECT aid as id,trueprice as price,units FROM `$cts[addtable]` WHERE aid='$id'");
+	}elseif($choose ==1){
+		$rows = $dsql->GetOne("SELECT aid as id,jiaji as price,units FROM `$cts[addtable]` WHERE aid='$id'");
+	}
     if(!is_array($rows))
     {
         ShowMsg("该商品已不存在！","-1");
@@ -39,7 +49,8 @@ if($do == 'add')
     $rows['buynum'] = $buynum;
     $rows['title']     = $rs['title'];
     $cart->addItem($id, $rows);
-    ShowMsg("已添加加到购物车,<a href='car.php'>查看购物车</a>","car.php");
+    // ShowMsg("已添加加到购物车,<a href='car.php'>查看购物车</a>","car.php");
+	header("location:carbuyaction.php");
     exit();
 }
 elseif($do == 'del')
@@ -89,7 +100,12 @@ elseif($do == 'update')
             $rs = $dsql->GetOne("SELECT id,channel,title FROM #@__archives WHERE id='$id'");
             if(!is_array($rs)) continue;
             $cts = GetChannelTable($rs['channel']);
-            $rows = $dsql->GetOne("SELECT aid as id,trueprice as price,units FROM `$cts[addtable]` WHERE aid='$id'");
+			if($choose ==0){
+				$rows = $dsql->GetOne("SELECT aid as id,trueprice as price,units FROM `$cts[addtable]` WHERE aid='$id'");
+			}elseif($choose ==1){
+				$rows = $dsql->GetOne("SELECT aid as id,jiaji as price,units FROM `$cts[addtable]` WHERE aid='$id'");
+			}
+            
             if(!is_array($rows)) continue;
             $rows['buynum'] = intval(${'buynum'.$id});
             if($rows['buynum'] < 1)
@@ -102,6 +118,6 @@ elseif($do == 'update')
             $cart->addItem($id, $rows);
         }
     }
-    ShowMsg("购物车中商品已全部更新！","car.php");
+    ShowMsg("购物车中商品已全部更新！","carbuyaction.php");
     exit;
 }

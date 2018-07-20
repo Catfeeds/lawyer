@@ -57,6 +57,9 @@ class MemberShops
      */
     function addItem($id, $value)
     {
+		//先清空购物车，清空cookie
+		$this->clearItem();
+		//再添加对应商品
         $this->productsId = DE_ItemEcode.$id;
         $this->saveCookie($this->productsId,$value);
     }

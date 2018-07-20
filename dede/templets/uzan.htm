@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>织梦个人网站支付插件</title>
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <h2>织梦个人网站支付插件 V<?php echo $ver;?></h2>
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#basic" role="tab" data-toggle="tab">基本设置</a></li>
+    <li role="presentation"><a href="#demo" role="tab" data-toggle="tab">使用示例</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="basic">
+      <table class="table table-bordered">
+        <input type="hidden" name="dopost" value="save">
+          <tr>
+            <th>说明</th>
+          </tr>
+          <?php
+                  if (!function_exists('curl_init')):
+          ?>
+        <tr>
+          <th class="text-danger">错误提示：php没有开启curl！</th>
+        </tr>
+        <?php
+             endif;
+        ?>
+          <tr>
+            <td>《织梦个人网站支付插件》是六久阁发布的即时到账支付插件。无需公司资质，个人均可使用。该插件依托于有赞云服务，信耐度高（不用担心跑路）。支持支付宝、微信、储蓄卡、信用卡等支付方式。钱款直接进入有赞商家店铺余额，商家在有赞店铺后台提现，提现无手续费。费率低，更多费率的说明参考<a href="https://bbs.youzan.com/forum.php?mod=viewthread&tid=295784">有赞官网</a>。
+              <p>当前版本：<?php echo $ver?></p>
+              <p>使用步骤：</p>
+              <ul>
+                <li><a href="http://www.lol9.cn/dedejc/1202.html" target="_blank">点击查看图文详细教程</a></li>
+                <li>1.手机上下载“有赞微小店”APP并完成注册。</li>
+                <li>2.用注册的账号登录<a target="_blank" href="https://console.youzanyun.com/login">有赞云</a>，完善个人信息。</li>
+                <li>3.应用授权。创建完店铺后，再登录到有赞云控制台创建自用型应用并授权刚创建的店铺；</li>
+                <li>4.设置推送网址。在有赞云控制台-<a target="_blank" href="https://console.youzanyun.com/application/setting">应用设置</a> 开启推送服务，推送网址设置为：http://你的域名/plus/uzan_notify.php (注：该网址必须是外网可以访问的网址，不支持本地调试)，勾选交易信息->订单状态事件。</li>
+                <li>5.在织梦后台填写<a target="_blank" href="sys_payment.php?dopost=install&pid=<?php echo $row['id']?>&pm=edit">支付接口配置</a>。</li>
+                <li>6.测试支付。</li>
+                <li>其它：店铺头像在有赞微小店APP->小店->店铺管理中修改。</li>
+              </ul>
+              <p><a target="_blank" href="http://www.lol9.cn/dedecj/1203.html">详情参见</a></p>
+              <p><a class="btn btn-success" id="check-update" href="javascript:;" data-loading-text="正在检查..." >检查更新</a></p>
+            </td>
+          </tr>
+        </table>
+      <h3>支付测试</h3>
+        <form target="_blank" action="uzan.php?dopost=test" method="post" name="form1">
+          <table class="table table-bordered">
+            <tr>
+              <th>支付金额</th>
+              <td><input name="total_fee" type="text" value="0.01" class="form-control"/> </td>
+              <td>单位：元</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <button class="btn btn-primary">测试</button>
+              </td>
+            </tr>
+        </table>
+      </form>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="demo">
+      <h3>说明</h3>
+        <p>
+        如果你使用的是织梦自带的会员中心，你会发现支付方式多了有赞云，只需在支付的时候，选择有赞云这个支付方式就可以实现充值后自动到账及升级会员等功能。
+       </p>
+      <p>
+        如果你没有使用织梦的会员系统，也可以通过以下方式来使用：
+      </p>
+      <h3>简单使用</h3>
+      在需要添加付款按钮的地方添加以下链接（将0.01改成你的支付金额即可）：
+      <pre><code><?php echo $cfg_basehost?>/plus/uzan_pay.php?total_fee=0.01</code></pre>
+      <h3>更多</h3>
+      如需自定义订单号，则添加out_trade_no参数，例如：
+      <pre><code><?php echo $cfg_basehost?>/plus/uzan_pay.php?total_fee=0.01&out_trade_no=123456</code></pre>
+      如需自定义收款理由，则添加subject参数，例如：
+      <pre><code><?php echo $cfg_basehost?>/plus/uzan_pay.php?total_fee=0.01&subject=测试付款</code></pre>
+      也可以带上会员的id，例如：
+      <pre><code><?php echo $cfg_basehost?>/plus/uzan_pay.php?total_fee=0.01&mid=1</code></pre>
+      也可以带上文档的id，例如：
+      <pre><code><?php echo $cfg_basehost?>/plus/uzan_pay.php?total_fee=0.01&aid=1</code></pre>
+      默认的回调处理在<code>/include/payment/uzan.php</code>文件中，如有特殊需求，可以修改里面的respond方法即可。
+    </div>
+  </div>
+  <br>
+  <h5 class="text-center">Powered by <a href="http://www.lol9.cn/"><span class="label label-primary">六久阁</span></a></h5>
+  <br>
+</div>
+<script>
+  $(function () {
+      $("#check-update").click(function () {
+          $(this).button('loading');
+          checkUpdate();
+      });
+  });
+
+  function checkUpdate() {
+      var url = 'uzan_update.php';
+      $.getJSON(url,{'action':'update'},function (data) {
+          if(data.code==1){
+              layer.confirm('检查到新版本，是否更新？', {
+                  btn: ['立即更新','暂不更新'] //按钮
+              }, function(){
+                  layer.open({
+                      type: 2,
+                      title: '正在升级，请勿关闭',
+                      shadeClose: true,
+                      shade: false,
+                      maxmin: false, //开启最大化最小化按钮
+                      area: ['500px', '300px'],
+                      content: 'uzan_update.php?action=doUpdate'
+                  });
+                  ("#check-update").button('reset');
+              }, function(){
+                  layer.closeAll();
+                  $("#check-update").button('reset');
+              });
+          }else{
+              layer.msg('当前已是最新版本');
+              $("#check-update").button('reset');
+          }
+      });
+  }
+</script>
+</body>
+</html>

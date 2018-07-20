@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>织梦个人网站支付插件</title>
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <style>
+    .pagelistbox {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .pagelistbox {
+      display: inline-block;
+      padding-left: 0;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .pagelistbox a{
+      position: relative;
+      float: left;
+      padding: 6px 12px;
+      margin-left: -1px;
+      line-height: 1.42857143;
+      color: #337ab7;
+      text-decoration: none;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin-left: 0;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      color: #777;
+      background-color: #fff;
+      border-color: #ddd;
+    }
+
+    .pagelistbox strong, .pagelistbox a:hover {
+      float: left;
+      line-height: 1.42857143;
+      padding: 6px 12px;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      z-index: 3;
+      color: #fff;
+      cursor: default;
+      background-color: #337ab7;
+      border-color: #337ab7;
+      cursor: pointer;
+    }
+    .search {
+      margin: 0px 0px 10px 0px;
+      padding: 8px;
+      border: solid 1px #E5E5E5;
+      background-color: #FFF;
+      border-radius: 3px;
+      box-shadow: 1px 1px 2px 0px rgba(222,222,222,0.5);
+    }
+    .search input[name="search"] {
+      height: 30px;
+    }
+    .search input {
+      border: 1px solid #D5D5D5;
+    }
+    .badge-success, .label-success {
+      background-color: #82af6f!important;
+    }
+    .show_more {
+      float: left;
+      border-bottom: solid 1px #8FD5FF;
+      background-color: #FFF;
+      margin-top: -5px;
+      width: 100%;
+    }
+    .tb_data .mouseout {
+      background-color: #E6EBEC;
+    }
+    .tb_data td:last-child {
+      border-bottom: none;
+    }
+    .tb_data td {
+      height: 25px;
+      font-size: 14px;
+      background-color: #FFF;
+      padding: 5px 5px;
+      border-bottom: solid 1px #EEE;
+    }
+    .table-bordered, td, th {
+      border-radius: 0!important;
+    }
+    .tb_data th {
+      text-align: center;
+      background-color: #F5F5F5!important;
+      height: 35px;
+      border-bottom: solid 1px #EEE!important;
+    }
+    .table-valign-middle td, th {
+      vertical-align: middle!important;
+    }
+    .show_more th {
+      border-bottom: 1px solid #FFF;
+    }
+    .table th,.table td{text-align: center}
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <!-- Tab panes -->
+  <h2>订单列表</h2>
+  <div class="row">
+    <div class="search">
+      <form action="" method="post" name="search" id="search">
+      <table width="100%" align="center">
+        <tbody id="show_search">
+        <tr>
+          <td><label>搜索关键词
+            <input name="search" type="text">
+          </label>
+            <label>
+              <input name="field" type="radio" id="radio1" value="subject" checked="checked">
+              订单标题</label>
+            <label>
+              <input name="field" type="radio" id="radio2" value="out_trade_no">
+              订单号</label>
+            <label>
+              <input type="radio" name="field" id="radio3" value="tid">
+              有赞订单号</label>
+            <label>
+              <input type="radio" name="field" id="radio4" value="outer_tid">
+              外部交易编号</label>
+            <label><input type="radio" name="field" id="radio5" value="transaction_tid">
+              支付流水号</label>
+            <label><input type="radio" name="field" id="radio6" value="pay_at">
+              付款时间</label>
+            <input class="btn btn-primary" type="submit" name="button" id="button" value="搜索"></td>
+        </tr>
+        </tbody>
+      </table>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-bordered">
+      <tr>
+        <th>详</th>
+        <th>订单名称</th>
+        <th>订单号</th>
+        <th>付款金额</th>
+        <th>付款类型</th>
+        <th>付款时间</th>
+        <th>创建时间</th>
+        <th>状态</th>
+      </tr>
+     <?php
+        foreach($dataList as $row):
+      ?>
+      <tr>
+        <td align="center" style="font-size: 16px;"><a href="javascript:;" onclick="showDetail(this)" data-id="<?php echo $row['id']?>"><i class="glyphicon glyphicon-plus-sign"></i></a></td>
+        <td><?php echo $row['subject']?></td>
+        <td><?php echo $row['out_trade_no']?></td>
+        <td><?php echo $row['total_fee']?></td>
+        <td><?php echo $row['pay_type']?></td>
+        <td><?php echo $row['pay_at']?></td>
+        <td><?php echo $row['created_at']?></td>
+        <td><?php echo $row['status']?></td>
+      </tr>
+      <tr id="show_<?php echo $row['id']?>" style="display:none" class="mouseout tb_data">
+        <td colspan="11">
+          <table width="100%" border="0" cellpadding="3" cellspacing="1" class="show_more">
+            <tbody><tr class="mouseout">
+              <th colspan="4">订单详细信息 &gt;&gt;&gt;</th>
+            </tr>
+            <tr class="mouseout">
+              <th>订单号</th>
+              <td><?php echo $row['out_trade_no']?></td>
+              <th>有赞订单号</th>
+              <td><?php echo $row['tid']?></td>
+            </tr>
+            <tr class="mouseout">
+              <th>外部交易编号</th>
+              <td><?php echo $row['outer_tid']?></td>
+              <th>支付流水号</th>
+              <td><?php echo $row['transaction_tid']?></td>
+            </tr>
+            <tr class="mouseout">
+              <th>会员id</th>
+              <td>
+			  <?php
+				if($row['mid']):
+			  ?>
+			  <a href="member_view.php?id=<?php echo $row['mid']?>"><?php echo $row['mid']?></a>
+			  <?php
+				else:
+			  ?>
+			  无
+			  <?php
+				endif;
+			  ?>
+			  </td>
+              <th>会员名称</th>
+              <td>
+			  <?php
+				if($row['mid']):
+			  ?>
+			  <a href="member_view.php?id=<?php echo $row['mid']?>"><?php echo getUserName($row['mid'])?></a>
+			  <?php
+				else:
+			  ?>
+			  <?php echo getUserName($row['mid'])?>
+			  <?php
+				endif;
+			  ?>
+			  </td>
+
+            </tr>
+            <tr class="mouseout">
+              <th>文档id</th>
+              <td><?php echo $row['aid'] ? $row['aid'] : '无'?></td>
+              <th>文档标题</th>
+              <td><?php echo getArcTitles($row['aid'])?></td>
+            </tr>
+            </tbody></table>
+        </td>
+      </tr>
+     <?php
+        endforeach;
+    ?>
+    </table>
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <?php
+          if($page-1>0):
+        ?>
+        <li>
+          <a href="?dopost=order&page=<?php echo $page-1?>" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <?php
+          else:
+        ?>
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        <?php
+          endif;
+        ?>
+        <?php
+          for($i=0;$i<$pageCount;$i++):
+        ?>
+        <li class="<?php echo ($page-1)==$i ? 'active' : ''?>"><a href="?dopost=order&page=<?php echo $i+1?>"><?php echo $i+1?></a></li>
+        <?php
+          endfor;
+        ?>
+        <?php
+          if($page+1>$pageCount):
+        ?>
+        <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+        <?php
+          else:
+        ?>
+        <li>
+          <a href="?dopost=order&page=<?php echo $page+1?>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <?php
+          endif;
+        ?>
+      </ul>
+    </nav>
+  </div>
+  <br>
+  <h5 class="text-center">Powered by <a href="http://www.lol9.cn/"><span class="label label-primary">六久阁</span></a></h5>
+  <br>
+</div>
+<script>
+    function showDetail(me)
+    {
+        var id = $(me).data('id');
+        $("#show_"+id).toggle();
+        if($(me).find('i').hasClass('glyphicon-plus-sign')){
+            $(me).find("i").removeClass('glyphicon-plus-sign');
+            $(me).find("i").addClass('glyphicon-minus-sign');
+        }else{
+            $(me).find("i").addClass('glyphicon-plus-sign');
+            $(me).find("i").removeClass('glyphicon-minus-sign');
+        }
+    }
+</script>
+</body>
+</html>

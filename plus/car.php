@@ -10,7 +10,7 @@
  * @link           http://www.dedecms.com
  */
 require_once (dirname(__FILE__) . "/../include/common.inc.php");
-define('_PLUS_TPL_', DEDEROOT.'/templets/plus');
+define('_PLUS_TPL_', DEDEROOT.'/templets/lawyer');
 require_once(DEDEINC.'/dedetemplate.class.php');
 require_once DEDEINC.'/shopcar.class.php';
 require_once DEDEINC.'/memberlogin.class.php';

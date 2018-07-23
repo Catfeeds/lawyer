@@ -54,13 +54,13 @@ $z[16][4]['name']="title";
 $z[17]=Array("field","",7889,7912);
 $z[17][4]=array();
 $z[17][4]['name']="trueprice";
-$z[18]=Array("include","",23471,23508);
+$z[18]=Array("include","",23478,23515);
 $z[18][4]=array();
 $z[18][4]['filename']="footer.htm";
-$z[19]=Array("field","",24872,24895);
+$z[19]=Array("field","",24879,24902);
 $z[19][4]=array();
 $z[19][4]['name']="trueprice";
-$z[20]=Array("field","",25200,25219);
+$z[20]=Array("field","",25207,25226);
 $z[20][4]=array();
 $z[20][4]['name']="jiaji";
 

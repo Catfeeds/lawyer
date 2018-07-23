@@ -15,8 +15,18 @@ $z[3][4]['function']="html2text(@me)";
 $z[4]=Array("include","",1232,1269);
 $z[4][4]=array();
 $z[4][4]['filename']="header.htm";
-$z[5]=Array("include","",12808,12845);
+$z[5]=Array("field","",5585,5607);
 $z[5][4]=array();
-$z[5][4]['filename']="footer.htm";
+$z[5][4]['name']="typename";
+$z[6]=Array("list","\r\n    <div class=\"wz-zhengwen\">\r\n      <h3><span class=\"chengdi\"></span><a target=\"_blank\" href=\"[field:arcurl/]\">[field:title/]</a></h3>\r\n      <p><a target=\"_blank\" href=\"[field:arcurl/]\">[field:description/]</a></p>\r\n      <h4>分类：<a href=\"[field:arcurl/]\">[field:typename/]</a><span class=\"jiange\">阅读：[field:click/]次</span>\r\n        <time>[field:pubdate function=\"GetDateTimeMK(@me)\"/]</time>\r\n      </h4>\r\n    </div>\r\n    ",5619,6096);
+$z[6][4]=array();
+$z[6][4]['pagesize']="10";
+$z[7]=Array("pagelist","",6165,6243);
+$z[7][4]=array();
+$z[7][4]['listitem']="info,index,end,pre,next,pageno,option";
+$z[7][4]['listsize']="5";
+$z[8]=Array("include","",6824,6861);
+$z[8][4]=array();
+$z[8][4]['filename']="footer.htm";
 
 ?>

@@ -1,17 +1,6 @@
 <!--
 $(document).ready(function()
 {
-	//用户类型
-	if($('.usermtype2').attr("checked")==true) $('#uwname').text('公司名称：'); 
-	$('.usermtype').click(function()
-	{
-		$('#uwname').text('用户笔名：');
-	});
-	$('.usermtype2').click(function()
-	{
-		$('#uwname').text('公司名称：');
-	});
-	//checkSubmit
 	$('#regUser').submit(function ()
 	{
 		if(!$('#agree').get(0).checked) {
@@ -23,22 +12,15 @@ $(document).ready(function()
 			alert("用户名不能为空！");
 			return false;
 		}
+		if($('#txtPhone').val()==""){
+			$('#txtPhone').focus();
+			alert("手机号不能为空！");
+			return false;
+		}
 		if($('#txtPassword').val()=="")
 		{
 			$('#txtPassword').focus();
 			alert("登陆密码不能为空！");
-			return false;
-		}
-		if($('#userpwdok').val()!=$('#txtPassword').val())
-		{
-			$('#userpwdok').focus();
-			alert("两次密码不一致！");
-			return false;
-		}
-		if($('#uname').val()=="")
-		{
-			$('#uname').focus();
-			alert("用户昵称不能为空！");
 			return false;
 		}
 		if($('#vdcode').val()=="")
@@ -47,80 +29,38 @@ $(document).ready(function()
 			alert("验证码不能为空！");
 			return false;
 		}
-	})
-	
-	//AJAX changChickValue
+	});
+	//验证用户名是否被注册
 	$("#txtUsername").change( function() {
 		$.ajax({type: reMethod,url: "index_do.php",
 		data: "dopost=checkuser&fmdo=user&cktype=1&uid="+$("#txtUsername").val(),
 		dataType: 'html',
-		success: function(result){$("#_userid").html(result);}}); 
+		success: function(result){$("#_usercfrm").html(result);}});
+		return false;
 	});
-	
-	/*
-	$("#uname").change( function() {
-		$.ajax({type: reMethod,url: "index_do.php",
-		data: "dopost=checkuser&fmdo=user&cktype=0&uid="+$("#uname").val(),
-		dataType: 'html',
-		success: function(result){$("#_uname").html(result);}}); 
-	});
-	*/
-	
-	$("#email").change( function() {
-		var sEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-		if(!sEmail.exec($("#email").val()))
+	//验证手机号是否被注册
+	$("#txtPhone").change( function() {
+		//匹配手机号
+		var reg2 =/1[3,4,5,7,8]\d{9}$/g;
+		if(!reg2.exec($("#txtPhone").val()))
 		{
-			$('#_email').html("<font color='red'><b>×Email格式不正确</b></font>");
-			$('#email').focus();
+			$('#_usercfrm').html("<span class='icon-font'></span><b>请输入正确格式的手机号码！</b>");
+			$('#txtPhone').focus();
 		}else{
 			$.ajax({type: reMethod,url: "index_do.php",
-			data: "dopost=checkmail&fmdo=user&email="+$("#email").val(),
+			data: "dopost=checkphone&fmdo=user&phone="+$("#txtPhone").val(),
 			dataType: 'html',
-			success: function(result){$("#_email").html(result);}}); 
+			success: function(result){$("#_usercfrm").html(result);}});
+			$('#txtPhone').focus();
 		}
 	});	
-	
+	//验证密码
 	$('#txtPassword').change( function(){
 		if($('#txtPassword').val().length < pwdmin)
 		{
-			$('#_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
+			$('#_usercfrm').html("<span class='icon-font'></span><b>密码不能小于"+pwdmin+"位</b>");
+			return false;
 		}
-		else if($('#userpwdok').val()!=$('txtPassword').val())
-		{
-			$('#_userpwdok').html("<font color='red'><b>×两次输入密码不一致</b></font>");
-		}
-		else if($('#userpwdok').val().length < pwdmin)
-		{
-			$('#_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
-		}
-		else
-		{
-			$('#_userpwdok').html("<font color='#4E7504'><b>√填写正确</b></font>");
-		}
-	});
-	
-	$('#userpwdok').change( function(){
-		if($('#txtPassword').val().length < pwdmin)
-		{
-			$('#_userpwdok').html("<font color='red'><b>×密码不能小于"+pwdmin+"位</b></font>");
-		}
-		else if($('#userpwdok').val()=='')
-		{
-			$('#_userpwdok').html("<b>请填写确认密码</b>");
-		}
-		else if($('#userpwdok').val()!=$('#txtPassword').val())
-		{
-			$('#_userpwdok').html("<font color='red'><b>×两次输入密码不一致</b></font>");
-		}
-		else
-		{
-			$('#_userpwdok').html("<font color='#4E7504'><b>√填写正确</b></font>");
-		}
-	});
-	
-	$("a[href*='#vdcode'],#vdimgck").bind("click", function(){
-		$("#vdimgck").attr("src","../include/vdimgck.php?tag="+Math.random());
-		return false;
 	});
 });
 -->

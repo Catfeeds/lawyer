@@ -3,245 +3,259 @@ if(!isset($GLOBALS['_vars'])) $GLOBALS['_vars'] = array();
 $fields = array();
 ?><!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>企业法律顾问+律师上门 - 创建订单 - 全网法务服务</title>
-	<link href="/favicon.ico" type="image/x-icon" rel="icon" />
-	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-xin.css?v=201805021933" />
-	<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/box.css" />
-	<script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
-	<!--nocache-->
-	<!--/nocache-->
-	<script>
-	$(function(){
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>企业法律顾问+律师上门 - 创建订单 - 全网法务服务</title>
+<link href="/favicon.ico" type="image/x-icon" rel="icon" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-xin.css?v=201805021933" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/box.css" />
+<script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
+<!--nocache-->
+<!--/nocache-->
+<script>
+$(function(){
 
-		$(".nh-nav-container .nh-nav-item").hover(function() {
+	$(".nh-nav-container .nh-nav-item").hover(function() {
 
-			/* Stuff to do when the mouse enters the element */
+		/* Stuff to do when the mouse enters the element */
 
-			$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
+		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
 
-			$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
 
-		}, function() {
+	}, function() {
 
-			/* Stuff to do when the mouse leaves the element */
+		/* Stuff to do when the mouse leaves the element */
 
-			$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
 
-		});
+	});
 
-	})
-	</script>
-	<script charset="utf-8" src="other/wpa.php"></script>
-	</head>
+})
+</script>
+</head>
 
-	<body>
+<body>
 <?php include $this->CompilerInclude("header.htm");
- ?> 
+ ?>
 <div class="diannao-mianbaoxie">
-        <p><span class="ico-font tubiao">&#xea47;</span><a href="/" target="_blank">首页</a> - <a href="/Orders/index" target="_blank"><span>订单中心</span></a> - <a>订单信息</a></p>
-    </div>
+    <p><span class="ico-font tubiao">&#xea47;</span><a href="/" target="_blank">首页</a> - <a href="/Orders/index" target="_blank"><span>订单中心</span></a> - <a>订单信息</a></p>
+</div>
 <div class="diannao-dingdangaiban">
-        <div class="ddgb-liuchengtu"> 
+    <div class="ddgb-liuchengtu"> 
         
         <!-- 包年顾问流程图 -->
         
         <p class="fkzt"> <span class="zi">确认下单付款</span> <span class="zi">30分钟内客服电话确认</span> <span class="zi">发送服务函、企业风险调查表<span class="bottom-zi">登记对接人联系方式</span></span> <span class="zi">法务对接，开始服务</span> </p>
         <img src="/templets/lawyer/images/liucheng1.png" alt="流程一" /> <!-- 流程图片 确认下单 --> 
-        
-        <!-- <img src="/templets/lawyer/images/liucheng2.png" alt="流程二" />     <!-- 流程图片 --> 
-        
-        <!-- <img src="/templets/lawyer/images/liucheng3.png" alt="流程三" />	   <!-- 流程图片 --> 
-        
     </div>
-        
-        <!-- 定价产品start -->
-        
-        <form action="/Orders/create/54ed8c67b530c" onsubmit="return checkBeforeSubmit()" class="" id="OrderCreateForm" method="post" accept-charset="utf-8">
+    
+    <!-- 定价产品start -->
+    <form id="fixupformid" name="fixupform" action="carbuyaction.php" method="post">
+        <!--<form action="/Orders/create/54ed8c67b530c" onsubmit="return checkBeforeSubmit()" class="" id="OrderCreateForm" method="post" accept-charset="utf-8">-->
         <div style="display:none;">
-                <input type="hidden" name="_method" value="POST"/>
-                <input type="hidden" name="data[_Token][key]" value="43dfe70a5ff492f917bd4f36b42702bd87c35ddf" id="Token1433938365"/>
-            </div>
+            <input name="do" type="hidden" value="clickout">
+        </div>
         <div class="ddgb-shoujian">
-                <div class="ddgb-sj-title">
+            <div class="ddgb-sj-title">
                 <h2>收件信息</h2>
             </div>
-                <div class="ddgb-sj-message " id="addClass">
+            <div class="ddgb-sj-message " id="addClass">
                 <p> <span class="zi"> <span class="hongse">*</span> <span class="jianju">手</span>机： </span>
-                        <input name="data[Order][mobile]" class="kuang" placeholder="律师解答咨询的联系方式" maxLength="40" maxlength="50" type="text" value="" id="OrderMobile" required="required"/>
-                    </p>
+                    <input name="data[Order][mobile]" class="kuang" placeholder="律师解答咨询的联系方式" maxLength="40" maxlength="50" type="text" value="" id="OrderMobile" required="required"/>
+                </p>
                 <p class="unLogin"> <span class="zi"> <span class="hongse">*</span> <span class="yanzheng">验证</span>码： </span>
-                        <input name="data[Order][sms_code]" value="" placeholder="请输入验证码" maxLength="6" class="kuang yzkuang" type="text" id="OrderSmsCode"/>
-                        <input  type="button" class="huoqu btn-sms" id="btn-sms" value="获取短信验证码"/>
-                    </p>
+                    <input name="data[Order][sms_code]" value="" placeholder="请输入验证码" maxLength="6" class="kuang yzkuang" type="text" id="OrderSmsCode"/>
+                    <input  type="button" class="huoqu btn-sms" id="btn-sms" value="获取短信验证码"/>
+                </p>
                 <p class="unLogin">
-                        <input type="button" id="btnSmsLogin" class="lijiyanzheng" value="立即验证"/>
-                    </p>
+                    <input type="button" id="btnSmsLogin" class="lijiyanzheng" value="立即验证"/>
+                </p>
                 <p> <span class="zi"><span class="hongse">*</span><span class="jianju">邮</span>箱：</span>
-                        <input name="data[Order][email]" class="kuang" placeholder="接收律师起草合同的邮箱" maxLength="40" type="text" value="" id="OrderEmail" required="required"/>
-                    </p>
+                    <input name="data[Order][email]" class="kuang" placeholder="接收律师起草合同的邮箱" maxLength="40" type="text" value="" id="OrderEmail" required="required"/>
+                </p>
             </div>
-            </div>
+        </div>
         <div class="ddgb-dingdan">
-                <div class="ddgb-dd-title">
-                <h2>订单详情</h2>
+            <div class="ddgb-dd-title">
+                <h2>订单详情 (编号：<?php echo $GLOBALS['_vars']['carts']['orders_id']; ?>)</h2>
             </div>
-                <div class="ddgb-dd-message">
+            <div class="ddgb-dd-message">
                 <div class="dd-msg-title">
-                        <p>商品信息</p>
-                        <p>服务流程</p>
-                        <p>单价</p>
-                        <p>数量</p>
-                        <p>小计</p>
-                    </div>
-                    <?php  foreach($GLOBALS['Items'] as $key=>$value){ ?>
+                    <p>商品信息</p>
+                    <p>服务流程</p>
+                    <p>单价</p>
+                    <p>数量</p>
+                    <p>小计</p>
+                </div>
+                <?php  foreach($GLOBALS['Items'] as $key=>$value){ ?>
                 <div class="dd-msg-nav">
-                        <div class="msg-nav-shangpin">
+                    <div class="msg-nav-shangpin">
                         <h2><?php echo $value['title']; ?></h2>
                         <p><span class="tu"><img src="/templets/lawyer/images/wuli.png" alt="无理由" /></span>不限次数咨询+不限合同份数</p>
                     </div>
-                        <div class="msg-nav-fuwu">
+                    <div class="msg-nav-fuwu">
                         <p class="lianghang">确认下单付款——30分钟内客服电话确认——发送服务函、企业风险调查表——法务对接，开始服务</p>
                     </div>
-                        <div class="msg-nav-fuwu msg-jiage">
+                    <div class="msg-nav-fuwu msg-jiage">
                         <p>￥<?php echo $value['price']; ?></p>
                     </div>
-                        <div class="msg-nav-shuliang">
+                    <div class="msg-nav-shuliang">
                         <p> <span class="shuzi">1</span> </p>
                     </div>
-                        <div class="msg-nav-fuwu msg-xiaoji">
+                    <div class="msg-nav-fuwu msg-xiaoji">
                         <p><span class="chengse">￥<?php echo $value['price']; ?></span></p>
                     </div>
-                    </div>
-                    <?php  }    ?>
-
-            </div>
-            </div>
+                </div>
+                <?php  }    ?>
+ </div>
+        </div>
         <div class="ddgb-zhifu">
-                <div class="ddgb-zf-title">
+            <div class="ddgb-zf-title">
                 <h2>支付方式</h2>
             </div>
-                <input type="hidden" name="data[Order][payment_type]" value="1" id="OrderPaymentType"/>
-                <input type="hidden" name="data[Order][payment_bank]" value="" id="OrderPaymentBank"/>
-                <div class="ddgb-zf-xuanzhe">
-                <div class="zf-xz-inner ">
-                        <label class="guanlian" for="pay05">微信</label>
-                        <input class="danxuan" type="radio" id="pay05" onclick="confirmWeixinQrcode()" value="10"  name="payment_option">
-                    </div>
+            <!--<table width="100%" border="0" cellpadding="0" cellspacing="0" class="dede_table">
+                <tbody>
+                
+                <?php  foreach($GLOBALS['shops_paymentarr'] as $key=>$value){ ?>
+                <tr onMouseMove="javascript:this.bgColor='#F8F8F8';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
+                    <td width="10%" align="right" style="vertical-align:middle;"><input name="paytype" type="radio" value="<?php echo $value['id']; ?>" /></td>
+                    <td width="20%" valign="middle" style="vertical-align:middle;"> <?php echo $value['name']; ?> </td>
+                    <td width="60%"> <?php echo $value['description']; ?> </td>
+                    <td width="10%" align="center"><span class="fc-f60"><?php echo $value['fee']; ?>元</span></td>
+                </tr>
+                <?php  }    ?>
+
+                    </tbody>
+            </table>-->
+            <div class="ddgb-zf-xuanzhe">
+                <!--<div class="zf-xz-inner ">
+                    <label class="guanlian" for="pay05">微信</label>
+                    <input class="danxuan" type="radio" id="pay05" onclick="confirmWeixinQrcode()" value="10"  name="payment_option">
+                </div>
                 <div class="zf-xz-inner zf-xz-inner-cheng">
-                        <label class="guanlian" for="pay01">支付宝</label>
-                        <input class="danxuan" type="radio" id="pay01" onclick="confirmAlipay()" checked value="1" name="payment_option" >
-                    </div>
+                    <label class="guanlian" for="pay01">支付宝</label>
+                    <input class="danxuan" type="radio" id="pay01" onclick="confirmAlipay()" checked value="1" name="payment_option" >
+                </div>
                 <div class="zf-xz-inner">
-                        <label class="guanlian" for="pay02">信用卡/网银支付</label>
-                        <input class="danxuan" type="radio" id="pay02" onclick="showAlipayNetbankList()" value="2" name="payment_option">
-                    </div>
+                    <label class="guanlian" for="pay02">信用卡/网银支付</label>
+                    <input class="danxuan" type="radio" id="pay02" onclick="showAlipayNetbankList()" value="2" name="payment_option">
+                </div>-->
+                <input type="hidden" name="paytype" value="7" id="OrderPaymentType"/>
+            <input type="hidden" name="data[Order][payment_bank]" value="" id="OrderPaymentBank"/>
+                <?php  foreach($GLOBALS['shops_paymentarr'] as $key=>$value){ ?>
+                <div class="zf-xz-inner ">
+                    <label class="guanlian" for="pay05"  id="pay0<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>
+                    <!--<input class="danxuan" type="radio"  value="<?php echo $value['id']; ?>"  name="payment_option">-->
+                </div>
+                <?php  }    ?>
+
+                
             </div>
-                <div class="ddgb-zf-message">
+            <div class="ddgb-zf-message">
                 <div class="msg-yinhang">
-                        <div class="msg-yh-fuji msg-yh-fuji-show">
+                    <div class="msg-yh-fuji msg-yh-fuji-show">
                         <p>
-                                <label for="img02"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang1.png" alt="工商银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img02" value="ICBCB2C" type="radio" />
-                            </p>
+                            <label for="img02"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang1.png" alt="工商银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img02" value="ICBCB2C" type="radio" />
+                        </p>
                         <p>
-                                <label for="img04"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang2.png" alt="建设银行" /></span><span class="cheng cheng-show"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img04" value="CCB" type="radio" />
-                            </p>
+                            <label for="img04"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang2.png" alt="建设银行" /></span><span class="cheng cheng-show"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img04" value="CCB" type="radio" />
+                        </p>
                         <p>
-                                <label for="img05"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang4.png" alt="农业银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img05" value="ABC" type="radio" />
-                            </p>
+                            <label for="img05"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang4.png" alt="农业银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img05" value="ABC" type="radio" />
+                        </p>
                         <p>
-                                <label for="img09"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang5.png" alt="交通银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img09" value="COMM" type="radio" />
-                            </p>
+                            <label for="img09"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang5.png" alt="交通银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img09" value="COMM" type="radio" />
+                        </p>
                         <p>
-                                <label for="img03"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang6.png" alt="招商银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img03" value="CMB" type="radio" />
-                            </p>
+                            <label for="img03"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang6.png" alt="招商银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img03" value="CMB" type="radio" />
+                        </p>
                         <p>
-                                <label for="img06"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang7.png" alt="兴业银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img06" value="CIB" type="radio" />
-                            </p>
+                            <label for="img06"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang7.png" alt="兴业银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img06" value="CIB" type="radio" />
+                        </p>
                         <p>
-                                <label for="img10"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang9.png" alt="中信银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img10" value="CITIC" type="radio" />
-                            </p>
+                            <label for="img10"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang9.png" alt="中信银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img10" value="CITIC" type="radio" />
+                        </p>
                         <p>
-                                <label for="img08"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang10.png" alt="民生银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img08" value="CMBC" type="radio" />
-                            </p>
+                            <label for="img08"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang10.png" alt="民生银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img08" value="CMBC" type="radio" />
+                        </p>
                         <p>
-                                <label for="img12"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang11.png" alt="光大银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img12" value="CEB-DEBIT" type="radio" />
-                            </p>
+                            <label for="img12"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang11.png" alt="光大银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img12" value="CEB-DEBIT" type="radio" />
+                        </p>
                         <p>
-                                <label for="img07"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang12.png" alt="浦发银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img07" value="SPDB" type="radio" />
-                            </p>
+                            <label for="img07"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang12.png" alt="浦发银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img07" value="SPDB" type="radio" />
+                        </p>
                         <p>
-                                <label for="img11"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang13.png" alt="平安银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img11" value="SPABANK" type="radio" />
-                            </p>
+                            <label for="img11"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang13.png" alt="平安银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img11" value="SPABANK" type="radio" />
+                        </p>
                         <p>
-                                <label for="img01"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang3.png" alt="中国银行" /></span><span class="cheng"></span></label>
-                                <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img01" value="BOCB2C" type="radio" />
-                            </p>
+                            <label for="img01"><span class="yihangtu"><img src="/templets/lawyer/images/yinhang3.png" alt="中国银行" /></span><span class="cheng"></span></label>
+                            <input name="alipay_netbank_option"  onclick="confirmAlipayNetbank()" class="yhradio" id="img01" value="BOCB2C" type="radio" />
+                        </p>
                     </div>
-                        <div class="msg-yh-gengduo">
+                    <div class="msg-yh-gengduo">
                         <h2>更多银行<span class="daosan"></span></h2>
                     </div>
-                    </div>
+                </div>
                 <div class="msg-zhuanzhang">
-                        <p>请汇款至以下账户：</p>
-                        <p>户名：厦门全网法务服务法务信息管理股份有限公司</p>
-                        <p>支付银行：兴业银行厦门思明支行</p>
-                        <p>银行账号：12997 0100100041 905</p>
-                    </div>
+                    <p>请汇款至以下账户：</p>
+                    <p>户名：厦门全网法务服务法务信息管理股份有限公司</p>
+                    <p>支付银行：兴业银行厦门思明支行</p>
+                    <p>银行账号：12997 0100100041 905</p>
+                </div>
             </div>
-                <div class="ddgb-zf-tishi">
+            <div class="ddgb-zf-tishi">
                 <h2>提示：万元以上款项，建议使用微信支付或银行转账（支付宝和网银支付有限额）</h2>
             </div>
-            </div>
+        </div>
         <div class="ddgb-fapiao">
-                <div class="ddgb-fp-title">
+            <div class="ddgb-fp-title">
                 <h2>发票信息</h2>
             </div>
-                
-                <!-- 发票 start -->
-                
-                <div class="ddgb-fp-shifou">
+            
+            <!-- 发票 start -->
+            
+            <div class="ddgb-fp-shifou">
                 <h2>
-                        <label for="OrderInvoiceRequired"><span class="goukuang"><img src="/templets/lawyer/images/dagou.png" alt="打勾" /></span>
+                    <label for="OrderInvoiceRequired"><span class="goukuang"><img src="/templets/lawyer/images/dagou.png" alt="打勾" /></span>
                         <input type="hidden" name="data[Order][invoice_required]" id="OrderInvoiceRequired_" value="不需要"/>
                         <input type="checkbox" name="data[Order][invoice_required]"  value="需要" id="OrderInvoiceRequired" class="fapiao"/>
                         <!-- <input class="fapiao" type="checkbox" id="fapiao" /> --> 
                         
                     </label>
-                        是否需要发票</h2>
+                    是否需要发票</h2>
                 <div class="fp-sf-message">
-                        <div class="msg-input">
+                    <div class="msg-input">
                         <p> <span class="hongse">*</span><span class="youshi">发票抬头：</span>
-                                <input type="radio" name="data[Order][invoice_type]" id="OrderInvoiceType1" value="1" onclick="cleanTitle()" />
-                                <label for="OrderInvoiceType1">个人</label>
-                                <input type="radio" name="data[Order][invoice_type]" id="OrderInvoiceType2" value="2" onclick="cleanTitle()" checked="checked" />
-                                <label for="OrderInvoiceType2">企业</label>
-                                <input name="data[Order][invoice_title]" onfocus="selectTitle()" placeholder="请输入企业名称" class="qiyemingcheng" maxLength="40" maxlength="50" type="text" id="OrderInvoiceTitle"/>
-                            </p>
+                            <input type="radio" name="data[Order][invoice_type]" id="OrderInvoiceType1" value="1" onclick="cleanTitle()" />
+                            <label for="OrderInvoiceType1">个人</label>
+                            <input type="radio" name="data[Order][invoice_type]" id="OrderInvoiceType2" value="2" onclick="cleanTitle()" checked="checked" />
+                            <label for="OrderInvoiceType2">企业</label>
+                            <input name="data[Order][invoice_title]" onfocus="selectTitle()" placeholder="请输入企业名称" class="qiyemingcheng" maxLength="40" maxlength="50" type="text" id="OrderInvoiceTitle"/>
+                        </p>
                         <p id="hideInvoiceTaxpayerId"> <span class="hongse">*</span><span>纳税人识别码：</span>
-                                <input name="data[Order][invoice_taxpayer_id]" placeholder="企业必填" class="qiyemingcheng shoujianren nashuiren" maxLength="40" type="text" id="OrderInvoiceTaxpayerId"/>
-                            </p>
+                            <input name="data[Order][invoice_taxpayer_id]" placeholder="企业必填" class="qiyemingcheng shoujianren nashuiren" maxLength="40" type="text" id="OrderInvoiceTaxpayerId"/>
+                        </p>
                         <p> <span class="hongse">*</span><span class="youshi">收<span class="sanjian">件</span>人：</span>
-                                <input name="data[Order][invoice_recipient]" class="qiyemingcheng shoujianren" maxLength="40" maxlength="50" type="text" id="OrderInvoiceRecipient"/>
-                                <!-- <span class="youjidaofu">发票邮寄，需到付</span> --> 
-                                
-                            </p>
+                            <input name="data[Order][invoice_recipient]" class="qiyemingcheng shoujianren" maxLength="40" maxlength="50" type="text" id="OrderInvoiceRecipient"/>
+                            <!-- <span class="youjidaofu">发票邮寄，需到付</span> --> 
+                            
+                        </p>
                         <p> <span class="hongse">*</span><span class="youshi">地<span class="liangjian">址</span>：</span>
-                                <select name="data[Order][invoice_province]" onchange="locations(this,&#039;city&#039;)" class="dizhikuang" id="OrderInvoiceProvince">
+                            <select name="data[Order][invoice_province]" onchange="locations(this,&#039;city&#039;)" class="dizhikuang" id="OrderInvoiceProvince">
                                 <option value="">选择省份</option>
                                 <option value="110000">北京市</option>
                                 <option value="120000">天津市</option>
@@ -275,69 +289,75 @@ $fields = array();
                                 <option value="640000">宁夏回族自治区</option>
                                 <option value="650000">新疆维吾尔自治区</option>
                             </select>
-                                <select name="data[Order][invoice_city]" id="city" class="dizhikuang" onchange="locations(this,&#039;district&#039;)">
+                            <select name="data[Order][invoice_city]" id="city" class="dizhikuang" onchange="locations(this,&#039;district&#039;)">
                                 <option value="">选择城市</option>
                             </select>
-                                <select name="data[Order][invoice_district]" id="district" class="dizhikuang">
+                            <select name="data[Order][invoice_district]" id="district" class="dizhikuang">
                                 <option value="">选择县,区</option>
                             </select>
-                            </p>
+                        </p>
                         <p class="xiangxidizhi">
-                                <input name="data[Order][invoice_address]" class="qiyemingcheng shoujiandizhi" maxLength="40" maxlength="100" type="text" id="OrderInvoiceAddress"/>
-                                <span class="mianfeiji">（我司会免费为您寄送发票）</span> </p>
+                            <input name="data[Order][invoice_address]" class="qiyemingcheng shoujiandizhi" maxLength="40" maxlength="100" type="text" id="OrderInvoiceAddress"/>
+                            <span class="mianfeiji">（我司会免费为您寄送发票）</span> </p>
                     </div>
-                        <div class="msg-tishi">
+                    <div class="msg-tishi">
                         <h2>温馨提示：</h2>
                         <p>请认真查看上述信息，确保系统关联的开票信息与贵司税务登记证信息一致，避免因开票信息错误给贵司带来损失！</p>
                     </div>
-                    </div>
+                </div>
             </div>
-                <!-- 发票 end -->
-                
-                <div class="ddgb-fp-beizhu">
+            <!-- 发票 end -->
+            
+            <div class="ddgb-fp-beizhu">
                 <p>备注：
-                        <input name="data[Order][note]" class="beizhushuru" maxLength="40" maxlength="500" type="text" id="OrderNote"/>
-                    </p>
+                    <input name="data[Order][note]" class="beizhushuru" maxLength="40" maxlength="500" type="text" id="OrderNote"/>
+                </p>
             </div>
-                <div class="ddgb-jiesuan">
+            <div class="ddgb-jiesuan">
                 <input type="hidden" name="data[Order][credit]" class="kuang" maxLength="40" autocomplete="off" value="0" id="OrderCredit"/>
-                <p>应付金额：<span class="dahong"><span class="youjianju">¥</span> <span class="confirm-price">23220</span></span></p>
-                
+                <p>应付金额：<span class="dahong"><span class="youjianju">¥</span> <span class="confirm-price"><?php echo $GLOBALS['_vars']['carts']['price_count']; ?></span></span></p>
+                <tr>
+                    <td width="180" class="td1">验证码</td>
+                    <td><a name="mate_vdimgck" />
+                        <input name="vdcode" id="vdcode" type="text" class="ipt-txt" size="10" style="text-transform:uppercase;" />
+                        <a href="#mate_vdimgck"><img id="vdimgck_img" src="../include/vdimgck.php" hspace="6" align="absmiddle" onClick="vdimgck();" title="看不清换一张" /></a> <a href="#mate_vdimgck" onClick="vdimgck();">看不清换一张</a></td>
+                </tr>
                 <!-- <p>本次可获得积分<span class="hongse">6</span>分</p> -->
                 
                 <input type="hidden" name="data[Order][added_value]" value="0" id="OrderAddedValue"/>
                 <input type="hidden" name="data[Order][related_id]" value="0" id="OrderRelatedId"/>
                 <p> <span style='margin-right:40px; font-size:18px; color:#ff0000;'>6月世界杯期间特卖，尊享9折优惠</span>
-                        <input  class="tjbtn" disabled="disabled" id="btnPaySubmit" type="submit" value="提交订单"/>
-                    </p>
+                    <input  class="tjbtn" id="btnPaySubmit" type="submit" value="提交订单"/>
+                </p>
             </div>
-            </div>
-        <div style="display:none;">
-                <input type="hidden" name="data[_Token][fields]" value="94e3a478bdfef6e0385450a6ade00fa5b1d1b5a2%3AOrder.added_value%7COrder.credit%7COrder.related_id" id="TokenFields1077991889"/>
-                <input type="hidden" name="data[_Token][unlocked]" value="alipay_netbank_option%7Cpayment_bank%7Cpayment_option%7Cpayment_type" id="TokenUnlocked608144826"/>
-            </div>
+        </div>
     </form>
-        <!-- 定价产品end -->
-        
-        <div class="ddgb-yl-qiye">
+    <!-- 定价产品end --> 
+    <script language="JavaScript" type="text/javascript">
+function vdimgck()
+{
+	document.getElementById("vdimgck_img").src = '../include/vdimgck.php?'+Math.random();
+}
+</script>
+    <div class="ddgb-yl-qiye">
         <div class="tp-da-juzhong">
-                <div class="xieyi-anniu-fuji"> <span class="guanbi"> <img src="/templets/lawyer/images/x.png" alt="关闭"> </span> </div>
-            </div>
+            <div class="xieyi-anniu-fuji"> <span class="guanbi"> <img src="/templets/lawyer/images/x.png" alt="关闭"> </span> </div>
+        </div>
     </div>
-        <div class="ddgb-hongbaotanchuang">
+    <div class="ddgb-hongbaotanchuang">
         <div class="hbtc-inner"> <img src="/templets/lawyer/images/tchb.png" alt="大红包"> <span class="guanbi"><img src="/templets/lawyer/images/close.png" alt="guanbi"></span> <span class="jiage" id='priceNum'>1000</span>
-                <div class="hbtc-input">
+            <div class="hbtc-input">
                 <p>
-                        <input type="text" id='mobile' class="kuang" placeholder="输入手机号领取红包" value="" >
-                    </p>
+                    <input type="text" id='mobile' class="kuang" placeholder="输入手机号领取红包" value="" >
+                </p>
                 <p>
-                        <input type="text" class="kuang input-yzm" id='captcha' placeholder="输入验证码">
-                        <input class="kuang input-hq btn-sms" type="button" id='getSms' value="获取验证码">
-                    </p>
+                    <input type="text" class="kuang input-yzm" id='captcha' placeholder="输入验证码">
+                    <input class="kuang input-hq btn-sms" type="button" id='getSms' value="获取验证码">
+                </p>
                 <span class="kai-btn" id='open'/> </div>
-            </div>
+        </div>
     </div>
-    </div>
+</div>
 
 <!-- 右侧QQ弹框 -->
 
@@ -394,7 +414,7 @@ $(function(){
 
 })
 
-</script> -->
+</script> --> 
 <?php include $this->CompilerInclude("footer.htm");
  ?> 
 <!--  debug --> 
@@ -542,7 +562,7 @@ BizQQWPA.addCustom({aty: '1', a: '0', nameAccount: 4008515666, selector: 'BizQQB
 
 			var total_credit =0;
 
-			var total_price = 23220;
+			var total_price = <?php echo $GLOBALS['_vars']['carts']['price_count']; ?>;
 
 
 

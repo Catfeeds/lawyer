@@ -142,6 +142,7 @@ class MemberLogin
     var $M_MbType;
     var $M_Money;
     var $M_Scores;
+	var $M_Phone;
     var $M_UserName;
     var $M_Rank;
      var $M_Face;
@@ -214,6 +215,7 @@ class MemberLogin
                 $this->M_LoginID = $this->fields['userid'];
                 $this->M_MbType = $this->fields['mtype'];
                 $this->M_Money = $this->fields['money'];
+                $this->M_Phone = $this->fields['phone'];
                 $this->M_UserName = FormatUsername($this->fields['uname']);
                 $this->M_Scores = $this->fields['scores'];
                 $this->M_Face = $this->fields['face'];
@@ -375,6 +377,7 @@ class MemberLogin
         $this->M_Rank = 0;
         $this->M_Face = "";
         $this->M_Money = 0;
+		$this->M_Phone = "";
         $this->M_UserName = "";
         $this->M_LoginTime = 0;
         $this->M_MbType = '';

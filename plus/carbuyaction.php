@@ -86,7 +86,7 @@ if(!isset($dopost) || empty($dopost)){
             ShowMsg("验证码错误！","-1");
             exit();
         }
-        if(empty($address))
+        /*if(empty($address))
         {
             ShowMsg("请填写收货地址！","-1");
             exit();
@@ -95,7 +95,7 @@ if(!isset($dopost) || empty($dopost)){
         {
             ShowMsg("请填写收货人姓名！","-1");
             exit();
-        }
+        }*/
         $paytype    = isset($paytype) && is_numeric($paytype) ? $paytype : 0;
         $pid        = isset($pid) && is_numeric($pid) ? $pid : 0;
         if($paytype < 1)
@@ -103,7 +103,7 @@ if(!isset($dopost) || empty($dopost)){
             ShowMsg("请选择支付方式！","-1");
             exit();
         }
-        if($pid < 1)
+        /*if($pid < 1)
         {
             ShowMsg("请选择配送方式！","-1");
             exit();
@@ -124,7 +124,7 @@ if(!isset($dopost) || empty($dopost)){
             ShowMsg("请填写正确的收货人邮政编码！","-1");
             exit();
         }
-    
+    	*/
         //确认用户登录信息
         if($cfg_ml->IsLogin())
         {

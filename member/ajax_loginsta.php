@@ -18,7 +18,7 @@ $uid  = $cfg_ml->M_LoginID;
 $facepic = empty($face)? $cfg_ml->fields['face'] : $GLOBALS['cfg_memberurl'].'/templets/images/'.$face.'.png';
 ?>
 <img class="link-flgw" width="189" height="26" src="/templets/lawyer/images/400.png" alt="服务热线" />
-<span class="user">您好，<strong><?php echo $cfg_ml->M_UserName; ?></strong></span> <a class="link" href="/member/shops_orders.php" target="_blank"><span class="ico-font"></span>我的订单</a> <a href="/member/index_do.php?fmdo=login&dopost=exit" class="exit link">退出 </a>
+<span class="user">您好，<strong><?php echo $cfg_ml->M_Phone; ?></strong></span> <a class="link" href="/member/shops_orders.php" target="_blank"><span class="ico-font"></span>我的订单</a> <a href="/member/index_do.php?fmdo=login&dopost=exit" class="exit link">退出 </a>
 <!-- <div class="userinfo">
     <div class="welcome">你好：<strong><?php echo $cfg_ml->M_UserName; ?></strong>，欢迎登录 </div>
     <div class="userface">

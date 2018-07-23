@@ -9,82 +9,11 @@
 require_once(dirname(__FILE__)."/config.php");
 if(empty($dopost)) $dopost = '';
 if(empty($fmdo)) $fmdo = '';
-
-/*********************
-function check_email()
-*******************/
-if($fmdo=='sendMail')
-{
-    if(!CheckEmail($cfg_ml->fields['email']) )
-    {
-        ShowMsg('你的邮箱格式有错误！', '-1');
-        exit();
-    }
-    if($cfg_ml->fields['spacesta'] != -10)
-    {
-        ShowMsg('你的帐号不在邮件验证状态，本操作无效！', '-1');
-        exit();
-    }
-    $userhash = md5($cfg_cookie_encode.'--'.$cfg_ml->fields['mid'].'--'.$cfg_ml->fields['email']);
-    $url = $cfg_basehost.(empty($cfg_cmspath) ? '/' : $cfg_cmspath)."/member/index_do.php?fmdo=checkMail&mid={$cfg_ml->fields['mid']}&userhash={$userhash}&do=1";
-    $url = preg_replace("#http:\/\/#i", '', $url);
-    $url = 'http://'.preg_replace("#\/\/#i", '/', $url);
-    $mailtitle = "{$cfg_webname}--会员邮件验证通知";
-    $mailbody = '';
-    $mailbody .= "尊敬的用户[{$cfg_ml->fields['uname']}]，您好：\r\n";
-    $mailbody .= "欢迎注册成为[{$cfg_webname}]的会员。\r\n";
-    $mailbody .= "要通过注册，还必须进行最后一步操作，请点击或复制下面链接到地址栏访问这地址：\r\n\r\n";
-    $mailbody .= "{$url}\r\n\r\n";
-    $mailbody .= "Power by http://www.dedecms.com 织梦内容管理系统！\r\n";
-  
-    $headers = "From: ".$cfg_adminemail."\r\nReply-To: ".$cfg_adminemail;
-    if($cfg_sendmail_bysmtp == 'Y' && !empty($cfg_smtp_server))
-    {
-        $mailtype = 'TXT';
-        require_once(DEDEINC.'/mail.class.php');
-        $smtp = new smtp($cfg_smtp_server,$cfg_smtp_port,true,$cfg_smtp_usermail,$cfg_smtp_password);
-        $smtp->debug = false;
-        $smtp->sendmail($cfg_ml->fields['email'],$cfg_webname ,$cfg_smtp_usermail, $mailtitle, $mailbody, $mailtype);
-    }
-    else
-    {
-        @mail($cfg_ml->fields['email'], $mailtitle, $mailbody, $headers);
-    }
-    ShowMsg('成功发送邮件，请稍后登录你的邮箱进行接收！', '/member');
-    exit();
-}
-else if($fmdo=='checkMail')
-{
-    $mid = intval($mid);
-    if(empty($mid))
-    {
-        ShowMsg('你的效验串不合法！', '-1');
-        exit();
-    }
-    $row = $dsql->GetOne("SELECT * FROM `#@__member` WHERE mid='{$mid}' ");
-    $needUserhash = md5($cfg_cookie_encode.'--'.$mid.'--'.$row['email']);
-    if($needUserhash != $userhash)
-    {
-        ShowMsg('你的效验串不合法！', '-1');
-        exit();
-    }
-    if($row['spacesta'] != -10)
-    {
-        ShowMsg('你的帐号不在邮件验证状态，本操作无效！', '-1');
-        exit();
-    }
-    $dsql->ExecuteNoneQuery("UPDATE `#@__member` SET spacesta=0 WHERE mid='{$mid}' ");
-    // 清除会员缓存
-    $cfg_ml->DelCache($mid);
-    ShowMsg('操作成功，请重新登录系统！', 'login.php');
-    exit();
-}
 /*********************
 function Case_user()
 *******************/
-else if($fmdo=='user')
+if($fmdo=='user')
 {
-
     //检查用户名是否存在
     if($dopost=="checkuser")
     {
@@ -103,19 +32,18 @@ else if($fmdo=='user')
                 $ucresult = uc_user_checkname($uid);
                 if($ucresult > 0)
                 {
-                    echo "<font color='#4E7504'><b>√用户名可用</b></font>";
                 }
                 elseif($ucresult == -1)
                 {
-                    echo "<font color='red'><b>×用户名不合法</b></font>";
+                    echo "<span class='icon-font'></span><b>用户名不合法</b>";
                 }
                 elseif($ucresult == -2)
                 {
-                    echo "<font color='red'><b>×包含要允许注册的词语</b></font>";
+                    echo "<span class='icon-font'></span><b>包含要允许注册的词语</b>";
                 }
                 elseif($ucresult == -3)
                 {
-                    echo "<font color='red'><b>×用户名已经存在</b></font>";
+                    echo "<span class='icon-font'></span><b>用户名已经存在！</b>";
                 }
                 exit();
             }
@@ -128,65 +56,25 @@ else if($fmdo=='user')
         else {
             $msg = CheckUserID($uid, $msgtitle, false);
         }
-        if($msg=='ok')
+        if($msg!='ok')
         {
-            $msg = "<font color='#4E7504'><b>√{$msgtitle}可以使用</b></font>";
+           $msg = "<span class='icon-font'></span><b>{$msg}</b>";
         }
-        else
-        {
-            $msg = "<font color='red'><b>×{$msg}</b></font>";
-        }
-        echo $msg;
-        exit();
+		echo $msg;
     }
-
-    //检查email是否存在
-    else  if($dopost=="checkmail")
-    {
-        AjaxHead();
-        
-        #api{{
-        if(defined('UC_API') && @include_once DEDEROOT.'/uc_client/client.php')
-        {
-            $ucresult = uc_user_checkemail($email);
-            if($ucresult > 0) {
-                echo "<font color='#4E7504'><b>√可以使用</b></font>";
-            } elseif($ucresult == -4) {
-                echo "<font color='red'><b>×Email 格式有误！</b></font>";
-            } elseif($ucresult == -5) {
-                echo "<font color='red'><b>×Email 不允许注册！</b></font>";
-            } elseif($ucresult == -6) {
-                echo "<font color='red'><b>×该 Email 已经被注册！</b></font>";
-            }
-            exit();
-        }
-        #/aip}}    
-        
-        if($cfg_md_mailtest=='N')
-        {
-            $msg = "<font color='#4E7504'><b>√可以使用</b></font>";
-        }
-        else
-        {
-            if(!CheckEmail($email))
-            {
-                $msg = "<font color='#4E7504'><b>×Email格式有误</b></font>";
-            }
-            else
-            {
-                 $row = $dsql->GetOne("SELECT mid FROM `#@__member` WHERE email LIKE '$email' LIMIT 1");
-                 if(!is_array($row)) {
-                     $msg = "<font color='#4E7504'><b>√可以使用</b></font>";
-                 }
-                 else {
-                     $msg = "<font color='red'><b>×Email已经被另一个帐号占用！</b></font>";
-                 }
-            }
-        }
-        echo $msg;
-        exit();
-    }
-
+	//检查手机号是否存在
+	else if($dopost=="checkphone")
+	{
+		AjaxHead();
+		$msg = '';
+		$row = $dsql->GetOne("SELECT mid FROM `#@__member` WHERE phone LIKE '$phone' LIMIT 1");
+		 if(is_array($row)) {
+			 $msg = "<span class='icon-font'></span><b>该手机号已被使用，输入密码登录！</b>";
+		 }
+		echo $msg;
+		header("localtion:/member/reg_new.php");
+		exit();
+	}
     //引入注册页面
     else if($dopost=="regnew")
     {

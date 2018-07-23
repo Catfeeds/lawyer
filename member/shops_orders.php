@@ -10,6 +10,11 @@
  */
 require_once(dirname(__FILE__)."/config.php");
 include_once DEDEINC.'/datalistcp.class.php';
+// 如果未登录，跳转登录
+if(!$cfg_ml->IsLogin()) {
+	ShowMsg("你还未登录，请先登录!","login.php");
+	exit();
+}
 $menutype = 'mydede';
 $menutype_son = 'op';
 if(!isset($dopost)) $dopost = '';
@@ -28,13 +33,28 @@ function GetSta($sta,$oid)
     $row = $dsql->GetOne("SELECT p.name FROM #@__shops_orders AS s LEFT JOIN #@__payment AS p ON s.paytype=p.id WHERE s.oid='$oid'");
     if($sta==0)
     {
-        return  '未付款('.$row['name'].') < <a href="../plus/carbuyaction.php?dopost=memclickout&oid='.$oid.'" target="_blank">去付款</a>';
+        return  '<span>未付款</span><span>('.$row['name'].')</span>';
     } else if ($sta==1){
-        return '已付款,等发货';
+        return '<span>已付款,等发货</span>';
     } else if ($sta==2){
-        return '<a href="shops_products.php?do=ok&oid='.$oid.'">确认</a>';
+        return '<span><a class="pay" href="shops_products.php?do=ok&oid='.$oid.'">确认</a></span>';
     } else {
-        return '已完成';
+        return '<span>已完成</span>';
+    }
+}
+function GoPay($sta,$oid)
+{
+    global $dsql;
+    $row = $dsql->GetOne("SELECT p.name FROM #@__shops_orders AS s LEFT JOIN #@__payment AS p ON s.paytype=p.id WHERE s.oid='$oid'");
+    if($sta==0)
+    {
+        return  '<span><a class="pay" href="../plus/carbuyaction.php?dopost=memclickout&oid='.$oid.'" target="_blank">去付款</a></span>';
+    } else if ($sta==1){
+        return '<span>已付款,等发货</span>';
+    } else if ($sta==2){
+        return '<span><a class="pay" href="shops_products.php?do=ok&oid='.$oid.'">确认</a></span>';
+    } else {
+        return '<span>已完成</span>';
     }
 }
 if($dopost=='')

@@ -56,17 +56,25 @@ if($step == 1)
         }
         
         $userid = trim($userid);
+		$phone = trim($phone);
         $pwd = trim($userpwd);
         $pwdc = trim($userpwdok);
+		$cphone = $dsql->GetOne("SELECT count(*) FROM `#@__member` WHERE phone LIKE '$phone' LIMIT 1");
         $rs = CheckUserID($userid, '用户名');
-        if($rs != 'ok')
+		//验证手机号
+		if(strlen($phone) != 11)
         {
-            ShowMsg($rs, '-1');
+            ShowMsg('你的输入的手机号不正确，不允许注册！', '-1');
             exit();
         }
-        if(strlen($userid) > 20 || strlen($uname) > 36)
+		if($cphone >0)
         {
-            ShowMsg('你的用户名或用户笔名过长，不允许注册！', '-1');
+            ShowMsg('你输入的手机号已注册，请登录！', '-1');
+            exit();
+        }
+        if(strlen($userid) > 20)
+        {
+            ShowMsg('你的用户名过长，不允许注册！', '-1');
             exit();
         }
         if(strlen($userid) < $cfg_mb_idmin || strlen($pwd) < $cfg_mb_pwdmin)
@@ -74,29 +82,6 @@ if($step == 1)
             ShowMsg("你的用户名或密码过短，不允许注册！","-1");
             exit();
         }
-        if($pwdc != $pwd)
-        {
-            ShowMsg('你两次输入的密码不一致！', '-1');
-            exit();
-        }
-        
-        $uname = HtmlReplace($uname, 1);
-        //用户笔名重复检测
-        if($cfg_mb_wnameone=='N')
-        {
-            $row = $dsql->GetOne("SELECT * FROM `#@__member` WHERE uname LIKE '$uname' ");
-            if(is_array($row))
-            {
-                ShowMsg('用户笔名或公司名称不能重复！', '-1');
-                exit();
-            }
-        }
-        if(!CheckEmail($email))
-        {
-            ShowMsg('Email格式不正确！', '-1');
-            exit();
-        }
-        
         #api{{
         if(defined('UC_API') && @include_once DEDEROOT.'/uc_client/client.php')
         {
@@ -110,7 +95,7 @@ if($step == 1)
                 }
                 elseif($uid == -2)
                 {
-                    ShowMsg("包含要允许注册的词语！","-1");
+                    ShowMsg("包含不允许注册的词语！","-1");
                     exit();
                 }
                 elseif($uid == -3)
@@ -120,14 +105,20 @@ if($step == 1)
                 }
                 elseif($uid == -5)
                 {
-                    ShowMsg("你使用的Email 不允许注册！","-1");
-                    exit();
+                   /* ShowMsg("你使用的Email 不允许注册！","-1");
+                    exit();*/
                 }
-                elseif($uid == -6)
+                elseif($cphone >0)
                 {
-                    ShowMsg("你使用的Email已经被另一帐号注册，请使其它帐号","-1");
-                    exit();
+					ShowMsg("你输入的手机号 {$userid} 已注册，请登录！","-1");
+					exit();
                 }
+				elseif($uid == -6)
+                {
+                    /*ShowMsg("你使用的Email已经被另一帐号注册，请使其它帐号","-1");
+                    exit();*/
+                }
+				
                 else
                 {
                     ShowMsg("注删失改！","-1");
@@ -140,17 +131,7 @@ if($step == 1)
             }
         }
         #/aip}}
-        
-        if($cfg_md_mailtest=='Y')
-        {
-            $row = $dsql->GetOne("SELECT mid FROM `#@__member` WHERE email LIKE '$email' ");
-            if(is_array($row))
-            {
-                ShowMsg('你使用的Email已经被另一帐号注册，请使其它帐号！', '-1');
-                exit();
-            }
-        }
-    
+
         //检测用户名是否存在
         $row = $dsql->GetOne("SELECT mid FROM `#@__member` WHERE userid LIKE '$userid' ");
         if(is_array($row))
@@ -158,7 +139,7 @@ if($step == 1)
             ShowMsg("你指定的用户名 {$userid} 已存在，请使用别的用户名！", "-1");
             exit();
         }
-        if($safequestion==0)
+        /*if($safequestion==0)
         {
             $safeanswer = '';
         }
@@ -169,7 +150,7 @@ if($step == 1)
                 ShowMsg('你的新安全问题的答案太长了，请控制在30字节以内！', '-1');
                 exit();
             }
-        }
+        }*/
     
         //会员的默认金币
         $dfscores = 0;
@@ -191,9 +172,9 @@ if($step == 1)
         
         $spaceSta = ($cfg_mb_spacesta < 0 ? $cfg_mb_spacesta : 0);
         
-        $inQuery = "INSERT INTO `#@__member` (`mtype` ,`userid` ,`pwd` ,`uname` ,`sex` ,`rank` ,`money` ,`email` ,`scores` ,
+        $inQuery = "INSERT INTO `#@__member` (`mtype` ,`userid` ,`pwd` ,`phone` ,`sex` ,`rank` ,`money` ,`email` ,`scores` ,
         `matt`, `spacesta` ,`face`,`safequestion`,`safeanswer` ,`jointime` ,`joinip` ,`logintime` ,`loginip` )
-       VALUES ('$mtype','$userid','$pwd','$uname','$sex','10','$dfmoney','$email','$dfscores',
+       VALUES ('$mtype','$userid','$pwd','$phone','$sex','10','$dfmoney','$email','$dfscores',
        '0','$spaceSta','','$safequestion','$safeanswer','$jointime','$joinip','$logintime','$loginip'); ";
         if($dsql->ExecuteNoneQuery($inQuery))
         {
@@ -239,7 +220,6 @@ if($step == 1)
             //---------------------------
             $cfg_ml = new MemberLogin(7*3600);
             $rs = $cfg_ml->CheckUser($userid, $userpwd);
-
             
             //邮件验证
             if($cfg_mb_spacesta==-10)

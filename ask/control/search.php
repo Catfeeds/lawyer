@@ -20,11 +20,11 @@ class search extends Control
 			ShowMsg('您尚未登录，请先登录',$GLOBALS['cfg_ask_member']);
 			exit;
 		}
-		if($cfg_ml->M_Spacesta < 0)
+		/*if($cfg_ml->M_Spacesta < 0)
 		{
 			ShowMsg('您还没有通过审核,暂时不能提问,请耐心等....','-1');
 			exit;
-		}
+		}*/
 		//载入帮助
 		$this->helper('question',DEDEASK);
 	}

@@ -1,156 +1,698 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang;?>" />
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo $cfg_ask_sitename;?></title>
-<link href="static/style/service.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="static/js/j.js" type="text/javascript"></script>
-<script src="static/js/jquery.smallslider.js" type="text/javascript"></script>
+<meta name="keywords" content="法律咨询  律师在线解答  买卖购销法律咨询  买卖购销" />
+<meta name="description" content="全网法务服务买卖购销法律咨询网，聚合遍布全国四线以上城市的优秀律师团，提供律师在线解答买卖购销法律咨询服务。" /> 
+<link href="/favicon.ico" type="image/x-icon" rel="icon" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout-new.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-new.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/box.css" />
+<script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/modal.min.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/box.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/iealert.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    $('.slider').smallslider({
-        onImageStop:true,
-        switchEffect:'ease',switchEase: 'easeOutSine',
-        switchPath: 'left',switchMode: 'hover',
-        showText:true,textSwitch:2
-    });
-});
- </script>
+	$(function(){
+		$('.web-header .user-box ul > li:nth-of-type(2) div.fl b').click(function(){
+			$('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').show();
+			$('.model-box').show();
+		});
+		$('.model-box').click(function(){
+			$('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').hide();
+			$('.web-header .inner-box .fr > div.dropdown ul.menu').hide();
+			$(this).hide();
+		});
+		$('.web-header .inner-box .fr > div.dropdown span').click(function(){
+			$('.web-header .inner-box .fr > div.dropdown ul.menu').show();
+			$('.model-box').show();
+		})
+		$("#search-btn").leanModal();
+		$("body").iealert();
+		$('footer .link .row .inner-box .top-box ul li').click(function(){
+			$(this).addClass('click').siblings().removeClass('click');
+			var numb = $(this).index()
+			$('footer .link .row .inner-box .bottom-box div').eq(numb).show().siblings().hide()
+		});
+	});
+	</script>
 </head>
 <body>
-<div id="wrap">
-  <?php include(DEDEASK."/templates/default/header.htm"); ?>
-  <div class="subnav"><span class="fl">已解决问题：<strong><?php echo $solvenum['solved']; ?></strong>未解决问题：<strong><?php echo $solvenum['solving']; ?></strong></span></div>
-  <div id="main" class="mt10">
-    <div class="fl side1">
-      <div class="sort bg1 bor1">
-         <h2>所有问题分类</h2>
-         <?php
-            $temp = 0;
-            foreach($asktypes as $asktype)
-            {
-                if($asktype['reid'] == 0) {
-                    if($temp > 0) echo "</dd></dl>\n";
-                    if($cfg_ask_rewrite == 'Y') $url= $asktype['id'];
-                    else $url='?ct=browser&tid='.$asktype['id'];
-                    echo '<dl><dt><a href="'.$url.'">'.$asktype['name'].'</a></dt><dd>';
-                    $temp++;
-                } else {
-                 	if($cfg_ask_rewrite == 'Y') $url= 't'.$asktype['id'];
-                    else $url='?ct=browser&tid2='.$asktype['id'];
-                    echo '<a href="'.$url.'">'.$asktype['name'].'</a>';
-                }
-            }
-            echo "</dd></dl>\n";
-        ?>
-      </div>
-      <div class="mt10"><a href="http://site.desdev.cn/"><img src="static/images/ad1.jpg" height="60" width="196" /></a></div>
+<script type="text/javascript" src="/templets/lawyer/js/jquery.pin.min.js"></script>
+<header class="black-header visible-lg"> 
+    <div class="new-header-jianhangdingbu"> 
+        <a href="/p/hezuo" target="_blank"><img src="/templets/lawyer/images/zhaoluyetop.jpg" alt="农行"></a> 
     </div>
-    <div class="fr bor1 main_top">
-       <div class="fl slider smallslider">
-	     <ul>
-         <?php
-            foreach($row as $key => $val)
-            {
-				if($val['pic'] == '') continue;
-                else echo '<li><a href="'.$val['url'].'" title="'.$val['description'].'" target="_blank"><img src="'.$cfg_ask_basehost.$val['pic'].'" height="180" width="252" alt="'.$val['description'].'" /></a></li>';
-			}
-          ?>
-         </ul>
-	   </div>
-       <div class="fl recommend_problem">
-         <div class="tit1"><span class="fl">推荐问题</span><script type="text/javascript" src="js/date.js"></script></div>
-        <?php
-         if($digests != ""){
-         	foreach($digests as $key => $v)
-         	{
-         	    if($key == 0){
-        ?>
-         <h3><a href="<?php echo $v['qurl'];?>" title="<?php echo cn_substr($v['title'],40);?>"><?php echo cn_substr($v['title'],38);?></a></h3>
-         <ul class="pd10">
-        <?php }else{ ?>
-           <li><a href="<?php echo $v['qurl'];?>" title="<?php echo cn_substr($v['title'],40);?>"><?php echo cn_substr($v['title'],38);?></a><?php echo $v['userid'];?></li>
-        <?php }}} ?>
-         </ul>
-       </div>
-       <div class="fr">
-         <ul>
-           <li><img src="static/images/link3.jpg" height="120" width="196" /></li>
-           <li><a href="http://service.dedecms.com" target="_blank"><img src="static/images/ad2.jpg" height="60" width="196" /></a></li>
-         </ul>
-       </div>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="list-unstyled fl hover-show-fuji">
+                        <li class="fl w6"><a class="text-white" href="/"><span class="ico-font">&#xecea;</span>首页</a></li>
+                        <li class="fl w6 law-consultant p-r"> <a class="text-white" target="_blank" href="/p/falvguwen">企业法律顾问</a>
+                            <div class="hide-box p-a">
+                                <ul class="list-unstyled">
+                                    <li><a href="/p/falvguwen" target="_blank">企业法律顾问</a></li>
+                                    <li><a href="/p/canyin" target="_blank">餐饮法律顾问</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="fl w6 hover-show"> <a class="text-white bianbaidi" target="_blank" href="/nsht/">拟审合同</a>
+                            <div class="nh-nav-item-hide">
+                                <div class="nnih-inner">
+                                    <h2>创业经营</h2>
+                                    <p><a href="/p/hehuo" class="lianjie" target="_blank">合伙协议</a></p>
+                                    <p><a href="/p/gongsizhangcheng" class="lianjie" target="_blank">公司章程</a></p>
+                                    <p><a href="/p/hezuo" class="lianjie chengse" target="_blank">合作协议</a></p>
+                                    <p><a href="/p/guquanjili" class="lianjie" target="_blank">股权激励方案</a></p>
+                                    <p><a href="/p/guquanzhuanrang" class="lianjie" target="_blank">股权转让协议</a></p>
+                                    <p><a href="/p/falvguwen" class="lianjie" target="_blank">常年企业法律顾问</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>劳动人事</h2>
+                                    <p><a href="/p/guizhangzhidu" class="lianjie" target="_blank">规章制度</a></p>
+                                    <p><a href="/p/laodong" class="lianjie chengse" target="_blank">劳动合同</a></p>
+                                    <p><a href="/p/peixun" class="lianjie" target="_blank">培训协议</a></p>
+                                    <p><a href="/p/shangyebaomi" class="lianjie" target="_blank">保密协议</a></p>
+                                    <p><a href="/p/jiechulaodong" class="lianjie" target="_blank">解除劳动合同</a></p>
+                                    <p><a href="/p/laodongrenshi" class="lianjie" target="_blank">常年企业用工顾问</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>婚姻家庭</h2>
+                                    <p><a href="/p/lihun" class="lianjie chengse" target="_blank">离婚协议</a></p>
+                                    <p><a href="/p/hunqiancaichan" class="lianjie" target="_blank">婚前财产协议</a></p>
+                                    <p><a href="/p/zengyu" class="lianjie" target="_blank">赠与合同</a></p>
+                                    <p><a href="/p/zhuangxiuhetong" class="lianjie" target="_blank">装修合同</a></p>
+                                    <p><a href="/p/ershoufang" class="lianjie" target="_blank">房屋买卖合同</a></p>
+                                    <p><a href="/p/fangwuzulinhetong" class="lianjie" target="_blank">房屋租赁合同</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>打官司</h2>
+                                    <p><a href="/p/qisu" class="lianjie" target="_blank">起诉状</a></p>
+                                    <p><a href="/p/dabian" class="lianjie" target="_blank">答辩状</a></p>
+                                    <p><a href="/p/zixun" class="lianjie chengse" target="_blank">电话问律师</a></p>
+                                    <p><a href="/p/caichanbaoquan" class="lianjie" target="_blank">财产保全申请书</a></p>
+                                    <p><a href="/p/laodongzhongcai" class="lianjie" target="_blank">劳动仲裁申请书</a></p>
+                                    <p><a href="/zhaolvshi" class="lianjie" target="_blank">找律师打官司</a></p>
+                                </div>
+                                <div class="nnih-tupian"> <a href=""><img src="/templets/lawyer/images/ldht.png" alt="劳动合同"></a> </div>
+                            </div>
+                        </li>
+                        <li class="fl w6 hover-show"> <a class="text-white bianbaidi" target="_blank" href="/ask">在线法律咨询</a>
+                            <div class="nh-nav-item-hide">
+                                <div class="nnih-inner">
+                                    <h2>劳动关系</h2>
+                                    <p><a href="/ask/laodonghetong" class="lianjie" target="_blank">劳动合同</a></p>
+                                    <p><a href="/ask/laodongjiufen" class="lianjie" target="_blank">劳动纠纷</a></p>
+                                    <p><a href="/ask/yuangonglizhi" class="lianjie" target="_blank">员工离职</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>创业经营</h2>
+                                    <p><a href="/ask/jingyingguanli" class="lianjie" target="_blank">经营管理</a></p>
+                                    <p><a href="/ask/guquanshiwu" class="lianjie" target="_blank">股权事务</a></p>
+                                    <p><a href="/ask/hehuochuangye" class="lianjie" target="_blank">合伙创业</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>合同纠纷</h2>
+                                    <p><a href="/ask/hetongdingli" class="lianjie" target="_blank">合同订立</a></p>
+                                    <p><a href="/ask/weiyuezeren" class="lianjie" target="_blank">违约责任</a></p>
+                                    <p><a href="/ask/hetongjf" class="lianjie" target="_blank">合同纠纷</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>交通事故</h2>
+                                    <p><a href="/ask/jiaotongzhaoshi" class="lianjie" target="_blank">交通肇事</a></p>
+                                    <p><a href="/ask/jtsgrending" class="lianjie" target="_blank">事故认定</a></p>
+                                    <p><a href="/ask/jiaotongshiguchuli" class="lianjie" target="_blank">事故处理</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>离婚咨询</h2>
+                                    <p><a href="/ask/lihun" class="lianjie" target="_blank">离婚</a></p>
+                                    <p><a href="/ask/tongju" class="lianjie" target="_blank">同居</a></p>
+                                    <p><a href="/ask/zinvfuyang" class="lianjie" target="_blank">子女</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>刑事民事</h2>
+                                    <p><a href="/ask/minshisusong" class="lianjie" target="_blank">民事诉讼</a></p>
+                                    <p><a href="/ask/xsfanzui" class="lianjie" target="_blank">刑事犯罪</a></p>
+                                    <p><a href="/ask/qubaohoushen" class="lianjie" target="_blank">取保候审</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>其他咨询</h2>
+                                    <p><a href="/ask/baoxianlipei" class="lianjie" target="_blank">保险理赔</a></p>
+                                    <p><a href="/ask/zhishichanquan" class="lianjie" target="_blank">知识产权</a></p>
+                                    <p><a href="/ask/gongchengjiufen" class="lianjie" target="_blank">工程纠纷</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fl w6 hover-show"> <a class="text-white bianbaidi" target="_blank" href="/zhaolvshi">找律师打官司</a>
+                            <div class="nh-nav-item-hide nh-nav-item-kuan">
+                                <div class="nnih-inner width144">
+                                    <p><a href="/zhaolvshi/all/laodongzhongcai/all/p1.html" class="lianjie" target="_blank">劳动仲裁</a></p>
+                                    <p><a href="/zhaolvshi/all/zhaiwujiufen/all/p1.html" class="lianjie" target="_blank">债务纠纷</a></p>
+                                    <p><a href="/zhaolvshi/all/fangchanjiufen/all/p1.html" class="lianjie" target="_blank">房产纠纷</a></p>
+                                </div>
+                                <div class="nnih-inner width144">
+                                    <p><a href="/zhaolvshi/all/hetongjiufen/all/p1.html" class="lianjie" target="_blank">合同纠纷</a></p>
+                                    <p><a href="/zhaolvshi/all/qisulihun/all/p1.html" class="lianjie" target="_blank">起诉离婚</a></p>
+                                    <p><a href="/zhaolvshi/all/jiaotongshigu/all/p1.html" class="lianjie" target="_blank">交通事故</a></p>
+                                </div>
+                                <div class="nnih-inner width144">
+                                    <p><a href="/zhaolvshi/all/xingshibianhu/all/p1.html" class="lianjie" target="_blank">刑事辩护</a></p>
+                                    <p><a href="/zhaolvshi/all/zhishichanquan/all/p1.html" class="lianjie" target="_blank">知识产权</a></p>
+                                    <p><a href="/zhaolvshi/all/renshensunhai/all/p1.html" class="lianjie" target="_blank">人身损害</a></p>
+                                </div>
+                                <div class="nnih-inner width144">
+                                    <p><a href="/zhaolvshi/all/qita/all/p1.html" class="lianjie" target="_blank">其他纠纷</a></p>
+                                </div>
+                                <div class="nnih-tupian nnih-tupian-xiao"> <a href="/zhaolvshi"><img src="/templets/lawyer/images/zhaolvshi.png" alt="找律师"></a> </div>
+                            </div>
+                        </li>
+                        <li class="fl w6 hover-show"> <a class="text-white bianbaidi" target="_blank" href="/p/shangbiao">商标注册</a>
+                            <div class="nh-nav-item-hide">
+                                <div class="nnih-inner width132">
+                                    <h2>商标注册</h2>
+                                    
+                                    <!-- <p><a href="/Shangbiao/mfzc" class="lianjie" target="_blank">商标免费注册</a></p> -->
+                                    
+                                    <p><a href="/Shangbiao/zc" class="lianjie" target="_blank">商标普通注册</a></p>
+                                    <p><a href="/Shangbiao/dbzc" class="lianjie" target="_blank">商标双保险注册</a></p>
+                                </div>
+                                <div class="nnih-inner width132">
+                                    <h2>商标保护</h2>
+                                    <p><a href="/Shangbiao/fuwu/shangbiao-bhfs
+
+" class="lianjie" target="_blank">驳回复审</a></p>
+                                    <p><a href="/Shangbiao/fuwu/shangbiao-yydb
+
+" class="lianjie" target="_blank">异议答辩</a></p>
+                                </div>
+                                <div class="nnih-inner width132">
+                                    <h2>反驳商标</h2>
+                                    <p><a href="/Shangbiao/fuwu/sbyysq" class="lianjie" target="_blank">异议申请</a></p>
+                                    <p><a href="/Shangbiao/fuwu/sbcssq" class="lianjie" target="_blank">撤三申请</a></p>
+                                    <p><a href="/Shangbiao/fuwu/sbwxxg" class="lianjie" target="_blank">无效宣告</a></p>
+                                </div>
+                                <div class="nnih-inner width132">
+                                    <h2>商标续用</h2>
+                                    <p><a href="/Shangbiao/fuwu/sbxz" class="lianjie" target="_blank">商标续展</a></p>
+                                    <p><a href="/Shangbiao/fuwu/sbkz" class="lianjie" target="_blank">商标宽展</a></p>
+                                </div>
+                                <div class="nnih-inner width132">
+                                    <h2>许可/转让</h2>
+                                    <p><a href="/Shangbiao/fuwu/sbbaxk" class="lianjie" target="_blank">商标备案许可</a></p>
+                                    <p><a href="/Shangbiao/fuwu/sbzr" class="lianjie" target="_blank">商标转让</a></p>
+                                </div>
+                                <div class="nnih-inner width132">
+                                    <h2>商标其他</h2>
+                                    <p><a href="/Shangbiao/fuwu/sbbg" class="lianjie" target="_blank">商标变更</a></p>
+                                    <p><a href="/Shangbiao/fuwu/sbgz" class="lianjie" target="_blank">商标更正</a></p>
+                                    <p><a href="/Shangbiao/fuwu/sbzx" class="lianjie" target="_blank">商标注销</a></p>
+                                </div>
+                                <div class="nnih-tupian nnih-tupian-xiao"> <a href="/p/laodong"><img src="/templets/lawyer/images/ldhtx.png" alt="劳动合同"></a> </div>
+                            </div>
+                        </li>
+                        <li class="fl w6 hover-show"> <a class="text-white bianbaidi" target="_blank" href="/hetong">合同范本</a>
+                            <div class="nh-nav-item-hide">
+                                <div class="nnih-inner">
+                                    <h2>创业经营</h2>
+                                    <p><a href="/hetong/list/czxy" class="lianjie" target="_blank">出资协议</a></p>
+                                    <p><a href="/hetong/list/hzht" class="lianjie chengse" target="_blank">合作协议</a></p>
+                                    <p><a href="/hetong/list/gszc" class="lianjie" target="_blank">公司章程</a></p>
+                                    <p><a href="/hetong/list/tzxy" class="lianjie" target="_blank">投资协议</a></p>
+                                    <p><a href="/hetong/list/gqzrxy" class="lianjie" target="_blank">股权转让协议</a></p>
+                                    <p><a href="/hetong/list/gqjl" class="lianjie" target="_blank">股权激励方案</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>劳动人事</h2>
+                                    <p><a href="/hetong/list/gzzd" class="lianjie" target="_blank">规章制度</a></p>
+                                    <p><a href="/hetong/list/ldht" class="lianjie chengse" target="_blank">劳动合同</a></p>
+                                    <p><a href="/hetong/list/pxxy" class="lianjie" target="_blank">培训协议</a></p>
+                                    <p><a href="/hetong/list/bmxy" class="lianjie" target="_blank">保密协议</a></p>
+                                    <p><a href="/hetong/list/laowuhetong" class="lianjie" target="_blank">劳务合同</a></p>
+                                    <p><a href="/hetong/list/jcldhtxys" class="lianjie" target="_blank">解除劳动合同</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>买卖购销</h2>
+                                    <p><a href="/hetong/list/gxht" class="lianjie chengse" target="_blank">购销合同</a></p>
+                                    <p><a href="/hetong/list/mmht" class="lianjie" target="_blank">买卖合同</a></p>
+                                    <p><a href="/hetong/list/xsht" class="lianjie" target="_blank">销售合同</a></p>
+                                    <p><a href="/hetong/list/cght" class="lianjie" target="_blank">采购合同</a></p>
+                                    <p><a href="/hetong/list/dght" class="lianjie" target="_blank">订购合同</a></p>
+                                    <p><a href="/hetong/list/jxht" class="lianjie" target="_blank">经销合同</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>诉讼文书</h2>
+                                    <p><a href="/hetong/list/qsz" class="lianjie" target="_blank">起诉状</a></p>
+                                    <p><a href="/hetong/list/dbz" class="lianjie" target="_blank">答辩状</a></p>
+                                    <p><a href="/hetong/list/ccbqsqs" class="lianjie" target="_blank">财产保全申请书</a></p>
+                                    <p><a href="/hetong/list/ldzcsqs" class="lianjie" target="_blank">劳动仲裁申请书</a></p>
+                                </div>
+                                <div class="nnih-inner">
+                                    <h2>婚姻家庭</h2>
+                                    <p><a href="/hetong/list/lhxys" class="lianjie" target="_blank">离婚协议</a></p>
+                                    <p><a href="/hetong/list/yizhu" class="lianjie" target="_blank">遗嘱</a></p>
+                                    <p><a href="/hetong/list/zengyu" class="lianjie" target="_blank">赠予协议</a></p>
+                                    <p><a href="/hetong/list/hqccxy" class="lianjie" target="_blank">婚前财产协议</a></p>
+                                    <p><a href="/hetong/list/hnccxy" class="lianjie" target="_blank">婚内财产协议</a></p>
+                                </div>
+                                <div class="nnih-tupian"> <a href="/p/laodong"><img src="/templets/lawyer/images/ldht.png" alt="劳动合同"></a> </div>
+                            </div>
+                        </li>
+                        <li class="fl w6"><a class="text-white" target="_blank" href="/falv">法律专题</a></li>
+                        <li class="fl w6"><a class="text-white" target="_blank" href="/Posts/index">律师指南</a></li>
+                    </ul>
+                    <ul class="fr list-unstyled">
+                        <li class="fl "> <span class="icon-font text-white">&#xe67b;</span> <a href="/Customers/registration?url=ask/maimaigouxiao" rel="nofollow" class="text-white">注册</a> <span class="text-white">|</span> <a href="/Customers/login?url=ask/maimaigouxiao" rel="nofollow" class="text-white">登录</a> </li>
+                        <li class="fl" style="height: 40px;"> <img style="position: relative;left: 20px;" width="189" height="26" src="/templets/lawyer/images/400orange.png" alt="服务热线" /> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="fl center mt10 ml10">
-      <dl>
-        <dt><span class="fl tit2 ico2">待解决问题</span><span class="fr more"><a href="?ct=browser&lm=2" title="更多">更多...</a></span></dt>
-        <dd class="bor1 pd10">
-          <ul>
-             <?php
-             if($notoks != ""){
-             	foreach($notoks as $key => $v){
-             ?>
-            <li><?php if($v['reward'] > 0){ ?><span class="fl ico3"><?php echo $v['reward'];}?></span><a href="<?php echo $v['qurl'];?>"><?php echo cn_substr($v['title'],50);?></a><?php echo $v['replies'];?>回答</li>
-            <?php }}?> 
-          </ul>
-        </dd>
-      </dl>
-      <dl class="mt10">
-        <dt><span class="fl tit2 ico4">高悬赏问题</span><span class="fr more"><a href="?ct=browser&lm=4" title="更多">更多...</a></span></dt>
-        <dd class="bor1 pd10">
-          <ul>
-            <?php
-             if($rewards != ""){
-             	foreach($rewards as $key => $v)
-             	{
-             ?>
-            <li><?php if($v['reward'] > 0){ ?><span class="fl ico3"><?php echo $v['reward'];}?></span><a href="<?php echo $v['qurl'];?>"><?php echo cn_substr($v['title'],50);?></a><?php echo $v['replies'];?>回答</li>
-            <?php }}?> 
-          </ul>
-        </dd>
-      </dl>
-      <dl class="mt10">
-        <dt><span class="fl tit2 ico4">新解决问题</span><span class="fr more"><a href="?ct=browser&lm=3" title="更多">更多...</a></span></dt>
-        <dd class="bor1 pd10">
-          <ul>
-            <?php
-             if($solutions != ""){
-             	foreach($solutions as $key => $v)
-             	{
-             ?>
-            <li><?php if($v['reward'] > 0){ ?><span class="fl ico3"><?php echo $v['reward'];}?></span><a href="<?php echo $v['qurl'];?>"><?php echo cn_substr($v['title'],50);?></a><?php echo $v['replies'];?>回答</li>
-            <?php }}?> 
-          </ul>
-        </dd>
-      </dl>
+    <script type="text/javascript">
+
+
+
+$(function(){
+
+	$(".hover-show-fuji .hover-show").hover(function() {
+
+		/* Stuff to do when the mouse enters the element */
+
+		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
+
+		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+
+	}, function() {
+
+		/* Stuff to do when the mouse leaves the element */
+
+		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+
+	});
+
+})
+
+</script>
+    <div class="search-box p-r">
+        <div class="container" style="height: 100px;width:1200px;">
+            <div class="row" style="height: 100px;width: 100%;">
+                <div class="col-xs-12 p-r" style="float:none;"> <img src="/templets/lawyer/images/guwen.png" style="top: 50%;bottom: 50%;margin-top: -26px;" width="138" height="40" alt="上市品牌" class="p-a visible-lg" />
+                    <form class="search-bar p-r" style="height: 100px;" action="/ask/search" method="get">
+                        <label for="" class="w3"> 在线法律咨询 <span class="hidden-lg text-orange">已解决咨询 144577 条</span> </label>
+                        <div class="p-a" >
+                            <input id="search-input" type="text" name="q" placeholder="请描述您的案例或者问题">
+                            <input type="submit" class="text-white p-r" value="搜索" onclick="clearInput()"/>
+                        </div>
+                    </form>
+                    <div class="p-a num-bar visible-lg">
+                        <ul class="list-unstyled">
+                            <li class="fl">
+                                <p class="w4 p-r">已解决咨询&nbsp;</p>
+                            </li>
+                            <li class="fl">
+                                <div class="num-part fl p-r">
+                                    <p class="">1</p>
+                                    <b class="p-a"></b> </div>
+                                <div class="num-part fl p-r">
+                                    <p class="">4</p>
+                                    <b class="p-a"></b> </div>
+                                <div class="num-part fl p-r">
+                                    <p class="">4</p>
+                                    <b class="p-a"></b> </div>
+                                <div class="num-part fl p-r">
+                                    <p class="">5</p>
+                                    <b class="p-a"></b> </div>
+                                <div class="num-part fl p-r">
+                                    <p class="">7</p>
+                                    <b class="p-a"></b> </div>
+                                <div class="num-part fl p-r">
+                                    <p class="">7</p>
+                                    <b class="p-a"></b> </div>
+                            </li>
+                            <li class="fl">
+                                <p class="w4 p-r">&nbsp;条</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="fr side1 mt10">
-      <div class="bor1 rank bg1">
-        <h3>周积分上升排行</h3>
-        <ul>
-           <?php
-             if($memberweeklists != ""){
-                foreach($memberweeklists as $key => $v)
-                {
-             ?>
-          <li><a href="?ct=myask&ac=view&mid=<?php echo $v['mid'];?>" target="_blank"><?php echo $v['userid'];?></a><span class="ico5"><?php echo $v['mscores'];?></span></li>
-          <?php }}?>
-        </ul>
-      </div>
-      <div class="bor1 rank bg1 mt10">
-        <h3>总积分排行</h3>
-        <ul>
-          <?php
-             if($memberlists != ""){
-                foreach($memberlists as $key => $v)
-                {
-             ?>
-          <li><a href="?ct=myask&ac=view&mid=<?php echo $v['mid'];?>" target="_blank"><?php echo $v['userid'];?></a><span class="ico5"><?php echo $v['scores'];?></span></li>
-          <?php }}?>
-        </ul>
-      </div>
+    <div class="nav-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav>
+                        <ul class="list-unstyled">
+                            <li class="p-r">
+                                <p><a class="text-darkgray" href="/ask">法律咨询首页</a></p>
+                            </li>
+                            <?php
+								$temp = 0;
+								foreach($asktypes as $asktype)
+								{
+									if($asktype['reid'] == 0) {
+										if($temp > 0) echo "</li></ol></div></li>\n";
+										if($cfg_ask_rewrite == 'Y') $url= $asktype['id'];
+										else $url='?ct=browser&tid='.$asktype['id'];
+										echo '<li class="p-r click"><p><a class="text-darkgray" href="'.$url.'">'.$asktype['name'].'</a></p><div class="inner-box p-a"><ol class="list-unstyled">';
+										$temp++;
+									} else {
+										if($cfg_ask_rewrite == 'Y') $url= 't'.$asktype['id'];
+										else $url='?ct=browser&tid2='.$asktype['id'];
+										echo '<li><a href="'.$url.'">'.$asktype['name'].'</a></li>';
+									}
+								}
+								echo "</li></ol></div></li>\n";
+							?>
+                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </div>
-  </div><!--main end-->
-  <?php include(DEDEASK."/templates/default/footer.htm"); ?>
+</header>
+<!-- 问答头部 -->
+
+<div id="lean_overlay">
+    <form class="form-inline p-r" action="?ct=search" method="post" name="search">
+        <div class="search-bar">
+            <div class="input-part">
+                <input id="exampleInputEmail2"  type="text" placeholder="搜索在线问答" name="q">
+            </div>
+            <button class="text-white btn btn-link " type="submit"><img width="29" height="25" alt="搜索" src="/templets/lawyer/images/search.png"></button>
+        </div>
+        <div class="inner-box"></div>
+    </form>
 </div>
+<div class="lvshijieda-body">
+    <div class="breadcrumb-box visible-lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p> <span class="icon-font text-blue">&#xe610;</span> <a href="/" class=" text-blue">首页</a> - <a href="/ask/" class=" text-blue">在线法律咨询</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jieda-3-mod">
+        <div class="container">
+            <div class="row">
+                <div class="l-box col-lg-9 col-xs-12">
+                    <div class="bg-white">
+						 <div class="h100p o-h">
+                            <div class="fl">
+                                <h4 class="text-blue w3"> 最新经营管理法律咨询 </h4>
+                            </div>
+                            <div class="search-bar fr">
+                                <form id="searchForm1" action="?ct=search" method="post" name="search">
+                                    <input placeholder="请输入您的案例问题" id="searchtext1" name="q" type="text" class="fl">
+                                    
+                                    <input type="submit" id="asksear" class="text-center text-white fl" value="搜索提问">
+                                    <a href="?ct=question&ac=ask_complete" class="text-white fl">
+                                    <p class="text-center">我要提问</p>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                        <h5 class=" "> <span>最新解决问题</span><span>目前解答用户咨询 <b class="text-orange"><?php echo $solvenum['solved']; ?></b> 条</span> </h5>
+                        <ul class="list-unstyled">
+                           <?php
+							 if($solutions != ""){
+								foreach($solutions as $key => $v)
+								{
+							 ?>
+                            <li class="p-r"> <span class="p-a w5-5"><?php echo MyDate('Y-m-d',$v['solvetime']);?></span>
+                                <div class="dot p-a"></div>
+                                <h3 class="w4"> <a class="text-blue" href="?ct=browser&tid2=<?php echo $v['tid2'];?>">[<?php echo $v['tid2name']; ?>]</a> <a class="text-darkgray" href="<?php echo $v['qurl'];?>"><?php echo cn_substr($v['title'],50);?></a> <span class="fr"> 已回答 </span> </h3>
+                            </li>
+                            <?php }}?>
+                        </ul>
+                        <!--<div class="web-page">
+                            <h1> <span class="current">1</span> <span><a href="/ask/maimaigouxiao/p2.html">2</a></span> </h1>
+                        </div>-->
+                    </div>
+                    <div class="bg-white">
+                        <h5 class=" "> <span>待解决问题</span><span>未解答的有 <b class="text-orange"><?php echo $solvenum['solving']; ?></b> 条</span> </h5>
+                        <ul class="list-unstyled">
+                           <?php
+							 if($notoks != ""){
+								foreach($notoks as $key => $v){
+							 ?>
+                            <li class="p-r"> <span class="p-a w5-5"><?php echo MyDate('Y-m-d',$v['dateline']);?></span>
+                                <div class="dot p-a"></div>
+                                <h3 class="w4"> <a class="text-blue" href="?ct=browser&tid2=<?php echo $v['tid2'];?>">[<?php echo $v['tid2name']; ?>]</a>  <a class="text-darkgray" href="<?php echo $v['qurl'];?>"><?php echo cn_substr($v['title'],50);?></a> <span class="fr"> 已回答 </span> </h3>
+                            </li>
+                            <?php }}?>
+                        </ul>
+                        <!--<div class="web-page">
+                            <h1> <span class="current">1</span> <span><a href="/ask/maimaigouxiao/p2.html">2</a></span> </h1>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="r-box col-xs-3 visible-lg">
+                    <div class="pin">
+                        <div class="inner-bar bg-white text-center">
+                            <h2 class="text-center">好服务，敢于邀请你来</h2>
+                            <h3 class="text-center">体验</h3>
+                            <ol class="list-unstyled">
+                                <li class="text-center"> <a href="/ask/add" target="_blank"><img src="/templets/lawyer/images/function-4.png" alt="咨询" /></a>
+                                    <p class="text-center">在线专业解答</p>
+                                    <a href="/ask/add" target="_blank" class="btn-part">首次咨询免费</a> </li>
+                                <li class="text-center"> <a href="/Orders/create/52a960c9b6593"><img src="/templets/lawyer/images/function-3.png" alt="劳动合同" /></a>
+                                    <p class="text-center">最新合同范本下载</p>
+                                    <a href="/hetong" class="btn-part">首次下载免费</a> </li>
+                            </ol>
+                            <a href="/Exams" target="_blank" class="btn-bar"> 你给企业做体检了吗 </a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 红包 --> 
+
+<!-- <div class="fltc-hongbao">
+
+		<a class="tu hb-tiaodong" href="/p/falvguwen" target="_blank"><img src="/templets/lawyer/images/nhth.jpg" alt="农行特惠"></a>
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+
+$(function(){
+
+	function hongbao(){
+
+		var dbd = $(".fltc-hongbao .tu").hasClass('hb-tiaodong');
+
+		if(!dbd){
+
+			$(".fltc-hongbao .tu").addClass('hb-tiaodong');
+
+		}else{
+
+			$(".fltc-hongbao .tu").removeClass('hb-tiaodong');
+
+		}
+
+	}
+
+	setInterval(hongbao,5000);
+
+})
+
+</script> -->
+
+<div class="cpgb-fixed"> <a id="BizQQBottomCommon" class="cpgb-fixed-zixun">
+    <p><img src="/templets/lawyer/images/qq.png" alt="QQ"><br>
+        在线咨询</p>
+    </a> <a class="cpgb-fixed-zixun cpgb-fixed-dianhua">
+    <p><span class="ico-font tubiao">&#xea89;</span><br>
+        400电话</p>
+    <span class="zx-haoma"> 4008-515-666 <img src="/templets/lawyer/images/jiantou.png" alt="箭头"> </span> </a> <a class="cpgb-fixed-zixun cpgb-fixed-dingbu">
+    <p><img src="/templets/lawyer/images/dingbu.png" alt="QQ"><br>
+        返回顶部</p>
+    </a> </div>
+
+<!-------------- javascript -------------->
+
+<div class="model-box p-a" ></div>
+<footer class="visible-lg visible-md">
+    <div class="bg-nav">
+        <div class="container"> <br />
+            <div class="row">
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">10年150万+项服务经验</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">10年150万+项服务经验</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">10000多专业律师</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">10000多专业律师</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">无形的法律看得见</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">无形的法律看得见</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">有效的法律分析解答</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">有效的法律分析解答</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">7天不限次数修改</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">7天不限次数修改</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">提供法律售后服务</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">提供法律售后服务</p>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class=" col-md-5 list-inline text-center"> <img src="/templets/lawyer/images/footer-tel.png" width="294" height="69" alt="服务热线" /> </div>
+                <div class=" col-md-6 list-inline text-center">
+                    <div class="row" style="padding-top:20px;"> <a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e15052611010158890ey85000000&comefrom=trust"><img alt="可信网站身份认证" src="/templets/lawyer/images/footer-icon-1.jpg" width="82" height="30"></a> <img width="89" height="30" alt="支付宝特约商家" src="/templets/lawyer/images/footer-icon-2.png"> <img width="77" height="30" alt="网上交易保障中心" src="/templets/lawyer/images/footer-icon-3.png"> <a href="https://www.startssl.com/" target="_blank" rel="nofollow"> <img alt="保障" src="/templets/lawyer/images/footer-icon-4.png" width="29" height="30"> </a> 
+                        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254492474'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1254492474%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <ul class="list-inline text-center">
+                    <li> <a href="/about" target="_blank">关于我们</a> <a href="/sitemap" target="_blank">网站地图</a> <a href="/privacy" target="_blank">隐私申明</a> </li>
+                    <li> <a rel="nofollow"  href="http://www.miitbeian.gov.cn/" >闽ICP备09042048号-2</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/templets/lawyer/images/beian.png" style="float:left;"/>闽公网安备 35020602000086号</a> </li>
+                    <li><a>版权：全网法务服务股份</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<footer class="visible-xs visible-sm" style="">
+    <p class="text-center lh3 w6"> <img src="/templets/lawyer/images/weixin.png" width="20" height="20" alt="全网法务服务" /> <span>@全网法务服务法律咨询</span> <span>@全网法务服务法律服务</span> <span>|</span> <a href="http://www.yifatong.com?force=pc">电脑版</a> 
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5795384'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D5795384%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> 
+        <a class="nowrap" href="/about">关于我们</a> <a class="nowrap" href="/contact">联系我们</a> </p>
+    <p class="text-center w6"><a  rel="nofollow"  href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> 版权：全网法务服务股份</p>
+    <div class="fix-block"></div>
+</footer>
+
+<!--  debug --> 
+
+<!-- javascript --> 
+
+<script type="text/javascript">
+
+	$(function(){
+
+		$(".pin").pin({
+
+			containerSelector: ".jieda-3-mod"
+
+		});
+
+	});
+
+	</script> 
+<script type="text/javascript">
+
+function clearInput()
+
+{
+
+	if($("#search-input").val()== '请描述您的案例或者问题...')
+
+	{
+
+		$("#search-input").val("");
+
+	}
+
+}
+
+</script> 
+<script type="text/javascript">
+
+$(function(){
+
+	$('.cpgb-fixed-dingbu').click(function(){
+
+		$(window).scrollTop(0);
+
+	});
+
+
+
+	$(window).scroll(function () {
+
+
+
+		if ($(window).scrollTop() > 1018 ) {			
+
+			$(".cpgb-fixed-dingbu").css("display","block");
+
+		}else if($(window).scrollTop() < 1016){			
+
+			$(".cpgb-fixed-dingbu").css("display","none");
+
+		}
+
+	});
+
+})
+
+BizQQWPA.addCustom({aty: '1', a: '0', nameAccount: 4008515666, selector: 'BizQQBottomCommon'});
+
+</script> 
+
+<!-- WPA Button Begin --> 
+
+<script charset="utf-8" type="text/javascript" src="other/wpa.php?key=XzkzODAyMTQ4M18zNzIxODhfNDAwODUxNTY2Nl8"></script> 
+
+<!-- WPA Button END --> 
+
+<script type="text/javascript">
+
+(function(){
+
+    var bp = document.createElement('script');
+
+    var curProtocol = window.location.protocol.split(':')[0];
+
+    if (curProtocol === 'https'){
+
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+
+  }
+
+  else{
+
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+
+  }
+
+    var s = document.getElementsByTagName("script")[0];
+
+    s.parentNode.insertBefore(bp, s);
+
+})();
+
+</script>
 </body>
 </html>

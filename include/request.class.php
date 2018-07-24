@@ -26,7 +26,6 @@ function Request($key, $df='')
 }
 class Request
 {
-
     var $isinit = false;
     //用户的cookie
     var $cookies = array();

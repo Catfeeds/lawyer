@@ -222,7 +222,7 @@ class question extends Control
             }
         }
         //检查验证问题
-        $faqkey = isset($data['faqkey']) && is_numeric($data['faqkey']) ? $data['faqkey'] : 0;
+        /*$faqkey = isset($data['faqkey']) && is_numeric($data['faqkey']) ? $data['faqkey'] : 0;
         if($GLOBALS['gdfaq_ask'] == 'Y')
         {
             global $safefaqs; 
@@ -231,7 +231,7 @@ class question extends Control
                 ShowMsg('验证问题答案错误', '-1');
                 exit();
             }
-        }
+        }*/
         $data['title'] = preg_replace("#{$GLOBALS['cfg_replacestr']}#","***",HtmlReplace($data['title'], 1));
         $data['content']  = preg_replace("#{$GLOBALS['cfg_replacestr']}#","***",HtmlReplace($data['content'], -1));
 		$data['anonymous'] = (!empty($data['anonymous'])) ? 1 : 0;
@@ -555,11 +555,11 @@ class question extends Control
 			ShowMsg('您尚未登录需要登录后才能回复问题！',$cfg_cmspath.'/member/login.php?gourl='.urlencode($gourl));
 			exit;
 		}
-		if($this->cfg_ml->M_Spacesta < 0)
+		/*if($this->cfg_ml->M_Spacesta < 0)
 		{
 			ShowMsg('您还没有通过审核,暂时不能提问,请耐心等....','-1');
 			exit;
-		}
+		}*/
 		if($rs)
 		{
             ShowMsg('请勿重复回复同一问题!','-1');

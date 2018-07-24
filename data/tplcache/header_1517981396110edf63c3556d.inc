@@ -112,7 +112,7 @@ foreach( $blockValue as $key=>$fields )
                 <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/ask">法律咨询</a>
                     <ol class="p-a">
                         <li><a class="yaobianse" href="/ask/">在线法律咨询</a></li>
-                        <li><a class="yaobianse" href="/ask/">电话法律咨询</a></li>
+                        <li><a class="yaobianse" href="/nsht/dgs/8.html">电话法律咨询</a></li>
                     </ol>
                 </div>
                 <div class="nh-nav-item"> <a class="daohang youbiankuang" target="_blank" href="/zls/">找律师</a>

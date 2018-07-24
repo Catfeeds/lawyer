@@ -38,7 +38,7 @@ class mquestion extends Model
      * @param     int       $row
      * @return    array
      */
-    function get_all($wheresql = "",$orderby = "",$row = '10',$field = 'id, tid, tidname, tid2, tid2name,title,reward,replies')
+    function get_all($wheresql = "",$orderby = "",$row = '10',$field = 'id, tid, tidname, tid2, tid2name,title,dateline,solvetime,reward,replies')
     {
         if($field)
         {

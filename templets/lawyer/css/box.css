@@ -490,4 +490,10 @@ background:url(../images/close-button.png) no-repeat;
 
 }
 
+#asksear{
+	padding: 8px 30px;
+	margin-left: 10px;
+	background-color: #467ce5;
+	border: none;
+}
 

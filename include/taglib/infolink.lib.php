@@ -65,8 +65,8 @@ function lib_infolink(&$ctag,&$refObj)
     
     $fields['nativeplace'] = $fields['infotype'] = '';
     
-    $fields['linkallplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$infotype}'>不限</a>";
-    $fields['linkalltype'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$nativeplace}'>不限</a>";
+    $fields['linkallplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$infotype}'><b>不限</b></a>";
+    $fields['linkalltype'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$nativeplace}'><b>不限</b></a>";
     
     //地区链接
     if(empty($nativeplace))
@@ -74,7 +74,7 @@ function lib_infolink(&$ctag,&$refObj)
         foreach($em_nativeplaces as $eid=>$em)
         {
             if($eid % 500 != 0) continue;
-            $fields['nativeplace'] .= " <a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$eid}&infotype={$infotype}'>{$em}</a>\r\n";
+            $fields['nativeplace'] .= "<option value='{$eid}'> {$em} </option>\r\n";
         }
     }
     else

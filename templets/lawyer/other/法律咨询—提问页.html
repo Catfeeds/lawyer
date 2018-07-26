@@ -695,7 +695,7 @@ $(function(){
 							</small>
 						</h4>	
 										
-						<form action="/ask/add" target="_blank" id="QnaIndexForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>										<input type="hidden" name="data[Qna][credit]" value="10" id="QnaCredit"/>					<textarea name="data[Qna][question]" class="w6" placeholder="例如：我与妻子协议离婚，现在想把婚后买的房子协议归儿子所有。但是儿子还不到十八岁，请问可以把房子过户给未成年的子女吗？需要什么手续呢？" id="QnaQuestion" required></textarea>							
+						<form action="/ask/?ct=question&ac=ask_complete" target="_blank" id="QnaIndexForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>										<input type="hidden" name="data[Qna][credit]" value="10" id="QnaCredit"/>					<textarea name="data[Qna][question]" class="w6" placeholder="例如：我与妻子协议离婚，现在想把婚后买的房子协议归儿子所有。但是儿子还不到十八岁，请问可以把房子过户给未成年的子女吗？需要什么手续呢？" id="QnaQuestion" required></textarea>							
 							
 							<div class="p-r input-bar h100p o-h">
 								<div class="input-part" id="unLogin">
@@ -1107,7 +1107,7 @@ $(function(){
 								<input placeholder="请输入您的案例问题" id="searchtext2" name="q" type="text" class="fl" onBlur="if(this.value=='' || this.value==null){this.value='请输入您的案例问题'}" 
 								onFocus="if(this.value=='请输入您的案例问题'){this.value=''}" value="请输入您的案例问题" />
 								<a href="javascript:void(0);" onclick="searchSubmit(2)" class="text-white fl"><p class="text-center">搜索提问</p></a>
-								<a href="/ask/add" class="text-white fl"><p class="text-center">我要提问</p></a>
+								<a href="/ask/?ct=question&ac=ask_complete" class="text-white fl"><p class="text-center">我要提问</p></a>
 							</form>	
 						</div>
 						<ul class="list-unstyled">

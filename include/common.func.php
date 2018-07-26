@@ -279,7 +279,7 @@ function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
 {
     if(empty($GLOBALS['cfg_plus_dir'])) $GLOBALS['cfg_plus_dir'] = '..';
 
-    $htmlhead  = "<html>\r\n<head>\r\n<title>DedeCMS提示信息</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\r\n<meta name=\"renderer\" content=\"webkit\">\r\n<meta http-equiv=\"Cache-Control\" content=\"no-siteapp\" />";
+    $htmlhead  = "<html>\r\n<head>\r\n<title>全网法务服务 提示信息</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\r\n<meta name=\"renderer\" content=\"webkit\">\r\n<meta http-equiv=\"Cache-Control\" content=\"no-siteapp\" />";
     $htmlhead .= "<base target='_self'/>\r\n<style>div{line-height:160%;}</style></head>\r\n<body leftmargin='0' topmargin='0' bgcolor='#FFFFFF'>".(isset($GLOBALS['ucsynlogin']) ? $GLOBALS['ucsynlogin'] : '')."\r\n<center>\r\n<script>\r\n";
     $htmlfoot  = "</script>\r\n</center>\r\n</body>\r\n</html>\r\n";
 
@@ -361,11 +361,18 @@ function ResetVdValue()
     @session_start();
     $_SESSION['securimage_code_value'] = '';
 }
-
-
 // 自定义函数接口
 // 这里主要兼容早期的用户扩展,v5.7之后我们建议使用小助手helper进行扩展
 if( file_exists(DEDEINC.'/extend.func.php') )
 {
     require_once(DEDEINC.'/extend.func.php');
+}
+function pasterTempletDiy($path)
+{
+	require_once(DEDEINC."/arc.partview.class.php");
+	global $cfg_basedir,$cfg_templets_dir;
+	$tmpfile = $cfg_basedir.$cfg_templets_dir."/".$path;//模版文件的路径
+	$dtp = new PartView();
+	$dtp->SetTemplet($tmpfile);
+	$dtp->Display();
 }

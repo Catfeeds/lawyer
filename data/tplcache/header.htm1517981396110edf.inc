@@ -21,15 +21,15 @@ $z[5]=Array("arclist","\r\n                            <p><a href=\"[field:arcur
 $z[5][4]=array();
 $z[5][4]['typeid']="14";
 $z[5][4]['row']="6";
-$z[6]=Array("channelartlist","\r\n                            <p><a href=\"{dede:field.typeurl/}\" class=\"lianjie\" target=\"_blank\">{dede:field.typename/}</a></p>\r\n                            ",4667,4893);
+$z[6]=Array("channelartlist","\r\n                            <p><a href=\"{dede:field.typeurl/}\" class=\"lianjie\" target=\"_blank\">{dede:field.typename/}</a></p>\r\n                            ",4720,4946);
 $z[6][4]=array();
 $z[6][4]['typeid']="17,18,19";
 $z[6][4]['row']="3";
-$z[7]=Array("channelartlist","\r\n                            <p><a href=\"{dede:field.typeurl/}\" class=\"lianjie\" target=\"_blank\">{dede:field.typename/}</a></p>\r\n                            ",4960,5186);
+$z[7]=Array("channelartlist","\r\n                            <p><a href=\"{dede:field.typeurl/}\" class=\"lianjie\" target=\"_blank\">{dede:field.typename/}</a></p>\r\n                            ",5013,5239);
 $z[7][4]=array();
 $z[7][4]['typeid']="20,21,22";
 $z[7][4]['row']="3";
-$z[8]=Array("channelartlist","\r\n                            <p><a href=\"{dede:field.typeurl/}\" class=\"lianjie\" target=\"_blank\">{dede:field.typename/}</a></p>\r\n                            ",5253,5479);
+$z[8]=Array("channelartlist","\r\n                            <p><a href=\"{dede:field.typeurl/}\" class=\"lianjie\" target=\"_blank\">{dede:field.typename/}</a></p>\r\n                            ",5306,5532);
 $z[8][4]=array();
 $z[8][4]['typeid']="23,24,25";
 $z[8][4]['row']="3";

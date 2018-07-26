@@ -46,6 +46,19 @@ $(function(){
 </head>
 <body>
 <script type="text/javascript" src="/templets/lawyer/js/jquery.pin.min.js"></script> 
+<script>
+$(function(){
+	$(".nh-nav-container .nh-nav-item").hover(function() {
+		/* Stuff to do when the mouse enters the element */
+		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
+		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	}, function() {
+		/* Stuff to do when the mouse leaves the element */
+		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	});
+})
+</script>
+
 <script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
 <script language="javascript" type="text/javascript">
 <!--
@@ -306,60 +319,57 @@ function ajaxPointment()
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="l-box"> <div class="choose-block">
+                <div class="l-box">
+                   <div class="choose-block">
                         <div class="city-bar">
                             <div class="title-part">
                                 <h3>所在城市：</h3>
                             </div>
                             <div class="content-part"> 
-                              <a href='/plus/list.php?channelid=-8&tid=21&infotype='>不限</a><br> <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=1000&infotype='>北京市</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=1500&infotype='>天津市</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=2000&infotype='>河北省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=2500&infotype='>山西省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=3000&infotype='>内蒙古自治区</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=3500&infotype='>辽宁省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=4000&infotype='>吉林省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=4500&infotype='>黑龙江省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=5000&infotype='>上海市</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=5500&infotype='>江苏省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=6000&infotype='>浙江省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=6500&infotype='>安徽省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=7000&infotype='>福建省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=7500&infotype='>江西省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=8000&infotype='>山东省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=8500&infotype='>河南省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=9000&infotype='>湖北省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=9500&infotype='>湖南省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=10000&infotype='>广东省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=10500&infotype='>广西壮族自治区</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=11000&infotype='>海南省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=11500&infotype='>重庆市</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=12000&infotype='>四川省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=12500&infotype='>贵州省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=13000&infotype='>云南省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=13500&infotype='>西藏自治区</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=14000&infotype='>陕西省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=14500&infotype='>甘肃省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=15000&infotype='>青海省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=15500&infotype='>宁夏回族自治区</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=16000&infotype='>新疆维吾尔自治区</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=16500&infotype='>台湾省</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=17000&infotype='>香港特别行政区</a>
- <a href='/plus/list.php?channelid=-8&tid=21&nativeplace=17500&infotype='>澳门特别行政区</a>
+								<a href='/plus/list.php?channelid=-8&tid=21&infotype='><b>不限</b></a>
+								<select id="province" onchange="provinceSelect('')">
+									<option value="">选择省份</option>
+									<option value='1000'> 北京市 </option>
+<option value='1500'> 天津市 </option>
+<option value='2000'> 河北省 </option>
+<option value='2500'> 山西省 </option>
+<option value='3000'> 内蒙古自治区 </option>
+<option value='3500'> 辽宁省 </option>
+<option value='4000'> 吉林省 </option>
+<option value='4500'> 黑龙江省 </option>
+<option value='5000'> 上海市 </option>
+<option value='5500'> 江苏省 </option>
+<option value='6000'> 浙江省 </option>
+<option value='6500'> 安徽省 </option>
+<option value='7000'> 福建省 </option>
+<option value='7500'> 江西省 </option>
+<option value='8000'> 山东省 </option>
+<option value='8500'> 河南省 </option>
+<option value='9000'> 湖北省 </option>
+<option value='9500'> 湖南省 </option>
+<option value='10000'> 广东省 </option>
+<option value='10500'> 广西壮族自治区 </option>
+<option value='11000'> 海南省 </option>
+<option value='11500'> 重庆市 </option>
+<option value='12000'> 四川省 </option>
+<option value='12500'> 贵州省 </option>
+<option value='13000'> 云南省 </option>
+<option value='13500'> 西藏自治区 </option>
+<option value='14000'> 陕西省 </option>
+<option value='14500'> 甘肃省 </option>
+<option value='15000'> 青海省 </option>
+<option value='15500'> 宁夏回族自治区 </option>
+<option value='16000'> 新疆维吾尔自治区 </option>
+<option value='16500'> 台湾省 </option>
+<option value='17000'> 香港特别行政区 </option>
+<option value='17500'> 澳门特别行政区 </option>
 
-                               <!--<a class="" href="/zhaolvshi/all/all/all/p1.html"><b>不限</b></a>
-                                <select id="province" onchange="provinceSelect('')">
-                                    <option value="">选择省份 </option>
-                                    <option value=110000> 北京市 </option>
-                                    <option value=620000> 甘肃省 </option>
-                                    <option value=630000> 青海省 </option>
-                                    <option value=640000> 宁夏回族自治区 </option>
-                                </select>
-                                <select id="city" onchange="citySelect()">
-                                    <option value="all">选择县市 </option>
-                                    <option selected="selected" value="shanghai"> 上海市辖区 </option>
-                                    <option value="" > 县 </option>
-                                </select>-->
+								</select>
+								<select id="city" onchange="citySelect()">
+										<option value="all">选择县市
+										</option>
+										<option selected="selected" value="shanghai"> 上海市辖区</option>
+								</select>
                             </div>
                         </div>
                         <div class="special-bar">
@@ -372,9 +382,10 @@ function ajaxPointment()
                             <div class="title-part">
                                 <h3>执业年限：</h3>
                             </div>
-                            <div class="content-part" style="border-bottom: none;"> <!--<a href="/zhaolvshi/shanghai/all/all/p1.html" class="selected"><b>不限</b></a> <a href="/zhaolvshi/shanghai/all/1/p1.html" class="">1-5年</a> <a href="/zhaolvshi/shanghai/all/2/p1.html" class="">6-10年</a> <a href="/zhaolvshi/shanghai/all/3/p1.html" class="">10年以上</a>--> </div>
+                            <div class="content-part" style="border-bottom: none;"><a href='/plus/list.php?channelid=-8&tid=21&nativeplace='><b>不限</b></a> <!--<a href="/zhaolvshi/shanghai/all/all/p1.html" class="selected"><b>不限</b></a> <a href="/zhaolvshi/shanghai/all/1/p1.html" class="">1-5年</a> <a href="/zhaolvshi/shanghai/all/2/p1.html" class="">6-10年</a> <a href="/zhaolvshi/shanghai/all/3/p1.html" class="">10年以上</a>--> </div>
                         </div>
                     </div>
+                    </form>
                     <h2 class=""><span class="ico-font">&#xeaff;</span>已为您成功筛选出 <span class="text-orange">479</span>&nbsp;位律师</h2>
                     <div class="box-bor1">
                         <div class="hot-rank clearfix">
@@ -384,329 +395,12 @@ function ajaxPointment()
                         </div>
                     </div>
                     <ul class="law-list box-bor1 mt20">
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/2188929/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20180627162103882846.jpg" alt="成都婚姻家庭在线律师-徐云" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/2188929/" class="f16 s-c333 fb" target="_blank">徐云 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">办过大案</span><span class="law-bq">丰富的专业经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：婚姻家庭,交通事故,合同事务</p>
-                                        <p class="mt5"> <em class="law-qg">特色律所</em> <a href="//www.64365.com/lawyer/2188929/contact/" target="_blank">四川法也律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>东方希望天祥广场A座1201</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：0 个</span><span>帮助：1138 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=2188929" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em> </div>
-                                    <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/889540/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20170804160627062537.jpg" alt="成都婚姻家庭在线律师-张承凤" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/889540/" class="f16 s-c333 fb" target="_blank">张承凤 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">主任律师</span><span class="law-bq">办过大案</span><span class="law-bq">有顾问单位经验</span><span class="law-bq">丰富的专业经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：婚姻家庭</p>
-                                        <p class="mt5"> <em class="law-qg">全国大所</em> <a href="//www.64365.com/lawyer/889540/contact/" target="_blank">四川明炬律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>成都市天府大道北段1700号环球中心Ｎ1区11楼</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：5 个</span><span>帮助：1140 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=889540" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">12 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.25%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/903862/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20171027133704741917.jpg" alt="成都婚姻家庭在线律师-田亮" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/903862/" class="f16 s-c333 fb" target="_blank">田亮 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">丰富的专业经验</span><span class="law-bq">有团队</span><span class="law-bq">办过大案</span><span class="law-bq">有顾问单位经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：刑事辩护,婚姻家庭,债权债务</p>
-                                        <p class="mt5"> <em class="law-qg">特色律所</em> <a href="//www.64365.com/lawyer/903862/contact/" target="_blank">四川思创律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>三洞桥</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：1 个</span><span>帮助：1757 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=903862" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">38 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.25%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="实名认证" class="s-c999 mr20"><i class="ico-new i-new72 mr5"></i>实名认证</span> <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/735776/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20180510163907445339.jpg" alt="成都婚姻家庭在线律师-诺鼎律师事务所" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/735776/" class="f16 s-c333 fb" target="_blank">诺鼎律师事务所 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：刑事辩护,婚姻家庭,合同事务</p>
-                                        <p class="mt5"> <em class="law-qg">本地大所</em> <a href="//www.64365.com/lawyer/735776/contact/" target="_blank">四川诺鼎律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>四川省成都市高新区锦城大道666号奥克斯广场A座2203号</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：0 个</span><span>帮助：288 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=735776" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-hf"></i> <em class="f24">4.8</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">2 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.13%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/790198/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20170816180510546088.jpg" alt="成都婚姻家庭在线律师-刘璨" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/790198/" class="f16 s-c333 fb" target="_blank">刘璨 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">办过大案</span><span class="law-bq">丰富的专业经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：婚姻家庭,刑事辩护,合同事务</p>
-                                        <p class="mt5"> <em class="law-qg">本地大所</em> <a href="//www.64365.com/lawyer/790198/contact/" target="_blank">四川子归律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>成都市郫都区杜鹃路46号检察院旁汉正广场写字楼11楼</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：3 个</span><span>帮助：1014 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=790198" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">15 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.25%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="实名认证" class="s-c999 mr20"><i class="ico-new i-new72 mr5"></i>实名认证</span> <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/744303/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20170327141347570172.jpg" alt="成都婚姻家庭在线律师-吴锦熤" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/744303/" class="f16 s-c333 fb" target="_blank">吴锦熤 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">公检法经历</span><span class="law-bq">丰富的专业经验</span><span class="law-bq">办过大案</span><span class="law-bq">有顾问单位经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：刑事辩护,土地房产,婚姻家庭</p>
-                                        <p class="mt5"> <em class="law-qg">自身拥有律所</em> <a href="//www.64365.com/lawyer/744303/contact/" target="_blank">四川瑞利恒律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>成都市高新区益州大道北段333号东方希望中心907</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：30 个</span><span>帮助：891 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>13348814938</span> <a href="//www.64365.com/ask/ask.aspx?ly=744303" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">15 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.25%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="实名认证" class="s-c999 mr20"><i class="ico-new i-new72 mr5"></i>实名认证</span> <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/1002710/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20160121093717618741.jpg" alt="成都婚姻家庭在线律师-章方秋" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/1002710/" class="f16 s-c333 fb" target="_blank">章方秋 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">有顾问单位经验</span><span class="law-bq">丰富的专业经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：合同事务,刑事辩护,公司经营</p>
-                                        <p class="mt5"> <em class="law-qg">特色律所</em> <a href="//www.64365.com/lawyer/1002710/contact/" target="_blank">四川韬世律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>四川省成都市天府大道北段1288号1号楼12层</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：5 个</span><span>帮助：609 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=1002710" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">10 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.25%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="实名认证" class="s-c999 mr20"><i class="ico-new i-new72 mr5"></i>实名认证</span> <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/1421702/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20180408105950376215.jpg" alt="成都婚姻家庭在线律师-刘品德" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/1421702/" class="f16 s-c333 fb" target="_blank">刘品德 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">丰富的专业经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：债权债务,刑事辩护,婚姻家庭</p>
-                                        <p class="mt5"> <em class="law-qg">本地大所</em> <a href="//www.64365.com/lawyer/1421702/contact/" target="_blank">四川高鼎律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>成都市锦江区书院西街1号亚太大厦10楼，四川高鼎律师事务所</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：0 个</span><span>帮助：113 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=1421702" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-hf"></i> <em class="f24">4.5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">2 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.13%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.13%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.13%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/1442610/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20170525153940193993.jpg" alt="成都婚姻家庭在线律师-徐璐" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/1442610/" class="f16 s-c333 fb" target="_blank">徐璐 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">办过大案</span><span class="law-bq">丰富的专业经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：婚姻家庭,合同事务,刑事辩护</p>
-                                        <p class="mt5"> <em class="law-qg">中小律所</em> <a href="//www.64365.com/lawyer/1442610/contact/" target="_blank">四川康庄律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>高新区天府大道530-2号东方希望天祥广场2幢2611号</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：8 个</span><span>帮助：910 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=1442610" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">7 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.25%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="实名认证" class="s-c999 mr20"><i class="ico-new i-new72 mr5"></i>实名认证</span> <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/1407960/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20180122104651068847.jpg" alt="成都婚姻家庭在线律师-冯锐" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/1407960/" class="f16 s-c333 fb" target="_blank">冯锐 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">办过大案</span><span class="law-bq">高学历</span><span class="law-bq">丰富的专业经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：合同事务,房产纠纷,婚姻家庭</p>
-                                        <p class="mt5"> <em class="law-qg">本地大所</em> <a href="//www.64365.com/lawyer/1407960/contact/" target="_blank">四川瀛领律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>成都市成华区二环路东二段508号万科华茂广场26层</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：2 个</span><span>帮助：220 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=1407960" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">1 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.25%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/891389/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20170331173041160040.png" alt="成都婚姻家庭在线律师-万鹿勇" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/891389/" class="f16 s-c333 fb" target="_blank">万鹿勇 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> <span class="law-bq">有团队</span><span class="law-bq">有顾问单位经验</span><span class="law-bq">大型企业服务经验</span> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：合同事务,婚姻家庭,刑事辩护</p>
-                                        <p class="mt5"> <em class="law-qg">本地大所</em> <a href="//www.64365.com/lawyer/891389/contact/" target="_blank">四川中法律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>成都市高新区府城大道中段中航城市广场A区2004-2005</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：0 个</span><span>帮助：194 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=891389" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30"> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <i class="ico-ft i-sr14 i-sr14-oe"></i> <em class="f24">5</em>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">2 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-gn fl">低于同行 0.25%</span> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于 同行 0.25%</span> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><i class="ico-ft i-sr10 i-sr10-oe"></i><em class="ml5">5</em><span class="ml20 s-oe fl">高于同行 0.25%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="实名认证" class="s-c999 mr20"><i class="ico-new i-new72 mr5"></i>实名认证</span> <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="hb-right"> </div>
-                            <a href="//www.64365.com/lawyer/2317487/" class="law-photo" target="_blank"><img src="/templets/lawyer/images/20180306155622400731.jpg" alt="成都婚姻家庭在线律师-易雪莲" /></a>
-                            <div class="fl">
-                                <p> <a href="//www.64365.com/lawyer/2317487/" class="f16 s-c333 fb" target="_blank">易雪莲 律师</a><i title="放心律师保障计划" class="ico-new i-new63"></i> </p>
-                                <div class="mt5 clearfix">
-                                    <div class="w325 fl">
-                                        <p>擅长：债权债务,婚姻家庭,合同事务</p>
-                                        <p class="mt5"> <em class="law-qg">中小律所</em> <a href="//www.64365.com/lawyer/2317487/contact/" target="_blank">四川律治律师事务所</a> </p>
-                                        <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>蜀西路9号丰德羊西中心</p>
-                                    </div>
-                                    <div class="w373 fl">
-                                        <p><span class="mr20">案例：0 个</span><span>帮助：100 人</span></p>
-                                        <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>4006436560</span> <a href="//www.64365.com/ask/ask.aspx?ly=2317487" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
-                                    </div>
-                                </div>
-                                <div class="mt15 clearfix lh24">
-                                    <div class="law-ensure pr fl mr30">
-                                        <p style="font-size: 15px;">暂无评价</p>
-                                        <div class="law-e-pop pa none"> <i class="arrow arrow-bottom"></i><span class="f16">0 人评价</span>
-                                            <p class="mt5"> 态度： <i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><em class="ml5">0</em> </p>
-                                            <p> 专业： <i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><em class="ml5">0</em> </p>
-                                            <p> 响应： <i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><i class="ico-ft i-sr10"></i><em class="ml5">0</em><span class="ml20 s-oe fl">低于同行 0%</span> </p>
-                                        </div>
-                                    </div>
-                                    <span title="执业认证" class="s-c999 mr20"><i class="ico-new i-new73 mr5"></i>执业认证</span> </div>
-                            </div>
-                        </li>
+                       
                     </ul>
                     <!-- 分写 开始-->
                     <div class="web-page">
-                        <h1><span class="current">1</span> <span><a href="/zhaolvshi/shanghai/all/all/p2.html">2</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p3.html">3</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p4.html">4</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p5.html">5</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p6.html">6</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p7.html">7</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p8.html">8</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p9.html">9</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p60.html" rel="last"> ...尾页</a></span></h1>
+                       <ul><span class="pageinfo">共 <strong>0</strong>页<strong>0</strong>条记录</span></ul>
+                        <!--<h1><span class="current">1</span> <span><a href="/zhaolvshi/shanghai/all/all/p2.html">2</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p3.html">3</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p4.html">4</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p5.html">5</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p6.html">6</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p7.html">7</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p8.html">8</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p9.html">9</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p60.html" rel="last"> ...尾页</a></span></h1>-->
                     </div>
                     <br>
                     <br>
@@ -741,87 +435,6 @@ function ajaxPointment()
                         </ul> --> 
                     </div>
                     <div class="img-block"></div>
-                    <div class="count-block">
-                        <h3 class="text-center">诉讼费？算算才放心！</h3>
-                        <div class="inner-block">
-                            <div class="before" >
-                                <h4 class="text-center">已有 <span class="text-orange" id="legal_count"> 2625</span> 人亲自算过<br />
-                                    节约诉讼费 <span class="text-orange" id="legal_fee">3628146</span> 元</h4>
-                                <div class="form-box">
-                                    <select id="province1" class="select-city" onchange="provinceSelect(1)">
-                                        <option>全国</option>
-                                        <option value="110000"> 北京市 </option>
-                                        <option value="120000"> 天津市 </option>
-                                        <option value="130000"> 河北省 </option>
-                                        <option value="140000"> 山西省 </option>
-                                        <option value="150000"> 内蒙古自治区 </option>
-                                        <option value="210000"> 辽宁省 </option>
-                                        <option value="220000"> 吉林省 </option>
-                                        <option value="230000"> 黑龙江省 </option>
-                                        <option value="310000"> 上海市 </option>
-                                        <option value="320000"> 江苏省 </option>
-                                        <option value="330000"> 浙江省 </option>
-                                        <option value="340000"> 安徽省 </option>
-                                        <option value="350000"> 福建省 </option>
-                                        <option value="360000"> 江西省 </option>
-                                        <option value="370000"> 山东省 </option>
-                                        <option value="410000"> 河南省 </option>
-                                        <option value="420000"> 湖北省 </option>
-                                        <option value="430000"> 湖南省 </option>
-                                        <option value="440000"> 广东省 </option>
-                                        <option value="450000"> 广西壮族自治区 </option>
-                                        <option value="460000"> 海南省 </option>
-                                        <option value="500000"> 重庆市 </option>
-                                        <option value="510000"> 四川省 </option>
-                                        <option value="520000"> 贵州省 </option>
-                                        <option value="530000"> 云南省 </option>
-                                        <option value="540000"> 西藏自治区 </option>
-                                        <option value="610000"> 陕西省 </option>
-                                        <option value="620000"> 甘肃省 </option>
-                                        <option value="630000"> 青海省 </option>
-                                        <option value="640000"> 宁夏回族自治区 </option>
-                                        <option value="650000"> 新疆维吾尔自治区 </option>
-                                    </select>
-                                    <select id="city1" class="select-city">
-                                        <option value="">选择县市</option>
-                                        <option	value="shanghai"> 上海市辖区 </option>
-                                        <option	value=""> 县 </option>
-                                    </select>
-                                    <select class="select-item" name="fee_type" id="fee_type">
-                                        <option value="all">不限</option>
-                                        <option value="laodongzhongcai">劳动仲裁</option>
-                                        <option value="zhaiwujiufen">债务纠纷</option>
-                                        <option value="hetongjiufen">合同纠纷</option>
-                                        <option value="qisulihun">起诉离婚</option>
-                                        <option value="jiaotongshigu">交通事故</option>
-                                        <option value="renshensunhai">人身损害</option>
-                                        <option value="fangchanjiufen">房产纠纷</option>
-                                        <option value="xingshibianhu">刑事辩护</option>
-                                        <option value="zhishichanquan">知识产权</option>
-                                        <option value="qita">其他纠纷</option>
-                                    </select>
-                                    <label>
-                                        <input type="radio" value="我是原告" name="fee_charactor">
-                                        <span>我是原告</span> </label>
-                                    <label>
-                                        <input type="radio" value="我是被告" name="fee_charactor">
-                                        <span>我是被告</span> </label>
-                                    <input id="fee_price" type="text" name="fee_price" placeholder="输入案件涉及金额">
-                                    <input id="fee_mobile" type="text" name="fee_mobile"  placeholder="手机号码">
-                                    <input class="text-center w4-5 btn-mono-orange" type="submit">
-                                </div>
-                            </div>
-                            <div class="after"> <b class="back text-center"> <span class="ico-font">&#xe939;</span> &nbsp;重计算 </b>
-                                <div class="result-bar p-r">
-                                    <h3 class=" text-center p-a">您的诉讼费用</h3>
-                                    <h4 id="fee_result" class="text-orange  text-center" id="fee_result">
-                                    0
-                                    </h4>
-                                </div>
-                                <p class="fr w6"> 单位：元</p>
-                                <a class="btn-mono-orange" href="/ask/?ct=question&ac=ask_complete" target="_blank">我要问律师</a> </div>
-                        </div>
-                    </div>
                     <div class="list-block">
                         <h3>律师排行榜</h3>
                         <div class="select-bar">
@@ -1332,7 +945,7 @@ function provinceSelect(id)
         dataType: 'json',
         success: function(data)
         {
-            var html ='';			
+            var html ='';
             html ="<option value='all'>选择县市</option>";			
             for (var i = 0; i < data.length; i++)
             {

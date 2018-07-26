@@ -24,6 +24,19 @@ $(function(){
 </script>
 </head>
 <body>
+<script>
+$(function(){
+	$(".nh-nav-container .nh-nav-item").hover(function() {
+		/* Stuff to do when the mouse enters the element */
+		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
+		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	}, function() {
+		/* Stuff to do when the mouse leaves the element */
+		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	});
+})
+</script>
+
 <script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
 <script language="javascript" type="text/javascript">
 <!--
@@ -76,12 +89,12 @@ $(function(){
                             <h2>打官司</h2>
                             <p><a href="/nsht/dgs/8.html" class="lianjie" target="_blank">电话问律师</a></p>
  </div>
-                        <div class="nnih-tupian"> <a href="/p/laodong"><img src="/templets/lawyer/images/ldht.png" alt="劳动合同"></a> </div>
+                        <div class="nnih-tupian"> <a href="/nsht/"><img src="/templets/lawyer/images/ldht.png" alt="劳动合同"></a> </div>
                     </div>
                 </div>
-                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/ask">法律咨询</a>
+                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/ask/?ct=question&ac=ask_complete">法律咨询</a>
                     <ol class="p-a">
-                        <li><a class="yaobianse" href="/ask/">在线法律咨询</a></li>
+                        <li><a class="yaobianse" href="/ask/?ct=question&ac=ask_complete">在线法律咨询</a></li>
                         <li><a class="yaobianse" href="/nsht/dgs/8.html">电话法律咨询</a></li>
                     </ol>
                 </div>
@@ -184,10 +197,6 @@ $(function(){
             </form>
         </div>
     </div>
-    <div class='_DEDECY' style='' data-verion='0.0.17'><div id='SOHUCS' sid='7'></div></div><script>(function(){var doc = document,s = doc.createElement('script'),h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;s.type = 'text/javascript';s.charset = 'utf-8';s.src='http://assets.changyan.sohu.com/upload/changyan.js?conf=prod_818ab17c00e4b0125586ed68d89b0a9e&appid=cytJrMUCh';h.insertBefore(s,h.firstChild);window.SCS_NO_IFRAME = true;})()</script>
-<div id="changyan-comments" style="display:none">
-    <ol id="comments-list">    </ol>
-</div>
     <div class="cpgb-fuwu" style="padding-top: 0px;">
         <div class="cpgb-fw-title">
             <div class="fw-title-inner">

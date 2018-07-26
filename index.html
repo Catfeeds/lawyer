@@ -25,6 +25,19 @@ $(function(){
 </script>
 </head>
 <body>
+<script>
+$(function(){
+	$(".nh-nav-container .nh-nav-item").hover(function() {
+		/* Stuff to do when the mouse enters the element */
+		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
+		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	}, function() {
+		/* Stuff to do when the mouse leaves the element */
+		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	});
+})
+</script>
+
 <script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
 <script language="javascript" type="text/javascript">
 <!--

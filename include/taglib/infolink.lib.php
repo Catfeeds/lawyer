@@ -97,7 +97,6 @@ function lib_infolink(&$ctag,&$refObj)
     //小分类链接
     if(empty($infotype) || is_array($smalltypes))
     {
-        
         foreach($em_infotypes as $eid=>$em)
         {
             if(!is_array($smalltypes) && $eid % 500 != 0) continue;

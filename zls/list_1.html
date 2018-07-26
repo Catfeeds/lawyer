@@ -46,6 +46,19 @@ $(function(){
 </head>
 <body>
 <script type="text/javascript" src="/templets/lawyer/js/jquery.pin.min.js"></script> 
+<script>
+$(function(){
+	$(".nh-nav-container .nh-nav-item").hover(function() {
+		/* Stuff to do when the mouse enters the element */
+		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
+		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	}, function() {
+		/* Stuff to do when the mouse leaves the element */
+		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	});
+})
+</script>
+
 <script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
 <script language="javascript" type="text/javascript">
 <!--
@@ -353,8 +366,42 @@ function ajaxPointment()
 
 								</select>
 								<select id="city" onchange="citySelect()">
-										<option value="all">选择县市
-										</option>
+										<option value="all">选择县市</option>
+                                        <option value='1000'> 北京市 </option>
+<option value='1500'> 天津市 </option>
+<option value='2000'> 河北省 </option>
+<option value='2500'> 山西省 </option>
+<option value='3000'> 内蒙古自治区 </option>
+<option value='3500'> 辽宁省 </option>
+<option value='4000'> 吉林省 </option>
+<option value='4500'> 黑龙江省 </option>
+<option value='5000'> 上海市 </option>
+<option value='5500'> 江苏省 </option>
+<option value='6000'> 浙江省 </option>
+<option value='6500'> 安徽省 </option>
+<option value='7000'> 福建省 </option>
+<option value='7500'> 江西省 </option>
+<option value='8000'> 山东省 </option>
+<option value='8500'> 河南省 </option>
+<option value='9000'> 湖北省 </option>
+<option value='9500'> 湖南省 </option>
+<option value='10000'> 广东省 </option>
+<option value='10500'> 广西壮族自治区 </option>
+<option value='11000'> 海南省 </option>
+<option value='11500'> 重庆市 </option>
+<option value='12000'> 四川省 </option>
+<option value='12500'> 贵州省 </option>
+<option value='13000'> 云南省 </option>
+<option value='13500'> 西藏自治区 </option>
+<option value='14000'> 陕西省 </option>
+<option value='14500'> 甘肃省 </option>
+<option value='15000'> 青海省 </option>
+<option value='15500'> 宁夏回族自治区 </option>
+<option value='16000'> 新疆维吾尔自治区 </option>
+<option value='16500'> 台湾省 </option>
+<option value='17000'> 香港特别行政区 </option>
+<option value='17500'> 澳门特别行政区 </option>
+
 										<option selected="selected" value="shanghai"> 上海市辖区</option>
 								</select>
                             </div>
@@ -369,7 +416,10 @@ function ajaxPointment()
                             <div class="title-part">
                                 <h3>执业年限：</h3>
                             </div>
-                            <div class="content-part" style="border-bottom: none;"><a href='/plus/list.php?channelid=-8&tid=16&nativeplace='><b>不限</b></a> <!--<a href="/zhaolvshi/shanghai/all/all/p1.html" class="selected"><b>不限</b></a> <a href="/zhaolvshi/shanghai/all/1/p1.html" class="">1-5年</a> <a href="/zhaolvshi/shanghai/all/2/p1.html" class="">6-10年</a> <a href="/zhaolvshi/shanghai/all/3/p1.html" class="">10年以上</a>--> </div>
+                            <div class="content-part" style="border-bottom: none;"><a href='/plus/list.php?channelid=-8&tid=16&nativeplace='><b>不限</b></a> <a href='/plus/list.php?channelid=-8&tid=16&infotype=&nativeplace='><b></b></a> &gt;&gt;  <a href='/plus/list.php?channelid=-8&tid=16&infotype=1-5年&nativeplace='>1-5年</a>
+ <a href='/plus/list.php?channelid=-8&tid=16&infotype=6-10年&nativeplace='>6-10年</a>
+ <a href='/plus/list.php?channelid=-8&tid=16&infotype=10年以上&nativeplace='>10年以上</a>
+<!--<a href="/zhaolvshi/shanghai/all/all/p1.html" class="selected"><b>不限</b></a> <a href="/zhaolvshi/shanghai/all/1/p1.html" class="">1-5年</a> <a href="/zhaolvshi/shanghai/all/2/p1.html" class="">6-10年</a> <a href="/zhaolvshi/shanghai/all/3/p1.html" class="">10年以上</a>--> </div>
                         </div>
                     </div>
                     </form>

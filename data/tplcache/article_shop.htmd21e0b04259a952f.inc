@@ -54,17 +54,14 @@ $z[16][4]['name']="title";
 $z[17]=Array("field","",7889,7912);
 $z[17][4]=array();
 $z[17][4]['name']="trueprice";
-$z[18]=Array("include","",8348,8392);
+$z[18]=Array("include","",23478,23515);
 $z[18][4]=array();
-$z[18][4]['filename']="ajaxfeedback2.htm";
-$z[19]=Array("include","",23528,23565);
+$z[18][4]['filename']="footer.htm";
+$z[19]=Array("field","",24879,24902);
 $z[19][4]=array();
-$z[19][4]['filename']="footer.htm";
-$z[20]=Array("field","",24929,24952);
+$z[19][4]['name']="trueprice";
+$z[20]=Array("field","",25207,25226);
 $z[20][4]=array();
-$z[20][4]['name']="trueprice";
-$z[21]=Array("field","",25257,25276);
-$z[21][4]=array();
-$z[21][4]['name']="jiaji";
+$z[20][4]['name']="jiaji";
 
 ?>

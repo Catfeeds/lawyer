@@ -24,10 +24,9 @@
 require_once(DEDEINC.'/enums.func.php');
 require_once(DEDEDATA.'/enums/nativeplace.php');
 require_once(DEDEDATA.'/enums/infotype.php');
-
 function lib_infolink(&$ctag,&$refObj)
 {
-    global $dsql,$nativeplace,$infotype,$hasSetEnumJs,$cfg_cmspath,$cfg_mainsite;
+    global $dsql,$nativeplace,$topplace,$typename,$infotype,$hasSetEnumJs,$cfg_cmspath,$cfg_mainsite;
     global $em_nativeplaces,$em_infotypes;
     
     //属性处理
@@ -60,74 +59,45 @@ function lib_infolink(&$ctag,&$refObj)
     $revalue = $seli = '';
     $channelid = ( empty($refObj->TypeLink->TypeInfos['channeltype']) ? -8 : $refObj->TypeLink->TypeInfos['channeltype'] );
     
-    $fields = array('nativeplace'=>'','infotype'=>'','typeid'=>$typeid,
+    $fields = array('nativeplace'=>'','topplace'=>'','infotype'=>'','typeid'=>$typeid,
                     'channelid'=>$channelid,'linkallplace'=>'','linkalltype'=>'');
-    
     $fields['nativeplace'] = $fields['infotype'] = '';
-    
     $fields['linkallplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$infotype}'><b>不限</b></a>";
     $fields['linkalltype'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$nativeplace}'><b>不限</b></a>";
-    
     //地区链接
-    if(empty($nativeplace))
-    {
-        foreach($em_nativeplaces as $eid=>$em)
-        {
-            if($eid % 500 != 0) continue;
-            $fields['nativeplace'] .= "<option value='{$eid}'> {$em} </option>\r\n";
-        }
-    }
-    else
-    {
-        $sontype = ( ($nativeplace % 500 != 0) ? $nativeplace : 0 );
+	//省份
+	$toptype = floor($nativeplace-($nativeplace % 500));
+	foreach($em_nativeplaces as $eid=>$em)
+	{
+		if($eid % 500 != 0) continue;
+		if($eid == $nativeplace || $eid == $toptype) {
+			$fields['topplace'] .= "<option value='{$eid}' selected> {$em} </option>\r\n";
+		}else{
+			$fields['topplace'] .= "<option value='{$eid}'> {$em} </option>\r\n";
+		}
+	}
+	//县市区
+	if(!empty($nativeplace)){
+		$sontype = ( ($nativeplace % 500 != 0) ? $nativeplace : 0 );
         $toptype = ( ($nativeplace % 500 == 0) ? $nativeplace : ( $nativeplace-($nativeplace%500) ) );
-		//2011-6-21 修改地区列表的一个小空格 论坛http://bbs.dedecms.com/371492.html(by：织梦的鱼)
-        $fields['nativeplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$toptype}&infotype={$infotype}'> <b>{$em_nativeplaces[$toptype]}</b></a> &gt;&gt; ";
         foreach($em_nativeplaces as $eid=>$em)
         {
             if($eid < $toptype+1 || $eid > $toptype+499) continue;
             if($eid == $nativeplace) {
-                $fields['nativeplace'] .= " <b>{$em}</b>\r\n";
+				$fields['nativeplace'] .= "<option value='{$eid}' selected> {$em} </option>\r\n";
             }
             else {
-                $fields['nativeplace'] .= " <a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$eid}&infotype={$infotype}'>{$em}</a>\r\n";
+				$fields['nativeplace'] .= "<option value='{$eid}'> {$em} </option>\r\n";
           }
       }
-    }
-    //小分类链接
-    if(empty($infotype) || is_array($smalltypes))
-    {
-        foreach($em_infotypes as $eid=>$em)
-        {
-            if(!is_array($smalltypes) && $eid % 500 != 0) continue;
-            if(is_array($smalltypes) && !in_array($eid, $smalltypes)) continue;
-            if($eid == $infotype) 
-            {
-                $fields['infotype'] .= " <b>{$em}</b>\r\n";
-            }
-            else {
-                $fields['infotype'] .= " <a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$eid}&nativeplace={$nativeplace}'>{$em}</a>\r\n";
-            }
-        }
-    }
-    else
-    {
-        $sontype = ( ($infotype % 500 != 0) ? $infotype : 0 );
-        $toptype = ( ($infotype % 500 == 0) ? $infotype : ( $infotype-($infotype%500) ) );
-        $fields['infotype'] .= "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$toptype}&nativeplace={$nativeplace}'><b>{$em_infotypes[$toptype]}</b></a> &gt;&gt; ";
-        foreach($em_infotypes as $eid=>$em)
-        {
-            if($eid < $toptype+1 || $eid > $toptype+499) continue;
-            if($eid == $infotype) {
-                $fields['infotype'] .= " <b>{$em}</b>\r\n";
-            }
-            else {
-                $fields['infotype'] .= " <a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$eid}&nativeplace={$nativeplace}'>{$em}</a>\r\n";
-          }
-      }
-    }
+	}
+	//专业领域
+    //执业年限
+	foreach($em_infotypes as $eid=>$em){
+		$fields['infotype'] .= " <a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$eid}&nativeplace={$nativeplace}'>{$em}</a>\r\n";
+	}	
     
-    
+	
     if(is_array($ctp->CTags))
     {
         foreach($ctp->CTags as $tagid=>$ctag)
@@ -138,6 +108,5 @@ function lib_infolink(&$ctag,&$refObj)
         }
         $revalue .= $ctp->GetResult();
     }
-    
     return $revalue;
 }

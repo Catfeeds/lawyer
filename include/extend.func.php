@@ -19,10 +19,3 @@ function litimgurls($imgid=0)
     //返回结果
     return $lit_imglist;
 }
-
-function getStar($id){
-	global $dsql;
-	$dsql = new DedeSql(false);
-	$row=$dsql->GetOne("select * FROM dede_addoninfos where aid={$id}");
-	return $row['star'];
-}

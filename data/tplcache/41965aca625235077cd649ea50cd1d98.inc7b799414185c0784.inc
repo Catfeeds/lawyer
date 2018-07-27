@@ -1,0 +1,17 @@
+<?php
+$z[0]=Array("linkallplace","",289,311);
+$z[0][4]=array();
+$z[1]=Array("channelid","",373,391);
+$z[1][4]=array();
+$z[2]=Array("typeid","",392,407);
+$z[2][4]=array();
+$z[3]=Array("nativeplace","",488,509);
+$z[3][4]=array();
+$z[4]=Array("toptype","",675,692);
+$z[4][4]=array();
+$z[5]=Array("linkalltype","",2337,2357);
+$z[5][4]=array();
+$z[6]=Array("infotype","",2358,2376);
+$z[6][4]=array();
+
+?>

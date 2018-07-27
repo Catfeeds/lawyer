@@ -58,7 +58,7 @@ $(function(){
 	});
 })
 </script>
-
+<script type="text/javascript" src="/templets/lawyer/js/jquery.pin.min.js"></script>
 <script language="javascript" type="text/javascript" src="/include/dedeajax2.js"></script>
 <script language="javascript" type="text/javascript">
 <!--
@@ -156,9 +156,6 @@ $(function(){
         <div class="inner-box"></div>
     </form>
 </div>
-
-<!-------------- javascript --------------> 
-
 <script type="text/javascript" src="/templets/lawyer/js/move.min.js"></script> 
 <script type="text/javascript" src="/templets/lawyer/js/mask.js"></script>
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/mask.css" />
@@ -327,7 +324,7 @@ function ajaxPointment()
                             </div>
                             <div class="content-part"> 
 								<a href='/plus/list.php?channelid=-8&tid=16&infotype='><b>不限</b></a>
-								<select id="province" onchange="provinceSelect('')">
+								<select id="province" onchange="provinceSelect(this,-8,16,0)">
 									<option value="">选择省份</option>
 									<option value='1000'> 北京市 </option>
 <option value='1500'> 天津市 </option>
@@ -365,44 +362,9 @@ function ajaxPointment()
 <option value='17500'> 澳门特别行政区 </option>
 
 								</select>
-								<select id="city" onchange="citySelect()">
-										<option value="all">选择县市</option>
-                                        <option value='1000'> 北京市 </option>
-<option value='1500'> 天津市 </option>
-<option value='2000'> 河北省 </option>
-<option value='2500'> 山西省 </option>
-<option value='3000'> 内蒙古自治区 </option>
-<option value='3500'> 辽宁省 </option>
-<option value='4000'> 吉林省 </option>
-<option value='4500'> 黑龙江省 </option>
-<option value='5000'> 上海市 </option>
-<option value='5500'> 江苏省 </option>
-<option value='6000'> 浙江省 </option>
-<option value='6500'> 安徽省 </option>
-<option value='7000'> 福建省 </option>
-<option value='7500'> 江西省 </option>
-<option value='8000'> 山东省 </option>
-<option value='8500'> 河南省 </option>
-<option value='9000'> 湖北省 </option>
-<option value='9500'> 湖南省 </option>
-<option value='10000'> 广东省 </option>
-<option value='10500'> 广西壮族自治区 </option>
-<option value='11000'> 海南省 </option>
-<option value='11500'> 重庆市 </option>
-<option value='12000'> 四川省 </option>
-<option value='12500'> 贵州省 </option>
-<option value='13000'> 云南省 </option>
-<option value='13500'> 西藏自治区 </option>
-<option value='14000'> 陕西省 </option>
-<option value='14500'> 甘肃省 </option>
-<option value='15000'> 青海省 </option>
-<option value='15500'> 宁夏回族自治区 </option>
-<option value='16000'> 新疆维吾尔自治区 </option>
-<option value='16500'> 台湾省 </option>
-<option value='17000'> 香港特别行政区 </option>
-<option value='17500'> 澳门特别行政区 </option>
-
-										<option selected="selected" value="shanghai"> 上海市辖区</option>
+								<select id="city" onchange="citySelect(this,-8,16,0)">
+										<option value="">选择县市</option>
+                                        
 								</select>
                             </div>
                         </div>
@@ -410,16 +372,21 @@ function ajaxPointment()
                             <div class="title-part">
                                 <h3>专长领域：</h3>
                             </div>
-                            <div class="content-part"> <a class="selected" href="/zhaolvshi/shanghai/all/all/p1.html" ><b>不限</b></a> <a class="" href="/zhaolvshi/shanghai/laodongzhongcai/all/p1.html" >劳动仲裁</a> <a class="" href="/zhaolvshi/shanghai/zhaiwujiufen/all/p1.html" >债务纠纷</a> <a class="" href="/zhaolvshi/shanghai/hetongjiufen/all/p1.html" >合同纠纷</a> <a class="" href="/zhaolvshi/shanghai/qisulihun/all/p1.html" >起诉离婚</a> <a class="" href="/zhaolvshi/shanghai/jiaotongshigu/all/p1.html" >交通事故</a> <a class="" href="/zhaolvshi/shanghai/renshensunhai/all/p1.html" >人身损害</a> <a class="" href="/zhaolvshi/shanghai/fangchanjiufen/all/p1.html" >房产纠纷</a> <a class="" href="/zhaolvshi/shanghai/xingshibianhu/all/p1.html" >刑事辩护</a> <a class="" href="/zhaolvshi/shanghai/zhishichanquan/all/p1.html" >知识产权</a> <a class="" href="/zhaolvshi/shanghai/qita/all/p1.html" >其他纠纷</a> </div>
+                            <div class="content-part">
+								<a class="selected" href="/zls/" ><b>不限</b></a>
+								{dede:channel typeid='16' type="son"}
+								<a href="" ></a>
+								{/dede:channel}
+							</div>
                         </div>
                         <div class="year-bar">
                             <div class="title-part">
                                 <h3>执业年限：</h3>
                             </div>
-                            <div class="content-part" style="border-bottom: none;"><a href='/plus/list.php?channelid=-8&tid=16&nativeplace='><b>不限</b></a> <a href='/plus/list.php?channelid=-8&tid=16&infotype=&nativeplace='><b></b></a> &gt;&gt;  <a href='/plus/list.php?channelid=-8&tid=16&infotype=1-5年&nativeplace='>1-5年</a>
+                            <div class="content-part" style="border-bottom: none;"><a href='/plus/list.php?channelid=-8&tid=16&nativeplace='><b>不限</b></a>  <a href='/plus/list.php?channelid=-8&tid=16&infotype=1-5年&nativeplace='>1-5年</a>
  <a href='/plus/list.php?channelid=-8&tid=16&infotype=6-10年&nativeplace='>6-10年</a>
  <a href='/plus/list.php?channelid=-8&tid=16&infotype=10年以上&nativeplace='>10年以上</a>
-<!--<a href="/zhaolvshi/shanghai/all/all/p1.html" class="selected"><b>不限</b></a> <a href="/zhaolvshi/shanghai/all/1/p1.html" class="">1-5年</a> <a href="/zhaolvshi/shanghai/all/2/p1.html" class="">6-10年</a> <a href="/zhaolvshi/shanghai/all/3/p1.html" class="">10年以上</a>--> </div>
+</div>
                         </div>
                     </div>
                     </form>
@@ -633,29 +600,9 @@ function ajaxPointment()
         <h2> <span class="ico-font">&#xe90a;</span> </h2>
         <h3> 恭喜您！选择<span id="selectLawyerName"></span>律师成功 </h3>
         <p>感谢您对全网法务服务的支持，请耐心等待，我们的<span>律师将会在30分钟内与您联系</span>，确认您的需求。</p>
-        <!-- <h5>系统将在<span class="text-orange">5秒</span>后自动跳转或<a href="">回到频道首页</a></h5> --> 
     </div>
     <!-- 自定义内容 区域 --> 
 </div>
-<!-- 成功选择律师弹出框区end --> <!-- 红包 --> 
-<!-- <div class="fltc-hongbao">
-    <a class="tu hb-tiaodong" href="/p/falvguwen" target="_blank"><img src="/templets/lawyer/images/nhth.jpg" alt="农行特惠"></a>
-</div>
-
-<script type="text/javascript">
-
-$(function(){
-function hongbao(){
-    var dbd = $(".fltc-hongbao .tu").hasClass('hb-tiaodong');
-    if(!dbd){
-        $(".fltc-hongbao .tu").addClass('hb-tiaodong');
-    }else{
-        $(".fltc-hongbao .tu").removeClass('hb-tiaodong');
-    }
-}
-setInterval(hongbao,5000);
-})
-</script> -->
 <div class="cpgb-fixed"> <a id="BizQQBottomCommon" class="cpgb-fixed-zixun">
     <p><img src="/templets/lawyer/images/qq.png" alt="QQ"><br>
         在线咨询</p>
@@ -666,64 +613,6 @@ setInterval(hongbao,5000);
     <p><img src="/templets/lawyer/images/dingbu.png" alt="QQ"><br>
         返回顶部</p>
     </a> </div>
-<!-------------- javascript -------------->
-<div class="model-box p-a" ></div>
-<footer class="visible-lg visible-md">
-    <div class="bg-nav">
-        <div class="container"> <br />
-            <div class="row">
-                <div class="col-xs-4 col-sm-2"> <em></em>
-                    <p class="text-center text-white hidden-xs" style="font-size:12px;">10年150万+项服务经验</p>
-                    <p class="text-center text-white visible-xs" style="font-size:8px;">10年150万+项服务经验</p>
-                </div>
-                <div class="col-xs-4 col-sm-2"> <em></em>
-                    <p class="text-center text-white hidden-xs" style="font-size:12px;">10000多专业律师</p>
-                    <p class="text-center text-white visible-xs" style="font-size:8px;">10000多专业律师</p>
-                </div>
-                <div class="col-xs-4 col-sm-2"> <em></em>
-                    <p class="text-center text-white hidden-xs" style="font-size:12px;">无形的法律看得见</p>
-                    <p class="text-center text-white visible-xs" style="font-size:8px;">无形的法律看得见</p>
-                </div>
-                <div class="col-xs-4 col-sm-2"> <em></em>
-                    <p class="text-center text-white hidden-xs" style="font-size:12px;">有效的法律分析解答</p>
-                    <p class="text-center text-white visible-xs" style="font-size:8px;">有效的法律分析解答</p>
-                </div>
-                <div class="col-xs-4 col-sm-2"> <em></em>
-                    <p class="text-center text-white hidden-xs" style="font-size:12px;">7天不限次数修改</p>
-                    <p class="text-center text-white visible-xs" style="font-size:8px;">7天不限次数修改</p>
-                </div>
-                <div class="col-xs-4 col-sm-2"> <em></em>
-                    <p class="text-center text-white hidden-xs" style="font-size:12px;">提供法律售后服务</p>
-                    <p class="text-center text-white visible-xs" style="font-size:8px;">提供法律售后服务</p>
-                </div>
-            </div>
-            <br />
-        </div>
-    </div>
-    <div class="footer-middle">
-        <div class="container">
-            <div class="row">
-                <div class=" col-md-5 list-inline text-center"> <img src="/templets/lawyer/images/footer-tel.png" width="294" height="69" alt="服务热线" /> </div>
-                <div class=" col-md-6 list-inline text-center">
-                    <div class="row" style="padding-top:20px;"> <a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e15052611010158890ey85000000&comefrom=trust"><img alt="可信网站身份认证" src="/templets/lawyer/images/footer-icon-1.jpg" width="82" height="30"></a> <img width="89" height="30" alt="支付宝特约商家" src="/templets/lawyer/images/footer-icon-2.png"> <img width="77" height="30" alt="网上交易保障中心" src="/templets/lawyer/images/footer-icon-3.png"> <a href="https://www.startssl.com/" target="_blank" rel="nofollow"> <img alt="保障" src="/templets/lawyer/images/footer-icon-4.png" width="29" height="30"> </a> 
-                        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254492474'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1254492474%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <ul class="list-inline text-center">
-                    <li> <a href="/about" target="_blank">关于我们</a> <a href="/sitemap" target="_blank">网站地图</a> <a href="/privacy" target="_blank">隐私申明</a> </li>
-                    <li> <a rel="nofollow"  href="http://www.miitbeian.gov.cn/" >闽ICP备09042048号-2</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/templets/lawyer/images/beian.png" style="float:left;"/>闽公网安备 35020602000086号</a> </li>
-                    <li><a>版权：全网法务服务股份</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
 <footer class="new-foot">
     <div class="nf-main">
         <div class="inner-box p-r">
@@ -753,15 +642,12 @@ setInterval(hongbao,5000);
     <div class="nf-link">
         <div class="inner-box">
             <h5> <span>友情链接：</span> <a href="http://www.yifatong.com/Links/add" target="_blank">[申请友链]</a> <a href="http://www.xmrc.com.cn" target="_blank">厦门人才网（官方网站）</a> <a href="http://www.64365.com" target="_blank">律师365</a> <a href="http://www.lawtime.cn/beijing" target="_blank">北京律师</a> <a href="http://www.tmkoo.com" target="_blank">商标查询</a> <a href="http://www.chatm.com" target="_blank">商标注册</a> <a href="http://iask.sina.com.cn/c/209.html" target="_blank">爱问法律</a> <a href="http://ishare.iask.sina.com.cn/c/1891.html" target="_blank">法律知识</a> <a href="http://www.gbicom.cn" target="_blank">中国商标网</a> <a href="http://www.job5156.com" target="_blank">人才网</a> <a href="http://ipr.zbj.com/" target="_blank">版权登记</a> <a href="http://china.findlaw.cn/ask/" target="_blank">找律师</a> <a href="http://www.yanedu.com" target="_blank">在职研究生</a> <a href="http://www.ailete.com/" target="_blank">AB</a> <a href="https://www.lawxp.com/" target="_blank">汇法网</a> <a href="http://www.eduego.com/" target="_blank">在职研究生招生</a> <a href="http://www.3456.cn" target="_blank">信息发布平台</a> <a href="http://www.66law.cn/beijing/" target="_blank">北京律师</a> <a href="http://www.haolietou.com" target="_blank">好猎头</a> </h5>
-            <h4> <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> <a rel="nofollow" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086">闽公网安备35020602000086号</a> <span>版权：全网法务服务股份</span> 
-                <!-- WPA Button Begin --> 
-                
-                <!-- WPA Button End --> 
-                
-            </h4>
+            <h4> <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> <a rel="nofollow" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086">闽公网安备35020602000086号</a> <span>版权：全网法务服务股份</span> </h4>
         </div>
     </div>
-</footer> 
+</footer>
+
+ 
 <!--  debug --> 
 <!-- javascript --> 
 <script type="text/javascript">
@@ -993,12 +879,16 @@ function check_mobile(mobile)
     }
 }
 
-function provinceSelect(id)
+function provinceSelect(obj,channel,typeid,infotype)
 {
-    var provinceCode=$("#province"+id).val();
-    
+	var proval = $(obj).val();
+	window.location.href="/plus/list.php?channelid="+channel+"&tid="+typeid+"&nativeplace="+proval+"&infotype="+infotype;
+	/*$.post("/plus/list.php?channelid="+channel+"&tid="+typeid+"&nativeplace="+proval+"&infotype="+infotype,function(data){
+		alert(data);
+	});*/
+    /*var provinceCode=$("#province"+id).val();
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: 'Locations/updateLocation',
         data: {'lctcode':provinceCode},
         dataType: 'json',
@@ -1012,18 +902,13 @@ function provinceSelect(id)
             }		
             $('#city'+id).html(html);
         }
-    });
+    });*/
 }
 
-function citySelect()
+function citySelect(obj,channel,typeid,infotype)
 {
-    var area=$("#city").val();
-    if(area=="")
-        area="all";
-    var url='/zhaolvshi/##/all/all/p1.html';
-    url=url.replace('##',area);
-    
-    window.location.href=url;
+    var proval2=$(obj).val();
+    window.location.href="/plus/list.php?channelid="+channel+"&tid="+typeid+"&nativeplace="+proval2+"&infotype="+infotype;
 }
 
 var tag = true;
@@ -1072,11 +957,6 @@ function lawyerFeeCaculation()
         {
             if(data.is_success)
             {
-                //$('.inner-bottom-box .l-box ol.box-before').hide();
-                //$('.inner-bottom-box .l-box ol.box-after').show();
-                //$('.inner-top-box .l-box .box-before').hide();
-                //$('.inner-top-box .l-box .box-after').show();
-                //$('.inner-top-box .l-box .box-after span#spFeePrice').html(data.message);
                 tag = true;
                 $('#fee_result').text(data.message);
                 //$('#lawyer-fee input[name="province1"]').val($('#lawyer-fee #province_id option:selected').text());

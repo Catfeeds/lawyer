@@ -1,0 +1,1 @@
+<a target="_blank" title="[field:title/]" href="[field:arcurl/]" class="pic-item h184"><img src="[field:picname/]" alt="[field:title/]" style="width: 280px;height: 184px;"><span>[field:title/]</span></a>

@@ -32,4 +32,5 @@ $cfg_Cs[36]=array(27,1,1,'5YWs5Y+457uP6JCl');
 $cfg_Cs[37]=array(27,1,1,'5o2f5a6z6LWU5YG/');
 $cfg_Cs[38]=array(27,1,1,'55+l6K+G5Lqn5p2D');
 $cfg_Cs[39]=array(27,1,1,'5b6B5Zyw5ouG6L+B');
+$cfg_Cs[40]=array(0,1,1,'5rOV5b6L55+l6K+G');
 ?>

@@ -1,0 +1,1 @@
+<li><span class="s-cbbb fr ml20">[field:pubdate function="MyDate('Y-m-d',@me)"/]</span><a target="_blank" title="[field:title/]" href="[field:arcurl/]">[field:title/]</a></li>

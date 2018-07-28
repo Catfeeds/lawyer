@@ -62,147 +62,6 @@ $(function(){
 <script type="text/javascript" src="/templets/lawyer/js/move.min.js"></script> 
 <script type="text/javascript" src="/templets/lawyer/js/mask.js"></script>
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/mask.css" />
-<!-- 浮窗 --> 
-<script type="text/javascript">
-$(function(){	
-
-if(getCookie("float_tag") == '1')
-{
-    $('.findlawyer-fixbox').hide();
-    $('.findlawyer-fixbox-shrink').show();	
-}
-else
-{		
-    $('.findlawyer-fixbox').show();
-    $('.findlawyer-fixbox-shrink').hide();
-}
-$('.anniu').on('click',function(){
-    setCookie('float_tag','1');
-    
-    $('.findlawyer-fixbox').hide();
-    $('.findlawyer-fixbox-shrink').show();
-})
-$('.findlawyer-fixbox-shrink').on('click',function(){
-    setCookie('float_tag','0');
-    
-    $('.findlawyer-fixbox').show();
-    $('.findlawyer-fixbox-shrink').hide();
-})
-});
-
-
-function setCookie(name,value)
-{
-    var Days = 30;
-    var exp = new Date();
-    exp.setTime(exp.getTime() + Days*24*60*60*1000);
-    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-}
-
-function getCookie(name)
-{
-    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-    if(arr=document.cookie.match(reg))
-    return unescape(arr[2]);
-    else
-    return null;
-}
-
-//手机验证
-function check_mobile_lawyer(mobileID)
-{
-    var m=$.trim($('#'+mobileID).val());
-    if(m!='')
-    {
-        var reg = /^1[34578]\d{9}$/;
-        
-        var result = false;
-        if (reg.test(m))
-            result=true;		
-        if (result)
-        {
-            return true;
-        }else{
-            alert("请输入正确的手机号");
-            return false;
-        }
-    }else{
-        
-        alert("请输入手机号");
-        return false;
-    }
-}
-
-function ajaxPointment()
-{		
-    if(!check_mobile_lawyer('customer_mobile_lawyer'))
-    {
-        return;
-    }
-    $.ajax({
-        type: "POST",
-        url: 'Lawyers/ajaxAppointment',
-        data: {'customer_mobile_lawyer':$("#customer_mobile_lawyer").val(),'customerName':$("#customer_name").val()},
-        async : false,
-        //dataType: "json",
-        beforeSend:function()
-        {
-            $("#submit-btn").attr('value','提交中..');
-            $("#submit-btn").attr('disabled',true);
-        },
-        success: function(data)
-        {
-            if(data =='1')
-            {
-                mask("appointment-lawyer-success");							
-                //$('#submit-btn').removeAttr("disabled");
-                $("#submit-btn").attr('value','提交预约');					
-            }
-            else if(data =='2')
-            {
-                alert('提交失败,请重试');
-            }				
-        },
-        error:function(xhr,t,tr){
-            //alert(tr);
-        }
-    });
-}
-</script>
-<div class="findlawyer-fixbox-shrink p-a" style="display: none;"> <img src="/templets/lawyer/images/small-xiaoxia.png" width="150" alt=""> </div>
-<div class="findlawyer-fixbox" style="display: none;">
-    <div class="ff-nav show">
-        <div class="ff-nav-l"> <img src="/templets/lawyer/images/fix-bg.png" height="145"> </div>
-        <div class="ff-nav-r">
-            <div class="inner-box o-h">
-                <div class="inner-block p-r">
-                    <div class="phone p-r">
-                        <p class="p-a">您的手机：</p>
-                        <input name="data[customer_mobile_lawyer]" value="" class="fl" required maxLength="11" type="tel" id="customer_mobile_lawyer"/>
-                    </div>
-                    <div class="submit p-r h100p o-h">
-                        <p class="p-a">您的称呼：</p>
-                        <input type="text" name="customer_name" value="" id="customer_name">
-                        <input id="submit-btn" type="submit" onclick="ajaxPointment()" value="提交预约">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <span class="ico-font anniu">&#xe90c;</span> </div>
-</div>
-
-<!-- 预约成功弹出框区start -->
-<div class="appointment-lawyer-success" style="display: none;"> 
-    <!-- 自定义内容 区域 -->
-    <div class="findlawyer-window-appointment">
-        <h2> <span class="ico-font">&#xe90a;</span> </h2>
-        <h3> 预约信息提交成功 </h3>
-        <p>律师助理和律师确定时间后，给您回电，请耐心等待。如果超过半个工作日仍未<br />
-            收到来电，可以拨打4008-515-666转4，直接和律师助理联系，感谢您的预约！ </p>
-        <!-- 	<h5>系统将在<span class="text-orange">5秒</span>后自动跳转或<a href="/">回到频道首页</a></h5> --> 
-    </div>
-    <!-- 自定义内容 区域 --> 
-</div>
 <!-- 预约成功弹出框区end -->
 <div class="findlawyer-mod">
     <div class="top-box">
@@ -228,11 +87,11 @@ function ajaxPointment()
                             </div>
                             <div class="content-part"> 
 								[field:linkallplace /]
-								<select id="province" onchange="provinceSelect(this,[field:channelid/],[field:typeid/],[field:infotype/])">
+								<select id="province" onchange="provinceSelect(this,[field:channelid/],[field:typeid/],'[field:selyears/]')">
 									<option value="">选择省份</option>
 									[field:topplace /]
 								</select>
-								<select id="city" onchange="citySelect(this,[field:channelid/],[field:typeid/],[field:infotype/])">
+								<select id="city" onchange="citySelect(this,[field:channelid/],[field:typeid/],'[field:selyears/]')">
 										<option value="">选择县市</option>
                                         [field:nativeplace /]
 								</select>
@@ -243,10 +102,10 @@ function ajaxPointment()
                                 <h3>专长领域：</h3>
                             </div>
                             <div class="content-part">
-								<a class="selected" href="/zls/" ><b>不限</b></a>
-								{dede:channel typeid='16' type="son"}
+								[field:typename /]
+								<!--{dede:channel typeid='16' type="son"}
 								<a href="[field:typeurl/]" >[field:typename/]</a>
-								{/dede:channel}
+								{/dede:channel}-->
 							</div>
                         </div>
                         <div class="year-bar">
@@ -256,7 +115,13 @@ function ajaxPointment()
                             <div class="content-part" style="border-bottom: none;">[field:linkalltype/] [field:infotype /]</div>
                         </div>
                     </div>
-                    </form>
+                    <script>
+						$("input[name='years']").click(function(){
+							var yearsval = $(this).val();
+							//$.get("/plus/list.php?channelid=[field:channelid/]&tid=[field:typeid/]&nativeplace=[field:selnat/]&infotype="+yearsval,)
+							window.location.href="/plus/list.php?channelid=[field:channelid/]&tid=[field:typeid/]&nativeplace=[field:selnat/]&infotype="+yearsval;
+						})
+					</script>
                 {/dede:infolink}
                     <h2 class=""><span class="ico-font">&#xeaff;</span>已为您成功筛选出 <span class="text-orange">479</span>&nbsp;位律师</h2>
                     <div class="box-bor1">
@@ -300,7 +165,6 @@ function ajaxPointment()
                     <!-- 分写 开始-->
                     <div class="web-page">
                        <ul>{dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}</ul>
-                        <!--<h1><span class="current">1</span> <span><a href="/zhaolvshi/shanghai/all/all/p2.html">2</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p3.html">3</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p4.html">4</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p5.html">5</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p6.html">6</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p7.html">7</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p8.html">8</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p9.html">9</a></span> <span><a href="/zhaolvshi/shanghai/all/all/p60.html" rel="last"> ...尾页</a></span></h1>-->
                     </div>
                     <br>
                     <br>
@@ -314,25 +178,6 @@ function ajaxPointment()
                 </div>
                 <div class="r-box visible-lg">
                     <div class="ad-block p-r"> 
-                        <!-- <span class="p-a">4大理由  马上了解</span>
-                        <ul class="list-unstyled">
-                            <li class="text-center">
-                                <h3>快速</h3>
-                                <p>10分钟内找到律师</p>
-                            </li>
-                            <li class="text-center">
-                                <h3>省钱</h3>
-                                <p>10分钟内找到律师</p>
-                            </li>
-                            <li class="text-center">
-                                <h3>省心</h3>
-                                <p>10分钟内找到律师</p>
-                            </li>
-                            <li class="text-center">
-                                <h3>安全</h3>
-                                <p>10分钟内找到律师</p>
-                            </li>
-                        </ul> --> 
                     </div>
                     <div class="img-block"></div>
                     <div class="list-block">
@@ -399,84 +244,6 @@ function ajaxPointment()
         </div>
     </div>
 </div>
-<!-- 选择律师弹出框区start -->
-<div class="contact-lawyer-box" style="display: none;"> 
-    <!-- 自定义内容 区域 -->
-    <div class="findlawyer-window-contact" id="contact-lawyer-1">
-        <div class="fwc-title">
-            <h2 class="fl">联系该律师 </h2>
-            <h3 class="fr">您尚未登入，如果已有账号，<a href="/Customers/login?url=zhaolvshi">请登录</a></h3>
-        </div>
-        <div class="fwc-form">
-            <div class="fwc-tel-hint">
-                <p class="fr">请用您的手机作为账号，以便我们法务经理与您联系</p>
-            </div>
-            <div class="fwc-input p-r"> <span class="p-a">手机号：</span>
-                <input name="data[Customer][mobile]" id="CustomerAccount1" maxLength="11" onblur="accountOnBlur(1)" maxlength="50" type="text" required="required"/>
-            </div>
-            <div class="text-hint" style="display: none;">
-                <p class="fr" id="CustomerAccount1Msg">&nbsp;</p>
-            </div>
-            <div class="fwc-input p-r"> <span class="p-a">密码：</span>
-                <input name="data[Customer][password]" id="CustomerPassword1" onblur="passwordOnBlur()" type="password" required/>
-            </div>
-            <div class="password-hint" style="display: none;">
-                <p class="fr" id="CustomerPassword1Msg">&nbsp;</p>
-            </div>
-            <div class="fwc-input p-r"> <span class="p-a">确认密码：</span>
-                <input name="data[Customer][verify_password]" id="CustomerVerifyPassword1" onblur="verifyOnBlur()" type="password" required/>
-            </div>
-            <div class="password-hint" style="display: none;">
-                <p class="fr" id="CustomerVerifyPassword1Msg">&nbsp;</p>
-            </div>
-        </div>
-        <div class="fwc-submit text-center"> 
-            <!-- sub-blue和sub-orange -->
-            <input type="hidden" name="data[Lawyer][id]" id="lawyer1" value="">
-            <input type="button" onClick="chooseLawyer(1)" class="sub-blue" value="注册并选择该律师"/>
-        </div>
-    </div>
-    <div class="findlawyer-window-contact" id="contact-lawyer-2" style="display:none;">
-        <div class="fwc-title">
-            <h2 class="fl">联系该律师 </h2>
-            <h3 class="fr">您尚未登入，如果已有账号，<a href="/Customers/login?url=zhaolvshi">请登录</a></h3>
-        </div>
-        <div class="fwc-form">
-            <div class="fwc-tel-hint">
-                <p class="fr">请用您的手机作为账号，以便我们法务经理与您联系</p>
-            </div>
-            <div class="fwc-input p-r"> <span class="p-a">手机号：</span>
-                <input name="data[Customer][mobile]" id="CustomerAccount2" maxLength="11" onblur="accountOnBlur(2)" maxlength="50" type="text" required="required"/>
-            </div>
-            <div class="text-hint" id="phone-warning" style="display: none;">
-                <p class="fr" id="CustomerAccount2Msg">该用户账号名已被使用，请登录</p>
-            </div>
-            <div class="fwc-input p-r"> <span class="p-a">密码：</span>
-                <input name="data[Customer][password]" width="290px" id="CustomerPassword2" type="password" required/>
-            </div>
-            <div class="password-hint">
-                <p class="fr" ><a href="/Customers/forgetPassword?url=zhaolvshi">忘记密码</a></p>
-            </div>
-        </div>
-        <div class="fwc-submit text-center"> 
-            <!-- sub-blue和sub-orange -->
-            <input type="hidden" name="data[Lawyer][id]" id="lawyer2" value="">
-            <input type="button" onClick="chooseLawyer(2)" class="sub-blue" value="登录并选择该律师"/>
-        </div>
-    </div>
-    <!-- 自定义内容 区域 --> 
-</div>
-<!-- 选择律师弹出框区end --> 
-<!-- 成功选择律师弹出框区start -->
-<div class="choose-success" style="display: none;"> 
-    <!-- 自定义内容 区域 -->
-    <div class="findlawyer-window-appointment">
-        <h2> <span class="ico-font">&#xe90a;</span> </h2>
-        <h3> 恭喜您！选择<span id="selectLawyerName"></span>律师成功 </h3>
-        <p>感谢您对全网法务服务的支持，请耐心等待，我们的<span>律师将会在30分钟内与您联系</span>，确认您的需求。</p>
-    </div>
-    <!-- 自定义内容 区域 --> 
-</div>
 {dede:include filename='footer.htm'/} 
 <!--  debug --> 
 <!-- javascript --> 
@@ -506,9 +273,7 @@ $(function(){
         $(this).parent('div').siblings('div').children('h5').children('b').hide();
     });		
 });
-
 var wasSubmitted = false;    
-
 function checkBeforeSubmit()
 {
     if(!wasSubmitted) 
@@ -518,13 +283,10 @@ function checkBeforeSubmit()
     }
     return false;
 }    
-
-
 function lawyerSort(self)
 {
     window.location.href="/"+$(self).val();
 }
-
 function selectLawyer(id,name)
 {
     $("#lawyer1").val(id);
@@ -534,7 +296,6 @@ function selectLawyer(id,name)
     
     mask("contact-lawyer-box");
 }
-
 function accountOnBlur(num)
 {
     if($("#CustomerAccount"+num).val() != '')
@@ -571,320 +332,16 @@ function accountOnBlur(num)
         });
     }	
 }
-
-function passwordOnBlur(num)
-{
-    $.ajax({
-        type: "POST",
-        url: 'Customers/validateField',
-        data: {'password':$("#CustomerPassword1").val()},
-        success: function(data)
-        {				
-            if(data==false)
-                data = "&nbsp;";
-                            
-            $('#CustomerPassword1Msg').html(data);
-        }
-    });	
-}
-
-
-function verifyOnBlur(num)
-{
-    if($("#CustomerVerifyPassword1").val() != $("#CustomerPassword1").val())
-    {			
-        alert("密码不一致");
-        return;
-    }
-    $.ajax({
-        type: "POST",
-        url: 'Customers/validateField',
-        data: {'verify_password':$("#CustomerVerifyPassword1").val(), 'password':$("#CustomerPassword1").val()},
-        success: function(data)
-        {
-            if(data==false)
-                data = "&nbsp;";
-            $('#CustomerVerifyPassword1Msg').html(data);
-            alert(ok)
-        }
-    });	
-}
-
-function chooseLawyer(type)
-{
-    var postData = "";
-    var lawyerId = $("#lawyer"+type).val();
-    
-    if(!check_mobile('CustomerAccount'+type))
-         return;
-    if(type == 1)
-    {							
-        if($("#CustomerPassword1").val() == '' || $("#CustomerVerifyPassword1").val() == '')
-        {
-            alert("请填写密码");
-            return;
-        }
-        if($("#CustomerPassword1").val() != $("#CustomerVerifyPassword1").val())
-        {
-            alert("密码不一致");
-            return;
-        }
-        postData = {'lawyerId':lawyerId,'mobile':$("#CustomerAccount1").val(),'password':$("#CustomerPassword1").val(),'checkPassword':$("#CustomerVerifyPassword1").val()};
-    }
-    else if(type == 2)
-    {			
-        if($("#CustomerPassword2").val() == '')
-        {
-            alert("请填写密码");
-            return;
-        }
-        postData = {'lawyerId':lawyerId,'mobile':$("#CustomerAccount2").val(),'password':$("#CustomerPassword2").val()};
-    }
-    else if(type == 3)
-    {
-        postData = {'lawyerId':lawyerId,'mobile':$("#CustomerAccount3").val()};
-    }
-    
-    $.ajax({
-        type: "POST",
-        url: 'LegalCases/add1',
-        data: postData,
-        async : false,
-        //dataType: "json",
-        success: function(data)
-        {
-            if(data =='1')
-            {				
-                clearMask("contact-lawyer-box");
-                mask("choose-success");							
-            }
-            else if(data =='2')
-            {
-                alert('请输入手机号');
-            }
-            else if(data =='3')
-            {
-                alert('请先选择律师');
-            }
-            else if(data =='4')
-            {
-                alert('密码错误,请重试');
-            }
-            else if(data =='5')
-            {
-                alert('密码和确认密码不一致,请重试');
-            }
-            else if(data =='6')
-            {
-                alert('保存失败,请重试');
-            }
-        },
-        error:function(xhr,t,tr){
-            //alert(tr);
-        }
-    });
-}
-
-function check_mobile(mobile)
-{
-    var m=$.trim($('#'+mobile).val());
-    if(m!='')
-    {
-        var reg = /^1[34578]\d{9}$/;
-        
-        var result = false;
-        if (reg.test(m))
-            result=true;		
-        if (result)
-        {
-            return true;
-        }else{
-            alert("请输入正确的手机号");
-            return false;
-        }
-    }else{
-        
-        alert("请输入手机号");
-        return false;
-    }
-}
-
 function provinceSelect(obj,channel,typeid,infotype)
 {
 	var proval = $(obj).val();
 	window.location.href="/plus/list.php?channelid="+channel+"&tid="+typeid+"&nativeplace="+proval+"&infotype="+infotype;
-	/*$.post("/plus/list.php?channelid="+channel+"&tid="+typeid+"&nativeplace="+proval+"&infotype="+infotype,function(data){
-		alert(data);
-	});*/
-    /*var provinceCode=$("#province"+id).val();
-    $.ajax({
-        type: "POST",
-        url: 'Locations/updateLocation',
-        data: {'lctcode':provinceCode},
-        dataType: 'json',
-        success: function(data)
-        {
-            var html ='';
-            html ="<option value='all'>选择县市</option>";			
-            for (var i = 0; i < data.length; i++)
-            {
-                html = html + "<option  value='"+ data[i].Location.area_name +"'>"+data[i].Location.name+"</option>";
-            }		
-            $('#city'+id).html(html);
-        }
-    });*/
 }
-
 function citySelect(obj,channel,typeid,infotype)
 {
     var proval2=$(obj).val();
     window.location.href="/plus/list.php?channelid="+channel+"&tid="+typeid+"&nativeplace="+proval2+"&infotype="+infotype;
 }
-
-var tag = true;
-function lawyerFeeCaculation()
-{
-    var price1 = $("#fee_price").val();
-    var province_id1 = $("#province1").val();
-    var mobile1=$('#fee_mobile').val();
-
-    if(province_id1=="" || province_id1=="全国")
-    {
-        alert('请选择省份');
-        tag = false;
-        return;
-    }
-    if(price1=="" || isNaN(price1) || parseInt(price1) < 0)
-    {
-        alert('请填写正确的案件涉及金额价格');
-        tag = false;
-        return;
-    }
-    if(mobile1=="")
-    {
-        alert('请输入您的手机');
-        tag = false;
-        return;
-    }
-    else
-    {
-        var myreg = /^1[34578]\d{9}$/;
-        if(!myreg.test(mobile1))
-        {
-            alert('请输入正确的手机号格式');
-            tag = false;
-            return;
-        }
-    }
-    
-    $.ajax({
-        type: "GET",
-        async:false,
-        url: 'Tools/lawyerFee2',
-        data: {'price':price1,'province_id':province_id1},
-        dataType: 'json',
-        success: function(data)
-        {
-            if(data.is_success)
-            {
-                tag = true;
-                $('#fee_result').text(data.message);
-                //$('#lawyer-fee input[name="province1"]').val($('#lawyer-fee #province_id option:selected').text());
-            }
-            else
-            {
-                tag = false;
-                alert(data.message);
-            }
-        }
-    });
-}
-var hasSumitFeeCase=false;
-function submitFeeCase()
-{
-    if(hasSumitFeeCase)
-    {
-        return false;
-    }
-    var mobile=$('#fee_mobile').val();
-    var price=$('#fee_price').val();
-    var type=$('#fee_type option:selected').text().trim();
-    var charactor = $('input:radio[name="fee_charactor"]:checked').val();
-    var province1=$('#province1').val();
-    var city1=$('#city1').val();
-    var province1_text=$('#province1 option:selected').text().trim();
-    var city1_text=$('#city1 option:selected').text().trim();
-    var result=$('#fee_result').text();
-    //alert(province1);
-
-    $.ajax({
-        type: "POST",
-        url: 'LegalCases/ajaxAddFeeCase',
-        data: {'mobile':mobile,'charactor':charactor,'province1':province1,'city1':city1,'type':type,'price':price,'province1_text':province1_text,'city1_text':city1_text,'result':result},
-        dataType: 'html',
-        success: function(data)
-        {
-            if(data)
-            {
-                //alert("您已成功提交，请稍等会儿，我们的专业律师收到信息后会在第一时间联系您。");
-                hasSumitFeeCase=true;
-                tag = true;
-            }
-            else
-            {
-                tag = false;
-                //alert('提交失败，请重试或联系热线电话：4008-515-666。');
-            }
-        },
-        error:function(xhr,ts,et){
-            tag = false;
-            alert("系统繁忙，请重试！");
-            //alert(ts+et+xhr);
-        }
-    });
-}
-
-function addFee()
-{
-    var fee=$('#fee_result').text();
-    $.ajax({
-        type: "GET",
-        url: 'DataStatistics/addFee',
-        dataType: 'json',
-        data: {"fee":fee},
-        success: function(data)
-        { 
-            if(data.success)
-            { 
-                $("#legal_count").text(data.legalCount);
-                $("#legal_fee").text(data.legalFee);
-            }
-            else
-            {
-                //alert('系统繁忙，请重试！');
-            }
-        }
-    });
-}
-
-</script> 
-<script type="text/javascript">
-</script> 
-<script type="text/javascript">
-$(function(){
-    $.ajax({
-        type: "GET",
-        url: 'Contracts/ajaxGetCount',			
-        dataType: "html",
-        success: function(data)
-        {
-            $("#contractCount").html(data);
-        },
-        error:function(xhr,t,tr){				
-            //alert(tr);
-        }
-    });
-})
 </script> 
 <script type="text/javascript">
 $(function(){

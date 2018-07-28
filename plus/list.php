@@ -36,7 +36,8 @@ else
 if($tinfos['issystem']==-1)
 {
     $nativeplace = ( (empty($nativeplace) || !is_numeric($nativeplace)) ? 0 : $nativeplace );
-    $infotype = ( (empty($infotype) || !is_numeric($infotype)) ? 0 : $infotype );
+    //$infotype = ( (empty($infotype) || !is_numeric($infotype)) ? 0 : $infotype );
+    $infotype = ( (empty($infotype)) ? 0 : $infotype );
     if(!empty($keyword)) $keyword = FilterSearch($keyword);
     $cArr = array();
     if(!empty($nativeplace)) $cArr['nativeplace'] = $nativeplace;

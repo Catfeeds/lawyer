@@ -1,0 +1,1 @@
+<li><span class="[field:global name=autoindex runphp='yes'](@me==6)? @me='borb0':@me='s-cbbb fr ml20';[/field:global]">[field:pubdate function="MyDate('Y-m-d',@me)"/]</span><a target="_blank" href="[field:arcurl/]">[field:title/]</a></li>

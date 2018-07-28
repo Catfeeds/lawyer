@@ -180,7 +180,6 @@ function WriteEnumsJs($egroup)
     fclose($fp);
 }
 
-
 /**
  *  获取枚举的值
  *

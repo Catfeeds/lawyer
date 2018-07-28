@@ -26,7 +26,7 @@ require_once(DEDEDATA.'/enums/nativeplace.php');
 require_once(DEDEDATA.'/enums/infotype.php');
 function lib_infolink(&$ctag,&$refObj)
 {
-    global $dsql,$nativeplace,$topplace,$typename,$infotype,$hasSetEnumJs,$cfg_cmspath,$cfg_mainsite;
+    global $dsql,$nativeplace,$topplace,$infotype,$hasSetEnumJs,$cfg_cmspath,$cfg_mainsite;
     global $em_nativeplaces,$em_infotypes;
     
     //属性处理
@@ -59,12 +59,13 @@ function lib_infolink(&$ctag,&$refObj)
     $revalue = $seli = '';
     $channelid = ( empty($refObj->TypeLink->TypeInfos['channeltype']) ? -8 : $refObj->TypeLink->TypeInfos['channeltype'] );
     
-    $fields = array('nativeplace'=>'','topplace'=>'','infotype'=>'','typeid'=>$typeid,
+    $fields = array('nativeplace'=>'','topplace'=>'','selnat'=>'','selyears'=>'','infotype'=>'','typeid'=>$typeid,
                     'channelid'=>$channelid,'linkallplace'=>'','linkalltype'=>'');
     $fields['nativeplace'] = $fields['infotype'] = '';
     $fields['linkallplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$infotype}'><b>不限</b></a>";
     $fields['linkalltype'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$nativeplace}'><b>不限</b></a>";
     //地区链接
+	$fields['selnat'] = $nativeplace;
 	//省份
 	$toptype = floor($nativeplace-($nativeplace % 500));
 	foreach($em_nativeplaces as $eid=>$em)
@@ -91,13 +92,26 @@ function lib_infolink(&$ctag,&$refObj)
           }
       }
 	}
-	//专业领域
-    //执业年限
-	foreach($em_infotypes as $eid=>$em){
-		$fields['infotype'] .= " <a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$eid}&nativeplace={$nativeplace}'>{$em}</a>\r\n";
-	}	
-    
 	
+	//专业领域
+	$fields['typename'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid=16&nativeplace={$nativeplace}'><b>不限</b></a>";
+	$dsql->SetQuery("SELECT id,typename FROM `#@__arctype` WHERE reid = 16");
+	$dsql->Execute();
+	
+	while($row = $dsql->GetArray()){
+		$fields['typename'] .= " <a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$row['id']}&infotype={$infotype}&nativeplace={$nativeplace}'>{$row['typename']}</a>\r\n";
+	}
+    //执业年限
+	$infotype = $_GET['infotype'];
+	$fields['selyears'] = $infotype;
+	foreach($em_infotypes as $eid=>$em){
+		if($eid == $infotype){
+			$fields['infotype'] .= " <input type='radio' name='years' checked value='{$eid}'>{$em}";
+		}else{
+			$fields['infotype'] .= " <input type='radio' name='years' value='{$eid}'>{$em}";
+		}
+		
+	}	
     if(is_array($ctp->CTags))
     {
         foreach($ctp->CTags as $tagid=>$ctag)

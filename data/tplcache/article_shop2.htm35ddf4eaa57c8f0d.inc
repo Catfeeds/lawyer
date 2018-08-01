@@ -15,7 +15,7 @@ $z[3][4]['function']="html2text(@me)";
 $z[4]=Array("include","",1171,1208);
 $z[4][4]=array();
 $z[4][4]['filename']="header.htm";
-$z[5]=Array("include","",36607,36644);
+$z[5]=Array("include","",36606,36643);
 $z[5][4]=array();
 $z[5][4]['filename']="footer.htm";
 

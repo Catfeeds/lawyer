@@ -1,7 +1,20 @@
 <?php
 if(!isset($GLOBALS['_vars'])) $GLOBALS['_vars'] = array(); 
 $fields = array();
-?><script language="javascript" type="text/javascript" src="<?php echo $GLOBALS['cfg_cmsurl']; ?>/include/dedeajax2.js"></script>
+?><script>
+$(function(){
+	$(".nh-nav-container .nh-nav-item").hover(function() {
+		/* Stuff to do when the mouse enters the element */
+		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
+		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	}, function() {
+		/* Stuff to do when the mouse leaves the element */
+		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
+	});
+})
+</script>
+<script type="text/javascript" src="/templets/lawyer/js/jquery.pin.min.js"></script>
+<script language="javascript" type="text/javascript" src="<?php echo $GLOBALS['cfg_cmsurl']; ?>/include/dedeajax2.js"></script>
 <script language="javascript" type="text/javascript">
 <!--
 	function CheckLogin(){
@@ -13,10 +26,10 @@ $fields = array();
 -->
 </script>
    <header class="new-header">
-    <div class="new-header-jianhangdingbu"> <a href="/" target="_blank"><img src="/templets/lawyer/images/zhaoluyetop.jpg" alt="农行"></a> </div>
+    <!--<div class="new-header-jianhangdingbu"> <a href="/" target="_blank"><img src="/templets/lawyer/images/zhaoluyetop.jpg" alt="农行"></a> </div>-->
     <div class="nh-info">
         <div class="inner-box o-h">
-            <div class="nh-info-logo fl"> <a href="/"><img height="60" src="/templets/lawyer/images/yifatonglogo_whithout_word.png" alt="全网法务服务"></a> <span>股票代码（834627）</span> </div>
+            <div class="nh-info-logo fl"> <a href="/"><img height="60" src="/templets/lawyer/images/yifatonglogo_whithout_word.png" alt="全网法务服务"></a>  </div>
             <div class="nh-info-items fr" id="_userlogin"> 
                 <!-- 未登录 --> 
                 <img class="link-flgw" width="189" height="26" src="/templets/lawyer/images/400.png" alt="服务热线" />
@@ -106,12 +119,12 @@ foreach( $blockValue as $key=>$fields )
 }
 }
 ?> </div>
-                        <div class="nnih-tupian"> <a href="/p/laodong"><img src="/templets/lawyer/images/ldht.png" alt="劳动合同"></a> </div>
+                        <div class="nnih-tupian"> <a href="/nsht/"><img src="/templets/lawyer/images/ldht.png" alt="劳动合同"></a> </div>
                     </div>
                 </div>
-                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/ask">法律咨询</a>
+                <div class="nh-nav-item p-r"> <a class="daohang" target="_blank" href="/ask/?ct=question&ac=ask_complete">法律咨询</a>
                     <ol class="p-a">
-                        <li><a class="yaobianse" href="/ask/">在线法律咨询</a></li>
+                        <li><a class="yaobianse" href="/ask/?ct=question&ac=ask_complete">在线法律咨询</a></li>
                         <li><a class="yaobianse" href="/nsht/dgs/8.html">电话法律咨询</a></li>
                     </ol>
                 </div>

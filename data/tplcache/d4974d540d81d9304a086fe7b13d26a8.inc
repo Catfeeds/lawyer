@@ -10,7 +10,7 @@
                                         <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>[field:address/]</p>
                                     </div>
                                     <div class="w373 fl">
-                                        <p><span class="mr20">案例：[field:case/]</span><span>帮助：[field:help/]</span></p>
+                                        <p><span class="mr20">案例：[field:cases/]</span><span>帮助：[field:helps/]</span></p>
                                         <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>[field:tel/]</span> <a href="/swt/" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
                                     </div>
                                 </div>

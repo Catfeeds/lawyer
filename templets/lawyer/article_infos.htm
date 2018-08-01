@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/templets/lawyer/find/css/lawyerinfo.css" />
 <link rel="stylesheet" href="/templets/lawyer/find/css/lawyerinfo-new.css" />
 <link rel="stylesheet" href="/templets/lawyer/find/css/traffic-calculator.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-xin.css?v=201805021933" />
 <script type="text/javascript" src="/templets/lawyer/find/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/templets/lawyer/find/js/basic.js"></script>
 <script type="text/javascript" src="/templets/lawyer/find/js/supplement.js"></script>
@@ -94,7 +95,7 @@
     <div class="bgf0 law-data">
         <div class="weizhi w1200 ma"> <a href="/" class="s-c999">首页</a><i class="s-fa">&gt;</i> <a href="/findlawyer/" class="s-c999">找律师</a><i class="s-fa">&gt;</i> <a href="/sichuan/" class="s-c999">四川律师</a><i class="s-fa">&gt;</i> <a href="/chengdu/" class="s-c999">成都律师</a><i class="s-fa">&gt;</i> <a href="/lawyer/1983209/" class="s-c999">周刚律师</a><i class="s-fa"></i> </div>
         <div class="w1200 ma mt20 clearfix">
-            <div class="fr w280">
+            <!--<div class="fr w280">
                 <div class="ad"> <a href="/zhenduan/xinxi.aspx?from=userpic" target="_blank"><img src="/templets/lawyer/find/images/ad01.jpg"></a> </div>
                 <div class="box-bor1 chose-law2 mt20">
                     <div class="chose-law-tit">
@@ -193,8 +194,11 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="w900 borb1 fl" id="render">
+            </div>-->
+            <div class="pc-chanpingaiban">
+             {dede:include filename='common.htm'/}
+             </div>
+            <!--<div class="w900 borb1 fl" id="render">
                 <div class="lawinfo-tab"> <a href="/lawyer/1983209/" class="w132 la-now-tab"><span>首页</span></a> <a href="/lawyer/1983209/info/" class=""><span>律师档案</span></a> <a href="/lawyer/1983209/service/" class=""><span>服务范围</span></a> <a href="/lawyer/1983209/comment/" class=""><span>用户评价</span></a> <a href="/lawyer/1983209/case/" class=""><span>成功案例</span></a> <a href="/lawyer/1983209/trade/" class=""><span>服务记录</span></a> <a href="/lawyer/1983209/contact/" class=""><span class=bor0>联系方式</span></a> </div>
                 <div key="load" style="display: none;">加载中……</div>
                 <div class="pl20 pr20">
@@ -544,7 +548,7 @@ window.require(['echarts','echarts/chart/pie'
 function doAjax(url,data,callback,type) {$.ajax({url:url + '?_=' + Math.random(0,1),dataType:type ?type :'xml',contentType:'application/x-www-form-urlencoded; charset=utf-8',cache:false,type:'POST',data:data,success:function (response) {if (callback &&$.isFunction(callback)) callback(response);},error:function () {console.log("网络繁忙，请稍后再试");}
 });}
 </script> 
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="w1200 ma">

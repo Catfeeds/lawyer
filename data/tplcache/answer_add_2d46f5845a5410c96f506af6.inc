@@ -1,0 +1,51 @@
+<?php
+if(!isset($GLOBALS['_vars'])) $GLOBALS['_vars'] = array(); 
+$fields = array();
+?><html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=<?php echo $cfg_soft_lang;?>'>
+<title>回答提问 -- 答案管理</title>
+<link href='static/style/lurd.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<form method="post" name="answer" action="?ct=question&ac=answer&amp;askaid=<?php echo $question['id']; ?>">
+    <input type='hidden' name='ct' value='<?php echo $GLOBALS['ct']; ?>' />
+    <input type='hidden' name='ac' value='saveedit' />
+    <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td height="28" style="background:url(/images/lurd/tr-bg.gif);border-left:1px solid #DADADA;border-right:1px solid #DADADA;border-top:1px solid #DADADA;"><table width='96%' cellpadding='0' cellspacing='0'>
+                    <tr>
+                        <td width='30%'>&nbsp;<strong>回答提问 -- 答案管理</strong></td>
+                        <td align='right'>&nbsp;</td>
+                    </tr>
+                </table></td>
+        </tr>
+        <tr>
+            <td height="150" bgcolor="#FFFFFF"><input type="hidden" name="id" value="<?php echo $fields['id']; ?>" />
+                <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#DCE9AB">
+                    <tr bgcolor="#F8FEE0">
+                        <td width="20%" height="45"><strong>标 题</strong></td>
+                        <td width="40%" align="center"><?php echo $question['title']; ?></td>
+                        <td width="30%" align="center"></td>
+                    </tr>
+                    <tr style="padding: 30px 0">
+                        <td align='center' bgcolor='#FFFFFF'>问题描述</td>
+                        <td bgcolor='#FFFFFF'><?php echo $question['content'];?></td>
+                        <td width="30%" bgcolor="#FFFFFF"></td>
+                    </tr>
+                    <tr>
+                        <td height='45' align='center' bgcolor='#FFFFFF'>答 案</td>
+                        <td width="40%" bgcolor='#FFFFFF'><?php GetFck("content","",200);?></td>
+                        <td width="30%" bgcolor="#FFFFFF"></td>
+                    </tr>
+                    <tr bgcolor="#F8FEE0">
+                        <td width="20%"></td>
+                        <td width="40%"><button style="cursor: pointer; width: 100px; font-weight: bold; border-radius: 5px; font-size: 20px; color: #fff; border: none; background:red; height: 40px; text-align: center;line-height: 40px;" type="submit" class="btn fl">提交回答</button></td>
+                        <td width="30%" align="center"></td>
+                    </tr>
+                </table></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,13 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
-<title>更改帐号基本资料 - 会员中心 - <?php echo $cfg_webname; ?></title>
-<link href="templets/style/base.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="templets/js/j.js"></script>
-<script type="text/javascript" language='javascript'src='templets/js/main.js'></script>
-<script type="text/javascript" src="templets/js/load.js"></script>
-<script type="text/javascript" src="templets/js/leftmenu.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>修改密码 - 全网法务服务</title>
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout-new.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-new.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/box.css" />
+<script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/modal.min.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/box.js"></script>
+<script type="text/javascript" src="/templets/lawyer/js/iealert.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.web-header .user-box ul > li:nth-of-type(2) div.fl b').click(function(){
+		$('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').show();
+		$('.model-box').show();
+	});
+	$('.model-box').click(function(){
+		$('.web-header .user-box ul > li:nth-of-type(2) div.fl ol').hide();
+		$('.web-header .inner-box .fr > div.dropdown ul.menu').hide();
+		$(this).hide();
+	});
+	$('.web-header .inner-box .fr > div.dropdown span').click(function(){
+		$('.web-header .inner-box .fr > div.dropdown ul.menu').show();
+		$('.model-box').show();
+	})
+	$("#search-btn").leanModal();
+	$("body").iealert();
+	$('footer .link .row .inner-box .top-box ul li').click(function(){
+		$(this).addClass('click').siblings().removeClass('click');
+		var numb = $(this).index()
+		$('footer .link .row .inner-box .bottom-box div').eq(numb).show().siblings().hide()
+	});
+});
+</script>
 <script type="text/javascript">  
   function checkSubmit()
 {
@@ -17,22 +46,16 @@
 		alert("旧密码必须填写！");
 		return false;
 	}
+	if(document.form2.userpwd.value=='')
+	{
+		document.form2.userpwd.focus();
+		alert("新密码必须填写！");
+		return false;
+	}
 	if(document.form2.userpwdok.value!=document.form2.userpwd.value)
 	{
 		document.form2.userpwdok.focus();
 		alert("两次密码不一致！");
-		return false;
-	}
-	if(document.form2.email.value=="")
-	{
-		document.form2.email.focus();
-		alert("Email不能为空！");
-		return false;
-	}
-	if(document.form2.uname.value=="")
-	{
-		document.form2.uname.focus();
-		alert("用户昵称不能为空！");
 		return false;
 	}
 	if(document.form2.vdcode.value=="")
@@ -45,103 +68,231 @@
 </script>
 </head>
 <body>
-<div id="main">
- <?php include(DEDEMEMBER."/templets/head.htm"); ?>
-  <div id="content" class="w960 clearfix">
-    <?php include(DEDEMEMBER."/templets/menu.php"); ?>
-    <div id="mcpmain">
-      <div id="appTab">
-        <ul>
-          <li class="thisTab"><a href="edit_baseinfo.php">基本资料</a></li>
-          <li><a href="edit_fullinfo.php">详细资料</a></li>
-          <li><a href="edit_face.php">头像设置</a></li>
-        </ul>
-      </div>
-     <form action="edit_baseinfo.php" method="post" enctype="multipart/form-data" name="form2" onsubmit="return checkSubmit();">
-     <input type="hidden" name="dopost" value="save" />
-      <div id="mainCp">
-        <h3 class="meTitle"><strong>基本资料</strong></h3>
-        <div class="postForm">
-          <p class="cellBg">
-            <label>帐号类型：</label>
-            <?php echo $row['mtype']; ?></p>
-          <p>
-            <label>用户名：</label>
-            <?php echo $cfg_ml->M_LoginID; ?>
-          </p>
-          <p class="cellBg">
-            <label style="width:90px">昵称/公司名称：</label>
-            <input name="uname" type="text" id="uname" value="<?php echo $row['uname']; ?>" class="intxt" style="width:100px"/>
-            * <span id="_uname">(个人会员该项为昵称，企业会员填写公司名称)</span>
-          </p>
-          <p>
-            <label>原登陆密码：</label>
-            <input name="oldpwd" type="password" id="oldpwd" class="intxt" /> <span style="color:red;">*</span>
-          </p>
-          <p class="cellBg">
-            <label>新密码：</label>
-            <input name="userpwd" type="password" id="userpwd" class="intxt" />
-            <span id="_userpwdok">(不修改密码请保留此项为空)</span>
-          </p>
-          <p>
-            <label>确认新密码：</label>
-            <input name="userpwdok" type="password" id="userpwdok" value="" class="intxt" />
-            <span id="_userpwdok2">(不修改密码请保留此项为空)</span> </span>
-          </p>
-          <p class="cellBg">
-            <label>原安全问题：</label>
-            <?php
-      			require(DEDEDATA.'/safequestions.php');
-      			echo GetSafequestion($row['safequestion'],'safequestion');
-     		 ?>
-                <span id="_safequestion">(忘记密码时重设密码用)</span>
-          </p>
-          <p>
-            <label>原问题答案：</label>
-            <input name="safeanswer" type="text" id="safeanswer" value="" class="intxt" />
-          </p>
-
-          <p class="cellBg">
-            <label>新安全问题：</label>
-            <?php
-      			echo GetSafequestion(0,'newsafequestion');
-      		?>
-               <span id="_safequestionnew">(不修改不用填写)</span> 
-          </p>
-          <p>
-            <label>新问题答案：</label>
-            <input name="newsafeanswer" type="text" id="newsafeanswer" class="intxt"/>
-          </p>
-          <p class="cellBg">
-            <label><span class="tdl">电子邮箱</span>：</label>
-            <input name="email" type="text" id="email" value="<?php echo $row['email']; ?>" class="intxt"/><br>
-            <span id="_email" style="margin-left:80px"> <span style="color:red;">*</span> (每个电子邮邮箱只能注册一个帐号，要修改电子邮箱必须填写正确安全问题的答案)</span> 
-          </p>
-          <p>
-            <label>性别：</label>
-			<input type="radio" name="sex" value="男" <?php if($row['sex']=='男') echo " checked='checked' "; ?>/>
-             男 &nbsp;
-            <input type="radio" name="sex" value="女" <?php if($row['sex']=='女') echo " checked='checked' "; ?>/>
-             女 &nbsp;
-            <input type="radio" name="sex" value="保密'" <?php if($row['sex']=='保密') echo " checked='checked' "; ?>/>
-             保密 
-          </p>
-          <p class="cellBg">
-            <label>验证码：</label>
-			<input name="vdcode" type="text" id="vdcode" style='width:50px;text-transform:uppercase;' class="intxt" />
-           <img src="../include/vdimgck.php" align="absmiddle" alt="看不清？点击更换" style="cursor:pointer" onclick="this.src=this.src+'?'" />
-          </p>
-          <p>
-            <button class="button2" type="submit">更新</button>
-            <button class="button2 ml10" type="reset">重设</button>
-          </p>
+<header class="user-center">
+    <div class="uc-info o-h">
+        <div class="inner-box">
+            <div class="uc-info-left fl">
+                <h2>
+                    <p>我的全网法务服务</p>
+                </h2>
+            </div>
+        </div>
     </div>
-      </div>
-      </form>
-      <!--主操作区域 -->
+    <div class="uc-header">
+        <div class="inner-box">
+            <div class="uc-header-logo fl o-h"><a href="/"><img height="45"  alt="全网法务服务" src="/templets/lawyer/images/yifatonglogo_whithout_word.png"></a></div>
+            <div class="uc-header-bread fl">
+                <div class="breadcrumb-box visible-lg clean-m clean-p" style="height: 45px;line-height: 45px;padding: 0;margin: 0;">
+                    <p> <span class="icon-font text-blue">&#xe610;</span> <a target="_blank" href="/" class=" text-blue">首页</a> - <span>修改密码</span> </p>
+                </div>
+            </div>
+            <div class="fr uc-header-info">
+                <p><span class="ico-font">&#xee0a;</span>你好，欢迎 <?php echo $cfg_ml->M_Phone; ?> <a href="/member/index_do.php?fmdo=login&dopost=exit">退出</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-<?php include(DEDEMEMBER."/templets/foot.htm"); ?>
+</header>
+<div id="lean_overlay">
+    <form class="form-inline p-r" action="/plus/search.php" method="post">
+        <div class="search-bar">
+            <div class="input-part">
+                <input id="exampleInputEmail2"  type="text" placeholder="劳动合同" name="q">
+            </div>
+            <button class="text-white btn btn-link " type="submit"><img width="29" height="25" alt="搜索" src="/templets/lawyer/images/search.png"></button>
+        </div>
+        <div class="inner-box"></div>
+    </form>
 </div>
-</body>
-</html>
+<script type="text/javascript" src="/templets/lawyer/js/move.min.js"></script> 
+<script type="text/javascript" src="/templets/lawyer/js/mask.js"></script>
+<link rel="stylesheet" type="text/css" href="/templets/lawyer/css/mask.css" />
+<!-------------- javascript -------------->
+
+<div class="mimaer-mod">
+    <aside class="uc-title o-h fl">
+        <div class="uc-title-items">
+            <h2>服务管理</h2>
+            <ul class="list-unstyled">
+                <li><a class="choose" href="/member/shops_orders.php"><span>合同服务</span></a></li>
+                <!--<li><a  href="/LegalCases/myCases"><span>我的案件</span></a></li>
+            <li><a  href="/Qnas/own"><span>我的咨询</span></a></li>
+            <li><a  href="/Orders/myContract"><span>合同范本</span></a></li>
+            <li><a  href="/Tips/myTip"><span>我的锦囊</span></a></li>-->
+            </ul>
+        </div>
+        <!--<div class="uc-title-items">
+        <h2>资产管理</h2>
+        <ul class="list-unstyled">
+            <li><a  href="/Customers/myAccount"><span>我的账户</span></a></li>
+            <li><a  href="/CreditOrders/recharge"><span>买卖积分</span></a></li>
+        </ul>
+    </div>-->
+        <div class="uc-title-items">
+            <h2>账号设置</h2>
+            <ul class="list-unstyled">
+                <!--<li><a  href="/member/edit_baseinfo.php"><span>修改资料</span></a></li>-->
+                <li><a  href="/member/edit_baseinfo.php"><span>修改密码</span></a></li>
+            </ul>
+        </div>
+    </aside>
+    <div class="r-box"> 
+        <!-- 信息显示 -->
+        <div class="container">
+            <div class="row"> </div>
+        </div>
+        <h2>修改密码</h2>
+        <form action="edit_baseinfo.php" method="post" enctype="multipart/form-data" name="form2" accept-charset="utf-8" onsubmit="return checkSubmit();">
+            <div style="display:none;">
+                <input type="hidden" name="dopost" value="save" />
+            </div>
+            <div class="mima-block">
+                <div class="xin-bar">
+                    <p><span>*</span>&nbsp;&nbsp;当前密码：</p>
+                    <input name="oldpwd" value="" maxlength="40" type="password" id="oldpwd" required="required"/>
+                </div>
+                <div class="xin-bar">
+                    <p><span>*</span>&nbsp;&nbsp;新密码：</p>
+                    <input name="userpwd" value="" maxlength="40" type="password" id="userpwd" required="required"/>
+                </div>
+                <div class="xin-bar">
+                    <p><span>*</span>&nbsp;&nbsp;确认新密码：</p>
+                    <input name="userpwdok" value="" maxlength="40" type="password" id="userpwdok" required="required"/>
+                </div>
+                <div class="xin-bar">
+                    <p><span>*</span>&nbsp;&nbsp;验证码：</p>
+                    <input name="vdcode" type="text" id="vdcode" style='width:120px;text-transform:uppercase;' />
+                    <img src="../include/vdimgck.php" align="absmiddle" alt="看不清？点击更换" style="cursor:pointer" onclick="this.src=this.src+'?'" /> </div>
+                <div class="btn-bar">
+                    <div class="submit">
+                        <input  class="buttom" type="submit" value="修改密码"/>
+                    </div>
+                </div>
+            </div>
+            <div style="display:none;">
+                <input type="hidden" name="data[_Token][fields]" value="41879cd572bdbdfa40bdd4225d3f114f43a8b980%3A" id="TokenFields1396423777"/>
+                <input type="hidden" name="data[_Token][unlocked]" value="" id="TokenUnlocked1590999519"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- masike -->
+
+<div class="gaichenggong" style="display:none;"> <span class="ico-font">&#xe90a;</span>
+    <p>密码修改成功</p>
+</div>
+
+<!-- masike over --> 
+<!-- 红包 --> 
+<!-- <div class="fltc-hongbao">
+		<a class="tu hb-tiaodong" href="/p/falvguwen" target="_blank"><img src="/templets/lawyer/images/qyfl/nhth.jpg" alt="农行特惠"></a>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+	function hongbao(){
+		var dbd = $(".fltc-hongbao .tu").hasClass('hb-tiaodong');
+		if(!dbd){
+			$(".fltc-hongbao .tu").addClass('hb-tiaodong');
+		}else{
+			$(".fltc-hongbao .tu").removeClass('hb-tiaodong');
+		}
+	}
+	setInterval(hongbao,5000);
+})
+</script> -->
+<div class="cpgb-fixed"> <a id="BizQQBottomCommon" class="cpgb-fixed-zixun">
+    <p><img src="/templets/lawyer/images/qq.png" alt="QQ"><br>
+        在线咨询</p>
+    </a> <a class="cpgb-fixed-zixun cpgb-fixed-dianhua">
+    <p><span class="ico-font tubiao">&#xea89;</span><br>
+        400电话</p>
+    <span class="zx-haoma"> 13666297870 <img src="/templets/lawyer/images/jiantou.png" alt="箭头"> </span> </a> <a class="cpgb-fixed-zixun cpgb-fixed-dingbu">
+    <p><img src="/templets/lawyer/images/dingbu.png" alt="QQ"><br>
+        返回顶部</p>
+    </a> </div>
+<!-------------- javascript -------------->
+<div class="model-box p-a" ></div>
+<footer class="visible-lg visible-md">
+    <div class="bg-nav">
+        <div class="container"> <br />
+            <div class="row">
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">10年150万+项服务经验</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">10年150万+项服务经验</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">10000多专业律师</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">10000多专业律师</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">无形的法律看得见</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">无形的法律看得见</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">有效的法律分析解答</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">有效的法律分析解答</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">7天不限次数修改</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">7天不限次数修改</p>
+                </div>
+                <div class="col-xs-4 col-sm-2"> <em></em>
+                    <p class="text-center text-white hidden-xs" style="font-size:12px;">提供法律售后服务</p>
+                    <p class="text-center text-white visible-xs" style="font-size:8px;">提供法律售后服务</p>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class=" col-md-5 list-inline text-center"> <img src="/templets/lawyer/images/footer-tel.png" width="294" height="69" alt="服务热线" /> </div>
+                <div class=" col-md-6 list-inline text-center">
+                    <div class="row" style="padding-top:20px;"> <a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e15052611010158890ey85000000&comefrom=trust"><img alt="可信网站身份认证" src="/templets/lawyer/images/footer-icon-1.jpg" width="82" height="30"></a> <img width="89" height="30" alt="支付宝特约商家" src="/templets/lawyer/images/footer-icon-2.png"> <img width="77" height="30" alt="网上交易保障中心" src="/templets/lawyer/images/footer-icon-3.png"> <a href="https://www.startssl.com/" target="_blank" rel="nofollow"> <img alt="保障" src="/templets/lawyer/images/footer-icon-4.png" width="29" height="30"> </a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <ul class="list-inline text-center">
+                    <li> <a href="/about" target="_blank">关于我们</a> <a href="/sitemap" target="_blank">网站地图</a> <a href="/privacy" target="_blank">隐私申明</a> </li>
+                    <li> <a rel="nofollow"  href="http://www.miitbeian.gov.cn/" >闽ICP备09042048号-2</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/templets/lawyer/images/beian.png" style="float:left;"/>闽公网安备 35020602000086号</a> </li>
+                    <li><a>版权：全网法务服务股份</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<footer class="visible-xs visible-sm" style="">
+    <p class="text-center lh3 w6"> <img src="/templets/lawyer/images/weixin.png" width="20" height="20" alt="全网法务服务" /> <span>@全网法务服务法律咨询</span> <span>@全网法务服务法律服务</span> <span>|</span> <a href="http://www.yifatong.com?force=pc">电脑版</a> <a class="nowrap" href="/about">关于我们</a> <a class="nowrap" href="/contact">联系我们</a> </p>
+    <p class="text-center w6"><a  rel="nofollow"  href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> 版权：全网法务服务股份</p>
+    <div class="fix-block"></div>
+</footer>
+<!--  debug --> 
+<!-- javascript --> 
+<script type="text/javascript" charset="utf-8">
+$(function(){
+	});
+</script> 
+<script type="text/javascript">
+$(function(){
+	$('.cpgb-fixed-dingbu').click(function(){
+		$(window).scrollTop(0);
+	});
+
+	$(window).scroll(function () {
+
+		if ($(window).scrollTop() > 1018 ) {			
+			$(".cpgb-fixed-dingbu").css("display","block");
+		}else if($(window).scrollTop() < 1016){			
+			$(".cpgb-fixed-dingbu").css("display","none");
+		}
+	});
+})
+BizQQWPA.addCustom({aty: '1', a: '0', nameAccount: 4008515666, selector: 'BizQQBottomCommon'});
+</script> 

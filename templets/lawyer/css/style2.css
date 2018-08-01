@@ -16,12 +16,43 @@ div.span-1,div.span-2,div.span-3,div.span-4,div.span-5,div.span-6,div.span-7,div
 
 }
 
+.dengluxieyi{
+	width: 700px;
+	height: 700px;
+	position: fixed;
+	top: 5%;
+	left: 50%;
+	margin-left: -300px;
+	background: #fff;
+	z-index: 100000;
+	border-radius: 10px;
+	border: 2px solid #eee;
+	padding: 10px;
+	overflow-y: scroll;
+}
 
-
+.dengluxieyi span{
+	width: 30px;
+	height: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	float: right;
+	background: green;
+	text-align: center;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	position: fixed;
+	top: 10%;
+	left: 76%;
+	margin-left: -60px;
+	z-index: 1000;
+}
+.dengluxieyi .dialog{
+	position: relative;
+}
 div.span-24 {
-
 	float: left
-
 }
 
 
@@ -10509,11 +10540,15 @@ img,input {
 	position: relative;
 
 	left: 48px
-
 }
 #vdimgck{
 	float: left;
 	margin-left: 60px;
+}
+
+#lgvdimgck{
+	float: left;
+	margin-left: 0px;
 }
 
 

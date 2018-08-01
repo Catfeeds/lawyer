@@ -122,7 +122,14 @@ foreach( $blockValue as $key=>$fields )
 <td><?php echo GetDateTimeMk($fields['dateline']); ?></td>
 <td><a href="<?php echo $tidurl;?>"><?php echo $fields['tidname']; ?></a> </td>
 <td><a href="<?php echo $tid2url;?>"><?php echo $fields['tid2name']; ?></a></td>
-<td><a href="?ct=answer&askid=<?php echo $fields['id']; ?>"><?php echo $fields['replies']; ?></a></td>
+
+<?php 
+if($fields['replies'] == 0){
+	echo '<td><a href="/ask/?ct=question&askaid='.$fields['id'].'">我来回答</a></td>'; 
+}else{
+	echo '<td><a href="?ct=answer&askid='.$fields['id'].'">'.$fields['replies'].'</a></td>';
+}
+?>
 <td><?php echo $fields['status']; ?></td>
 </tr>
 <?php

@@ -22,7 +22,7 @@ $z[6]=Array("pagelist","",4149,4220);
 $z[6][4]=array();
 $z[6][4]['listitem']="info,index,end,pre,next,pageno";
 $z[6][4]['listsize']="5";
-$z[7]=Array("include","",6128,6165);
+$z[7]=Array("include","",6127,6164);
 $z[7][4]=array();
 $z[7][4]['filename']="footer.htm";
 

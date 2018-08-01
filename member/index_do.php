@@ -60,6 +60,9 @@ if($fmdo=='user')
         {
            $msg = "<span class='icon-font'></span><b>{$msg}</b>";
         }
+        if($msg=='ok'){
+            $msg = '';
+        }
 		echo $msg;
     }
 	//检查手机号是否存在
@@ -238,7 +241,7 @@ else if($fmdo=='login')
             $cfg_ml->DelCache($cfg_ml->M_ID);
             if(empty($gourl) || preg_match("#action|_do#i", $gourl))
             {
-                ShowMsg("成功登录，5秒钟后转向首页...","/",0,2000);
+                ShowMsg("成功登录，5秒钟后转向上一页...","javascript:window.history.go(-2)",0,100);
             }
             else
             {

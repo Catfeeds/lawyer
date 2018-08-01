@@ -132,8 +132,14 @@ class question extends Control
             $GLOBALS[$val] = $$val;  
 		}
 		//载入模板
-		$this->SetTemplate('question.htm');
-        $this->Display();
+		if($this->cfg_ml->M_ID ==1){
+			$this->SetTemplate('answer_add.htm');
+        	$this->Display();
+		}else{
+			$this->SetTemplate('question.htm');
+        	$this->Display();
+		}
+		
     }
 
 	//提问问题

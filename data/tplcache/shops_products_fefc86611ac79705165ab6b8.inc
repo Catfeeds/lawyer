@@ -223,7 +223,7 @@ foreach( $blockValue as $key=>$fields )
 	<a class="cpgb-fixed-zixun cpgb-fixed-dianhua">
 		<p><span class="ico-font tubiao">&#xea89;</span><br>400电话</p>
 		<span class="zx-haoma">
-			4008-515-666
+			13666297870
 			<img src="/templets/lawyer/images/jiantou.png" alt="箭头">
 		</span>
 	</a>

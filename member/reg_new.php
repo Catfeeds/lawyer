@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * @version        $Id: reg_new.php 1 8:38 2010年7月9日Z tianya $
  * @package        DedeCMS.Member
@@ -8,6 +9,7 @@
  */
 require_once(dirname(__FILE__)."/config.php");
 require_once DEDEINC.'/membermodel.cls.php';
+
 if($cfg_mb_allowreg=='N')
 {
     ShowMsg('系统关闭了新用户注册！', 'index.php');
@@ -35,7 +37,14 @@ if($step == 1)
     }
     if($dopost=='regbase')
     {
-        $svali = GetCkVdValue();
+		//短信验证
+		$smsCode = $_SESSION['sms_code_msg'];
+		$userCode = trim($sms_code);
+		if ($userCode =='' || $smsCode != $userCode) {
+            ShowMsg("短信验证码错误，请重试！","-1");
+            exit();
+        }
+        /*$svali = GetCkVdValue();
         if(preg_match("/1/", $safe_gdopen)){
             if(strtolower($vdcode)!=$svali || $svali=='')
             {
@@ -53,13 +62,14 @@ if($step == 1)
                 ShowMsg('验证问题答案错误', '-1');
                 exit();
             }
-        }
+        }*/
         
         $userid = trim($userid);
 		$phone = trim($phone);
         $pwd = trim($userpwd);
         $pwdc = trim($userpwdok);
-		$cphone = $dsql->GetOne("SELECT count(*) FROM `#@__member` WHERE phone LIKE '$phone' LIMIT 1");
+        
+		$cphone = $dsql->GetOne("SELECT count(*) as num FROM `#@__member` WHERE phone = '$phone' LIMIT 1");
         $rs = CheckUserID($userid, '用户名');
 		//验证手机号
 		if(strlen($phone) != 11)
@@ -67,7 +77,7 @@ if($step == 1)
             ShowMsg('你的输入的手机号不正确，不允许注册！', '-1');
             exit();
         }
-		if($cphone >0)
+		if($cphone['num'] >0)
         {
             ShowMsg('你输入的手机号已注册，请登录！', '-1');
             exit();

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<head> 
+<title>手机号码管理</title> 
+<link href='img/base.css' rel='stylesheet' type='text/css' /> 
+<style type="text/css"> 
+th,td{ 
+text-align:center; 
+border:1px #D1DDAA solid; 
+font-size:15px; 
+} 
+th{ 
+background:#E6F8B7; 
+} 
+table{ 
+margin-top:20px; 
+} 
+</style> 
+</head> 
+<body> 
+<table width="90%" border="0" cellpadding="0" cellspacing="0" align="center"> 
+<tr> 
+<th>姓名</th> 
+<th>E-mail</th> 
+<th>手机号码</th> 
+<th>状态</th> 
+<th>操作</th> 
+</tr> 
+<!-- 循环得到结果 --> 
+{dede:datalist} 
+<tr> 
+<td>{dede:field.name /}</td> 
+<td>{dede:field.mail /}</td> 
+<td>{dede:field.moblie /}</td>
+<td> 
+{dede:if field.tag==0} 
+个人
+{else} 
+<font color="red">企业</font> 
+{/dede:if} 
+</td> 
+<td>  
+<a href="smsmanager.php?action=delete&id={dede:field.id /}">[删除]</a> 
+</td> 
+</tr> 
+{/dede:datalist} 
+</table> 
+<!-- 分页标签 --> 
+<p style="text-align:center;font-size:15px;">{dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}</p> 
+</body> 
+</html>

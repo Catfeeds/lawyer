@@ -35,7 +35,7 @@
                 </div>
             </aside>
             <div class="in-banner-main p-a">
-                <div class="in-banner-link" style="background-image: url(/templets/lawyer/images/chunjie02.jpg);"> <a target="_blank" href="/p/lvshizixun" style="display:block;"></a> </div>
+                <div class="in-banner-link" style="background-image: url(/templets/lawyer/images/chunjie02.jpg);"> <a target="_blank" href="/nsht/dgs/8.html" style="display:block;"></a> </div>
                 <ol class="p-a in-banner-main-container">
                     <!-- <li class="in-banner-main-btn in-banner-main-btn-focus"></li>
 					<li class="in-banner-main-btn"></li> -->
@@ -71,10 +71,10 @@
                         <h2>审核合同</h2>
                         <p>多方位规避各种潜在风险</p>
                         </a> </div>
-                    <div class="select"> <span>热门合同： </span> <a href="/L/laodonghetong" target="_blank">劳动合同</a>| <a href="/p/lihun" target="_blank">离婚协议</a>| <a href="/p/hezuo" target="_blank">保密协议</a>| <a href="/p/gouxiaohetong" target="_blank">购销合同</a>| <a href="/p/guquanzhuanrang" target="_blank">股权转让协议</a> </div>
+                    <div class="select"> <span>热门合同： </span> {dede:arclist typeid='10' row='5'}<a href="[field:arcurl/]" target="_blank">[field:title/]</a> | {/dede:arclist}</div>
                 </div>
             </div>
-            <div class="in-team-section-lawyer fr p-r"> <a href="/swt/" style="margin-bottom: 60px; background: #5C96FF;" class="lawyer-block p-r">
+            <div class="in-team-section-lawyer fr p-r"> <a href="/ask/?ct=question&ac=ask_complete" style="margin-bottom: 60px; background: #5C96FF;" class="lawyer-block p-r">
                 <h3 class="headline">在线律师咨询</h3>
                 <h4 class="info">为您推荐全国13000多名联盟律师，价格透明</h4>
                 <img src="/templets/lawyer/images/lawyer-man.png" alt="" class="p-a" /> </a> <a href="/swt/" class="lawyer-block p-r">
@@ -171,7 +171,6 @@
         <div class="in-brand-title"></div>
         <div class="in-brand-btns"> <a href="javascript:void(0)" class="BizQQWPA" id="BizQQWPAExpect">您对全网法务服务的期望是什么？</a> <a target="_blank" href="/p/falvguwen">了解更多，点我</a> </div>
     </div>
-    <div class="in-download"> <span>合同范本下载</span> <a target="_blank" href="/hetong/list/cyjy">创业经营</a> <a target="_blank" href="/hetong/list/ldrs">劳动人事</a> <a target="_blank" href="/hetong/list/zqzw">债权债务</a> <a target="_blank" href="/hetong/list/mmgx">买卖购销</a> <a target="_blank" href="/hetong/list/mmzf">买卖租房</a> <a target="_blank" href="/hetong/list/ssws">诉讼文书</a> <a target="_blank" href="/hetong/list/hhjt">婚姻家庭</a> </div>
 </div>
 {dede:include filename='footer.htm'/} 
 <!--  debug --> 
@@ -264,7 +263,7 @@ var brandItem = []
 var contractItem = [{
 	itemTitle:"股权事务",
 	items:[
-		{dede:arclist typeid='11' row='10'}
+		{dede:arclist typeid='10' row='10'}
 			{
 				item:"[field:title/]",
 				url:"[field:arcurl/]"
@@ -424,7 +423,7 @@ function brandRender(){
 	for (var i = 0;i<num ; i++){
 		$('<div class="item"><div class="item-show p-r"><b></b><h2 class="item-show-title">'+brandItem[i].itemTitle +'</h2></div></div>').appendTo('.container-brand');
 		for(j=0;j<brandItem[i].items.length;j++){
-			$('<a target="_blank" class="item-sub" href="/'+brandItem[i].items[j].url +'">'+brandItem[i].items[j].item+'</a>').appendTo('.container-brand .item .item-show:eq('+i+')')
+			$('<a target="_blank" class="item-sub" href="'+brandItem[i].items[j].url +'">'+brandItem[i].items[j].item+'</a>').appendTo('.container-brand .item .item-show:eq('+i+')')
 		};
 	}
 }
@@ -432,13 +431,13 @@ function contractRender(){
 	var num = contractItem.length;
 	for (var i = 0;i<num ; i++){
 		$('<div class="item"><div class="item-show p-r"><b></b><h2 class="item-show-title">'+contractItem[i].itemTitle +'</h2></div><div class="item-hide"><h2 class="item-hide-title">'+contractItem[i].itemTitle +'</h2><div class="item-hide-container"></div></div></div>').appendTo('.container-contact');
-		$('<a></a>').addClass('buy').attr({'href':'/'+contractItem[i].kUrl+''}).appendTo('.container-contact .item .item-hide:eq('+i+')')
+		$('<a></a>').addClass('buy').attr({'href':''+contractItem[i].kUrl+''}).appendTo('.container-contact .item .item-hide:eq('+i+')')
 		$('.container-contact .item .item-hide:eq('+i+')').css({'backgroundImage':'url('+contractItem[i].bg+')'})
 		for(j=0;j<3;j++){
-			$('<a target="_blank" class="item-sub" href="/'+contractItem[i].items[j].url +'">'+contractItem[i].items[j].item+'</a>').appendTo('.container-contact .item .item-show:eq('+i+')')
+			$('<a target="_blank" class="item-sub" href="'+contractItem[i].items[j].url +'">'+contractItem[i].items[j].item+'</a>').appendTo('.container-contact .item .item-show:eq('+i+')')
 		};
 		for(k=0;k<contractItem[i].items.length;k++){
-			$('<a target="_blank" class="item-hide-product" href="/'+contractItem[i].items[k].url+'">'+contractItem[i].items[k].item+'</a>').appendTo('.container-contact .item .item-hide:eq('+i+') .item-hide-container')
+			$('<a target="_blank" class="item-hide-product" href="'+contractItem[i].items[k].url+'">'+contractItem[i].items[k].item+'</a>').appendTo('.container-contact .item .item-hide:eq('+i+') .item-hide-container')
 		}
 	}
 }

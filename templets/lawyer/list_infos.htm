@@ -123,12 +123,12 @@ $(function(){
 						})
 					</script>
                 {/dede:infolink}
-                    <h2 class=""><span class="ico-font">&#xeaff;</span>已为您成功筛选出 <span class="text-orange">479</span>&nbsp;位律师</h2>
+                    <!--<h2 class=""><span class="ico-font">&#xeaff;</span>已为您成功筛选出 <span class="text-orange">479</span>&nbsp;位律师</h2>-->
                     <div class="box-bor1">
                         <div class="hot-rank clearfix">
                             <h1 href="javascript:void(0)" class="btn3s btn-gn2 fl curStyle" style="margin: 0px;">成都婚姻家庭在线律师</h1>
                             <em class="s-c999 f14 ml20 fl mt10">带<i class="ico-new i-new63"></i>标示的律师已加入<a href="//www.64365.com/findlawyer/payment.aspx" class="s-gn" target="_blank">放心律师保障计划</a>，律师已缴纳保证金，出现问题支持双倍赔付</em>
-                            <p><em class="fb">1</em>/ 14</p>
+                            <!--<p><em class="fb">1</em>/ 14</p>-->
                         </div>
                     </div>
                     <ul class="law-list box-bor1 mt20">
@@ -145,7 +145,7 @@ $(function(){
                                         <p class="s-c999 mt5"><i class="ico-lr i-place mr5"></i>[field:address/]</p>
                                     </div>
                                     <div class="w373 fl">
-                                        <p><span class="mr20">案例：[field:case/]</span><span>帮助：[field:help/]</span></p>
+                                        <p><span class="mr20">案例：[field:cases/]</span><span>帮助：[field:helps/]</span></p>
                                         <p class="mt15 clearfix"> <span class="law-tel"><i class="ico-new i-new79"></i>[field:tel/]</span> <a href="/swt/" target="_blank" class="btn btn-gn2">在线咨询</a> </p>
                                     </div>
                                 </div>
@@ -192,50 +192,24 @@ $(function(){
                         </div>
                         <!-- 帮助人数start -->
                         <ul class="list-unstyled">
+                           	{dede:sql sql="select * from `dede_addoninfos` where typeid between 16 and 26 ORDER BY helps DESC limit 0,4"}
                             <li>
-                                <p><a target="_blank" href="/lvshixiangqing/42.html">顾春晖 律师</a><br />
-                                    帮助人数：81</p>
-                                <div class="img-part p-a"> <a target="_blank" href="/lvshixiangqing/42.html"><img src="/Lawyers/avatar/original/42" alt="律师" /></a> </div>
+                                <p><a target="_blank" href="[field:arcurl/]">[field:title/]</a><br />
+                                    帮助人数：[field:helps/]</p>
+                                <div class="img-part p-a"> <a target="_blank" href="[field:arcurl/]"><img src="[field:litpic/]" alt="[field:title/]" /></a> </div>
                             </li>
-                            <li>
-                                <p><a target="_blank" href="/lvshixiangqing/2215.html">孙春茹  律师</a><br />
-                                    帮助人数：25</p>
-                                <div class="img-part p-a"> <a target="_blank" href="/lvshixiangqing/2215.html"><img src="/Lawyers/avatar/original/2215" alt="律师" /></a> </div>
-                            </li>
-                            <li>
-                                <p><a target="_blank" href="/lvshixiangqing/1728.html">朱伟伟 律师</a><br />
-                                    帮助人数：14</p>
-                                <div class="img-part p-a"> <a target="_blank" href="/lvshixiangqing/1728.html"><img src="/Lawyers/avatar/original/1728" alt="律师" /></a> </div>
-                            </li>
-                            <li>
-                                <p><a target="_blank" href="/lvshixiangqing/8109.html">朱洲 律师</a><br />
-                                    帮助人数：11</p>
-                                <div class="img-part p-a"> <a target="_blank" href="/lvshixiangqing/8109.html"><img src="/Lawyers/avatar/original/8109" alt="律师" /></a> </div>
-                            </li>
+                            {/dede:sql}
                         </ul>
                         <!-- 帮助人数end --> 
                         <!-- 新入驻start -->
                         <ul class="list-unstyled" style="display: none;">
+                            {dede:sql sql="select * from `dede_addoninfos` where typeid between 16 and 26 ORDER BY helps DESC limit 0,4"}
                             <li>
-                                <p><a target="_blank" href="/lvshixiangqing/13952.html">李明华 律师</a><br />
-                                    帮助人数：0</p>
-                                <div class="img-part p-a"> <a target="_blank" href="/lvshixiangqing/13952.html"><img src="/Lawyers/avatar/original/13952" alt="律师" /></a> </div>
+                                <p><a target="_blank" href="[field:arcurl/]">[field:title/]</a><br />
+                                    帮助人数：[field:helps/]</p>
+                                <div class="img-part p-a"> <a target="_blank" href="[field:arcurl/]"><img src="[field:litpic/]" alt="[field:title/]" /></a> </div>
                             </li>
-                            <li>
-                                <p><a target="_blank" href="/lvshixiangqing/13950.html">何玲丽 律师</a><br />
-                                    帮助人数：0</p>
-                                <div class="img-part p-a"> <a target="_blank" href="/lvshixiangqing/13950.html"><img src="/Lawyers/avatar/original/13950" alt="律师" /></a> </div>
-                            </li>
-                            <li>
-                                <p><a target="_blank" href="/lvshixiangqing/13945.html">杜鹃 律师</a><br />
-                                    帮助人数：0</p>
-                                <div class="img-part p-a"> <a target="_blank" href="/lvshixiangqing/13945.html"><img src="/Lawyers/avatar/original/13945" alt="律师" /></a> </div>
-                            </li>
-                            <li>
-                                <p><a target="_blank" href="/lvshixiangqing/13941.html">郜勇 律师</a><br />
-                                    帮助人数：0</p>
-                                <div class="img-part p-a"> <a target="_blank" href="/lvshixiangqing/13941.html"><img src="/Lawyers/avatar/original/13941" alt="律师" /></a> </div>
-                            </li>
+                            {/dede:sql}
                         </ul>
                         <!-- 新入驻end --> 
                     </div>

@@ -49,7 +49,6 @@ $(document).ready(function(){
 	  hideVc()
 	});
 })
-
 -->
 </script>
 </head>
@@ -59,7 +58,7 @@ $(document).ready(function(){
 <style type="text/css">
 	.disable{color:#999!important;}
 </style>
-<!-- javascript --> 
+<!-- javascript -->
 <!--- register start -->
 <div class="register">
     <header>
@@ -97,29 +96,31 @@ $(document).ready(function(){
                                     </div>
                                 </div>
                                 <label for="" class="user-name"> <span>用户名</span>
-                                    <input name="userid" value="" class="" maxLength="40" maxlength="50" type="text" id="txtUsername" required="required"/>
+                                    <input name="userid" value="" class="" maxLength="15" maxlength="50" type="text" id="txtUsername" required="required"/>
                                 </label>
                                 <label for="" class="user-name"> <span>手机号</span>
-                                    <input name="phone" value="" class="" maxLength="40" maxlength="50" type="text" id="txtPhone" required="required"/>
+                                    <input name="phone" value="" class="" maxLength="11" onkeyup="value=value.replace(/[^1234567890-]+/g,'')" type="text" id="txtPhone" required="required"/>
                                 </label>
                                 <label for="" class="password"> <span>用户密码</span>
                                     <input name="userpwd" value="" maxLength="40" type="password" id="txtPassword" required="required"/>
                                 </label>
-                                <!--<label for="" class="short-message"> <span>短信验证</span>
+                                <label for="" class="short-message"> <span>短信验证</span>
                                     <input  type="button" id="btn-sms" class="" value="获取短信"/>
-                                    <input name="data[Customer][sms_code]" value="" maxLength="40" type="text" id="CustomerSmsCode"/>
-                                </label>-->
-                                <?php
+                                    <input name="sms_code" value="" maxLength="4" type="text" onkeyup="value=value.replace(/[^1234567890-]+/g,'')" id="sms_code"/>
+                                </label>
+                                <!--<?php
 									if(preg_match("/1/",$safe_gdopen)){
 								  ?>
                                 <label for="" class="short-message"> <span>验证码</span>
                                     <input name="vdcode" value="" maxLength="40" type="text" id="vdcode"/>
                                     <img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="../include/vdimgck.php"/>看不清？ <a href="javascript:void(0)" onclick="changeAuthCode();">点击更换</a> </label>
-                                <?php }?>
+                                <?php }?>-->
                                 <label for="">
                                 <input type="checkbox" id="agree" name="agree"/>
                                 <p>我已阅读并同意<b><a href="javascript:void(0)" onclick="popPolicy()">《全网法务服务服务协议》</a></b></p>
-                                <div class="dengluxieyi" id="policy-dialog" style="display:none;width:600px;">
+                                <div class="dengluxieyi" id="policy-dialog" style="display:none;">
+                                   	<div class="dialog">
+                                   		<span>×</span>
                                     <p> 全网法务服务网站用户注册协议</p>
                                     <p>本协议是您与全网法务服务网站（简称&ldquo;本站&rdquo;，网址：www.yifatong.com）所有者（以下简称为&ldquo;全网法务服务&rdquo;）之间就全网法务服务网站服务等相关事宜所订立的契约，请您仔细阅读本注册协议，您点击&ldquo;同意以下协议，提交&rdquo;按钮后，本协议即构成对双方有约束力的法律文件。</p>
                                     <p>第1条 本站服务条款的确认和接纳</p>
@@ -191,11 +192,12 @@ $(document).ready(function(){
                                     <p>12.2全网法务服务尊重用户和消费者的合法权利，本协议及本网站上发布的各类规则、声明等其他内容，均是为了更好的、更加便利的为用户和消费者提供服务。本站欢迎用户和社会各界提出意见和建议，全网法务服务将虚心接受并适时修改本协议及本站上的各类规则。</p>
                                     <p>12.3本协议内容中以黑体、加粗、下划线、斜体等方式显著标识的条款，请用户着重阅读。</p>
                                     <p>12.4您点击本协议上方的&ldquo;同意以下协议，提交&rdquo;按钮即视为您完全接受本协议，在点击之前请您再次确认已知悉并完全理解本协议的全部内容。</p>
+                                   	</div>
                                 </div>
                                 </label>
                                 <label for="">
                                 <div class="submit">
-                                    <input  class="" type="submit" value="立即注册"/>
+                                    <input  class="" type="submit" onClick="confirm()" value="立即注册"/>
                                 </div>
                                 </label>
                             </form>
@@ -206,306 +208,123 @@ $(document).ready(function(){
         </div>
     </div>
 </div>
-
 <!--- register end-->
-
 <div class="clear"></div>
-
-<!--  debug --> 
-
 <!-- javascript --> 
-
-<script type="text/javascript" src="/templets/lawyer/js/box.js"></script><script type="text/javascript" charset="utf-8">
+<!--<script type="text/javascript" src="/templets/lawyer/js/box.js"></script>-->
+<script type="text/javascript" charset="utf-8">
 	$(function(){
-
-		$("input[type='submit']").attr('disabled',true);
-
-		$("#btn-sms").click(function(){
-
-			if(!check_mobile())
-
-			{
-
-				return false;
-
-			}
-
-			$('#btn-sms').addClass('disable');
-
-			$('#btn-sms').attr('disabled',true);
-
-			sendSMS();
-
-		});
-
-	});
-
-	function sendSMS()
-
-	{
-
-		if(check_mobile())
-
-		{
-
-		$.ajax({
-
-			type: "GET",
-
-			url: 'Customers/getsms?rnd='+new Date().getTime()/1000,
-
-			data:'mobile='+$.trim($('#CustomerAccount').val()),
-
-			dataType: 'html',
-
-			success: function(data)
-
-			{				
-
-				if(data=='success')
-
-				{
-
-					lSeconds=60;
-
-					$("#btn-sms").attr('value','已成功发送');
-
-					
-
-					displayInterval();				
-
-				}
-
-				else
-
-				{
-
-					alert('获取短信出错，请重试或联系管理员1！');
-
-					$('#btn-sms').removeClass('disable');
-
-					$('#btn-sms').attr('disabled',false);
-
-				}
-
-			},
-
-			'error':function(){
-
-				alert('获取短信出错，请重试或联系管理员2！');
-
-				$('#btn-sms').removeClass('disable');
-
-				$('#btn-sms').attr('disabled',false);
-
-			}
-
-		});	
-
-		}	
-
-	}
-
-	//手机验证
-
-	function check_mobile()
-
-	{
-
-		var m=$.trim($('#CustomerAccount').val());
-
-		if(m!='')
-
-		{
-
-			var reg = /^1[345789]\d{9}$/;
-
-			
-
-			var result = false;
-
-			if (reg.test(m))
-
-				result=true;		
-
-			if (result)
-
-			{
-
-				return true;
-
-			}else{
-
-			  alert("请输入正确的手机号");
-
-			  return false;
-
-			}
-
-		}else{
-
-			
-
-			alert("请输入手机号");
-
-			return false;
-
-		}
-
-	}
-
-	function popPolicy()
-
-	{
-
-		$.fancybox.open({
-
-			'type' : 'inline',
-
-			'href': '#policy-dialog'
-
-		});
-
-	}
-
-	function hasRead()
-
-	{
-
-		if($('#cbkRead').is(":checked"))
-
-		{
-
-			$("input[type='submit']").attr('disabled',false);
-
-		}
-
-		else
-
-		{
-
-			$("input[type='submit']").attr('disabled',true);
-
-		}
-
-	}
-
-	
-
-	$( "#CustomerAccount" ).blur(function() {
-
 		
-
-		$.ajax({
-
-			type: "POST",
-
-			url: 'Customers/validateField',
-
-			data: {'account':$("#CustomerAccount").val()},
-
-			success: function(data)
-
+		$("#policy-dialog span").click(function(){
+			$("#policy-dialog").hide();
+		});
+		//$("input[type='submit']").attr('disabled',true);
+		$("#btn-sms").click(function(){
+			if(!check_mobile())
 			{
-
-				$('#flashError').html(data);
-
+				return false;
 			}
-
-		});	
-
-	});
-
-	
-
-	$( "#CustomerPassword" ).blur(function() {
-
-		$.ajax({
-
-			type: "POST",
-
-			url: 'Customers/validateField',
-
-			data: {'password':$("#CustomerPassword").val()},
-
-			success: function(data)
-
-			{
-
-				$('#flashError').html(data);
-
-			}
-
-		});	
-
-	});
-
-	
-
-	$( "#CustomerVerifyPassword" ).blur(function() {
-
-		$.ajax({
-
-			type: "POST",
-
-			url: 'Customers/validateField',
-
-			data: {'verify_password':$("#CustomerVerifyPassword").val(), 'password':$("#CustomerPassword").val()},
-
-			success: function(data)
-
-			{
-
-				$('#flashError').html(data);
-
-			}
-
-		});	
-
-	});
-
-	var lSeconds = 60;
-
-	function displayInterval(){		
-
-		$("#btn-sms").unbind('click');
-
-		timeIntervalSMS=setInterval(function(){
-
-			if(lSeconds<=1){
-
-			    $('#btn-sms').removeClass('disable');
-
-			    $('#btn-sms').attr('disabled',false);
-
-				$("#btn-sms").attr('value','重新发送');
-
-				clearInterval(timeIntervalSMS);
-
-				$("#btn-sms").click(function(){
-
-					$('#btn-sms').addClass('disable');
-
-					$('#btn-sms').attr('disabled',true);
-
-					sendSMS();
-
-				});
-
-				return;
-
-			}
-
-			lSeconds--;
-
 			$('#btn-sms').addClass('disable');
-
-			$("#btn-sms").attr('value',lSeconds+"秒后重发");
-
-		}, 1000);
-
+			$('#btn-sms').attr('disabled',true);
+			sendSMS();
+		});
+	});
+	function confirm(){
+		smsCode = $.trim($('#sms_code').val());
+		if(smsCode ==''){
+			alert("请生成验证码！");
+			return false;
+		}
 	}
-
+	function sendSMS()
+	{
+		if(check_mobile())
+		{
+			mobile = $.trim($('#txtPhone').val());
+			smsCode = $.trim($('#sms_code').val());
+			userName = $.trim($('#txtUsername').val());
+			$.post("/plus/sendSMS/getSMS.php",{"phone":mobile,"sms_code":smsCode,"username":userName},function(data){
+				if(data=='success')
+				{
+					$("input[type='submit']").attr('disabled',false);
+					lSeconds=60;
+					$("#btn-sms").attr('value','已成功发送');
+					displayInterval();
+					
+				}
+				else
+				{
+					alert(data);
+					$("input[type='submit']").attr('disabled',true);
+					//alert('获取短信出错，请重试或联系管理员1！');
+					$('#btn-sms').removeClass('disable');
+					$('#btn-sms').attr('disabled',false);
+				}
+			})
+		}	
+	}
+	//手机验证
+	function check_mobile()
+	{
+		var m=$.trim($('#txtPhone').val());
+		if(m!='')
+		{
+			var reg = /^1[345789]\d{9}$/;
+			var result = false;
+			if (reg.test(m))
+				result=true;		
+			if (result)
+			{
+				return true;
+			}else{
+			  alert("请输入正确的手机号");
+			  return false;
+			}
+		}else{
+			alert("请输入手机号");
+			return false;
+		}
+	}
+	function popPolicy()
+	{
+		$("#policy-dialog").show();
+		/*$.fancybox.open({
+			'type' : 'inline',
+			'href': '#policy-dialog'
+		});*/
+	}
+	function hasRead()
+	{
+		if($('#cbkRead').is(":checked"))
+		{
+			$("input[type='submit']").attr('disabled',false);
+		}
+		else
+		{
+			$("input[type='submit']").attr('disabled',true);
+		}
+	}
+	var lSeconds = 60;
+	function displayInterval(){		
+		$("#btn-sms").unbind('click');
+		timeIntervalSMS=setInterval(function(){
+			if(lSeconds<=1){
+			    $('#btn-sms').removeClass('disable');
+			    $('#btn-sms').attr('disabled',false);
+				$("#btn-sms").attr('value','重新发送');
+				clearInterval(timeIntervalSMS);
+				$("#btn-sms").click(function(){
+					$('#btn-sms').addClass('disable');
+					$('#btn-sms').attr('disabled',true);
+					sendSMS();
+				});
+				return;
+			}
+			lSeconds--;
+			$('#btn-sms').addClass('disable');
+			$("#btn-sms").attr('value',lSeconds+"秒后重发");
+		}, 1000);
+	}
 </script>
 </body>
 </html>

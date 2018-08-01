@@ -64,6 +64,7 @@ function lib_infolink(&$ctag,&$refObj)
     $fields['nativeplace'] = $fields['infotype'] = '';
     $fields['linkallplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$infotype}'><b>不限</b></a>";
     $fields['linkalltype'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$nativeplace}'><b>不限</b></a>";
+
     //地区链接
 	$fields['selnat'] = $nativeplace;
 	//省份
@@ -111,7 +112,8 @@ function lib_infolink(&$ctag,&$refObj)
 			$fields['infotype'] .= " <input type='radio' name='years' value='{$eid}'>{$em}";
 		}
 		
-	}	
+	}
+	
     if(is_array($ctp->CTags))
     {
         foreach($ctp->CTags as $tagid=>$ctag)

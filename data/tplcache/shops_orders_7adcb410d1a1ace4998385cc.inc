@@ -86,7 +86,7 @@ $fields = array();
             <div class="uc-info-left fl">
                 <h2>
                     <p>我的全网法务服务</p>
-                    <a href="/Customers/edit">完善资料>></a></h2>
+                    <!--<a href="/Customers/edit">完善资料>></a></h2>-->
             </div>
             <!--<div class="uc-info-right fr">
                 <div class="uc-info-icon dollar"> <a href="/CreditOrders/recharge">
@@ -102,7 +102,7 @@ $fields = array();
     </div>
     <div class="uc-header">
         <div class="inner-box">
-            <div class="uc-header-logo fl o-h"><img height="45"  alt="全网法务服务" src="/templets/lawyer/images/yifatonglogo_whithout_word.png"></div>
+            <div class="uc-header-logo fl o-h"><a href="/"><img height="45"  alt="全网法务服务" src="/templets/lawyer/images/yifatonglogo_whithout_word.png"></a></div>
             <div class="uc-header-bread fl">
                 <div class="breadcrumb-box visible-lg clean-m clean-p" style="height: 45px;line-height: 45px;padding: 0;margin: 0;">
                     <p> <span class="icon-font text-blue">&#xe610;</span> <a target="_blank" href="/" class=" text-blue">首页</a> - <span>合同服务</span> </p>
@@ -115,7 +115,7 @@ $fields = array();
     </div>
 </header>
 <div id="lean_overlay">
-    <form class="form-inline p-r" action="/Products/search" method="get">
+    <form class="form-inline p-r" action="/plus/search.php" method="post">
         <div class="search-bar">
             <div class="input-part">
                 <input id="exampleInputEmail2"  type="text" placeholder="劳动合同" name="q">
@@ -150,7 +150,7 @@ $fields = array();
     <div class="uc-title-items">
         <h2>账号设置</h2>
         <ul class="list-unstyled">
-            <li><a  href="/member/edit_baseinfo.php"><span>修改资料</span></a></li>
+            <!--<li><a  href="/member/edit_baseinfo.php"><span>修改资料</span></a></li>-->
             <li><a  href="/member/edit_baseinfo.php"><span>修改密码</span></a></li>
         </ul>
     </div>
@@ -221,14 +221,14 @@ foreach( $blockValue as $key=>$fields )
 		<div class="wait-pay"><a class="cancel" href="javascript:void(0)" class="cancel-order" onclick="DoSubmit()">删除订单</a> <a class="consult" href="http://wpa.qq.com/msgrd?v=3&uin=3244211059&site=qq&menu=yes" target="_blank">咨询售前律师</a> </div>
 	</div>
     <div class="web-page">
-        <h1><?php
+        <?php
 $atts = array();
 $atts['tagname'] = 'pagelist';
 $atts['listitem'] = 'info,index,end,pre,next,pageno';
 $atts['listsize'] = '5';
  echo $this->refObj->GetPageList($atts,$this->refObj,$fields); 
 ?>
-</h1>
+
     </div>
 </div>
 
@@ -258,7 +258,7 @@ $atts['listsize'] = '5';
 	<a class="cpgb-fixed-zixun cpgb-fixed-dianhua">
 		<p><span class="ico-font tubiao">&#xea89;</span><br>400电话</p>
 		<span class="zx-haoma">
-			4008-515-666
+			13666297870
 			<img src="/templets/lawyer/images/jiantou.png" alt="箭头">
 		</span>
 	</a>
@@ -312,16 +312,16 @@ $atts['listsize'] = '5';
 		<div class="container">
 			<div class="row">
 				<div class=" col-md-5 list-inline text-center">
-											<img src="img/new/background/footer-tel.png" width="294" height="69" alt="服务热线" />
+											<img src="/templets/lawyer/images/footer-tel.png" width="294" height="69" alt="服务热线" />
 										
 				</div>
 				<div class=" col-md-6 list-inline text-center">
 					<div class="row" style="padding-top:20px;">
-						<a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e15052611010158890ey85000000&comefrom=trust"><img alt="可信网站身份认证" src="img/new/footer-icon-1.jpg" width="82" height="30"></a>
-						<img width="89" height="30" alt="支付宝特约商家" src="img/new/footer-icon-2.png">
-						<img width="77" height="30" alt="网上交易保障中心" src="img/new/footer-icon-3.png">
+						<a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e15052611010158890ey85000000&comefrom=trust"><img alt="可信网站身份认证" src="/templets/lawyer/images/footer-icon-1.jpg" width="82" height="30"></a>
+						<img width="89" height="30" alt="支付宝特约商家" src="/templets/lawyer/images/footer-icon-2.png">
+						<img width="77" height="30" alt="网上交易保障中心" src="/templets/lawyer/images/footer-icon-3.png">
 						<a href="https://www.startssl.com/" target="_blank" rel="nofollow">
-							<img alt="保障" src="img/new/footer-icon-4.png" width="29" height="30">
+							<img alt="保障" src="/templets/lawyer/images/footer-icon-4.png" width="29" height="30">
 						</a>
 					<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254492474'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1254492474%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
 					
@@ -342,7 +342,7 @@ $atts['listsize'] = '5';
 					<li>
 						<a rel="nofollow"  href="http://www.miitbeian.gov.cn/" >闽ICP备09042048号-2</a>
 						
-		 				<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="img/new/beian.png" style="float:left;"/>闽公网安备 35020602000086号</a>
+		 				<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/templets/lawyer/images/beian.png" style="float:left;"/>闽公网安备 35020602000086号</a>
 		 	
 					</li>
 					<li><a>版权：全网法务服务股份</a></li>
@@ -353,7 +353,7 @@ $atts['listsize'] = '5';
 </footer>
 <footer class="visible-xs visible-sm" style="">
 	<p class="text-center lh3 w6">
-		<img src="img/new/icon/weixin.png" width="20" height="20" alt="全网法务服务" />
+		<img src="/templets/lawyer/images/icon/weixin.png" width="20" height="20" alt="全网法务服务" />
 		<span>@全网法务服务法律咨询</span>
 		<span>@全网法务服务法律服务</span>
 		<span>|</span>
@@ -428,4 +428,4 @@ $(function(){
 //BizQQWPA.addCustom({aty: '1', a: '0', nameAccount: 4008515666, selector: 'BizQQBottomCommon'});
 </script>
 </body>
-</html>>>>>>>>>>>
+</html>>

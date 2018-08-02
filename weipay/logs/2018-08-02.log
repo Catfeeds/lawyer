@@ -1,0 +1,6 @@
+[2018-08-02 15:10:36][error] [,file:F:\htdocs\lawyer.cn\weipay\example\WxPay.NativePay.php,line:71,function:ERROR,file:F:\htdocs\lawyer.cn\weipay\example\native.php,line:54,function:GetPayUrl]{}
+[2018-08-02 15:10:41][error] [,file:F:\htdocs\lawyer.cn\weipay\example\WxPay.NativePay.php,line:71,function:ERROR,file:F:\htdocs\lawyer.cn\weipay\example\native.php,line:54,function:GetPayUrl]{}
+[2018-08-02 15:10:49][debug] begin notify!
+[2018-08-02 15:10:49][debug] call back， return xml:<xml><return_code><![CDATA[FAIL]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>
+[2018-08-02 15:10:57][debug] begin notify
+[2018-08-02 15:10:57][debug] call back， return xml:<xml><return_code><![CDATA[FAIL]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>

@@ -111,7 +111,6 @@ $fields = array();
           <td align="center"><strong>手续费</strong></td>
         </tr>        
         <?php  foreach($GLOBALS['shops_paymentarr'] as $key=>$value){ ?>
-
         <tr onMouseMove="javascript:this.bgColor='#F8F8F8';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
           <td width="10%" align="right" style="vertical-align:middle;"><input name="paytype" type="radio" value="<?php echo $value['id']; ?>" /></td>
           <td width="20%" valign="middle" style="vertical-align:middle;"> <?php echo $value['name']; ?> </td>

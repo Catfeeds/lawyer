@@ -12,31 +12,19 @@ $fields = array();
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-xin.css?v=201805021933" />
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/box.css" />
 <script type="text/javascript" src="/templets/lawyer/js/jquery-1.8.1.min.js"></script>
-<!--nocache-->
-<!--/nocache-->
 <script>
 $(function(){
-
 	$(".nh-nav-container .nh-nav-item").hover(function() {
-
 		/* Stuff to do when the mouse enters the element */
-
 		$(this).children('.nh-nav-item-hide').addClass('nh-nav-item-show');
-
 		$(this).siblings('.nh-nav-item').children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
-
 	}, function() {
-
 		/* Stuff to do when the mouse leaves the element */
-
 		$(this).children('.nh-nav-item-hide').removeClass('nh-nav-item-show');
-
 	});
-
 })
 </script>
 </head>
-
 <body>
 <?php include $this->CompilerInclude("header.htm");
  ?>
@@ -45,13 +33,10 @@ $(function(){
 </div>
 <div class="diannao-dingdangaiban">
     <div class="ddgb-liuchengtu"> 
-        
         <!-- 包年顾问流程图 -->
-        
         <p class="fkzt"> <span class="zi">确认下单付款</span> <span class="zi">30分钟内客服电话确认</span> <span class="zi">发送服务函、企业风险调查表<span class="bottom-zi">登记对接人联系方式</span></span> <span class="zi">法务对接，开始服务</span> </p>
         <img src="/templets/lawyer/images/liucheng1.png" alt="流程一" /> <!-- 流程图片 确认下单 --> 
     </div>
-    
     <!-- 定价产品start -->
     <form id="fixupformid" name="fixupform" action="carbuyaction.php" method="post">
         <!--<form action="/Orders/create/54ed8c67b530c" onsubmit="return checkBeforeSubmit()" class="" id="OrderCreateForm" method="post" accept-charset="utf-8">-->
@@ -59,24 +44,26 @@ $(function(){
             <input name="do" type="hidden" value="clickout">
         </div>
         <div class="ddgb-shoujian">
-            <div class="ddgb-sj-title">
+            <form action="" method="post">
+            	<div class="ddgb-sj-title">
                 <h2>收件信息</h2>
             </div>
             <div class="ddgb-sj-message " id="addClass">
                 <p> <span class="zi"> <span class="hongse">*</span> <span class="jianju">手</span>机： </span>
-                    <input name="data[Order][mobile]" class="kuang" placeholder="律师解答咨询的联系方式" maxLength="40" maxlength="50" type="text" value="" id="OrderMobile" required="required"/>
+                    <input name="phone" class="kuang" placeholder="律师解答咨询的联系方式"  maxLength="11" onkeyup="value=value.replace(/[^1234567890-]+/g,'')" type="text" value="" id="OrderMobile" required="required"/>
                 </p>
-                <p class="unLogin"> <span class="zi"> <span class="hongse">*</span> <span class="yanzheng">验证</span>码： </span>
-                    <input name="data[Order][sms_code]" value="" placeholder="请输入验证码" maxLength="6" class="kuang yzkuang" type="text" id="OrderSmsCode"/>
+                <!--<p class="unLogin"> <span class="zi"> <span class="hongse">*</span> <span class="yanzheng">验证</span>码： </span>
+                    <input name="sms_code" value="" placeholder="请输入验证码"  maxLength="6" type="text" onkeyup="value=value.replace(/[^1234567890-]+/g,'')" id="OrderSmsCode" class="kuang yzkuang"/>
                     <input  type="button" class="huoqu btn-sms" id="btn-sms" value="获取短信验证码"/>
                 </p>
                 <p class="unLogin">
                     <input type="button" id="btnSmsLogin" class="lijiyanzheng" value="立即验证"/>
-                </p>
+                </p>-->
                 <p> <span class="zi"><span class="hongse">*</span><span class="jianju">邮</span>箱：</span>
-                    <input name="data[Order][email]" class="kuang" placeholder="接收律师起草合同的邮箱" maxLength="40" type="text" value="" id="OrderEmail" required="required"/>
+                    <input name="email" class="kuang" placeholder="接收律师起草合同的邮箱" maxLength="30" type="text" value="" id="OrderEmail" required="required"/>
                 </p>
             </div>
+            </form>
         </div>
         <div class="ddgb-dingdan">
             <div class="ddgb-dd-title">
@@ -225,9 +212,7 @@ $(function(){
             <div class="ddgb-fp-title">
                 <h2>发票信息</h2>
             </div>
-            
             <!-- 发票 start -->
-            
             <div class="ddgb-fp-shifou">
                 <h2>
                     <label for="OrderInvoiceRequired"><span class="goukuang"><img src="/templets/lawyer/images/dagou.png" alt="打勾" /></span>
@@ -307,7 +292,6 @@ $(function(){
                 </div>
             </div>
             <!-- 发票 end -->
-            
             <div class="ddgb-fp-beizhu">
                 <p>备注：
                     <input name="data[Order][note]" class="beizhushuru" maxLength="40" maxlength="500" type="text" id="OrderNote"/>
@@ -333,7 +317,7 @@ $(function(){
         </div>
     </form>
     <!-- 定价产品end --> 
-    <script language="JavaScript" type="text/javascript">
+<script language="JavaScript" type="text/javascript">
 function vdimgck()
 {
 	document.getElementById("vdimgck_img").src = '../include/vdimgck.php?'+Math.random();
@@ -371,553 +355,253 @@ function vdimgck()
     <p><img src="/templets/lawyer/images/dingbu.png" alt="QQ"><br>
         返回顶部</p>
     </a> </div>
-
-<!-------------- javascript --------------> 
-
-<!-- main start --> 
-
-<!-------------- javascript --------------> 
-
-<!-- 红包 --> 
-
-<!-- <div class="fltc-hongbao">
-
-		<a class="tu hb-tiaodong" href="/p/falvguwen" target="_blank"><img src="/templets/lawyer/images/nhth.jpg" alt="农行特惠"></a>
-
-</div>
-
-
-
-<script type="text/javascript">
-
-
-
-$(function(){
-
-	function hongbao(){
-
-		var dbd = $(".fltc-hongbao .tu").hasClass('hb-tiaodong');
-
-		if(!dbd){
-
-			$(".fltc-hongbao .tu").addClass('hb-tiaodong');
-
-		}else{
-
-			$(".fltc-hongbao .tu").removeClass('hb-tiaodong');
-
-		}
-
-	}
-
-	setInterval(hongbao,5000);
-
-})
-
-</script> --> 
 <?php include $this->CompilerInclude("footer.htm");
  ?> 
 <!--  debug --> 
 <!-- javascript --> 
 <script type="text/javascript" src="/templets/lawyer/js/box.js"></script><script type="text/javascript" src="/templets/lawyer/js/jquery.pin.min.js"></script><script type="text/javascript" src="/templets/lawyer/js/update-location.js"></script><script type="text/javascript" src="/templets/lawyer/js/order-payment-selection-stylexin.js"></script><script type="text/javascript">
-
 $(function(){
-
 	$('.cpgb-fixed-dingbu').click(function(){
-
 		$(window).scrollTop(0);
-
 	});
-
-
-
 	$(window).scroll(function () {
-
-
-
 		if ($(window).scrollTop() > 1018 ) {			
-
 			$(".cpgb-fixed-dingbu").css("display","block");
-
 		}else if($(window).scrollTop() < 1016){			
-
 			$(".cpgb-fixed-dingbu").css("display","none");
-
 		}
-
 	});
-
 })
-
 BizQQWPA.addCustom({aty: '1', a: '0', nameAccount: 4008515666, selector: 'BizQQBottomCommon'});
-
 </script> 
 <script type="text/javascript">
-
-
-
-
-
 			$(".ddgb-yulantu h2 .link").click(function(event) {
-
 				/* Act on the event */
-
 				$(".ddgb-yl-qiye").show();
-
 				$("body").css("overflowY","hidden");
-
 			});
-
-
-
 			$(".xieyi-anniu-fuji .guanbi").click(function(event) {
-
 				/* Act on the event */
-
 				$(this).parents(".ddgb-yl-qiye").hide();
-
 				$("body").css("overflowY","auto");
-
 			});
-
-
 
 			//出来吧  红包
-
 			var tcpg = $(window).height(),
-
 			tcpk = $(window).width();
-
 			$(".msg-zhijiang").click(function(event) {
-
 				/* Act on the event */
-
 				var product_id = $(this).attr('productId');   //获取对应产品id
-
 				$('#open').attr('productId',product_id);
-
 				if(product_id == 356 || product_id == 354)
-
 				{
-
 					$('#priceNum').text('1000');
-
 				}
-
 				else if(product_id == 355)
-
 				{
-
 					$('#priceNum').text('3000');
-
 				}
-
 				$(".ddgb-hongbaotanchuang").css({
-
 					"height":tcpg +"px",
-
 					"width":tcpk +"px",
-
 					"display":"block",
-
 				})
-
 				$("body").css("overflow-y","hidden");
-
 			});
-
-
-
 			$(".ddgb-hongbaotanchuang .hbtc-inner .guanbi").click(function(event) {
-
 				/* Act on the event */
-
 				guanbipacket($(this));
-
 			});
-
-			
-
 			function guanbipacket(obj){
-
 				$('#captcha').val('');
-
 				obj.parents(".ddgb-hongbaotanchuang").css({
-
 					"display":"none",
-
 					"height":"",
-
 					"width":"",
-
 				});
-
 				$("body").css("overflow-y","auto");
-
 			}
-
 			// 出来吧 红包结束
-
-
-
 			var total_credit =0;
-
 			var total_price = <?php echo $GLOBALS['_vars']['carts']['price_count']; ?>;
-
-
-
 $(function(){
-
 			//定价产品初始化
-
 	credit($("#OrderCredit").val());
-
 	document.getElementById('img04').checked=true;
-
 	document.getElementById('OrderInvoiceRequired').checked=false;
-
 		$(".msg-input p .zenzhifapiao").click(function(event) {
-
 		/* Act on the event */
-
 		$(this).children('.jiayuan').addClass('yuanxin-show').parent().siblings('.zenzhifapiao').children('.jiayuan').removeClass('yuanxin-show');
-
 	});
-
-
-
 	$(".msg-input p .qiyegeren").click(function(event) {
-
 		/* Act on the event */
-
 		$(this).children('.jiayuan').addClass('yuanxin-show').parent().siblings('.qiyegeren').children('.jiayuan').removeClass('yuanxin-show');
-
 	});
-
-
-
 	$(".ddgb-fp-shifou h2 label .goukuang").click(function(event) {
-
 		/* Act on the event */
-
 		$(this).toggleClass('goukuang-show');
-
 		$(".fp-sf-message").toggleClass('fp-sf-message-show');
-
 	});
-
-
-
 	$(".ddgb-zf-xuanzhe .zf-xz-inner").eq(0).click(function(event) {
-
 		/* Act on the event */
-
 		$(".ddgb-zf-message .msg-yinhang").hide().siblings('.msg-zhuanzhang').hide();
-
 	});
-
-
-
 	$(".ddgb-zf-xuanzhe .zf-xz-inner").eq(1).click(function(event) {
-
 		/* Act on the event */
-
 		$(".ddgb-zf-message .msg-yinhang").hide().siblings('.msg-zhuanzhang').hide();
-
 	});
-
-
-
 	$(".ddgb-zf-xuanzhe .zf-xz-inner").eq(2).click(function(event) {
-
 		/* Act on the event */
-
 		$(".ddgb-zf-message .msg-yinhang").show().siblings('.msg-zhuanzhang').hide();
-
-		
-
 	});
-
-
-
 	$(".ddgb-zf-xuanzhe .zf-xz-inner").eq(3).click(function(event) {
-
 		/* Act on the event */
-
 		$(".ddgb-zf-message .msg-zhuanzhang").show().siblings('.msg-yinhang').hide();
-
 	});
-
-
-
 	$(".msg-yh-gengduo h2").click(function(event) {
-
 		/* Act on the event */
-
 		$(this).parent().hide().siblings('.msg-yh-fuji').removeClass('msg-yh-fuji-show');
-
-
-
 	});
-
-
-
 	$(".ddgb-zf-xuanzhe .zf-xz-inner").click(function(event) {
-
 		/* Act on the event */
-
 		$(this).addClass('zf-xz-inner-cheng').siblings('.zf-xz-inner').removeClass('zf-xz-inner-cheng');
-
 	});
-
-
-
 	$(".msg-yh-fuji p label").click(function(event) {
-
 		/* Act on the event */
-
 		$(this).children('.cheng').addClass('cheng-show');
-
 		$(this).parent().siblings('p').children('label').children('.cheng').removeClass('cheng-show');
-
 	});
-
-
 
 //验证码发送
-
 	$(".btn-sms").click(function(){
-
 		var mobileObj = {};
-
 		if(this.id == 'btn-sms')
-
 			mobileObj = $('#OrderMobile');
-
 		if(this.id == 'getSms')
-
 			mobileObj = $('#mobile');
-
 		if(!check_mobile(mobileObj))
-
 		{
-
 			return false;
-
 		}
-
 		$(this).addClass('disable');
-
 		$(this).attr('disabled',true);
-
-
-
 		sendSMS($(this),mobileObj);
-
 	});
-
 });
-
-
-
 function sendSMS(btnObj,mobileObj)
-
 {
-
 	if(check_mobile(mobileObj))
-
 	{
-
+		mobile = $.trim($('#OrderMobile').val());
+		smsCode = $.trim($('#captcha').val());
 		btnObj.attr('value','发送中...');
-
-		$.ajax({
-
-			type: "GET",
-
-			url: 'Customers/getsms?rnd='+new Date().getTime()/1000,
-
-			data:'mobile='+$.trim(mobileObj.val()),
-
-			dataType: 'html',
-
-			success: function(data)
-
-			{
-
-				//alert(data);if(data)
-
+		$.post("/plus/sendSMS/getOrderSMS.php",{"phone":mobile,"sms_code":smsCode},function(data){
 				if(data=='success')
-
 				{
-
+					$("input[type='submit']").attr('disabled',false);
 					lSeconds=60;
-
-					btnObj.val('已成功发送');
-
-					displayInterval(btnObj,mobileObj);				
-
+					$("#btn-sms").attr('value','已成功发送');
+					displayInterval();
 				}
-
-				else if(data=='error')
-
-				{
-
-					alert('该用户不存！');
-
-					btnObj.removeClass('disable');
-
-					btnObj.attr('disabled',false);
-
-				}
-
 				else
-
 				{
-
-					alert('获取短信出错，请重试或联系管理员！');
-
-					btnObj.removeClass('disable');
-
-					btnObj.attr('disabled',false);
-
+					alert(data);
+					$("input[type='submit']").attr('disabled',true);
+					//alert('获取短信出错，请重试或联系管理员1！');
+					$('#btn-sms').removeClass('disable');
+					$('#btn-sms').attr('disabled',false);
 				}
-
+			})
+		/*$.ajax({
+			type: "GET",
+			url: 'Customers/getsms?rnd='+new Date().getTime()/1000,
+			data:'mobile='+$.trim(mobileObj.val()),
+			dataType: 'html',
+			success: function(data)
+			{
+				if(data=='success')
+				{
+					lSeconds=60;
+					btnObj.val('已成功发送');
+					displayInterval(btnObj,mobileObj);				
+				}
+				else if(data=='error')
+				{
+					alert('该用户不存！');
+					btnObj.removeClass('disable');
+					btnObj.attr('disabled',false);
+				}
+				else
+				{
+					alert('获取短信出错，请重试或联系管理员！');
+					btnObj.removeClass('disable');
+					btnObj.attr('disabled',false);
+				}
 			},
-
 			'error':function(){
-
 				alert('获取短信出错，请重试或联系管理员！');
-
 				btnObj.removeClass('disable');
-
 				btnObj.attr('disabled',false);
-
 			}
-
-		});	
-
+		});	*/
 	}	
-
 }
-
-
-
 var lSeconds = 60;
-
 function displayInterval(obj,mobileObj){		
-
 	$(".btn-sms").unbind('click');
-
 	timeIntervalSMS=setInterval(function(){
-
 		if(lSeconds<=1){
-
 			obj.removeClass('disable');
-
 			obj.attr('disabled',false);
-
 			obj.attr('value','重新发送');
-
 			clearInterval(timeIntervalSMS);
-
 			$(".btn-sms").click(function(){
-
 				var mobileObj = {};
-
 				if(this.id == 'btn-sms')
-
 					mobileObj = $('#OrderMobile');
-
 				if(this.id == 'getSms')
-
 					mobileObj = $('#mobile');
-
 				if(!check_mobile(mobileObj))
-
 					return false;
-
 				$(this).addClass('disable');
-
 				$(this).attr('disabled',true);
-
 				sendSMS($(this),mobileObj);
-
 			});
-
 			return;
-
 		}
-
 		lSeconds--;
-
 		obj.val(lSeconds+"秒后重发");
-
 	}, 1000);
 
 }
-
-
-
 //手机验证
-
 function check_mobile(obj)
-
 {
-
 	var m=$.trim(obj.val());
-
 	if(m!='')
-
 	{
-
 		var reg = /^1[345789]\d{9}$/;
-
-		
-
 		var result = false;
-
 		if (reg.test(m))
-
 			result=true;		
-
 		if (result)
-
 		{
-
 			return true;
-
 		}else{
-
-			alert("请输入正确的手机号");
-
+			alert("请输入正确的手机号！");
 			return false;
-
 		}
-
 	}else{
-
-		
-
-		alert("请输入手机号");
-
+		alert("请输入手机号！");
 		return false;
-
 	}
-
 }
-
 //开红包
-
 $('#open').click(function(){
-
 	//验证手机
-
 	if(!check_mobile($('#mobile'))){
-
 		return false;
-
 	}
-
 	var code = $.trim($('#captcha').val());
 
 	if(code == ''){
@@ -1168,83 +852,40 @@ function validateEmail(email)
 
 }
 
-
-
-$("#btnSmsLogin").click(function(){
-
-	var smsCode=$('#OrderSmsCode').val();
-
-	var mobile=$('#OrderMobile').val();
-
-
-
-	if(mobile=="")
-
-	{
-
-		alert('请输入手机号码!');
-
+$("#btnPaySubmit").click(function(){
+	//var smsCode=$('#OrderSmsCode').val();
+	var mobileObj=$('#OrderMobile');
+	if(!check_mobile(mobileObj)){
 		return false;
-
 	}
-
-	if(smsCode=="")
-
-	{
-
+	/*if(smsCode==""){
 		alert('请输入验证码!');
-
 		return false;
+	}*/
 
-	}
-
-	$.ajax({
-
+	/*$.ajax({
 		type: "POST",
-
 		url: 'Customers/ajaxSmsLogin',
-
 		data: {'username':mobile,'smsCode':smsCode,'type':'order'},
-
 		dataType: "json",
-
 		success: function(data)
-
 		{
-
 			if(data.success)
-
 			{				
-
 				window.location.reload();	
-
 			}
-
 			else
-
 			{
-
 				$("#btnPaySubmit").attr("disabled",true);
-
 				alert('验证错误，请重试！');
-
 			}
-
 		},
-
 		error:function(xhr,t,tr){
-
 			$("#askbtn").attr("disabled",true);
-
 			//alert(tr);
-
 		}
-
-	});	
-
+	});	*/
 });
-
-
 
 function validateCompanyName(cName)
 
@@ -1585,63 +1226,5 @@ function credit(c)
 }
 
 </script> 
-<script type="text/javascript">
-
-	$(function(){
-
-		$.ajax({
-
-			type: "GET",
-
-			url: 'Contracts/ajaxGetCount',			
-
-			dataType: "html",
-
-			success: function(data)
-
-			{
-
-				$("#contractCount").html(data);
-
-			},
-
-			error:function(xhr,t,tr){				
-
-				//alert(tr);
-
-			}
-
-		});
-
-	})
-
-	</script> 
-<script type="text/javascript">
-
-	(function(){
-
-		var bp = document.createElement('script');
-
-		var curProtocol = window.location.protocol.split(':')[0];
-
-		if (curProtocol === 'https'){
-
-			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-
-		}
-
-		else{
-
-			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-
-		}
-
-		var s = document.getElementsByTagName("script")[0];
-
-		s.parentNode.insertBefore(bp, s);
-
-	})();
-
-	</script>
 </body>
 </html>

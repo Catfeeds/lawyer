@@ -38,7 +38,9 @@ if($step == 1)
     if($dopost=='regbase')
     {
 		//短信验证
-		$smsCode = $_SESSION['sms_code_msg'];
+		$phone = trim($phone);
+		$strphone = 'smsRegCode_'.$phone;
+		$smsCode = $_SESSION[$strphone];
 		$userCode = trim($sms_code);
 		if ($userCode =='' || $smsCode != $userCode) {
             ShowMsg("短信验证码错误，请重试！","-1");
@@ -266,7 +268,8 @@ if($step == 1)
                 ShowMsg("完成基本信息的注册，接下来完善详细资料...","index_do.php?fmdo=user&dopost=regnew&step=2",0,1000);
                 exit();
             } else {
-                require_once(DEDEMEMBER."/templets/reg-new3.htm");
+				ShowMsg("注册成功！", "/", 0, 1000);
+                //require_once(DEDEMEMBER."/templets/reg-new3.htm");
                 exit;
             } 
         } else {
@@ -337,14 +340,14 @@ if($step == 1)
 
         }
 		
-  
         $query = "UPDATE `{$membermodel->table}` SET `mid`='{$cfg_ml->M_ID}' $inadd_f WHERE `mid`='{$cfg_ml->M_ID}'; ";
         if($dsql->executenonequery($query))
         {
             $dsql->ExecuteNoneQuery("UPDATE `#@__member` SET `spacesta`='2' WHERE `mid`='{$cfg_ml->M_ID}'");
             // 清除缓存
             $cfg_ml->DelCache($cfg_ml->M_ID);
-            require_once(DEDEMEMBER."/templets/reg-new3.htm");
+			ShowMsg("注册成功！", "/", 0, 1000);
+            //require_once(DEDEMEMBER."/templets/reg-new3.htm");
             exit;
         }
     }

@@ -12,22 +12,21 @@ header("Content-type:text/html; charset=UTF-8");
  */
 require_once 'ChuanglanSmsHelper/ChuanglanSmsApi.php';
 $clapi  = new ChuanglanSmsApi();
-
 // 获取注册信息
 //$name = $_POST['userid'];
 $phone = $_POST['phone'];
-
-$code = rand(1000,9999);
+$sessionName = 'smsRegCode_'.$phone;
+$code = rand(100000,999999);
 /* 设置短信验证session 60秒超时*/
 $lifetime = 60;
 setcookie(session_name(),session_id(),time()+$lifetime,'/');
-if (!isset($_SESSION['sms_code_msg'])) {
-    $_SESSION['sms_code_msg'] = $code;
+if (!isset($_SESSION[$sessionName])) {
+    $_SESSION[$sessionName] = $code;
 }
-$smsCode = isset($_SESSION['sms_code_msg']) ? $_SESSION['sms_code_msg'] : '';
+$smsCode = isset($_SESSION[$sessionName]) ? $_SESSION[$sessionName] : '';
 //设置您要发送的内容：其中“【】”中括号为运营商签名符号，多签名内容前置添加提交
-$msg = '【成都木子木科技公司】 尊敬的用户，您本次的验证码为{$var}有效期{$var}分钟。';
-$params = "{$phone},{$smsCode},60";
+$msg = '【成都木子木科技公司】 尊敬的用户，您本次的验证码为{$var}有效期{$var}秒。';
+$params = "{$phone},{$smsCode},{$lifetime}";
 $result = $clapi->sendVariableSMS($msg, $params);
 if(!is_null(json_decode($result))){
 	$output=json_decode($result,true);

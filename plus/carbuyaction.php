@@ -86,7 +86,7 @@ if(!isset($dopost) || empty($dopost)){
             ShowMsg("验证码错误！","-1");
             exit();
         }
-        /*if(empty($address))
+        if(empty($address))
         {
             ShowMsg("请填写收货地址！","-1");
             exit();
@@ -95,7 +95,7 @@ if(!isset($dopost) || empty($dopost)){
         {
             ShowMsg("请填写收货人姓名！","-1");
             exit();
-        }*/
+        }
         $paytype    = isset($paytype) && is_numeric($paytype) ? $paytype : 0;
         $pid        = isset($pid) && is_numeric($pid) ? $pid : 0;
         if($paytype < 1)
@@ -103,17 +103,17 @@ if(!isset($dopost) || empty($dopost)){
             ShowMsg("请选择支付方式！","-1");
             exit();
         }
-        /*if($pid < 1)
+        if($pid < 1)
         {
             ShowMsg("请选择配送方式！","-1");
             exit();
         }
-        $address     = cn_substrR(trim(RemoveXSS($address)),200);
-        $des             = cn_substrR(RemoveXSS($des),100);
-        $postname = cn_substrR(trim(RemoveXSS($postname)),15);
+        $address     = cn_substrR(trim($address),200);
+        $des             = cn_substrR($des,100);
+        $postname = cn_substrR(trim($postname),15);
         $tel            = preg_replace("#[^-0-9,\/\| ]#", "", $tel);
         $zip            = preg_replace("#[^0-9]#", "", $zip);
-        $email        = cn_substrR(RemoveXSS($email),255);
+        $email        = cn_substrR($email,255);
         if(empty($tel))
         {
             ShowMsg("请填写正确的收货人联系电话！","-1");
@@ -124,7 +124,7 @@ if(!isset($dopost) || empty($dopost)){
             ShowMsg("请填写正确的收货人邮政编码！","-1");
             exit();
         }
-    	*/
+    
         //确认用户登录信息
         if($cfg_ml->IsLogin())
         {
@@ -333,7 +333,9 @@ if(!isset($dopost) || empty($dopost)){
     exit();
 } else if ($dopost == 'return')
 {
-    $write_list = array('alipay', 'bank', 'cod', 'yeepay');
+	require_once(DEDEINC."/WxPay.Api.php");
+	require_once(DEDEDATA."/payment/weipay.php");
+    $write_list = array('alipay', 'bank', 'cod', 'yeepay','weipay');
     if (in_array($code, $write_list))
     {
         require_once DEDEINC.'/payment/'.$code.'.php';
@@ -343,5 +345,5 @@ if(!isset($dopost) || empty($dopost)){
         exit();  
     } else {
         exit('Error:File Type Can\'t Recognized!');
-    }
+    } 
 }

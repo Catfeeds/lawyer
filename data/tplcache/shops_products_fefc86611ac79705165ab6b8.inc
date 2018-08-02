@@ -182,7 +182,7 @@ foreach( $blockValue as $key=>$fields )
                 <h3> 等待付款 </h3>
             </div>
             <div class="uccs-item-operate">
-                <div class="wait-pay"> <a class="pay" href="/Orders/pay/20180716154346213331118134" target="_blank">立即付款</a> <a class="cancel" href="javascript:void(0)" class="cancel-order" onclick="showCancelDialog('20180716154346213331118134')">取消订单</a> <a class="consult" href="http://wpa.qq.com/msgrd?v=3&uin=3244211059&site=qq&menu=yes" target="_blank">咨询售前律师</a> </div>
+                <div class="wait-pay"> <a class="pay" href="/Orders/pay/20180716154346213331118134" target="_blank">立即付款</a> <a class="cancel" href="javascript:void(0)" class="cancel-order" onclick="showCancelDialog('20180716154346213331118134')">取消订单</a> <a class="consult" href="http://wpa.qq.com/msgrd?v=3&uin=2448211596&site=qq&menu=yes" target="_blank">咨询售前律师</a> </div>
             </div>
             <div class="uccs-item-message">
                 <p> 若付款遇到问题，请咨询客服；如购买前还有疑问，请咨询售前律师。 </p>

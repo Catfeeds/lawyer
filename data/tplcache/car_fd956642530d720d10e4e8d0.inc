@@ -7,7 +7,7 @@ $fields = array();
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>企业法律顾问+律师上门 - 创建订单 - 全网法务服务</title>
+<title>企业法律顾问+律师上门 - 创建订单 - 全网法律服务</title>
 <link href="/favicon.ico" type="image/x-icon" rel="icon" />
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-xin.css?v=201805021933" />
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/box.css" />
@@ -199,7 +199,7 @@ $(function(){
                 </div>
                 <div class="msg-zhuanzhang">
                     <p>请汇款至以下账户：</p>
-                    <p>户名：厦门全网法务服务法务信息管理股份有限公司</p>
+                    <p>户名：厦门全网法律服务法务信息管理股份有限公司</p>
                     <p>支付银行：兴业银行厦门思明支行</p>
                     <p>银行账号：12997 0100100041 905</p>
                 </div>
@@ -589,10 +589,12 @@ function check_mobile(obj)
 			return true;
 		}else{
 			alert("请输入正确的手机号！");
+			obj.focus();
 			return false;
 		}
 	}else{
 		alert("请输入手机号！");
+		obj.focus();
 		return false;
 	}
 }
@@ -683,173 +685,81 @@ $('#open').click(function(){
 		    	});
 
 		    }
-
 		    if(parseInt(data) != data)
-
 		    {	
-
 				//关闭红包弹窗
-
 				guanbipacket($(".gwzl-hongbaotanchuang .hbtc-inner .guanbi"));
-
 				//进入购买页
-
 				var query = '';
-
-								var url = "/Orders/create/"+data+query;
-
+				var url = "/Orders/create/"+data+query;
 				window.location.href = url;
-
 				return;
-
 			}
-
-			
-
 			var str = '';  text = '获取验证码';
-
 			switch(Number(data)){
-
 				case 0:
-
 				str = '内部错误';	break;
-
 				case -1:
-
 				str = '请输入正确的手机号码';	break;
-
 				case -2:
-
 				str = '短信验证码错误，请重试';				text = '重新发送';	break;
-
 				case -3:
-
 				str = '未生成验证码或验证码已过期,请重新获取';	text = '重新发送';	break;
-
 				default: break;
-
 			}
-
 			$("#getSms").val(text);
-
 			$('#captcha').val('');
-
 			alert(str);
-
 		}
-
 	})
-
 })
-
 //验证码相关结束
-
-
-
 function showInvoice()
-
 {
-
 	if($('#OrderInvoiceRequired').is(':checked'))
-
 	{
-
 		$("#invoice-info").show();
-
 	}else
-
 	{
-
 		$("#invoice-info").hide();
-
 	}
-
 }
-
-
-
 function cleanTitle()
-
 {
-
 	$('#OrderInvoiceTitle').val('');
-
 	if($("#OrderInvoiceType2").is(':checked'))
-
 	{
-
 		$("#hideInvoiceTaxpayerId").show();
-
 	}
-
 	else
-
 	{
-
 		$("#hideInvoiceTaxpayerId").hide();
-
 	}
-
 }
-
-
-
 function selectTitle()
-
 {
-
 	$('#OrderInvoiceType2').attr("checked","checked");
-
 	$("#hideInvoiceTaxpayerId").show();
-
 }
-
-
-
 function popup()
-
 {
-
 	$.fancybox.open({
-
 		'type' : 'inline',
-
 		'href': '#dialog'
-
 	});
-
 }
-
-
-
 function validateEmail(email)
-
 {
-
 	if(email=="")
-
 		return true;
-
 	var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
 	if(!pattern.test(email))
-
 	{
-
-		//$("#email-msg").html('<p class="text-red"><span class="icon-font">&#xe7dd;</span>格式有误</p>');
-
 		return false;
-
 	}else 
-
 	{
-
-		//$("#email-msg").html('<p class="text-green"><span class="icon-font">&#xe706;</span></p>');
-
 		return true;
-
 	}
-
 }
 
 $("#btnPaySubmit").click(function(){
@@ -888,343 +798,134 @@ $("#btnPaySubmit").click(function(){
 });
 
 function validateCompanyName(cName)
-
 {
-
 	if(cName=="")
-
 		return false;
-
 	var reg=/^[\u4e00-\u9fa5()（）\[\]]{3,}$/;
-
 	if(reg.exec(cName))
-
 	{
-
 		var start1 = cName.indexOf("(");
-
 			var end1 = cName.indexOf(")");
-
 			var start2 = cName.indexOf("（");
-
 			var end2 = cName.indexOf("）");
-
 			if(start1 > -1 && end1 > -1 && start1 < end1-1 )
-
 			{
-
 				return true;
-
 			}
-
 			else if(start2 > -1 && end2 > -1 && start2 < end2-1 )
-
 			{
-
 				return true;
-
 			}
-
 			else if(start1 == -1 && end1 == -1 && start2 == -1 && end2 ==-1)
-
 			{
-
 				return true;
-
 			}
-
 			else
-
 				return false;			
-
 		}			
-
 		else
-
 			return false;
-
 	}
-
-
-
 	var wasSubmitted = false;    
-
-
-
 	function checkBeforeSubmit()
-
 	{
-
 		if(!check_mobile($('#OrderMobile')))
-
 		{
-
 			return false;
-
 		}
-
 		if(!validateEmail($('#OrderEmail').val()))
-
 		{			
-
 			alert("请填写正确的邮箱");
-
 			return false;
-
 		}
-
-						if($('#OrderInvoiceRequired').is(':checked') && $('input[name="data[Order][invoice_type]"]:checked ').val()=='2' )
-
+		if($('#OrderInvoiceRequired').is(':checked') && $('input[name="data[Order][invoice_type]"]:checked ').val()=='2' )
 		{
-
 			if($.trim($('#OrderInvoiceTitle').val()) == '')
-
 			{
-
 				alert('请填写企业名称');
-
 				return false;
-
 			}	
-
-
-
 			if($.trim($('#OrderInvoiceTaxpayerId').val()) == '')
-
 			{
-
 				alert('企业开发票须填写纳税人识别码');
-
 				return false;
-
 			}		
-
 		}
-
 		if(!wasSubmitted) 
-
 		{
-
 			wasSubmitted = true;
-
 			return wasSubmitted;
-
 		}
-
 		return false;
-
 	} 
-
-
-
 	$("#OrderCredit").keyup( function() {
-
 		credit($(this).val());
-
 	});
-
 //积分处理
-
 function credit(c)
-
 {
-
 	if(!c)
-
 	{
-
 		$("#OrderCredit").val("");
-
 		$("#credit-rest").html(total_credit);
-
 		$(".confirm-price").html(total_price);
 		$("#confirm-credit").html(0);
-
 	}else if(isNaN(c))
-
 	{
-
 		$("#OrderCredit").val("");
-
 		$("#credit-rest").html(total_credit);
-
 		$(".confirm-price").html(total_price);
-
-		//$(".return-credit").html(Math.round(total_price*0.1));
-
 		$("#confirm-credit").html(0);
-
-		
-
-		//$("#order-payment-credit").hide();
-
-		//$("#order-payment-invoice").show();
-
-		//$("#order-invoice-title").show();
-
-		//$("#order-payment").show();
-
-		
-
 	}else if(  parseInt(c) < 0)
-
 	{
-
 		$("#OrderCredit").val("");
-
 		$("#credit-rest").html(total_credit);
-
 		$(".confirm-price").html(total_price);
-
-		//$(".return-credit").html(Math.round(total_price*0.1));
-
 		$("#confirm-credit").html(0);
-
-		
-
-		//$("#order-payment-credit").hide();
-
-		//$("#order-payment-invoice").show();
-
-		//$("#order-invoice-title").show();
-
-		//$("#order-payment").show();
-
-		
-
 		$(this).val('');
-
 	}else
-
 	{
-
 		var credit  = parseInt(c);	
-
-		
-
 		if(credit)
-
 		{
-
 			if(credit >= total_credit)
-
 			{
-
 				if(credit >= total_price)
-
 				{
-
 					if(total_price >= total_credit)
-
 					{
-
 						credit =total_credit;
-
 					}else
-
 					{
-
 						credit = total_price;
-
-						//$("#order-payment-credit").show();
-
-						//$("#order-payment-invoice").hide();
-
-						//$("#order-invoice-title").hide();
-
 						$("#OrderInvoiceRequired").attr('checked',false);							
-
-						//$("#order-payment").hide();
-
 					}
-
-					
-
 				}else
-
 				{
-
 					credit = total_credit;	
-
-					//$("#order-payment-credit").hide();
-
-				    //$("#order-payment-invoice").show();
-
-					//$("#order-invoice-title").show();
-
-					//$("#order-payment").show();
-
 				}
-
-				
-
 			}else
-
 			{
-
 				if(credit >= total_price)
-
 				{
-
 					credit = total_price;
-
-					//$("#order-payment-credit").show();
-
-					//$("#order-payment-invoice").hide();
-
-					//$("#order-invoice-title").hide();
-
 					$("#OrderInvoiceRequired").attr('checked',false);
-
-					//$("#order-payment").hide();
-
 				}else
-
 				{
-
-					//$("#order-payment-credit").hide();
-
-					//$("#order-payment-invoice").show();
-
-					//$("#order-invoice-title").show();
-
-					//$("#order-payment").show();
-
 				}
-
 			}
-
-			
-
 			$("#OrderCredit").val(credit);
-
 			$("#credit-rest").html(total_credit - credit);
-
 			$(".confirm-price").html(total_price-credit);
-
-			//$(".return-credit").html(Math.round((total_price-credit)*0.1));
-
 			$("#confirm-credit").html(credit);
-
-
-
 		}else
-
 		{
-
 			$("#credit-rest").html(total_credit);
-
 			$(".confirm-price").html(total_price);
-
-			//$(".return-credit").html(Math.round(total_price*0.1));
-
 			$("#confirm-credit").html(0);
 		}
-
 	}
-
 }
-
 </script> 
 </body>
 </html>

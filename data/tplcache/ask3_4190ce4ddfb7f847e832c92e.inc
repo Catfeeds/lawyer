@@ -9,7 +9,7 @@ $fields = array();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo $navtitle;?>-<?php echo $cfg_ask_sitename;?></title>
 <meta name="keywords" content="法律咨询  律师在线解答  免费法律咨询   实时法律咨询" />
-<meta name="description" content="全网法务服务法律咨询网，聚合遍布全国四线以上城市的优秀律师团，提供律师在线解答法律咨询服务。全国免费法律咨询热线13666297870。" />
+<meta name="description" content="全网法律服务法律咨询网，聚合遍布全国四线以上城市的优秀律师团，提供律师在线解答法律咨询服务。全国免费法律咨询热线13666297870。" />
 <link href="/favicon.ico" type="image/x-icon" rel="icon" />
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout-new.css" />
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-new.css" />

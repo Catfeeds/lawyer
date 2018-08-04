@@ -9,7 +9,7 @@ $fields = array();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="shenma-site-verification" content="7cbadc960c1c35490a83f54ee96e95ec_1433491416"/>
 <meta name="baidu-site-verification" content="7I1SeeZXUv" />
-<title>浏览订单 - 全网法务服务</title>
+<title>浏览订单 - 全网法律服务</title>
 <link href="/favicon.ico" type="image/x-icon" rel="icon" />
 <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout-new.css" />
@@ -85,7 +85,7 @@ $fields = array();
         <div class="inner-box">
             <div class="uc-info-left fl">
                 <h2>
-                    <p>我的全网法务服务</p>
+                    <p>我的全网法律服务</p>
                     <!--<a href="/Customers/edit">完善资料>></a></h2>-->
             </div>
             <!--<div class="uc-info-right fr">
@@ -102,7 +102,7 @@ $fields = array();
     </div>
     <div class="uc-header">
         <div class="inner-box">
-            <div class="uc-header-logo fl o-h"><a href="/"><img height="45"  alt="全网法务服务" src="/templets/lawyer/images/yifatonglogo_whithout_word.png"></a></div>
+            <div class="uc-header-logo fl o-h"><a href="/"><img height="45"  alt="全网法律服务" src="/templets/lawyer/images/yifatonglogo_whithout_word.png"></a></div>
             <div class="uc-header-bread fl">
                 <div class="breadcrumb-box visible-lg clean-m clean-p" style="height: 45px;line-height: 45px;padding: 0;margin: 0;">
                     <p> <span class="icon-font text-blue">&#xe610;</span> <a target="_blank" href="/" class=" text-blue">首页</a> - <span>合同服务</span> </p>
@@ -345,7 +345,7 @@ $atts['listsize'] = '5';
 		 				<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35020602000086" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/templets/lawyer/images/beian.png" style="float:left;"/>闽公网安备 35020602000086号</a>
 		 	
 					</li>
-					<li><a>版权：全网法务服务股份</a></li>
+					<li><a>版权：全网法律服务股份</a></li>
 				</ul>
 			</div>
 		</div>
@@ -353,15 +353,15 @@ $atts['listsize'] = '5';
 </footer>
 <footer class="visible-xs visible-sm" style="">
 	<p class="text-center lh3 w6">
-		<img src="/templets/lawyer/images/icon/weixin.png" width="20" height="20" alt="全网法务服务" />
-		<span>@全网法务服务法律咨询</span>
-		<span>@全网法务服务法律服务</span>
+		<img src="/templets/lawyer/images/icon/weixin.png" width="20" height="20" alt="全网法律服务" />
+		<span>@全网法律服务法律咨询</span>
+		<span>@全网法律服务法律服务</span>
 		<span>|</span>
 		<a href="http://www.yifatong.com?force=pc">电脑版</a>	
 		<a class="nowrap" href="/about">关于我们</a>
 		<a class="nowrap" href="/contact">联系我们</a>
 	</p>
-	<p class="text-center w6"><a  rel="nofollow"  href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> 版权：全网法务服务股份</p>
+	<p class="text-center w6"><a  rel="nofollow"  href="http://www.miitbeian.gov.cn/">闽ICP备09042048号-2</a> 版权：全网法律服务股份</p>
 	<div class="fix-block"></div>
 </footer>
 <!--  debug -->

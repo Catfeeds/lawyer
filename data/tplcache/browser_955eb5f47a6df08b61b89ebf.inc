@@ -9,7 +9,7 @@ $fields = array();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo $toptypeinfo['name']?>-<?php echo $cfg_ask_sitename;?></title>
 <meta name="keywords" content="法律咨询  律师在线解答  买卖购销法律咨询  买卖购销" />
-<meta name="description" content="全网法务服务买卖购销法律咨询网，聚合遍布全国四线以上城市的优秀律师团，提供律师在线解答买卖购销法律咨询服务。" /> 
+<meta name="description" content="全网法律服务买卖购销法律咨询网，聚合遍布全国四线以上城市的优秀律师团，提供律师在线解答买卖购销法律咨询服务。" /> 
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/layout-new.css" />
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/style-new.css" />
 <link rel="stylesheet" type="text/css" href="/templets/lawyer/css/bootstrap.min.css" />

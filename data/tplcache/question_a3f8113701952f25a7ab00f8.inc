@@ -206,7 +206,7 @@ $(function(){
                             </a> <a href="/zls/" class="jd-r-inner jd-zhaolvshi">
                             <div class="r-dakuang"> <span class="xiaokuang"></span>
                                 <h2>找律师打官司<br>
-                                    <span>全网法务服务陪你，专业找律师</span></h2>
+                                    <span>全网法律服务陪你，专业找律师</span></h2>
                             </div>
                             </a> <a href="/flgw/" class="jd-r-inner jd-qiye">
                             <div class="r-dakuang"> <span class="xiaokuang"></span>
